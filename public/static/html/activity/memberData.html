@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <meta name="full-screen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no,email=no,address=no"/>
+    <title>Title</title>
+    <script src="../../js/lib/flexible.js"></script>
+    <link rel="stylesheet" href="../../css/common/swiper-3.2.7.min.css">
+    <link rel="stylesheet" href="../../css/activity/memberdata/app.css">
+</head>
+<body>
+<div class="viewport">
+    <!--div.g-p.g-p$*6-->
+    <div class="g-container swiper-container">
+        <div class="swiper-wrapper">
+            <div class="g-p swiper-slide g-p6">6</div>
+            <div class="g-p swiper-slide g-p0"></div>
+            <div class="g-p swiper-slide g-p1">
+                <div class="m-fade m-fade1"></div>
+                <div class="m-fade m-fade2">
+                    <div class="candle"></div>
+                    <p class="time">2015.09.12</p>
+                    <div class="message">
+                        <p>我与步步高结缘，从此踏上买买买的不归路</p>
+                    </div>
+                </div>
+                <div class="m-fade m-fade3"></div>
+                <div class="m-fade m-fade4">
+                    <div></div>
+                    <div class="rank">
+                        <p>我是第<span>123456</span>位</p>
+                    </div>
+                    <p class="designation">永远被步步高珍惜的土豪</p>
+                </div>
+                <div class="m-fade m-fade5"></div>
+                <div class="m-fade m-fade6">
+                    <p class="favorite">我最爱去的门店是</p>
+                    <div class="shop">
+                        <p>长沙井湾子店 </p>
+                    </div>
+                </div>
+                <div class="m-fade m-fade7"></div>
+            </div>
+            <div class="g-p swiper-slide g-p2">
+                <div class="m-fade m-fade1"></div>
+                <div class="m-fade m-fade2">
+                    <p>这一年，我在步步高交易</p>
+                    <div>
+                        <p>8888</p>
+                        <p>次</p>
+                    </div>
+                </div>
+                <div class="m-fade m-fade3">
+                </div>
+                <div class="m-fade m-fade4">
+                    <p>豪掷重金</p>
+                    <p class="money">42542<span>大洋</span></p>
+                </div>
+                <div class="m-fade m-fade5"></div>
+                <div class="m-fade m-fade6">
+                    <p>荣登步步高<span>土豪榜</span></p>
+                    <p>位</p>
+                    <div class="order">
+                        <div class="number">
+                            <p>999</p>
+                        </div>
+                        <div class="star star1"></div>
+                        <div class="star star2"></div>
+                        <div class="star star3"></div>
+                    </div>
+                </div>
+                <div class="m-fade m-fade7"></div>
+                <div class="m-fade m-fade8">
+                    <p>原来我是</p>
+                    <p>步步高小粉丝</p>
+                </div>
+            </div>
+            <div class="g-p swiper-slide g-p3">
+                <div class="m-fade m-fade1"></div>
+                <div class="m-fade m-fade2">
+                    <p>这一年，我获得了</p>
+                    <p>12345<span>积分</span></p>
+                    <div class="pig">
+                        <div class="coins"></div>
+                        <div class="coins"></div>
+                    </div>
+                </div>
+                <div class="m-fade m-fade3"></div>
+                <div class="m-fade m-fade4">
+                    <p>我总共拥有</p>
+                    <p class="integral"><span>52525</span>积分=<span>423</span>元</p>
+                    <p class="tip">PS：积分不仅能兑换礼品，还能当钱花哟！</p>
+                </div>
+                <div class="m-fade m-fade5"></div>
+                <div class="m-fade m-fade6">
+                    <p>他们都说我在这件事上</p>
+                    <p>最土豪</p>
+                    <p class="name">XXX</p>
+                </div>
+            </div>
+            <div class="g-p swiper-slide g-p4">
+            </div>
+            <div class="g-p swiper-slide g-p5">
+                <div class="share">分享给好友</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../js/lib/jquery.min.js"></script>
+<script src="../../js/extends/swiper.jquery.min.js"></script>
+<script src="../../../activity/memberdata/js/flow.js"></script>
+<script>
+    $(function () {
+        var mySwiper = new Swiper('.g-container', {
+            direction: 'vertical',
+//            loop: true,
+
+            // 如果需要分页器
+//            pagination: '.swiper-pagination',
+
+            // 如果需要前进后退按钮
+//            nextButton: '.swiper-button-next',
+//            prevButton: '.swiper-button-prev',
+
+            // 如果需要滚动条
+//            scrollbar: '.swiper-scrollbar',
+            onSlideChangeEnd: function (swiper, event) {
+                console.log(swiper.activeIndex);
+                var list = $(".g-p" + (swiper.activeIndex - 1) + " .m-fade");
+                new Flow(list, {time: 500}).startUp();
+            }
+        });
+        $(".g-container").css("transform", "translateX(0)");
+
+    })
+</script>
+</body>
+</html>

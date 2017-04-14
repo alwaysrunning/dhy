@@ -1,0 +1,149 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:27
+ * */
+@import "../common/variable";
+/**
+ * 按钮
+ */
+.u-btn{
+  height: $button-height;
+  line-height: $button-height;
+  margin: $button-margin;
+  min-width: $button-min-width;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  font-size: $button-size;
+  background:$button-normal-bg-color;
+  color:$button-normal-text;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  background-clip: padding-box;
+  cursor: pointer;
+  transition:background-color 300ms ease-out 0s, border-color 300ms ease-out 0s;
+}
+
+.u-btn:not(.disabled):not(:disabled):active,.u-btn.active,.u-btn:hover,.u-btn:focus{
+  background:$button-normal-active-bg;
+  color:$button-normal-text;
+}
+
+.u-btn[disabled],.u-btn.disabled,.u-btn:disabled,.u-btn[disabled]:hover,.u-btn[disabled]:focus{
+  background: $button-disabled-bg;
+  color: $button-disabled-txt;
+  border: 0;
+  background-clip: padding-box;
+}
+//块级
+.u-btn-block{
+  width:100%;
+  display: block;
+}
+//圆角
+.u-radius{
+  border-radius: $button-border-radius;
+}
+//常规按钮
+.u-btn-normal{
+  background:$button-normal-bg-color;
+  color:$button-normal-text;
+}
+.u-btn-normal:not(.disabled):not(:disabled):active,.u-btn-normal.u-active,.u-btn-normal:hover,.u-btn-normal:focus{
+  background:$button-normal-active-bg;
+  color:$button-normal-text;
+  text-decoration: none;
+}
+//提交按钮
+.u-btn-submit{
+  background:$button-white-bg-color;
+  color:$button-white-text;
+  border: 1px solid $button-white-border-color;
+}
+.u-btn-submit:not(.disabled):not(:disabled):active,.u-btn-submit.u-active,.u-btn-submit:hover,.u-btn-submit:focus{
+  background:$button-normal-bg-color;
+  color:$button-normal-text;
+}
+//退出白色按钮
+.u-btn-white{
+  background:$button-white-bg-color;
+  color:$button-white-text;
+}
+.u-btn-border-gray{
+  background:$button-white-bg-color;
+  color:$button-text;
+  border: 1px solid $button-text;
+}
+.u-btn-white:not(.disabled):not(:disabled):active,.u-btn-white.u-active,.u-btn-white:hover,.u-btn-white:focus{
+  background:$button-normal-bg-color;
+  color:$button-normal-text;
+}
+//底部悬浮
+.u-fixed-bottom{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  display: -webkit-box;
+  display:-moz-box;
+  display: box;
+  -moz-box-orient: horizontal;
+  -moz-box-pack: center;
+  -moz-box-align: end;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: end;
+  background: rgba(0, 0, 0, 0.4);
+  .u-fixed-bd{
+    font-size: Rem(21*2);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    -webkit-transform: translateY(100%);
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 0.3s;
+    transform: translateY(100%);
+    transition-property: all;
+    transition-timing-function: ease-out;
+    transition-duration: 0.3s;
+    background: $active-bg;
+    .u-btn{
+      margin: 0;
+      border-bottom: 1px solid $active-bg;
+      color:#333;
+    }
+    .u-btn:last-child{
+      margin: Rem(10) 0;
+      border-bottom:none;
+    }
+    .u-btn:not(.disabled):not(:disabled):active,.u-btn-white.u-active,.u-btn-white:hover,.u-btn-white:focus{
+      color:#fff;
+    }
+  }
+}
+.u-fixed-bottom.u-active{
+  pointer-events: inherit;
+  opacity: 1;
+  .u-fixed-bd{
+    -webkit-transform: translateY(0);
+    -webkit-transition-delay: 0.3s;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+  }
+}
+//固定小尺寸
+.u-btn-small-size{
+  width: Rem(140);
+  height: Rem(60);
+  line-height: Rem(60);
+}

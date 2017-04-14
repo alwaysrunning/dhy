@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/static/css/park/app.css"/>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><!--ignore-->
+    <script src="/public/static/js/lib/flexible.js"></script><!--ignore-->
+    <script src="/public/static/js/lib/jquery.min.js"></script>
+    <script src="/public/static/js/extends/touch.js"></script>
+    <script src="/public/static/js/extends/typeahead.jquery.js"></script>
+    <script src="/public/static/js/extends/ejs.js"></script>
+    <script>
+        var parkid = '<%= shopId %>';
+        var records = '<%- JSON.stringify(positionRecords) %>';
+    </script>
+</head>
+<body>
+<div class="viewport">
+    <div class="bg light-dark">
+        <div class="list my-car no-padding">
+            <div class="list-item remove-margin">
+                <div class="list-title">
+                    <span class="iconfont-park icon-chaxuntingchefei"></span>
+                    <span class="title-text">查询停车位</span>
+                </div>
+                <div class="list-body remove-padding">
+                    <div class="list-line remove-height-limit add-hairline">
+                        <div class="car-search">
+                            <div class="car-input flex-box">
+                                <div class="licence-num flex-box-item">
+                                    <input class="licence-num-input" type="text" placeholder="车牌后5位"
+                                           id="licenceCodeInput"
+                                           pattern="[0-9]|[a-z]|[A-Z]*"/>
+                                </div>
+                            </div>
+                            <div class="dailog-select">
+                                <div class="slide-box"></div>
+                                <span class="dailog-arrow"></span>
+                            </div>
+                            <span class="car-tips lighter">示例：车牌“湘A1FA23”，输入“123"或“1FA”即可</span>
+                        </div>
+                        <div id="history-box" class="list-border">
+                            <% data.forEach(function(item){ %>
+                            <div class="list-item history" data-no="<%= item.carNo %>">
+                                <%= item.carNo %>
+                            </div>
+                            <% }) %>
+                            <% if (data.length === 0){ %>
+                            <div class="list-item">
+                                暂无绑定车牌
+                            </div>
+                            <% }else{ %>
+                            <!--<div class="list-item clear-history">-->
+                            <!--清除历史车牌-->
+                            <!--</div>-->
+                            <% } %>
+                        </div>
+                        <div class="manage-btn">
+                            <a href="/park/manage/<%= shopId %>" class="btn white block">管理我的车牌</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="list-item">-->
+                <!--<div class="list-title">-->
+                    <!--<span class="iconfont-park icon-wodejilu"></span>-->
+                    <!--<span class="list-text">我的记录</span>-->
+                    <!--<span class="list-text light">（记录新增：替换保留最近4条位置记录）</span>-->
+                <!--</div>-->
+                <!--<div class="list-body remove-padding my-record-body">-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<div class="dailog-warm" style="display: none;"></div>
+<script src="/public/park/js/util.js"></script>
+<script src="/public/park/js/location.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<div class="m-restPhone-page u-scrollBar">
+ <form class="u-form" id="myUnionAccountForm">
+  <div class="u-form-item">
+   <div class="u-form-item-line">
+    <label>当前手机号:</label>
+    <input type="tel" readonly="" value="<%= mobile %>" placeholder="请输入手机号码" class="u-form-input-text">
+    <div class="g-form-item-rg u-hidden">
+     <i class="icon iconfont icon-guanbi"></i>
+    </div>
+   </div>
+  </div>
+  <div class="u-form-item">
+   <div class="u-form-item-line">
+    <input type="text" value="" placeholder="请输入银行卡号/步步高商务卡号" class="myUnionAccount-input" id="cardNo">
+    <div class="g-form-item-rg">
+     <i class="icon iconfont icon-guanbi u-hidden"></i>
+    </div>
+   </div>
+  </div>
+  <div class="u-form-item">
+   <div class="u-form-item-line">
+    <input type="text" value="" placeholder="请输入商务卡密码验证（银联卡无需填写）" class="myUnionAccount-input" id="cardPwd">
+    <div class="g-form-item-rg">
+     <i class="icon iconfont icon-guanbi u-hidden"></i>
+    </div>
+   </div>
+  </div>
+  <div class="u-tips-txt-line">
+   温馨提示：仅限本人持有银联卡、步步高商务卡绑定及验证，银联
+   卡绑定时当前手机号需与银行预留手机号一致；绑定即
+   尊享电子卡功能，轻松支付！
+  </div>
+  <div class="u-lp-btn-submit">
+   <button class="u-btn u-radius u-btn-block" type="button" disabled id="myCommerceCardFormSubmit">提交验证及绑定</button>
+  </div>
+ </form>
+</div>

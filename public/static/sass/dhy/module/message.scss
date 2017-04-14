@@ -1,0 +1,94 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:10
+ * */
+@import "../../common/variable",
+"../../common/mixin";
+
+//我的消息
+.m-message-mod {
+  .umm-no-message {
+    background: #f5f5f5;
+    text-align: center;
+    font-size: Rem(24);
+    padding: Rem(20);
+    color: #666;
+  }
+}
+//我的消息详情
+.m-messageDetails-mod {
+  .uml-tit {
+    padding: Rem(20);
+    border-bottom: 1px solid $border-default-color;
+    h5 {
+      font-size: Rem(24);
+      color: #333;
+    }
+    i {
+      width: Rem(10);
+      height: Rem(10);
+      background: #ff6414;
+      display: inline-block;
+      margin-left: Rem(10);
+      vertical-align: middle;
+      border-radius: Rem(10);
+    }
+  }
+  .uml-cont {
+    padding: Rem(20);
+    color: #666;
+    .uml-content {
+      position: relative;
+    }
+    .u-ellipsis {
+      background: #fff;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+    p {
+      padding: Rem(10) 0;
+      color: #666;
+      //max-height: Rem(114);
+      //line-height: Rem(42);
+
+      //height: auto;
+      //max-height: Rem(52*2);
+      line-height: Rem(20*2);
+      overflow: hidden;
+      //      text-overflow: ellipsis;
+      //      display: -webkit-box;
+      //      display: -moz-box;
+      //      display: box;
+      //      -webkit-line-clamp: 3;
+      //      -webkit-box-orient: vertical;
+      //      -moz-line-clamp: 3;
+      //      -moz-box-orient: vertical;
+    }
+  }
+  .uml-foot {
+    padding: 0 Rem(20);
+    b {
+      font-weight: normal;
+      color: #999;
+      display: inline-block;
+    }
+    .iconfont {
+      vertical-align: middle;
+    }
+  }
+}
+
+.m-accountInfo-page {
+  //  .u-list li,.u-list li .fl-rg{
+  //    height: auto;
+  //    line-height:Rem(100);
+  //  }
+  //  .u-list li a{
+  //    height: Rem(100);
+  //    line-height: Rem(100);
+  //  }
+}

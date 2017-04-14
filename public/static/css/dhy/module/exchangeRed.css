@@ -1,0 +1,39 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:54
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 13, ../../../sass/dhy/module/exchangeRed.scss */
+.u-exchange-mod .u-title {
+  padding: 0.26667rem;
+  background: #fff;
+}
+/* line 14, ../../../sass/dhy/module/exchangeRed.scss */
+.u-exchange-mod .u-title .icon {
+  font-size: 0.64rem;
+}
+/* line 20, ../../../sass/dhy/module/exchangeRed.scss */
+.u-exchange-mod .u-form {
+  background: #fffbf9;
+  padding: 0.13333rem 0.26667rem;
+}
+/* line 23, ../../../sass/dhy/module/exchangeRed.scss */
+.u-exchange-mod .u-form p {
+  margin: 0.26667rem 0;
+}

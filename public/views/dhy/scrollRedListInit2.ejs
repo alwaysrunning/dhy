@@ -1,0 +1,22 @@
+<% if(data.REC.length>0){ %>
+<% for(var i=0; i<data.REC.length; i++) {%>
+<li data-id="<%= data.REC[i]["REDPKGID"] %>">
+    <a>
+        <div class="upl-lf g-fl-lf">
+            <h3><%= data.REC[i]["BIZTYPE"] %></h3>
+            <% if(data.REC[i]['EXPDT'] && data.REC[i]['PRDDT']){ %>
+            <p>有效期:<%= data.REC[i]['PRDDT'].slice(0,4) %>-<%= data.REC[i]['PRDDT'].slice(4,6) %>-<%= data.REC[i]['PRDDT'].slice(6,8) %>
+                至 <%= data.REC[i]['EXPDT'].slice(0,4) %>-<%= data.REC[i]['EXPDT'].slice(4,6) %>-<%= data.REC[i]['EXPDT'].slice(6,8) %></p>
+            <% }else{ %>
+            <p>失效日期:<%= data.REC[i]['EXPDT'].slice(0,4) %>-<%= data.REC[i]['EXPDT'].slice(4,6) %>-<%= data.REC[i]['EXPDT'].slice(6,8) %>
+            <% } %>
+        </div>
+        <div class="upl-rg g-fl-rg">
+            <h3 class="u-fontColor-them">&yen; <%= data.REC[i]["REDPKGAMT"] %></h3>
+        </div>
+    </a>
+</li>
+<% } %>
+<% }else{ %>
+<p style="text-align: center;">暂无数据...(/ □ \)</p>
+<% } %>

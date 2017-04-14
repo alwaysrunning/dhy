@@ -1,0 +1,128 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+@import "mixin",
+"variable";
+
+/*CSS Reset*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+header,
+hgroup,
+nav,
+section,
+article,
+aside,
+footer,
+figure,
+figcaption,
+menu,
+button {
+    margin: 0;
+    padding: 0;  
+}
+
+body {
+    font-family:"Helvetica Neue",Helvetica,sans-serif,STHeiTi,webfont,FontAwesome;
+    line-height: $line-height-base;
+    font-size: $font-size-base;
+    color: $txt-default;
+    background: $stable-bg;
+    -webkit-user-select: none;
+    -webkit-text-size-adjust: 100%;/* 缩放网页，文字大小不变 */
+    -webkit-tap-highlight-color: transparent;/* 防止点击闪烁 */
+    outline: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption, th {
+    text-align: left;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+li {
+    list-style: none;
+}
+
+ins {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+input, 
+button, 
+textarea,
+select, 
+optgroup, 
+option{
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    outline: 0;
+}
+
+button{
+    -webkit-appearance: none;
+    border: 0;
+    background: none;
+}
+
+a{
+    -webkit-touch-callout:none;
+    text-decoration: none; 
+}
+
+:focus{
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+em,i {
+    font-style: normal;  
+}
+
+

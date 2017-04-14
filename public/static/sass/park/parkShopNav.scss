@@ -1,0 +1,84 @@
+@charset "utf-8";
+/**
+ * Created by ricopter@qq.com on 2016/12/16.
+ */
+@import "../common/mixin";
+
+.g-parkMapNav-page{
+   background: #f2f3f7;
+  .g-park-map{
+     height: Rem(600);
+     position: relative;
+     background:#3a364d;
+     .gpm-img-mod{
+       height: Rem(600);
+       img{
+         visibility: hidden;
+       }
+     }
+    .gpm-img-mod.show{
+      img{
+        visibility:visible;
+      }
+    }
+    .gpm-img-zoomCtrl{
+      position: absolute;
+      right: Rem(30);
+      bottom: Rem(30);
+      width:Rem(60);
+      img{
+        margin-top: Rem(20);
+        width: Rem(60);
+        height: Rem(60);
+      }
+    }
+  }
+
+  .g-park-shop-mod{
+     margin-top: Rem(35);
+  }
+
+  .m-park-shop-list{
+    @include flexBox;
+    flex-flow:wrap;
+    -webkit-flex-flow:wrap;
+    background: #fff;
+    li{
+      width: 33.33%;
+      margin: 0 auto;
+      a{
+        border-top: 1px solid #f2f2f2;
+        border-right: 1px solid #f2f2f2;
+        border-bottom: none;
+        display: block;
+        height: Rem(145);
+        color: #333;
+        text-align: center;
+        padding-top: Rem(45);
+        padding-bottom: Rem(20);
+        p{
+          width:Rem(140);
+          @include overflow;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    @for $i from 1 through 9 {
+      li:nth-child(#{$i}) .icon-img{
+        width: Rem(100);
+        height: Rem(100);
+        margin: 0 auto;
+        background: url("../../img/park/park_nav_ico_#{($i - 1)}.png");
+        background-size: contain;
+      }
+    }
+
+    @each $n in 3,6,9{
+      li:nth-child(#{$n}) a{
+        border-right:none;
+      }
+    }
+
+  }
+}

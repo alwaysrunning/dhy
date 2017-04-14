@@ -1,0 +1,85 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+@import
+//基础样式
+//"../common/public",
+// Normalize & Base CSS
+"../common/mixin",
+"../common/variable",
+"../common/normalize",
+"../common/icon",
+"../common/type",
+"../common/animate",
+"../common/animation",
+"../common/base",
+"../common/bar",
+"../common/page",
+//组件
+"../component/badge",
+"../component/button",
+"../component/modal",
+"../component/list",
+"../component/nav",
+"../component/form",
+"../component/select",
+"../component/menu",
+//"../component/picker",
+"compass/css3",
+//模块
+"module/login", //登录
+"module/complaint",//账户申诉
+"module/complaintDemo",//账户申诉示例
+"module/personalInfo",//完善个人信息
+"module/accountSafe",//账户安全
+"module/restSetPhone",//重置手机号码
+"module/memberCenter",//会员中心
+"module/merchantOrders",//商户订单
+"module/pointsDetails",//订单详情
+"module/unionAccount",//我的联通账户+银联账户
+"module/exchangeRed",//我的兑换红包
+"module/myCoupons",//优惠券
+"module/myMeans",//我的资产
+"module/pointsList",//积分明细
+"module/redList",//红包明细
+"module/pointsExchangeDetails",//商品详情
+"module/myMemberCards",//我的会员卡
+"module/customerCenter",//客服中心
+"module/pointsExchange",//积分换礼
+"module/locationList",//城市定位
+"module/ordersConfirm",//订单确认
+"module/electricTicket",//电子小票
+"module/message",//我的消息
+"module/invitation",//我的邀请码
+"module/selfPoints",//自助积分
+"module/refund",//退款
+"module/commercialCard",//商务卡
+"module/myMeansPoints",//我的资产积分
+"module/licenses",//协议规则
+"extend/istyle";//外包
+
+/*****bug*****/
+//.m-orderConfirm-mod, .m-merchantOrders-page, .m-couponsList-mod, .m-electricTicket-mod {
+//  @extend .scrollMain;
+//}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+
+.u-network-tips{
+  text-align: center;
+  padding-top:Rem(200);
+  .unt-img{
+    width: Rem(293);
+    height: Rem(291);
+    margin: 0 auto;
+    background: url("../../img/message/network.png") no-repeat center center;
+    background-size: contain;
+  }
+
+}

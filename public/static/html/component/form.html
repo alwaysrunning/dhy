@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>表单组件</title>
+    <meta name="description" content=""/>
+    <meta name="author" content="ricopter@qq.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <script type="text/javascript" src="../../js/lib/flexible.js"></script>
+    <link rel="stylesheet" href="../../css/common/base.css">
+    <link rel="stylesheet" href="../../css/component/form.css">
+</head>
+<body>
+<h1>表单组</h1>
+<div class="u-form">
+    <form action="#">
+        <div class="u-form-item">
+           <div class="u-form-item-line">
+               <label for="#">账号</label>
+               <input type="text" value="421205351" class="u-form-input-text" readonly/>
+           </div>
+        </div>
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <label for="#">身份证号码</label>
+                <input type="text" value="445331199401055317" class="u-form-input-text"/>
+            </div>
+        </div>
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <input type="text" value="" placeholder="请输入原手机号码"/>
+            </div>
+        </div>
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <input type="text" value="" placeholder="验证码"/>
+                <div class="g-form-item-rg">
+                    <i class="u-badge-text">获取验证码</i>
+                </div>
+            </div>
+        </div>
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <input type="text" value="15616016860" placeholder=""/>
+                <div class="g-form-item-rg">
+                    <i class="icon iconfont icon-guanbi"></i>
+                </div>
+            </div>
+        </div>
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <input type="text" value="123456" placeholder=""/>
+                <div class="g-form-item-rg">
+                    <i class="icon iconfont icon-guanbi"></i>
+                    <i class="u-badge-text">获取验证码</i>
+                </div>
+            </div>
+        </div>
+        <div class="u-form-item">
+            <div class="u-form-item-line m-form-item-icon">
+                <span class="g-form-item-lf"><i class="icon iconfont icon-shouji"></i></span>
+                <input type="tel" class="u-form-input-text" value="" placeholder="请输入手机号码">
+                <div class="g-form-item-rg">
+                    <!--<i class="icon iconfont icon-shangjiantou"></i>-->
+                    <i class="icon iconfont icon-guanbi u-hidden"></i>
+                    <i class="icon iconfont icon-xiajiantou"></i>
+                </div>
+            </div>
+        </div>
+        <div class="u-form-item m-form-item-icon">
+            <div class="u-form-item-line">
+                <span class="g-form-item-lf"><i class="icon iconfont icon-yanzhengma"></i></span>
+                <input type="text" class="u-form-input-text" value=""  placeholder="请输入验证码">
+                <div class="g-form-item-rg">
+                    <i class="icon iconfont icon-guanbi u-hidden"></i>
+                    <i class="u-badge-text">获取验证码</i>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="../../js/lib/zepto.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".u-form-item .u-form-input-text").on("input propertychange",function(){
+               var val=$(this).val();
+               console.log(val);
+                if(val.length>0){
+                    $(this).parent().find(".icon-guanbi").removeClass("u-hidden");
+                }else{
+                    $(this).parent().find(".icon-guanbi").addClass("u-hidden");
+                }
+        });
+    })
+</script>
+</body>
+</html>

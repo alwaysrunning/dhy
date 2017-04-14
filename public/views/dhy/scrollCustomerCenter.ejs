@@ -1,0 +1,10 @@
+<% data=data.data %>
+<% data.forEach(function(item){%>
+<li class="clearfix">
+    <a class="clearfix" title="<%= item["name"] %>" href="#/customerSort?categoryId=<%= item["categoryId"] %>&id=<%= item["id"] %>">
+        <img src="<%= item["logoImg"] %>">
+        <b><%= item["name"] %></b>
+        <span class="g-fl-rg icon iconfont icon-youjiantou"></span>
+    </a>
+</li>
+<% }) %>

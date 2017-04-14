@@ -1,0 +1,51 @@
+/* line 2, ../../sass/ferris/area.scss */
+.bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  z-index: 99;
+}
+/* line 11, ../../sass/ferris/area.scss */
+.bg .box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+/* line 17, ../../sass/ferris/area.scss */
+.bg .box .loader {
+  width: Rem(100);
+  height: Rem(100);
+  background: url("../../../ferris_wheel/images/loader.png") no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+  animation: rotate 3s 0s infinite linear;
+  -webkit-animation: rotate 3s 0s infinite linear;
+}
+/* line 26, ../../sass/ferris/area.scss */
+.bg .box .text {
+  font-size: Rem(28);
+  line-height: Rem(28);
+  margin-top: Rem(20);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}

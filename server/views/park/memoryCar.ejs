@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/static/css/park/app.css"/>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><!--ignore-->
+    <script src="/public/static/js/lib/flexible.js"></script><!--ignore-->
+    <script src="/public/static/js/lib/jquery.min.js"></script>
+    <script src="/public/static/js/extends/touch.js"></script>
+    <script src="/public/static/js/extends/typeahead.jquery.js"></script>
+    <script src="/public/static/js/extends/ejs.js"></script>
+</head>
+<body>
+<script>
+    var parkid = '<%= shopId %>';
+</script>
+<div class="viewport">
+    <div class="bg light-dark memory">
+        <div class="list">
+            <div class="list-item remove-margin">
+                <div class="list-title">
+                    <span class="iconfont-park icon-jilutingchewei"></span>
+                    <span class="list-text">记录停车位</span>
+                </div>
+                <div class="list-body remove-padding">
+                    <div class="list-line remove-height-limit add-hairline">
+                        <div class="car-search">
+                            <div class="car-input flex-box">
+                                <div class="licence-num flex-box-item add-hairline">
+                                    <input class="licence-num-input" type="text"
+                                           placeholder="输入停车位数字编号"
+                                           id="carInput"/>
+                                </div>
+                            </div>
+                            <span class="list-text light">示例：B1层车位“A123”，输入“123”或“A123”即可</span>
+                        </div>
+                    </div>
+                    <div class="list-line remove-height-limit">
+                        <div class="split-box-h">
+                            <div class="split-box-item">
+                                <a id="scan">
+                                    <img src="/public/static/img/park/scan.jpg" alt="">
+                                    <span>扫一扫记车位</span>
+                                </a>
+                            </div>
+                            <div class="split-box-item">
+                                <a href="/tuju/jump?parkid=<%= shopId %>&url=http%3a%2f%2fapi.mxcity.cn%2frolling%2f">
+                                    <img src="/public/static/img/park/shake.jpg" alt="">
+                                    <span>摇一摇记车位</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="list-item">-->
+                <!--<div class="list-title">-->
+                    <!--<span class="iconfont-park icon-wodejilu"></span>-->
+                    <!--<span class="list-text">我的记录</span>-->
+                    <!--<span class="list-text light">（记录新增：替换保留最近4条位置记录）</span>-->
+                <!--</div>-->
+                <!--<div class="list-body remove-padding my-record-body">-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<div class="dailog-warm" style="display: none;"></div>
+<script src="/public/park/js/util.js"></script>
+<script src="/public/park/js/autoComplete.js"></script>
+</body>
+</html>

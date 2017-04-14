@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>邀请码扫描</title>
+    <link rel="stylesheet" href="/public/static/css/park/app.css"/>
+    <script src="/public/static/js/lib/flexible.js"></script>
+    <!--ignore-->
+    <script src="/public/static/js/lib/jquery.min.js"></script>
+</head>
+<body>
+<div class="viewport">
+    <div class="bg dark">
+        <div class="status">
+            <% if(success){ %>
+            <span class="status-icon iconfont-park icon-chenggong"></span>
+
+            <div class="status-text">
+                <p>
+                    助力好友成功，<br/>
+                    5秒后直接跳转(我的邀请码)页面
+                </p>
+            </div>
+            <script>
+                setTimeout(function () {
+                    window.location.href = '/#/myInvitation'
+                }, 5000);
+            </script>
+            <% } else if(msg){ %>
+            <span class="status-icon iconfont-park icon-shibai"></span>
+            <div class="status-text">
+                <p>
+                    <%= msg %>，<br/>
+                    5秒后直接跳转(注册/登录)页面
+                </p>
+            </div>
+            <script>
+                setTimeout(function () {
+                    window.location.href = '/#/login'
+                }, 5000);
+            </script>
+            <% }else{ %>
+            <span class="status-icon iconfont-park icon-shibai"></span>
+            <div class="status-text">
+                <p>
+                    请登录后助力好友，<br/>
+                    5秒后直接跳转(注册/登录)页面
+                </p>
+            </div>
+            <script>
+                setTimeout(function () {
+                    window.location.href = '/#/login'
+                }, 5000);
+            </script>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

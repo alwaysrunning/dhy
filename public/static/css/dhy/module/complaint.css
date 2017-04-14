@@ -1,0 +1,124 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 14:55
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 12, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page {
+  background: #fff;
+}
+/* line 14, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .m-id-mod-tit {
+  background: url("/public/static/img/module/appealPayPwd_idbg_0.png") no-repeat center center;
+  background-size: contain;
+  padding: 0.06667rem 0;
+  height: 0.8rem;
+  border-bottom: 1px solid #f2f2f2;
+}
+/* line 21, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .u-input-file-mod {
+  height: 100%;
+  background: url("/public/static/img/component/dropzone/complaint_icon_bg_0.png") no-repeat center center;
+}
+/* line 26, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .u-input-file-upload {
+  display: block;
+  text-align: center;
+  height: 100%;
+}
+/* line 32, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .u-title-h4 {
+  background: #f2f2f2;
+  color: #999;
+  padding: 0.33333rem;
+  text-align: left;
+}
+/* line 39, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .m-id-mod {
+  padding: 0.66667rem 2.4rem;
+}
+/* line 41, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .m-id-mod h4 {
+  text-align: center;
+  margin: 0.26667rem 0;
+}
+/* line 45, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .m-id-mod .u-dropzone {
+  padding: 0;
+  width: 4.6rem;
+  height: 2.93333rem;
+  margin: 0 auto;
+}
+/* line 51, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .m-id-mod .u-dropzone .dz-message {
+  margin: 3em 0;
+}
+/* line 54, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .m-id-mod .u-dropzone .dz-message.u-hidden {
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+  height: 100%;
+  display: block;
+}
+/* line 61, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .m-id-mod .u-dropzone .dz-preview {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  z-index: 8;
+}
+/* line 67, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .m-id-mod .u-dropzone .dz-preview .dz-image img, .m-complaint-page .m-id-mod .u-dropzone .dz-preview .dz-image {
+  width: 100%;
+  height: 100%;
+}
+/* line 71, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .m-id-mod .u-dropzone .dz-preview .dz-image {
+  border-radius: 0;
+}
+/* line 76, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .u-tips-flex-box {
+  zoom: 1;
+}
+/* line 99, ../../../sass/common/_mixin.scss */
+.m-complaint-page .u-tips-flex-box::before, .m-complaint-page .u-tips-flex-box::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 104, ../../../sass/common/_mixin.scss */
+.m-complaint-page .u-tips-flex-box::after {
+  clear: both;
+}
+/* line 78, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .u-tips-flex-box b {
+  float: left;
+  width: 2rem;
+}
+/* line 82, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .u-tips-flex-box p {
+  float: left;
+  width: 7.33333rem;
+}
+/* line 86, ../../../sass/dhy/module/complaint.scss */
+.m-complaint-page .u-tips-flex-box b, .m-complaint-page .u-tips-flex-box p {
+  display: inline-block;
+  font-weight: normal;
+}

@@ -1,0 +1,112 @@
+<div class="m-appealPay-page-mod u-scrollBar">
+    <div class="m-appealPay-page">
+        <!--step one-->
+        <div id="stepOne">
+            <div class="m-pp-ban">
+                <div class="m-pp-ban-center">
+                    <ul>
+                        <li>
+                            <i></i>
+                            <h4>验证身份</h4>
+                        </li>
+                        <li>
+                            <i></i>
+                        </li>
+                        <li>
+                            <i></i>
+                            <h4>提交申诉</h4>
+                        </li>
+                        <li>
+                            <i></i>
+                        </li>
+                        <li>
+                            <i></i>
+                            <h4>申诉成功</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <form class="u-form" action="#">
+                <div class="u-form-item">
+                    <div class="u-form-item-line">
+                        <label for="#">手机号:</label>
+                        <input type="tel" readonly="" value="<%= mobileStr %>" placeholder="请输入手机号码" class="u-form-input-text u-listen-input" data-mark="1">
+                        <div class="g-form-item-rg">
+                            <i class="icon iconfont icon-guanbi u-hidden"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="u-form-item">
+                    <div class="u-form-item-line">
+                        <input type="text" value="" placeholder="请输入验证码" class="u-listen-input" id="getSmsVal">
+                        <div class="g-form-item-rg">
+                            <i class="icon iconfont icon-guanbi u-hidden"></i>
+                            <button type="button" class="u-badge-text" id="getSms">获取验证码</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="u-lp-btn-submit">
+                    <button disabled="" class="u-btn u-radius u-btn-block" type="button" id="nextStep">下一步</button>
+                </div>
+            </form>
+        </div>
+        <!--step two-->
+        <div id="stepTwo" class="u-hidden">
+            <div class="m-pp-ban">
+                <div class="m-pp-ban-center">
+                    <ul class="u-active-step-two">
+                        <li>
+                            <i></i>
+                            <h4>验证身份</h4>
+                        </li>
+                        <li>
+                            <i></i>
+                        </li>
+                        <li>
+                            <i></i>
+                            <h4>提交申诉</h4>
+                        </li>
+                        <li>
+                            <i></i>
+                        </li>
+                        <li>
+                            <i></i>
+                            <h4>申诉成功</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <form class="u-form" action="#">
+                <div class="u-form-item">
+                    <div class="u-form-item-line">
+                        <input type="password" placeholder="请输入新支付密码" value="" class="u-listen-input" id="newPayPwd" name="payPwd">
+                        <div class="g-form-item-rg">
+                            <i class="icon iconfont icon-guanbi u-hidden"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="u-form-item">
+                    <div class="u-form-item-line">
+                        <input type="text" placeholder="请输入已绑定的身份证号码验证个人身份" value="" class="u-listen-input" id="myID" name="identificationNum">
+                        <div class="g-form-item-rg">
+                            <i class="icon iconfont icon-guanbi u-hidden"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mcp-jg"></div>
+                <div class="m-complaint-page">
+                    <div class="u-btn-normal-line">
+                        <button disabled="" type="button" class="u-btn u-radius u-btn-block u-btn-submit" id="submitBtn">提交</button>
+                    </div>
+                    <div class="u-normal-tips-line u-btn-normal-line u-tips-flex-box">
+                        <b>温馨提示：</b>
+                        <p>请按照页面提示填写您的真实、准确信息，小步之家尊重并
+                            保护您的个人隐私权，但不承诺您的申请一定能获得审
+                            核通过。因您提交不真实、不准确、失效的个人信息所
+                            引发的一切后果及风险由您自行承担。</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

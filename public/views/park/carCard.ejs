@@ -1,0 +1,36 @@
+<%if(items.length > 0){%>
+<% items.forEach(function (item) { %>
+<div class="car-manage-list-item">
+    <div class="car-manage-list-item-bg">
+        <div class="car-manage-list-item-inner flex-box">
+            <div class="car-manage-list-item-number flex-box-item">
+                <div class="car-manage-list-bar"></div>
+                <div class="car-manage-list-item-number-text">
+                    <div class="center-box"><%=item.carNo%></div>
+                </div>
+                <div class="car-manage-list-bar"></div>
+            </div>
+            <%if(parkid === '012838'){%>
+            <div class="car-manage-list-item-btn item-pos flex-box-item" car-no="<%=item.carNo%>">
+                <div class="car-icon">
+                    <span class="iconfont-park icon-chaxuncheweixinxi"></span>
+                    <span class="car-icon-text">查询车位信息</span>
+                </div>
+            </div>
+            <%}%>
+            <div class="car-manage-list-item-btn item-del flex-box-item" car-no="<%=item.carNo%>">
+                <div class="car-icon">
+                    <span class="iconfont-park icon-shanchu1"></span>
+                    <span class="car-icon-text">删除</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% })%>
+
+<%}else{%>
+<div class="car-manage-list-item">
+    <div class="car-empty">暂无绑定车牌</div>
+</div>
+<%}%>

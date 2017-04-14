@@ -1,0 +1,106 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:08
+ * */
+@import "../../common/variable",
+"../../common/mixin";
+//订单确认
+.m-orderConfirm-mod {
+  font-size: Rem(24);
+  .u-normal-tit {
+    font-size: Rem(24);
+    border-bottom: 1px solid #f2f2f2;
+    padding: Rem(30) Rem(20);
+  }
+  .u-normal-list li {
+    font-size: Rem(24);
+  }
+  .u-text-align-rg {
+    text-align: right;
+  }
+  .u-text-align-lf {
+    text-align: left;
+  }
+  .u-text-disabled {
+    color: #999;
+  }
+  .u-fontColor-them {
+    color: $font-them-color;
+    margin-bottom: Rem(10);
+  }
+  .u-count-form {
+    margin-top: Rem(10);
+    // margin-left: Rem(140);
+  }
+  .u-merchantOrder-list li .u-g-bd .g-lf-box {
+    height: auto;
+  }
+  .u-merchantOrder-list li .u-g-bd .g-lf-box img {
+    width: Rem(120);
+    height: Rem(120);
+  }
+  .m-mod-box .u-normal-list li .g-label-lf-lg {
+    width: Rem(200);
+  }
+  .u-form-item {
+    font-size: Rem(24);
+  }
+  .u-form-item-line label:not(.u-switch):not(.u-checkbox):not(.u-radio) {
+    width: auto;
+  }
+  .u-form-item .u-form-item-line .u-form-input-text, .u-form-item .u-form-input-textarea {
+    padding-left: Rem(120);
+  }
+  //支付款
+  .m-requiredToPay .u-form-item .u-form-item-line .u-form-input-text {
+    padding-left: Rem(180);
+  }
+  .u-ico-img-jf, .u-ico-img-yhb, .u-ico-img-hb, .u-ico-img-wx {
+    width: Rem(32);
+    height: Rem(32);
+    display: inline-block;
+    background: url("/public/static/img/module/ordersConfirm_ico_0.png") no-repeat center center;
+    background-size: contain;
+    vertical-align: bottom;
+    margin-right: Rem(10);
+  }
+  .u-ico-img-yhb {
+    background: url("/public/static/img/module/ordersConfirm_ico_1.png") no-repeat center center;
+    background-size: contain;
+  }
+  .u-ico-img-hb {
+    background: url("/public/static/img/module/ordersConfirm_ico_2.png") no-repeat center center;
+    background-size: contain;
+  }
+  .u-ico-img-wx {
+    background: url("/public/static/img/module/ordersConfirm_ico_3.png") no-repeat center center;
+    background-size: contain;
+  }
+  .u-normal-list .u-active {
+    .icon-gouxuan {
+      color: $font-them-color;
+    }
+  }
+  .u-orderConfirm-sbumit-mod {
+    @include displayBox;
+    width: Rem(700);
+    margin: 0 auto;
+    padding: Rem(20);
+    .uosm-lf {
+      @include box-flex(1);
+      font-size: Rem(24);
+      height: Rem(60);
+      line-height: Rem(60);
+    }
+    .uosm-rg {
+      @include box-flex(1);
+      .u-btn {
+        height: Rem(60);
+        line-height: Rem(60);
+      }
+    }
+  }
+}

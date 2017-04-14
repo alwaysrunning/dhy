@@ -1,0 +1,61 @@
+<div class="m-restPay-page u-scrollBar">
+
+    <form class="u-form" action="#" id="restPayPwdForm">
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <label for="#">手机号:</label>
+                <input type="tel" readonly="" value="<%= mobile %>" class="u-form-input-text" data-mark="1">
+            </div>
+        </div>
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <input type="text" value="" placeholder="请输入验证码" id="getSmsVal">
+                <div class="g-form-item-rg">
+                    <i class="icon iconfont icon-guanbi u-hidden"></i>
+                    <button type="button" class="u-badge-text" id="getSms">获取验证码</button>
+                </div>
+            </div>
+        </div>
+        <% if(restStatus=="0"){ %>
+        <!--初次设置支付密码-->
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <input type="password" placeholder="请输入6-20位数字+字母或下划线符号组合的支付密码" value="" id="password1">
+                <div class="g-form-item-rg">
+                    <i class="icon iconfont icon-guanbi u-hidden"></i>
+                </div>
+            </div>
+        </div>
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <input type="password" placeholder="确认支付密码" value="" id="password2">
+                <div class="g-form-item-rg">
+                    <i class="icon iconfont icon-guanbi u-hidden"></i>
+                </div>
+            </div>
+        </div>
+        <% }else if(restStatus=="1"){ %>
+        <!--重置支付密码-->
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <input type="password" placeholder="请输入原支付密码" value="" id="oriPayPass">
+                <div class="g-form-item-rg">
+                    <i class="icon iconfont icon-guanbi u-hidden"></i>
+                </div>
+            </div>
+        </div>
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <input type="password" placeholder="设置新支付密码6-20位数字+字母或下划线符号组合" value=""  id="payPass">
+
+                <div class="g-form-item-rg">
+                    <i class="icon iconfont icon-guanbi u-hidden"></i>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        <div class="u-lp-btn-submit">
+            <button disabled="" class="u-btn u-radius u-btn-block" type="button" id="restPayPwdBtn">提交</button>
+        </div>
+    </form>
+</div>

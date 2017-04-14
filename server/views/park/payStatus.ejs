@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/static/css/park/app.css"/>
+    <script src="/public/static/js/lib/flexible.js"></script><!--ignore-->
+    <script src="/public/static/js/lib/jquery.min.js"></script>
+</head>
+<body>
+<div class="viewport">
+    <div class="bg dark">
+
+        <%
+        switch (status.status){
+        case 'SUCCESS':
+        %>
+        <div class="status">
+            <span class="status-icon iconfont-park icon-chenggong"></span>
+
+            <div class="status-text">
+                <p>
+                    车牌号码：<%= status.order.carNo %>
+                </p>
+
+                <p>
+                    支付：¥ <%= (status.order.weixinMoney / 100).toFixed(2) %>
+                </p>
+
+                <p>
+                    消费减免：¥ <%= (status.order.posMoney / 100).toFixed(2) %>
+                </p>
+
+                <p>
+                    为了您的方便，请在20分钟内出车库，超时将重新计费
+                </p>
+            </div>
+        </div>
+
+        <%
+            break;
+        default :
+        %>
+        <div class="status">
+            <span class="status-icon iconfont-park icon-shibai"></span>
+
+            <div class="status-text">
+                <p>
+                    哦喔！支付失败（<%= status.msg %>），<br/>
+                    请您前往出口进行人工缴费或重新支付！<br/>
+                    5秒后直接跳转到“我的车”页面
+                </p>
+            </div>
+        </div>
+        <%
+        }
+        %>
+
+    </div>
+</div>
+<script>
+    setTimeout(function () {
+        window.location.href = '/park/car/#/car'
+    }, 5000);
+</script>
+</body>
+</html>

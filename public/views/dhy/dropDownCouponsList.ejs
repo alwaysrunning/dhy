@@ -1,0 +1,13 @@
+<% if(data.length>0){ %>
+<dl class="u-drop-list">
+    <% data.forEach(function (item) { %>
+    <dd class="u-drop-option"  data-name="<%= item["name"] %>" data-option="<%= item["id"] %>">
+        <%= item["name"] %>
+    </dd>
+    <% }) %>
+</dl>
+<% }else{ %>
+<dl class="u-drop-list">
+   <dd class="u-drop-close" style="text-align: center;">暂无数据 -!- ...</dd>
+</dl>
+<% } %>

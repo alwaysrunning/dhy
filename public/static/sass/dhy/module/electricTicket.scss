@@ -1,0 +1,143 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:08
+ * */
+@import "../../common/variable",
+"../../common/mixin",
+'../../common/flexible',
+'compass/css3';
+//电子小票
+.u-fontColor-them {
+  color: $font-them-color;
+}
+
+.u-electricticket-scroll-mod {
+  @include autoWH;
+  position: relative;
+}
+
+.m-electricTicket-mod {
+
+  .u-electricTicket-list {
+    background: #fff;
+    overflow-x: hidden;
+    li {
+      position: relative;
+      padding-left: Rem(20);
+      font-size: Rem(24);
+      @include clearfix;
+      @include transition(transform .2s);
+      h5 {
+        margin-bottom: Rem(10);
+      }
+      .uel-rg p {
+        color: $font-them-color;
+        padding-top: Rem(20);
+      }
+      .u-delete{
+        position: absolute;
+        //right: Rem(0);
+        right: 0;
+        top:0;
+        height: 100%;
+        width: Rem(150);
+        text-align: center;
+        background: #ff4352;
+        @include translateX(100%);
+        i{
+          @include display-flex();
+          @include align-items(center);
+          @include justify-content(center);
+          height: 100%;
+        }
+      }
+      &.slide{
+        @include translateX(Rem(-150))
+      }
+    }
+    li a {
+      color: $font-base-color;
+      display: block;
+      border-bottom: 1px solid $border-default-color;
+      padding: Rem(20) Rem(20) Rem(20) 0;
+    }
+    li:active, li.u-active, li:hover, li:focus {
+      background: $list-default-active-bg;
+    }
+  }
+
+  .u-ticket-details-list {
+    .mlm-tit {
+      border-bottom: 1px solid $border-default-color;
+      padding: Rem(20);
+      ul {
+        width: 100%;
+        @include clearfix;
+      }
+      ul li {
+        @include g-fl-lf;
+        width: Rem(142);
+        text-align: center;
+      }
+      ul li:nth-child(1) {
+        width: Rem(220);
+      }
+    }
+    .mlm-cont {
+      dl dd {
+        @include clearfix;
+        .mc-item {
+          @include g-fl-lf;
+          padding: Rem(10) Rem(20) Rem(10) Rem(25);
+          width: Rem(110);
+          @include text-overflow;
+          font-size: Rem(24);
+        }
+        h5 {
+          padding: Rem(20) Rem(20) 0 Rem(20);
+        }
+        .mc-item-line {
+          .mc-item{
+            box-sizing:content-box;
+          }
+          .mc-item:nth-child(1) {
+            padding-left: Rem(20);
+            text-align: left;
+            width: Rem(220);
+          }
+        }
+      }
+    }
+  }
+
+  .mem-line-mod {
+    background: #fff;
+    margin: Rem(20) 0;
+    padding: Rem(20);
+    font-size: Rem(24);
+    color: #333;
+    .mlm-box {
+      width: 100%;
+      @include displayBox;
+    }
+    .mlm-item {
+      @include box-flex(1);
+      text-align: center;
+    }
+    .mlm-item:first-child {
+      text-align: left;
+    }
+    .mlm-item:last-child {
+      text-align: right;
+    }
+    .mlm-list {
+      li {
+        padding: Rem(10) 0;
+      }
+    }
+  }
+
+}

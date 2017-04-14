@@ -1,0 +1,54 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:59
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//积分明细
+.m-pointsList-mod {
+  .m-points-list-mod {
+    @include autoWH;
+    margin-top: Rem(20);
+  }
+  .u-scroll-mod {
+    //position: relative;
+    //@include autoWH;
+  }
+}
+
+.u-points-list {
+  li {
+    a {
+      @include clearfix;
+      display: block;
+      color: #333;
+      padding: Rem(30) Rem(20) Rem(20) 0;
+      border-bottom: 1px solid $border-default-color;
+      h3 {
+        margin-bottom: Rem(10);
+      }
+      .upl-lf {
+        p {
+          color: #999;
+        }
+      }
+      .upl-rg {
+        text-align: right;
+      }
+      .upl-reduce {
+        color: #3db860;
+      }
+      .upl-add {
+        color: #ff6414;
+      }
+    }
+    background: $default-bg;
+  }
+  li:active, li.u-active, li:hover, li:focus {
+    background: $list-default-active-bg;
+  }
+}

@@ -1,0 +1,111 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:57
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//我的资产2
+.m-myMeans-mod {
+
+  .u-scan-code-ban {
+    @include overflow;
+    width: 100%;
+    padding-top: Rem(60);
+    //height: Rem(180);
+    @include displayBox;
+    background: url("/public/static/img/module/myMeans_bg_0.jpg") no-repeat center center;
+    background-size: 100%;
+    .m-scan-code, .m-payment-code {
+      -webkit-box-flex: 1.0; /* Safari and Chrome */
+      -moz-box-flex: 1.0; /* Firefox */
+      box-flex: 1.0;
+      height: Rem(180);
+      cursor: pointer;
+      text-align: center;
+      color: #fff;
+      h3 {
+        font-size: Rem(12*2);
+        padding-left: Rem(180);
+      }
+      i {
+        display: block;
+        width: Rem(64);
+        height: Rem(64);
+        margin: Rem(20) auto;
+        background: url("/public/static/img/module/member_ico_3.png") no-repeat center center;
+        background-size: contain;
+        vertical-align: middle;
+      }
+    }
+    .m-payment-code {
+      h3 {
+        padding-right: Rem(180);
+      }
+      i {
+        background: url("/public/static/img/module/member_ico_4.png") no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+
+  .m-myMeans-module {
+    .u-normal-mod {
+      //@extend .displayBox;
+      @include clearfix;
+      overflow-x: hidden;
+      margin-bottom: Rem(20);
+      .unm-flex-lf {
+        //        -webkit-box-flex: 1.0; /* Safari and Chrome */
+        //        -moz-box-flex: 1.0; /* Firefox */
+        //        box-flex: 1.0;
+        @include g-fl-lf;
+        text-align: center;
+        width: Rem(200);
+        a {
+          display: block;
+          width: 100%;
+          margin: 0 auto;
+          padding-top: Rem(80);
+          color: #333;
+        }
+        .iconfont {
+          font-size: Rem(48);
+        }
+      }
+      .unm-flex-rg {
+        //        -webkit-box-flex: 4.0; /* Safari and Chrome */
+        //        -moz-box-flex: 4.0; /* Firefox */
+        //        box-flex: 4.0;
+        width: Rem(540);
+        @include g-fl-lf;
+        .u-list {
+          li {
+            padding-left: 0;
+          }
+          li a {
+            padding-left: Rem(20);
+          }
+          .u-text-sub {
+            color: #ff6414;
+          }
+          border-left: 1px solid #f2f2f2;
+        }
+      }
+    }
+
+    .u-normal-mod:nth-child(2) {
+      .unm-flex-lf a {
+        padding-top: Rem(30);
+      }
+    }
+    //    .u-normal-mod:nth-child(3) {
+    //      .unm-flex-lf a {
+    //        padding-top: Rem(120);
+    //      }
+    //    }
+  }
+}

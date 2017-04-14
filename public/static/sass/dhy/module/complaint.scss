@@ -1,0 +1,91 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 14:55
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//账户申诉
+.m-complaint-page {
+  background: #fff;
+  .m-id-mod-tit {
+    background: url("/public/static/img/module/appealPayPwd_idbg_0.png") no-repeat center center;
+    background-size: contain;
+    padding: Rem(5) 0;
+    height: Rem(60);
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .u-input-file-mod {
+    @include autoWH;
+    background: url("/public/static/img/component/dropzone/complaint_icon_bg_0.png") no-repeat center center;
+  }
+
+  .u-input-file-upload {
+    display: block;
+    text-align: center;
+    @include autoWH;
+  }
+
+  .u-title-h4 {
+    background: $stable-bg;
+    color: #999;
+    padding: Rem(25);
+    text-align: left;
+  }
+
+  .m-id-mod {
+    padding: Rem(50) Rem(180);
+    h4 {
+      text-align: center;
+      margin: Rem(20) 0;
+    }
+    .u-dropzone {
+      padding: 0;
+      width: Rem(345);
+      height: Rem(220);
+      margin: 0 auto;
+    }
+    .u-dropzone .dz-message {
+      margin: 3em 0;
+    }
+    .u-dropzone .dz-message.u-hidden {
+      position: absolute;
+      width: 100%;
+      z-index: 9;
+      height: 100%;
+      display: block;
+    }
+    .u-dropzone .dz-preview {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      z-index: 8;
+    }
+    .u-dropzone .dz-preview .dz-image img, .u-dropzone .dz-preview .dz-image {
+      width: 100%;
+      height: 100%;
+    }
+    .u-dropzone .dz-preview .dz-image {
+      border-radius: 0;
+    }
+  }
+
+  .u-tips-flex-box {
+    @include clearfix;
+    b {
+      float: left;
+      width: Rem(150);
+    }
+    p {
+      float: left;
+      width: Rem(550);
+    }
+    b, p {
+      display: inline-block;
+      font-weight: normal;
+    }
+  }
+}

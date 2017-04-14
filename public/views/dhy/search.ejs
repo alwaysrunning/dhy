@@ -1,0 +1,57 @@
+<section class="m-search-result-mod u-scrollBar">
+    <div class="u-product-img-list">
+        <div class="u-refresh" id="pointsExchangeList">
+            <ul class="u-data-list" id="pointsExchangeListInit">
+                <% if(data.length>0){ %>
+                <% data.forEach(function(item){ %>
+                <li>
+                    <a href="#/pointsExchangeDetails?id=<%= item["id"] %>" title="<%= item["name"] %>">
+                        <div class="upil-img">
+                            <img class="u-lazy"  src="<%= item["image"] %>" alt="<%= item["name"] %>">
+                        </div>
+                        <h4 class="upil-title"><%= item["name"] %></h4>
+                        <div class="upil-price">
+                            <!--<div class="upil-pitem">-->
+                                <!--红包<b><%= item["gaobi"] %></b>-->
+                            <!--</div>-->
+                            <div class="upil-pitem">
+                                积分<b><%= item["integral"] %></b>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <% }) %>
+                <% }else{ %>
+                <p style="text-align: center;margin: 10px auto;">暂无数据 -!- ...</p>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    $(function(){
+        var _giftName=App.getParam("giftName");
+        App.component.scrollLoading({
+            wrapper:"#pointsExchangeList",
+            ejsUrl:"views/dhy/scrollPointsExchangeList.ejs",
+            getUrl:function(page,pageSize){
+                return "gift/search?giftname="+_giftName+"&page="+page+"&pagesize="+pageSize;
+            },
+            totalPage:function(data){
+                var result=false;
+                if(data){
+                    var _total=data["total"];
+                    var _count= data["pagesize"];
+                    var _index=data["page"];
+                    var _maxPageSize=_count!==0?Math.ceil(_total/_count):0;
+                    if(_index<=_maxPageSize){
+                        result=_maxPageSize
+                    }else{
+                        console.log("page error!");
+                    }
+                }
+                return result;
+            }
+        });
+    })
+</script>

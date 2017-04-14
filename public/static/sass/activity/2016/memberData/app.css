@@ -1,0 +1,74 @@
+/*
+Error: File to import not found or unreadable: compass/css3.
+       Load paths:
+         
+        on line 2 of swiper.scss
+        from line 8 of app.scss
+
+1: @charset "utf-8";
+2: 
+3: @import "../../common/flexible";//适配类
+4: @import "../../common/common_reset";//初始化样式类
+5: @import "icon_font";//字体
+6: @import "base";//基础类
+7: @import "sprite";//sprite
+
+Backtrace:
+swiper.scss:2
+app.scss:8
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/import_node.rb:66:in `rescue in import'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/import_node.rb:45:in `import'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/import_node.rb:28:in `imported_file'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/import_node.rb:37:in `css_import?'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/stack.rb:79:in `block in with_base'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:325:in `block (2 levels) in visit_import'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:325:in `map'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:325:in `block in visit_import'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/stack.rb:88:in `block in with_import'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/stack.rb:88:in `with_import'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/stack.rb:79:in `block in with_base'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `map'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:157:in `visit'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:8:in `visit'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/root_node.rb:36:in `css_tree'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/engine.rb:285:in `render_with_sourcemap'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `each'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/plugin.rb:82:in `update_stylesheets'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/exec/sass_scss.rb:361:in `watch_or_update'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/exec/sass_scss.rb:51:in `process_result'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/exec/base.rb:52:in `parse'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/lib/sass/exec/base.rb:19:in `parse!'
+D:/Program Files/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.13/bin/scss:13:in `<top (required)>'
+D:/Program Files/Ruby193/bin/scss:23:in `load'
+D:/Program Files/Ruby193/bin/scss:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: compass/css3.\A        Load paths:\A          \A         on line 2 of swiper.scss\A         from line 8 of app.scss\A \A 1: @charset \"utf-8\";\A 2: \A 3: @import \"../../common/flexible\";//适配类\A 4: @import \"../../common/common_reset\";//初始化样式类\A 5: @import \"icon_font\";//字体\A 6: @import \"base\";//基础类\A 7: @import \"sprite\";//sprite"; }

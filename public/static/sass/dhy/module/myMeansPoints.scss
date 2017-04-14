@@ -1,0 +1,27 @@
+@charset "utf-8";
+@import
+"../../common/variable",
+"../../common/mixin";
+
+.m-myMeansPoints-mod{
+   .u-points-panel{
+     background: #fff;
+     text-align: center;
+     padding: Rem(80) 0;
+     margin-bottom:Rem(40);
+     position: relative;
+     h3{
+       color: $font-them-color;
+       font-size: Rem(60);
+     }
+     p{
+       font-size: Rem(28);
+     }
+     .u-use-rule{
+       position: absolute;
+       top:Rem(10);
+       right:Rem(10);
+       text-decoration: underline;
+     }
+   }
+}

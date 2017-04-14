@@ -1,0 +1,64 @@
+<div class="m-unionAccount-mod u-scrollBar">
+    <section class="u-points-ban u-myUnionCard-slider">
+        <div class="upb-mod">
+            <div class="upb-slider-view u-slider-mod">
+                <div class="u-slider-hd u-slide" id="slide2">
+                <% if(data.cardlist.length>0){ %>
+                <ul class="u-slider-list">
+                    <% data.cardlist.forEach(function(item){%>
+                    <li data-bankno="<%= item["unioncardNo"] %>">
+                       <div class="box">
+                           <h4><%= item["bankName"] %></h4>
+                           <h4>总积分  <%= item["integral"] %></h4>
+                           <h5><%= item["mixedUnioncardNo"] %></h5>
+                       </div>
+                    </li>
+                    <% }) %>
+                    <!--<dd>-->
+                        <!--<h4>招商银行</h4>-->
+                        <!--<h4>总积分  888</h4>-->
+                        <!--<h5>6217 **** **** **** 145</h5>-->
+                    <!--</dd>-->
+                    <!--<dd>-->
+                        <!--<h4>招商银行</h4>-->
+                        <!--<h4>总积分  888</h4>-->
+                        <!--<h5>6217 **** **** **** 145</h5>-->
+                    <!--</dd>-->
+                </ul>
+                <% }else{ %>
+                <p style="text-align: center;font-size: 16px;">暂无绑定银行卡</p>
+                <% } %>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="u-unionAccount-list-mod" style="margin-top: 0;">
+        <div class="u-exchange-mod">
+            <div class="u-title">
+                <span class="icon iconfont icon-yunhouhongbao"></span>
+                <%= typePointName %>积分兑换步步高积分
+            </div>
+            <div class="u-cont">
+                <form class="u-form" id="exchangePointFrom">
+                    <p> 注：<%= typePointName %><%= ratio %>积分=1步步高积分</p>
+                    <input type="text" placeholder="请输入转入积分数" value="" class="u-form-input-text-orange" id="changePoints" data-bankno="">
+                    <p class="clearfix">实际所得步步高积分<i class="g-fl-rg" id="changeRed">0.00</i></p>
+                    <div class="u-exchange-submit-mod">
+                        <button class="u-btn u-radius u-btn-block u-btn-normal" type="button" disabled id="exchangeRedFromSubmit">确定兑换</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="m-myUnionAccount-mod">
+    <ul class="u-myUnionCard-list">
+        <li class="u-line-btn">
+            <a href="#/pointsExchange" class="u-btn u-radius u-btn-block u-btn-submit">积分商城</a>
+        </li>
+        <li class="u-active-off">
+            <a href="#/myUnionAddCard"><i class="icon iconfont icon-jia"></i>添加银行卡</a>
+        </li>
+    </ul>
+</section>

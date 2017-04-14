@@ -1,0 +1,27 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:54
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//我的兑换红包
+.u-exchange-mod {
+  .u-title {
+    .icon {
+      font-size: Rem(24*2);
+    }
+    padding: Rem(20);
+    background: $default-bg;
+  }
+  .u-form {
+    background: #fffbf9;
+    padding: Rem(10) Rem(20);
+    p {
+      margin: Rem(20) 0;
+    }
+  }
+}

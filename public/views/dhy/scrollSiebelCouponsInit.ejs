@@ -1,0 +1,24 @@
+<% if(data.length>0){ %>
+<% data.forEach(function(item){ %>
+<li class="u-active">
+    <a href="#/couponsDetails?type=2&id=<%= item["fourCheckNo"] %>&vendorDesc=<%= item["vendorDesc"] %>&startTime=<%= item["startTime"] %>&endTime=<%= item["endTime"] %>&voucherName=<%= item["voucherName"] %>" title="<%= item["voucherName"] %>" class="clearfix" data-voucherNo="<%= item["voucherNo"] %>">
+        <div class="ucl-border-lf g-fl-lf">
+
+        </div>
+        <div class="ucl-txt g-fl-lf">
+            <h4><%= item["voucherName"] %></h4>
+            <p>优惠券号:<%= item["fourCheckNo"] %></p>
+            <p>使用期限：<%= item["startTime"].split(' ')[0].replace(/-/g,".") %>-<%= item["endTime"].split(' ')[0].replace(/-/g,".") %></p>
+        </div>
+        <div class="ucl-price g-fl-lf">
+            <h2>&yen;<%= item["vendorAmt"] %></h2>
+        </div>
+        <div class="ucl-border-rg g-fl-lf">
+
+        </div>
+    </a>
+</li>
+<% }) %>
+<% }else{ %>
+<p style="text-align: center;margin: 10px auto;">暂无优惠券</p>
+<% } %>

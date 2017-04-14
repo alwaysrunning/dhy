@@ -1,0 +1,21 @@
+<% data.data.forEach(function(item){ %>
+<li>
+    <a href="#/couponsDetails?type=3&id=<%= item["id"] %>&couponid=<%= item["couponid"] %>&codeid=<%= item["code"] %>" title="<%= item["name"] %>" class="clearfix">
+        <div class="ucl-border-lf g-fl-lf">
+
+        </div>
+        <div class="ucl-txt g-fl-lf">
+            <img src="<%= item["image"] %>">
+        </div>
+        <div class="ucl-price g-fl-lf">
+            <h4><%= item["name"] %></h4>
+            <p>优惠券号:<%= item["code"] %></p>
+            <p>使用期限：<%= item["startTime"] %>-<%= item["endTime"] %></p>
+        </div>
+        <div class="ucl-border-rg g-fl-lf">
+
+        </div>
+    </a>
+</li>
+<% }) %>
+

@@ -1,0 +1,18 @@
+<% if(data.REC.length>0){ %>
+<% for(var i=0; i<data.REC.length; i++) {%>
+<li>
+    <a>
+        <div class="upl-lf g-fl-lf">
+            <h3><%= data.REC[i]["TXDESC"] %></h3>
+            <p><%= data.REC[i]['DATETIME'] %></p>
+        </div>
+        <div class="upl-rg g-fl-rg">
+            <h3> 余额：<%= data.REC[i]["GBBAL"] %></h3>
+            <p class="<% if(data.REC[i]["DCFLAG"].toString().search(/\+/g) === -1){ %>upl-reduce<% }else{ %>upl-add<% } %>"> <%= data.REC[i]["DCFLAG"] %><%= data.REC[i]["TXAMT"] %></p>
+        </div>
+    </a>
+</li>
+<% } %>
+<% }else{ %>
+<p style="text-align: center;">暂无数据...(/ □ \)</p>
+<% } %>

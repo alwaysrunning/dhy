@@ -1,0 +1,83 @@
+/* line 3, ../../sass/park/btn.scss */
+.btn {
+  height: Rem(60);
+  -webkit-border-radius: Rem(5);
+  -moz-border-radius: Rem(5);
+  border-radius: Rem(5);
+  color: #ffffff;
+  background-color: #f95d5b;
+  border: 1px solid #f95d5b;
+  text-align: center;
+  font-size: Rem(32);
+  line-height: Rem(58);
+  padding: 0 Rem(20);
+  -webkit-user-select: none;
+  -webkit-transition: background .3s, border .3s, color .3s;
+  -moz-transition: background .3s, border .3s, color .3s;
+  -ms-transition: background .3s, border .3s, color .3s;
+  -o-transition: background .3s, border .3s, color .3s;
+  transition: background .3s, border .3s, color .3s;
+}
+/* line 23, ../../sass/park/btn.scss */
+.btn:active, .btn:focus {
+  background-color: #ea590f;
+  border-color: #ea590f;
+}
+/* line 28, ../../sass/park/btn.scss */
+.btn.white {
+  color: #f95d5b;
+  background-color: #ffffff;
+}
+/* line 33, ../../sass/park/btn.scss */
+.btn.white:active, .btn.white:focus {
+  color: #ffffff;
+  background-color: #f95d5b;
+  border-color: #f95d5b;
+}
+/* line 39, ../../sass/park/btn.scss */
+.btn.btn-green {
+  background-color: #04BE02;
+  border-color: #04BE02;
+  color: #ffffff;
+}
+/* line 45, ../../sass/park/btn.scss */
+.btn.btn-green:active, .btn.btn-green:focus {
+  background-color: #039702;
+  border-color: #039702;
+  color: rgba(255, 255, 255, 0.6);
+}
+/* line 51, ../../sass/park/btn.scss */
+.btn:disabled, .btn.disabled {
+  background-color: #e5e5e5;
+  border-color: #e5e5e5;
+  color: #b3b3b3;
+}
+/* line 57, ../../sass/park/btn.scss */
+.btn.block {
+  display: block;
+  height: Rem(85);
+  line-height: Rem(83);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* line 66, ../../sass/park/btn.scss */
+.btn-link {
+  height: Rem(50);
+  line-height: Rem(50);
+  font-size: Rem(26);
+  color: #f95d5b;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  -webkit-transition: color .3s;
+  -moz-transition: color .3s;
+  -ms-transition: color .3s;
+  -o-transition: color .3s;
+  transition: color .3s;
+}
+/* line 82, ../../sass/park/btn.scss */
+.btn-link:active, .btn-link:focus {
+  color: #ea590f;
+}

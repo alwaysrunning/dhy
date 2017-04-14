@@ -1,0 +1,73 @@
+<div class="m-login-page u-scrollBar">
+    <% if(muYin){%>
+    <div class="iloginlogo-my"><img src="../public/static/img/iimg/i-loginlogo-my.png" alt=""></div>
+    <% } %>
+    <form class="u-form" method="post" id="loginForm">
+        <div class="u-form-item u-form-history">
+            <div class="u-form-item-line m-form-item-icon">
+                <span class="g-form-item-lf"><i class="icon iconfont icon-shouji"></i></span>
+                <input type="tel" class="u-form-input-text" value="" placeholder="请输入手机号码" id="mobile" autocomplete="off">
+                <div class="g-form-item-rg u-form-history-icoSwitch">
+                    <i class="icon iconfont icon-guanbi u-hidden" id="mobileClose"></i>
+                    <i class="icon iconfont icon-xiajiantou"></i>
+                </div>
+            </div>
+            <div class="u-form-history-list" id="formHistorySlider">
+                <ul>
+                    <!--<li data-phone="15616016860">-->
+                        <!--<p>-->
+                            <!--<span>15616016860</span>-->
+                        <!--</p>-->
+                    <!--</li>-->
+                    <!--<li data-phone="15616016861">-->
+                        <!--<p>-->
+                            <!--<span>15616016861</span>-->
+                        <!--</p>-->
+                    <!--</li>-->
+                </ul>
+                <p class="u-form-history-list-clear">暂无历史记录</p>
+            </div>
+        </div>
+        <div class="u-form-item m-form-item-icon">
+            <div class="u-form-item-line">
+                <span class="g-form-item-lf"><i class="icon iconfont icon-yanzhengma"></i></span>
+                <input type="text" class="u-form-input-text" value="" placeholder="请输入验证码" id="captcha" autocomplete="off">
+                <div class="g-form-item-rg">
+                    <i class="icon iconfont icon-guanbi u-hidden"></i>
+                    <button type="button" class="u-badge-text u-disabled" id="sendSms" disabled>获取验证码</button>
+                </div>
+            </div>
+        </div>
+
+        <% if(muYin){%>
+        <div class="u-lp-reg-tips itips-box">
+            <div class="itips-qy">
+                <span class="iconfont">
+                    <input type="checkbox" id="checkbox_a1" class="chk_1" checked data-mark="1"/>
+                    <label for="checkbox_a1"></label>
+                </span>
+                同时激活为伊利爱儿俱乐部会员<a>《爱儿俱乐部会员权益》</a>
+            </div>
+            <p class="itips-ts"><span class="itips-tit">温馨提示:</span><span class="itips-text">未注册过步步高母婴馆的手机号在首次登录时将自动完成注册，使用该登录方式代表您已接受<a href="#/licenses">《用户协议》</a></span></p>
+        </div>
+        <% }else{ %>
+            <div class="u-lp-reg-tips">
+                温馨提示：未注册过小步之家的手机号在首次登录时将自动完成注册，
+                使用该登录方式代表您已接受<a href="#/licenses">《用户协议》</a>
+            </div>
+        <% } %>
+        <div class="u-lp-btn-login">
+            <button class="u-btn u-radius u-btn-block" type="button" disabled id="loginBtn">登录</button>
+        </div>
+    </form>
+
+    <!--<div class="m-lp-bottom-tips">-->
+        <!--<div class="u-line-one">-->
+            <!--<i>or</i>-->
+        <!--</div>-->
+        <!--<p>-->
+            <!--若原手机已经停用，新手机号需绑定原有账户信息，-->
+            <!--请提交 <a href="#/complaint">账号申诉</a>-->
+        <!--</p>-->
+    <!--</div>-->
+</div>

@@ -1,0 +1,23 @@
+{
+  "name": "ngWeixin",
+  "description": "",
+  "main": "",
+  "authors": [
+    "沐沐 <xmmwc@qq.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "ui-router#~0.2.15",
+    "angular": "~1.3.9",
+    "jquery": "1.11.3"
+  }
+}

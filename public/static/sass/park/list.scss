@@ -1,0 +1,176 @@
+@charset "utf-8";
+
+.list {
+  font-size: Rem(26);
+
+  .fl {
+    width: 50%;
+    float: left;
+    text-align: left;
+  }
+  .fr {
+    width: 50%;
+    float: right;
+    text-align: right;
+  }
+
+  & > .list-item {
+    width: Rem(750);
+    margin: Rem(20) 0;
+
+    .list-title, .list-body {
+      width: 100%;
+      padding: Rem(20);
+      font-size: Rem(22);
+      color: #333;
+      background: #ffffff;
+      box-sizing: border-box;
+
+      .list-text {
+        padding: 0;
+        line-height: Rem(30);
+        color: #333;
+
+        &.light {
+          color: #999;
+        }
+      }
+    }
+
+    .iconfont-park {
+      margin-right: Rem(10);
+      display: block;
+      font-size: Rem(32);
+      //color: #333;
+      float: left;
+    }
+
+    .list-title {
+      font-size: Rem(26);
+      border-bottom: 1px solid #f4f4f4;
+    }
+
+    .list-body {
+
+      .iconfont-park {
+        margin-top: Rem(6);
+        margin-bottom: Rem(6);
+      }
+
+      .list-text {
+        line-height: Rem(50);
+
+        &.light {
+          color: #666;
+        }
+        &.lighter {
+          color: #999;
+        }
+      }
+
+      .list-line {
+        height: Rem(30);
+        padding-top: Rem(20);
+        padding-bottom: Rem(20);
+
+        .list-text {
+          line-height: Rem(30);
+        }
+
+        &.remove-height-limit {
+          height: auto;
+        }
+
+        &.add-hairline {
+          border-bottom: 1px solid #f4f4f4;
+        }
+      }
+
+      &.remove-padding {
+        padding: 0;
+
+        .list-line {
+          padding-right: Rem(20);
+          margin-left: Rem(20);
+        }
+      }
+    }
+
+    &.remove-margin {
+      margin-top: 0;
+    }
+  }
+}
+
+.list-border {
+  //font-size: Rem(26);
+
+  -webkit-border-top-right-radius: Rem(8);
+  -webkit-border-top-left-radius: Rem(8);
+  -webkit-border-bottom-right-radius: Rem(8);
+  -webkit-border-bottom-left-radius: Rem(8);
+  -moz-border-radius-topright: Rem(8);
+  -moz-border-radius-topleft: Rem(8);
+  -moz-border-radius-bottomright: Rem(8);
+  -moz-border-radius-bottomleft: Rem(8);
+  border-top-right-radius: Rem(8);
+  border-top-left-radius: Rem(8);
+  border-bottom-right-radius: Rem(8);
+  border-bottom-left-radius: Rem(8);
+
+  border: 1px solid #f2f2f2;
+  background-color: #fef9f7;
+
+  .list-item {
+    padding: Rem(20) Rem(30);
+    background-color: #fef9f7;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+
+    &:first-child {
+      -webkit-border-top-right-radius: Rem(8);
+      -webkit-border-top-left-radius: Rem(8);
+      -webkit-border-bottom-right-radius: 0;
+      -webkit-border-bottom-left-radius: 0;
+      -moz-border-radius-topright: Rem(8);
+      -moz-border-radius-topleft: Rem(8);
+      -moz-border-radius-bottomright: 0;
+      -moz-border-radius-bottomleft: 0;
+      border-top-right-radius: Rem(8);
+      border-top-left-radius: Rem(8);
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:last-child {
+      -webkit-border-top-right-radius: 0;
+      -webkit-border-top-left-radius: 0;
+      -webkit-border-bottom-right-radius: Rem(8);
+      -webkit-border-bottom-left-radius: Rem(8);
+      -moz-border-radius-topright: 0;
+      -moz-border-radius-topleft: 0;
+      -moz-border-radius-bottomright: Rem(8);
+      -moz-border-radius-bottomleft: Rem(8);
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      border-bottom-right-radius: Rem(8);
+      border-bottom-left-radius: Rem(8);
+      border-bottom: none;
+    }
+
+    &:first-child:last-child {
+      -webkit-border-top-right-radius: Rem(8);
+      -webkit-border-top-left-radius: Rem(8);
+      -webkit-border-bottom-right-radius: Rem(8);
+      -webkit-border-bottom-left-radius: Rem(8);
+      -moz-border-radius-topright: Rem(8);
+      -moz-border-radius-topleft: Rem(8);
+      -moz-border-radius-bottomright: Rem(8);
+      -moz-border-radius-bottomleft: Rem(8);
+      border-top-right-radius: Rem(8);
+      border-top-left-radius: Rem(8);
+      border-bottom-right-radius: Rem(8);
+      border-bottom-left-radius: Rem(8);
+    }
+  }
+}

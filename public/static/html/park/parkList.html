@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>停车场列表</title>
+    <script src="../../js/lib/flexible.js"></script>
+    <link rel="stylesheet" href="../../css/park/app.css"/>
+</head>
+<body>
+<div class="viewport">
+    <div class="bg dark">
+        <div class="ad">
+            <img src="/public/static/img/module/myInvitationBanner.jpg" alt=""/>
+        </div>
+        <div class="park-list">
+            <div class="park-list-scroll clearfix">
+                <div class="park-card">
+                    <div class="park-card-info">
+                        <div class="park-card-info-item title">梅溪新天地·智慧停车场</div>
+                        <div class="park-card-info-item clearfix">
+                            <div class="park-card-info-title">开放时间:</div>
+                            10：00 - 24：00
+                        </div>
+                        <div class="park-card-info-item clearfix">
+                            <div class="park-card-info-title">地　　址:</div>
+                            梅溪湖国际新城·枫林三路与东方红路交汇处西与东方红路交汇南B2层
+                        </div>
+                    </div>
+                    <div class="park-card-btns flex-box">
+                        <div class="park-card-btn flex-box-item goGps"
+                             data-gps="<%= item.longitude %>,<%= item.latitude %>"
+                             data-address="<%= item.address %>"
+                             data-name="<%= item.shopName %>">
+                            <span class="iconfont-park icon-daozheliqu"></span>
+                            到这里去
+                        </div>
+                        <div class="park-card-btn flex-box-item">
+                            <span class="iconfont-park icon-woyaotingche"></span>
+                            我要停车
+                        </div>
+                        <div class="park-card-btn flex-box-item">
+                            <span class="iconfont-park icon-woyaoquche"></span>
+                            我要取车
+                        </div>
+                        <div class="park-card-btn flex-box-item">
+                            <span class="iconfont-park icon-woyaojiaofei"></span>
+                            我要缴费
+                        </div>
+                    </div>
+                    <div class="park-card-rule close">
+                        <div class="park-card-rule-text">
+                            收费标准:消费满200抵10，满500抵15，满800抵20（封顶）；消费小票当然有效；小票微信抵用后，再出场时不能重复使用；单张小票只能抵用异常，不能拆单；多张小票可以抵用。
+                        </div>
+                        <div class="park-card-rule-close">
+                            <span class="iconfont-park icon-shangjiantou"></span>
+                        </div>
+                        <span class="iconfont-park icon-xiajiantou"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

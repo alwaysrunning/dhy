@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title><%= message %></title>
+    <meta name="description" content=""/>
+    <meta name="author" content="ricopter@qq.com 978873550@qq.com"/>
+    <!--<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>-->
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="/public/static/js/lib/flexible.js"></script><!--ignore-->
+    <link rel="stylesheet" href="/public/static/css/dhy/app.css">
+</head>
+<body >
+<div class="g-empty-data">
+    <div class="m-empty-data">
+        <div class="u-sprite i404"></div>
+        <p class="msg"><%= error.status %><%= message %></p>
+    </div>
+</div>
+<div>
+    <%= error.stack %>
+</div>
+</body>
+</html>
+

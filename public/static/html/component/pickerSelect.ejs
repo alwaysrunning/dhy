@@ -1,0 +1,26 @@
+<div class="u-picker-mod u-picker-mask">
+ <div class="u-picker u-picker-active">
+  <div class="u-picker-bd">
+   <div class="u-picker-header clearfix">
+    <div class="u-picker-header-btn g-fl-lf u-picker-cancel u-picker-close" id="pickerCancel">取消</div>
+    <div class="u-picker-header-btn g-fl-rg u-picker-header-btn-active u-picker-submit u-picker-close">确定</div>
+   </div>
+   <div class="u-picker-box">
+    <% data.forEach(function(col){ %>
+    <div class="u-picker-items-col picker-items-col-center <%= col.cssClass?col.cssClass:"" %>">
+     <div class="u-picker-items-col-wrapper">
+      <% col.values.forEach(function(item){ %>
+      <div class="u-picker-item" data-picker-value="<%= item.name %>" data-picker-id="<%= item.id?item.id:"" %>">
+       <%= item.name?item.name:"暂无数据" %>
+      </div>
+      <% }) %>
+     </div>
+    </div>
+    <% }) %>
+    <div class="u-picker-center-highlight">
+
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

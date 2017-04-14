@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+.flex-box{
+  display: box;
+  display: -webkit-box;
+
+  .flex-box-item{
+    -webkit-box-flex: 1;
+    box-flex: 1;
+  }
+}

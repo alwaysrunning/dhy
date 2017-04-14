@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Modal 交互窗口组件</title>
+    <meta name="description" content=""/>
+    <meta name="author" content="ricopter@qq.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <script type="text/javascript" src="../../js/lib/flexible.js"></script>
+    <!--<link rel="stylesheet" href="../../css/common/public.css">-->
+    <!--<link rel="stylesheet" href="../../css/component/modal.css">-->
+    <link rel="stylesheet" href="../../css/app.css">
+</head>
+<body>
+<h1>交互窗口组</h1>
+
+<div class="u-modal u-modal-confirm" id="my-modal-loading">
+    <div class="u-modal-dialog yh-modal-dialog">
+        <div class="u-modal-hd"><i class="u-icon-loading"></i></div>
+        <div class="u-modal-bd u-modal-text-center">
+            正在载入...
+        </div>
+    </div>
+</div>
+
+<button type="button" class="u-btn u-btn-primary yh-btn1">
+    Alert
+</button>
+
+<div class="u-modal u-modal-alert" id="my-alert">
+    <div class="u-modal-dialog">
+        <div class="u-modal-bd">
+            您的账号申诉提交成功，审核需要
+            2~3个工作日!
+        </div>
+        <div class="u-modal-footer">
+            <span class="u-modal-btn">知道了</span>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<button type="button" class="u-btn u-btn-warning yh-btn2" id="doc-confirm-toggle">
+    Confirm
+</button>
+
+<div class="u-modal u-modal-confirm" id="my-confirm">
+    <div class="u-modal-dialog yh-modal-dialog">
+        <div class="u-modal-hd">yunHou UI</div>
+        <div class="u-modal-bd u-modal-text-center">
+            你，确定要删除这条记录吗？
+        </div>
+        <div class="u-modal-footer">
+            <span class="u-modal-btn yh-modal-btn" data-u-modal-cancel>取消</span>
+            <span class="u-modal-btn yh-modal-btn" data-u-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+
+<div class="u-modal u-modal-list-exit" id="myPopupList">
+    <div class="u-modal-dialog yh-modal-popup">
+        <div class="u-popup-hd">
+            <h3 class="u-popup-title"></h3>
+            <span class="u-popup-close icon iconfont icon-danchuangguanbi"></span>
+        </div>
+        <div class="u-popup-bd">
+            <ul class="u-popup-list-text">
+                <li>买多了/买错了<i class="g-fl-rg icon iconfont icon-shensuchenggong"></i></li>
+                <li class="u-active">计划有变，没有时间消费<i class="g-fl-rg icon iconfont icon-shensuchenggong"></i></li>
+                <li>预约不上<i class="g-fl-rg icon iconfont icon-shensuchenggong"></i></li>
+                <li>去过了，不太满意<i class="g-fl-rg icon iconfont icon-shensuchenggong"></i></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="u-modal u-modal-list-exit " id="myPopup">
+    <div class="u-modal-dialog yh-modal-popup">
+        <div class="u-popup-hd">
+            <h3 class="u-popup-title"></h3>
+            <span class="u-popup-close icon iconfont icon-danchuangguanbi"></span>
+        </div>
+        <div class="u-popup-bd">
+            <div class="u-exchange-alert">
+                <h4>激活兑换码获取红包</h4>
+                <div>
+                    <input type="text" class="u-form-input-text-orange" value="" placeholder="输入红包兑换码">
+                </div>
+                <p class="u-exchange-tips">温馨提示：把其他渠道获得的红包兑换码激活添加您的红包账户中</p>
+                <button class="u-btn u-radius u-btn-block u-btn-normal" type="submit">确定兑换</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--u-modal-active-->
+<div class="u-auto-modal u-modal-pay u-modal-active" id="myPopupPay">
+    <div class="u-modal-dialog yh-modal-popup">
+        <div class="u-popup-hd">
+            <span class="u-popup-close icon iconfont icon-danchuangguanbi"></span>
+
+            <h3 class="u-popup-title">请输入支付密码</h3>
+        </div>
+        <div class="u-popup-bd">
+            <div class="u-popup-pay-mod">
+                <div class="uppm-tit">
+                    红包：999.00
+                </div>
+                <div class="uppm-cont">
+                    <input type="password" placeholder="请输入支付密码" class="u-form-input-pay">
+                </div>
+                <div class="uppm-foot">
+                    <button type="submit" class="u-btn u-radius u-btn-block u-btn-normal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--u-mask-active-->
+<div class="u-mask">
+
+</div>
+
+<script type="text/javascript" src="../../js/lib/jquery.min.js"></script>
+
+</body>
+</html>

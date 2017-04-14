@@ -1,0 +1,145 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:08
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 11, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod {
+  font-size: 0.32rem;
+}
+/* line 13, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-normal-tit {
+  font-size: 0.32rem;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 0.4rem 0.26667rem;
+}
+/* line 18, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-normal-list li {
+  font-size: 0.32rem;
+}
+/* line 21, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-text-align-rg {
+  text-align: right;
+}
+/* line 24, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-text-align-lf {
+  text-align: left;
+}
+/* line 27, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-text-disabled {
+  color: #999;
+}
+/* line 30, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-fontColor-them {
+  color: #ff6666;
+  margin-bottom: 0.13333rem;
+}
+/* line 34, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-count-form {
+  margin-top: 0.13333rem;
+}
+/* line 38, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-merchantOrder-list li .u-g-bd .g-lf-box {
+  height: auto;
+}
+/* line 41, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-merchantOrder-list li .u-g-bd .g-lf-box img {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+/* line 45, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .m-mod-box .u-normal-list li .g-label-lf-lg {
+  width: 2.66667rem;
+}
+/* line 48, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-form-item {
+  font-size: 0.32rem;
+}
+/* line 51, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-form-item-line label:not(.u-switch):not(.u-checkbox):not(.u-radio) {
+  width: auto;
+}
+/* line 54, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-form-item .u-form-item-line .u-form-input-text, .m-orderConfirm-mod .u-form-item .u-form-input-textarea {
+  padding-left: 1.6rem;
+}
+/* line 58, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .m-requiredToPay .u-form-item .u-form-item-line .u-form-input-text {
+  padding-left: 2.4rem;
+}
+/* line 61, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-ico-img-jf, .m-orderConfirm-mod .u-ico-img-yhb, .m-orderConfirm-mod .u-ico-img-hb, .m-orderConfirm-mod .u-ico-img-wx {
+  width: 0.42667rem;
+  height: 0.42667rem;
+  display: inline-block;
+  background: url("/public/static/img/module/ordersConfirm_ico_0.png") no-repeat center center;
+  background-size: contain;
+  vertical-align: bottom;
+  margin-right: 0.13333rem;
+}
+/* line 70, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-ico-img-yhb {
+  background: url("/public/static/img/module/ordersConfirm_ico_1.png") no-repeat center center;
+  background-size: contain;
+}
+/* line 74, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-ico-img-hb {
+  background: url("/public/static/img/module/ordersConfirm_ico_2.png") no-repeat center center;
+  background-size: contain;
+}
+/* line 78, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-ico-img-wx {
+  background: url("/public/static/img/module/ordersConfirm_ico_3.png") no-repeat center center;
+  background-size: contain;
+}
+/* line 83, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-normal-list .u-active .icon-gouxuan {
+  color: #ff6666;
+}
+/* line 87, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-orderConfirm-sbumit-mod {
+  display: -webkit-box;
+  /* Safari and Chrome */
+  display: -moz-box;
+  /* Firefox */
+  display: box;
+  width: 9.33333rem;
+  margin: 0 auto;
+  padding: 0.26667rem;
+}
+/* line 92, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-orderConfirm-sbumit-mod .uosm-lf {
+  -moz-box-flex: 1;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  font-size: 0.32rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+}
+/* line 98, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-orderConfirm-sbumit-mod .uosm-rg {
+  -moz-box-flex: 1;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+}
+/* line 100, ../../../sass/dhy/module/ordersConfirm.scss */
+.m-orderConfirm-mod .u-orderConfirm-sbumit-mod .uosm-rg .u-btn {
+  height: 0.8rem;
+  line-height: 0.8rem;
+}

@@ -1,0 +1,227 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:40
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//会员中心
+.m-memberCenter-page {
+  background:#f2f3f7;
+  padding-bottom: Rem(40);
+  position: relative;
+  z-index: 1;
+  @include autoWH;
+  .u-person-info{
+    padding-bottom: Rem(60);
+  }
+
+  .u-member-info {
+    width: Rem(750);
+    margin: 0 auto;
+    background: url("/public/static/img/module/memberBg_0.jpg") no-repeat center top;
+    //height: Rem(210);
+    background-size: cover;
+    color: #fff;
+    .icon-youjiantou::before {
+      color: #fff;
+    }
+    .umi-hd {
+      padding: Rem(40) Rem(30) Rem(30) Rem(30);
+      @include clearfix;
+      @include displayBox;
+      width: Rem(750);
+      //height: Rem(140);
+      margin: 0 auto;
+    }
+    .umi-bd {
+      @include clearfix;
+      @include displayBox;
+      width: Rem(750);
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+  .m-umi-imgInfo {
+    -webkit-box-flex: 3.0; /* Safari and Chrome */
+    -moz-box-flex: 3.0; /* Firefox */
+    box-flex: 3.0;
+    padding-top: Rem(15);
+    @include clearfix;
+    .m-user-img {
+      display: block;
+      width: Rem(120);
+      height: Rem(120);
+      vertical-align: middle;
+      //border: 2px solid #f58867;
+      //border-radius: Rem(120);
+      overflow: hidden;
+      margin-right: Rem(20);
+    }
+    img {
+      margin-right: Rem(20);
+      width: Rem(120);
+      height: Rem(120);
+      border: 2px solid #f58867;
+      border-radius: Rem(120);
+    }
+    .m-umi-cards-type {
+      padding-top: Rem(10);
+      p {
+        margin-top: Rem(10);
+      }
+    }
+    i {
+      font-size: Rem(32);
+    }
+  }
+  .u-ico-sms-mod {
+    position: relative;
+    //height: Rem(80);
+    .u-ico-sms-red {
+      background: #ff6414;
+      top: Rem(10);
+      right: Rem(-5);
+      position: absolute;
+      text-align: center;
+      font-size: Rem(10*2);
+      width: Rem(30);
+      height: Rem(30);
+      line-height: Rem(30);
+      color: #ff6414;
+      border: 1px solid #fff;
+      border-radius: Rem(30);
+      transform: scale(0.8, 0.8);
+      -webkit-transform: scale(0.8, 0.8);
+    }
+  }
+  .m-umi-sms {
+    text-align: right;
+    -webkit-box-flex: 1.0; /* Safari and Chrome */
+    -moz-box-flex: 1.0; /* Firefox */
+    box-flex: 1.0;
+    .icon-xiaoxi {
+      font-size: Rem(50);
+    }
+    ul li {
+      a {
+        color: #fff;
+      }
+      //margin: Rem(5) 0;
+    }
+  }
+  .m-col-iconMod{
+    -webkit-box-flex: 1.0; /* Safari and Chrome */
+    -moz-box-flex: 1.0; /* Firefox */
+    box-flex: 1.0;
+    height: Rem(140);
+    cursor: pointer;
+    text-align: center;
+    padding: Rem(20) 0;
+    h3 {
+      font-size: Rem(12*2);
+    }
+    i {
+      display:block;
+      width: Rem(64);
+      height: Rem(64);
+      background-size: contain;
+      vertical-align: middle;
+      //margin-right: Rem(20);
+      margin: 0 auto Rem(10) auto;
+    }
+  }
+  .m-col-iconMod:nth-child(1) {
+    i {
+      background: url("/public/static/img/module/member_ico_3.png") no-repeat center center;
+      background-size: contain;
+    }
+  }
+  .m-col-iconMod:nth-child(2) {
+    i {
+      background: url("/public/static/img/module/member_ico_4.png") no-repeat center center;
+      background-size: contain;
+    }
+  }
+  .m-col-iconMod:nth-child(3) {
+    i {
+      background: url("/public/static/img/module/member_ico_5.png") no-repeat center center;
+      background-size: contain;
+    }
+  }
+  .m-col-iconMod:nth-child(4) {
+    i {
+      background: url("/public/static/img/module/member_ico_6.png") no-repeat center center;
+      background-size: contain;
+    }
+  }
+  .u-normal-mod {
+    margin-bottom: Rem(20);
+  }
+}
+//王府定制
+.m-memberCenter-wangfu-page{
+  //position: relative;
+  //z-index: 1;
+  //@include autoWH;
+  .u-person-info{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-backface-visibility: hidden;
+    z-index: 1;
+    padding-bottom: Rem(160);
+  }
+}
+//底部悬浮菜单
+.m-memberCenter-fixed-bottom{
+  //position:fixed;
+  position:absolute;
+  *zoom:1;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  //padding: Rem(10) 0 Rem(15) 0;
+  z-index: 1001;
+  background: #fff;
+  border-top:1px solid #f2f2f2;
+   .m-menu-nav{
+     @include clearfix;
+     overflow: hidden;
+     li{
+      @include g-fl-lf;
+      width: 24%;
+      text-align: center;
+      .icon{
+        font-size:Rem(56);
+      }
+      a{
+        color:#999; //d3d4d6
+        display: block;
+        position: relative;
+      }
+      h5{
+        margin-top: -10px;
+        font-weight:lighter;
+        font-size: Rem(28);
+      }
+     }
+     li:nth-child(4){
+       a{color:#1b272f;}
+     }
+     .u-badge-number{
+       position: absolute;
+       top: 0;
+       right:Rem(40);
+     }
+   }
+}

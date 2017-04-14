@@ -1,0 +1,33 @@
+<section class="m-messageDetails-mod u-scrollBar" id="msgDetailsList">
+    <div class="u-refresh" id="pointsDetailsList" data-judge="<%= judge %>">
+        <div class="u-data-list">
+            <% if(data.length>0){ %>
+            <% var num=0;data.forEach(function(item){ %>
+            <dl class="u-messageDetails-list" data-index="<%= num %>">
+                <dt><%= item["date"] %></dt>
+                <% item["list"].forEach(function(list){%>
+                <dd data-id="<%= list["id"] %>" data-type="<%= list["type"] %>">
+                    <div class="uml-tit">
+                        <h5><%= list["title"] %><% if(list["status"]=="0"){ %><i></i><% } %></h5>
+                    </div>
+                    <div class="uml-cont">
+                        <p data-content="<%= list["content"] %>"></p>
+                    </div>
+                    <div class="uml-foot clearfix u-hidden">
+                        <div class="g-fl-rg u-look-more">
+                            <b>查看详情</b>
+                            <span class="icon iconfont icon-youjiantou"></span>
+                        </div>
+                    </div>
+                </dd>
+                <% }) %>
+                <% num++ %>
+            </dl>
+            <% }) %>
+            <% }else{ %>
+            <p class="u-noTips-center">暂无消息</p>
+            <% }%>
+        </div>
+    </div>
+
+</section>

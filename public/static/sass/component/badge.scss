@@ -1,0 +1,35 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 16:17
+ * */
+@import "../common/variable";
+
+.u-badge-text{
+  color: $font-them-color;
+  cursor: pointer;
+}
+.u-badge-text:not(.disabled):not(:disabled):active,.u-badge-text.active,.u-badge-text:hover,.u-badge-text:focus{
+  color: $font-base-color;
+}
+.u-badge-text.disabled,.u-badge-text:disabled,.u-badge-text[disabled=""]{
+  color: #c4c4c4;
+}
+
+.u-badge-number{
+  display: inline-block;
+  background:$font-them-color;
+  cursor: pointer;
+  color:#fff;
+  text-align: center;
+  min-width: Rem(40);
+  min-height: Rem(40);
+  padding:Rem(2) Rem(3) 0 Rem(3);
+  border-radius: Rem(30);
+  font-size: Rem(24);
+}
+.u-badge-number.u-hidden{
+  display: none;
+}

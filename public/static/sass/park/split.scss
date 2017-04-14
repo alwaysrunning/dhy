@@ -1,0 +1,114 @@
+@import "mixin";
+
+.split-box {
+  height: 100%;
+
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(space-between);
+
+  .split-box-item {
+    @include flex-shrink(1);
+    flex-grow: 1;
+
+    @include flexbox;
+
+    background-color: #fff;
+
+    & > a, & > a:link, & > a:visited {
+      color: #333;
+
+      flex-grow: 1;
+      @include flex-shrink(1);
+
+      @include flexbox-inline;
+      @include flex-direction(column);
+      @include justify-content(center);
+      @include align-items(center);
+
+      .split-body-img {
+        width: Rem(233);
+        height: Rem(184);
+
+        @include flex-shrink(1);
+      }
+
+      .split-body-title {
+        font-size: Rem(32);
+        text-align: center;
+        line-height: Rem(45);
+        margin-bottom: Rem(25);
+        @include flex-shrink(1);
+      }
+
+      .split-body-subtitle {
+        text-align: center;
+        line-height: Rem(30);
+        @include flex-shrink(1);
+
+        i {
+          color: #f95d5b;
+          font-style: normal;
+        }
+      }
+    }
+
+    &:first-child {
+      margin-bottom: Rem(10);
+    }
+    &:last-child {
+      margin-top: Rem(10);
+    }
+  }
+}
+
+.split-box-h{
+  height:Rem(200);
+
+  @include flexbox;
+  @include justify-content(space-between);
+
+  .split-box-item{
+    @include flexbox;
+    @include justify-content(center);
+    @include flex-shrink(1);
+    flex-grow: 1;
+
+    border-radius: Rem(3);
+    border: 1px solid #d1d1d1;
+    box-sizing: border-box;
+
+    & > a, & > a:link, & > a:visited {
+      color: #666;
+      @include flex-shrink(1);
+
+      @include flexbox-inline;
+      @include flex-direction(column);
+      @include justify-content(center);
+      @include align-items(center);
+      flex-grow: 1;
+
+      img{
+        width:Rem(79);
+        height:Rem(80);
+
+        @include flex-shrink(1);
+      }
+
+      span{
+        margin-top: Rem(20);
+        text-align: center;
+        @include flex-shrink(1);
+      }
+
+
+    }
+
+    &:first-child {
+      margin-right: Rem(10);
+    }
+    &:last-child {
+      margin-left: Rem(10);
+    }
+  }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/static/css/park/app.css"/>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><!--ignore-->
+    <script src="/public/static/js/lib/flexible.js"></script><!--ignore-->
+    <script src="/public/static/js/lib/jquery.min.js"></script>
+    <script src="/public/static/js/extends/touch.js"></script>
+    <script src="/public/park/js/store.js"></script>
+    <script src="/public/park/js/check.js"></script>
+</head>
+<body>
+<div class="viewport">
+    <div class="bg dark weixinpay">
+        <div class="list ">
+            <div class="list-item">
+                <div class="list-body">
+                    <div class="big-title">
+                        <div class="center-title">停车费</div>
+                        <div class="text">¥ <%= (order.weixinMoney / 100).toFixed(2) %></div>
+                    </div>
+                    <div class="list-text">进场时间：<%= order.inTime %></div>
+                    <div class="list-text">出场时间：<%= order.outTime %></div>
+                    <div class="list-text">停车时间：<%= order.stayTime %></div>
+                    <div class="list-text">车牌号码：<%= order.carNo %></div>
+                    <div class="list-text">总价：<span class="orange">¥ <%= (order.money / 100).toFixed(2) %></span></div>
+                </div>
+            </div>
+        </div>
+        <%if(!isSiebel){%>
+        <div class="warm">温馨提示：下次登录完善个人信息可免输小票号哦！</div>
+        <%}%>
+        <div class="btn-box">
+            <button id="pay" type="button" class="btn block disabled">立即支付</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        checker.check().then(function () {
+            $.getJSON('http://' + window.location.host + '/api/weixin/sign?callback=?', {
+                url: encodeURIComponent(window.location.href.split('#')[0])
+            }).then(function (data) {
+                wx.config({
+                    //debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: data.appId, // 必填，公众号的唯一标识
+                    timestamp: data.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                    signature: data.signature,// 必填，签名，见附录1
+                    jsApiList: [
+                        'showMenuItems',
+                        'hideAllNonBaseMenuItem',
+                        'scanQRCode',
+                        'chooseWXPay',
+                        'hideMenuItems'
+                    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+            });
+
+            wx.ready(function () {
+                wx.hideAllNonBaseMenuItem();
+
+                <%if(order.status === 2){%>
+                $('#pay').removeClass('disabled').on('tap', function () {
+                    if (!$(this).hasClass('disabled')) {
+                        wx.chooseWXPay({
+                            timestamp: '<%=sign.timeStamp%>', // 支付签名时间戳
+                            nonceStr: '<%=sign.nonceStr%>', // 支付签名随机串，不长于 32 位
+                            package: '<%=sign.package%>', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+                            signType: '<%=sign.signType%>', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+                            paySign: '<%=sign.paySign%>', // 支付签名
+                            success: function (payRes) {
+                                var tips = JSON.stringify(payRes);
+                                switch (payRes.errMsg) {
+                                    case 'chooseWXPay:ok':
+                                    case 'chooseWXPay:fail':
+                                        window.location.href = '/park/status/<%=order.orderNo%>';
+                                        break;
+                                }
+                            }
+                        });
+                    }
+                })
+                <%}%>
+            });
+        }).fail(function (err) {
+            if (err.code === '200010002') {
+                window.location.href = '/#/login?fromUrl=' + encodeURIComponent(window.location.href);
+            }
+        });
+    });
+</script>
+</body>
+</html>

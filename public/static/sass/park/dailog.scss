@@ -1,0 +1,176 @@
+@charset "utf-8";
+
+.dailog-select {
+  position: absolute;
+  top: Rem(92);
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  //max-height: Rem(540);
+  z-index: 101;
+
+  -webkit-box-shadow: 0 0 Rem(8) Rem(3) rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0 0 Rem(8) Rem(3) rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 Rem(8) Rem(3) rgba(0, 0, 0, 0.06);
+
+  -webkit-border-top-right-radius: Rem(8);
+  -webkit-border-top-left-radius: Rem(8);
+  -webkit-border-bottom-right-radius: Rem(8);
+  -webkit-border-bottom-left-radius: Rem(8);
+  -moz-border-radius-topright: Rem(8);
+  -moz-border-radius-topleft: Rem(8);
+  -moz-border-radius-bottomright: Rem(8);
+  -moz-border-radius-bottomleft: Rem(8);
+  border-top-right-radius: Rem(8);
+  border-top-left-radius: Rem(8);
+  border-bottom-right-radius: Rem(8);
+  border-bottom-left-radius: Rem(8);
+
+  display: none;
+
+  .dailog-content{
+    padding: Rem(20);
+  }
+
+  .dailog-arrow{
+    position: absolute;
+    left: Rem(70);
+    top: Rem(-11);
+    width: 0;
+    height: 0;
+    border-left: Rem(12) solid transparent;
+    border-right: Rem(12) solid transparent;
+    border-bottom: Rem(12) solid #ffffff;
+    display: block;
+  }
+}
+
+.dailog{
+  position: fixed;
+  width: Rem(650);
+  top: 50%;
+  left: 50%;
+  background-color: #ffffff;
+  overflow: hidden;
+  z-index: 101;
+
+  -webkit-border-radius: Rem(5);
+  -moz-border-radius: Rem(5);
+  border-radius: Rem(5);
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  .dailog-head{
+    padding: Rem(20);
+    border-bottom: 1px solid #f2f2f2;
+
+    .iconfont-park{
+      width: Rem(34);
+      height: Rem(34);
+      font-size: Rem(34);
+      color: #f95d5b;
+      float: right;
+    }
+  }
+
+  .dailog-content{
+    padding: Rem(50) Rem(40);
+    overflow: hidden;
+
+    .pure-text{
+      font-size: Rem(28);
+    }
+
+    input[type=text]{
+      border: 1px solid #f2f2f2;
+      padding: Rem(20);
+      height: Rem(90);
+      width: 100%;
+      line-height: Rem(90);
+      background-color: #fbfbfb;
+      font-size: Rem(24);
+
+      -webkit-appearance: none;
+
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+
+      -webkit-border-radius: Rem(5);
+      -moz-border-radius: Rem(5);
+      border-radius: Rem(5);
+
+      display: block;
+    }
+  }
+
+  .dailog-btns{
+    border-top: 1px solid #f2f2f2;
+    font-size: Rem(30);
+    line-height: Rem(34);
+
+    .dailog-btn{
+      padding: Rem(20);
+      background-color: transparent;
+      border: none;
+      border-right: 1px solid  #f2f2f2;
+      display: block;
+
+      &:last-child{
+        border-right: none;
+      }
+      &.orange{
+        color: #f95d5b;
+      }
+    }
+  }
+}
+
+.dailog-warm{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  background-color: #ffffff;
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  -webkit-box-shadow: 0 0 Rem(8) Rem(3) rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0 0 Rem(8) Rem(3) rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 Rem(8) Rem(3) rgba(0, 0, 0, 0.06);
+
+  -webkit-border-top-right-radius: Rem(8);
+  -webkit-border-top-left-radius: Rem(8);
+  -webkit-border-bottom-right-radius: Rem(8);
+  -webkit-border-bottom-left-radius: Rem(8);
+  -moz-border-radius-topright: Rem(8);
+  -moz-border-radius-topleft: Rem(8);
+  -moz-border-radius-bottomright: Rem(8);
+  -moz-border-radius-bottomleft: Rem(8);
+  border-top-right-radius: Rem(8);
+  border-top-left-radius: Rem(8);
+  border-bottom-right-radius: Rem(8);
+  border-bottom-left-radius: Rem(8);
+
+  padding: Rem(30) Rem(48);
+
+  white-space: nowrap;
+}
+
+.dark-layer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.5);
+  z-index: 100;
+}

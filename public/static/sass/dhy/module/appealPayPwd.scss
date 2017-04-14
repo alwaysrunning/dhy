@@ -1,0 +1,85 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:46
+ * */
+@import"../../common/variable",
+"../../common/mixin";
+//支付密码申诉
+.m-appealPay-page {
+  .m-pp-ban {
+    .m-pp-ban-center {
+      width: Rem(700);
+    }
+    ul {
+      li:nth-child(3) {
+        i {
+          background: url("/public/static/img/module/appealPayPwd_stepBanIco_1.png") no-repeat center top;
+          background-size: contain;
+        }
+      }
+      li:nth-child(4) {
+        -webkit-box-flex: 2.0; /* Safari and Chrome */
+        -moz-box-flex: 2.0; /* Firefox */
+        box-flex: 2.0;
+        i {
+          width: 100%;
+          background: url("/public/static/img/module/restphone_stepBanIco_2.png") no-repeat center center;
+          background-size: contain;
+        }
+      }
+      li:nth-child(5) {
+        -webkit-box-flex: 1.0; /* Safari and Chrome */
+        -moz-box-flex: 1.0; /* Firefox */
+        box-flex: 1.0;
+        i {
+          background: url("/public/static/img/module/appealPayPwd_stepBanIco_2.png") no-repeat center top;
+          background-size: contain;
+        }
+      }
+    }
+    .u-active-step-two {
+      li:nth-child(2) {
+        i {
+          background: url("/public/static/img/module/restphone_stepBanIco_2_1.png") no-repeat center center;
+          background-size: contain;
+        }
+      }
+      li:nth-child(3) {
+        i {
+          background: url("/public/static/img/module/appealPayPwd_stepBanIco_1_1.png") no-repeat center top;
+          background-size: contain;
+        }
+      }
+
+    }
+    .u-active-step-three {
+      li:nth-child(2) {
+        i {
+          background: url("/public/static/img/module/restphone_stepBanIco_2_1.png") no-repeat center center;
+          background-size: contain;
+        }
+      }
+      li:nth-child(3) {
+        i {
+          background: url("/public/static/img/module/appealPayPwd_stepBanIco_1_1.png") no-repeat center top;
+          background-size: contain;
+        }
+      }
+      li:nth-child(4) {
+        i {
+          background: url("/public/static/img/module/restphone_stepBanIco_2_1.png") no-repeat center center;
+          background-size: contain;
+        }
+      }
+      li:nth-child(5) {
+        i {
+          background: url("/public/static/img/module/appealPayPwd_stepBanIco_2_1.png") no-repeat center center;
+          background-size: contain;
+        }
+      }
+    }
+  }
+}

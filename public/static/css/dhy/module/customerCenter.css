@@ -1,0 +1,110 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:04
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 12, ../../../sass/dhy/module/customerCenter.scss */
+.m-customer-service-mod .m-mod-box {
+  background-color: #ffffff;
+}
+/* line 15, ../../../sass/dhy/module/customerCenter.scss */
+.m-customer-service-mod .m-filter {
+  margin-bottom: 0.26667rem;
+}
+/* line 18, ../../../sass/dhy/module/customerCenter.scss */
+.m-customer-service-mod .m-filter li {
+  padding: 0.26667rem;
+}
+/* line 21, ../../../sass/dhy/module/customerCenter.scss */
+.m-customer-service-mod .m-filter li .m-filter-btn {
+  text-align: center;
+  font-size: 0.37333rem;
+  color: #666;
+}
+/* line 29, ../../../sass/dhy/module/customerCenter.scss */
+.m-customer-service-mod .m-customer-list {
+  color: #333;
+}
+/* line 32, ../../../sass/dhy/module/customerCenter.scss */
+.m-customer-service-mod .m-customer-list .m-mod-box {
+  margin-bottom: 0.26667rem;
+}
+/* line 35, ../../../sass/dhy/module/customerCenter.scss */
+.m-customer-service-mod .m-customer-list .m-mod-box .m-flex-box {
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+}
+/* line 40, ../../../sass/dhy/module/customerCenter.scss */
+.m-customer-service-mod .m-customer-list .m-mod-box .m-flex-box .m-customer-info {
+  width: 7.73333rem;
+  padding-right: 0.26667rem;
+  border-right: 1px solid #f2f2f2;
+  overflow: hidden;
+  -moz-box-flex: 0;
+  -webkit-box-flex: 0;
+  box-flex: 0;
+}
+/* line 49, ../../../sass/dhy/module/customerCenter.scss */
+.m-customer-service-mod .m-customer-list .m-mod-box .m-flex-box .m-customer-info div {
+  font-size: 0.32rem;
+  color: #333;
+}
+/* line 55, ../../../sass/dhy/module/customerCenter.scss */
+.m-customer-service-mod .m-customer-list .m-mod-box .m-flex-box .m-customer-tel {
+  color: #ff6666;
+  text-align: center;
+  padding-top: 0.26667rem;
+  -moz-box-flex: 1;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+}
+/* line 63, ../../../sass/dhy/module/customerCenter.scss */
+.m-customer-service-mod .m-customer-list .m-mod-box .m-flex-box .m-customer-tel .iconfont {
+  font-size: 0.6rem;
+}
+
+/* line 73, ../../../sass/dhy/module/customerCenter.scss */
+.u-customer-cate-list li {
+  padding-left: 0;
+  overflow: hidden;
+  height: auto;
+}
+/* line 77, ../../../sass/dhy/module/customerCenter.scss */
+.u-customer-cate-list li a {
+  padding: 0.26667rem;
+}
+/* line 80, ../../../sass/dhy/module/customerCenter.scss */
+.u-customer-cate-list li img {
+  width: 0.96rem;
+  height: 0.96rem;
+  border: 1px solid #f2f2f2;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: 0.26667rem;
+}
+
+/* line 90, ../../../sass/dhy/module/customerCenter.scss */
+.m-customer-center {
+  height: 100%;
+}
+/* line 92, ../../../sass/dhy/module/customerCenter.scss */
+.m-customer-center .g-empty-data {
+  height: 100%;
+}

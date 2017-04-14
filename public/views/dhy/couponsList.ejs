@@ -1,0 +1,278 @@
+<div class="m-couponsList-mod u-tabs-wrap u-scrollBar">
+
+    <% if(type == 2){ %>
+    <!--门店-->
+    <header class="u-fixed-top">
+        <nav class="u-nav-tab u-tabs-nav">
+            <ul>
+                <li><a href="javascript:void(0);">可使用</a></li>
+                <li><a href="javascript:void(0);">已使用</a></li>
+                <li><a href="javascript:void(0);">已过期</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="u-nav-box">
+        <div class="u-nav-show-list u-refresh" id="sieBelWrap">
+
+            <!--可使用-->
+            <div class="u-nav-show u-tabs-show">
+                <% if(data.usable.data.length > 0){ %>
+                <ul class="mcm-coupons-list" id="sieBelList1">
+                    <% data.usable.data.forEach(function(item){ %>
+                    <li >
+
+                        <div class="mcl-bd">
+                            <h4>&yen;<em><%= item["vendorAmt"] %></em></h4>
+                            <p>
+                                <%= item["voucherName"] %>
+                            </p>
+                            <p>票券号:<%= item["fourCheckNo"] %></p>
+                            <p class="limit-time">
+                                使用时间：<%= item["startTime"].split(' ')[0].replace(/-/g, ".") %>
+                                ~ <%= item["endTime"].split(' ')[0].replace(/-/g, ".") %>
+                            </p>
+                        </div>
+
+                        <div class="mcl-ft">
+                            <div class="mcl-ft-hd">
+                                <h5><i></i>使用规则</h5>
+                                <em><i class="icon iconfont icon-xiajiantou"></i></em>
+                            </div>
+                            <div class="mcl-ft-text-mod">
+                                <div class="mcl-ft-bd">
+                                   <%=item["vendorDesc"] %>
+                                </div>
+                                <div class="mcl-ft-ft">
+                                    <i class="icon iconfont icon-shangjiantou"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mcl-ft-shadow">
+
+                        </div>
+
+                    </li>
+                    <% }) %>
+                </ul>
+                <% }else{ %>
+                <div class="g-empty-data">
+                    <div class="m-empty-data">
+                        <div class="u-sprite coupons"></div>
+                        <p class="msg">暂无此类优惠券~</p>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+
+            <!--已使用-->
+            <div class="u-nav-show u-tabs-show u-tabs-hide">
+                <% if(data.apply.data.length > 0){ %>
+                <ul class="mcm-coupons-list mcl-apply" id="sieBelList2">
+                    <% data.apply.data.forEach(function(item){ %>
+                    <li>
+
+                        <div class="mcl-bd">
+                            <h4>&yen;<em><%= item["vendorAmt"] %></em></h4>
+                            <p>
+                                <%= item["voucherName"] %>
+                            </p>
+                            <p>票券号:<%= item["fourCheckNo"] %></p>
+                            <p class="limit-time">
+                                使用时间：<%= item["startTime"].split(' ')[0].replace(/-/g, ".") %>
+                                ~ <%= item["endTime"].split(' ')[0].replace(/-/g, ".") %>
+                            </p>
+                        </div>
+
+                        <div class="mcl-ft">
+                            <div class="mcl-ft-hd">
+                                <h5><i></i>使用规则</h5>
+                                <em><i class="icon iconfont icon-xiajiantou"></i></em>
+                            </div>
+                            <div class="mcl-ft-text-mod">
+                                <div class="mcl-ft-bd">
+                                    <%=item["vendorDesc"] %>
+                                </div>
+                                <div class="mcl-ft-ft">
+                                    <i class="icon iconfont icon-shangjiantou"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mcl-ft-shadow">
+
+                        </div>
+
+                    </li>
+                    <% }) %>
+                </ul>
+                <% }else{ %>
+                <div class="g-empty-data">
+                    <div class="m-empty-data">
+                        <div class="u-sprite coupons"></div>
+                        <p class="msg">暂无此类优惠券~</p>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+
+            <!--已过期-->
+            <div class="u-nav-show u-tabs-show u-tabs-hide">
+                <% if(data.expire.data.length > 0){ %>
+                <ul class="mcm-coupons-list mcl-expire" id="sieBelList3">
+                    <% data.expire.data.forEach(function(item){ %>
+                    <li class="mcl-expire">
+
+                        <div class="mcl-bd">
+                            <h4>&yen;<em><%= item["vendorAmt"] %></em></h4>
+                            <p>
+                                <%= item["voucherName"] %>
+                            </p>
+                            <p>票券号:<%= item["fourCheckNo"] %></p>
+                            <p class="limit-time">
+                                使用时间：<%= item["startTime"].split(' ')[0].replace(/-/g, ".") %>
+                                ~ <%= item["endTime"].split(' ')[0].replace(/-/g, ".") %>
+                            </p>
+                        </div>
+
+                        <div class="mcl-ft">
+                            <div class="mcl-ft-hd">
+                                <h5><i></i>使用规则</h5>
+                                <em><i class="icon iconfont icon-xiajiantou"></i></em>
+                            </div>
+                            <div class="mcl-ft-text-mod">
+                                <div class="mcl-ft-bd">
+                                    <%=item["vendorDesc"] %>
+                                </div>
+                                <div class="mcl-ft-ft">
+                                    <i class="icon iconfont icon-shangjiantou"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mcl-ft-shadow">
+
+                        </div>
+
+                    </li>
+                    <% }) %>
+                </ul>
+                <% }else{ %>
+                <div class="g-empty-data">
+                    <div class="m-empty-data">
+                        <div class="u-sprite coupons"></div>
+                        <p class="msg">暂无此类优惠券~</p>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+
+        </div>
+    </div>
+    <% }else{ %>
+    <div class="g-empty-data">
+        <div class="m-empty-data">
+            <div class="u-sprite coupons"></div>
+            <p class="msg">优惠券列表类型错误!</p>
+        </div>
+    </div>
+    <% } %>
+
+</div>
+<script type="text/javascript">
+    $(function () {
+        //显示展开
+        var toggleShow=function () {
+
+            $(".mcl-ft-hd").unbind("click").on("click",function () {
+                $(this).find("em").hide();
+                $(this).next().show();
+            });
+            $('.mcl-ft-ft').unbind("click").on("click",function () {
+                $(this).parent().hide();
+                $(this).parent().prev().find("em").show();
+            })
+
+        }
+
+        toggleShow();
+        //门店列表加载
+        <% if(type == 2){ %>
+        App.component.scrollLoading({
+            wrapper: "#sieBelWrap",
+            list: "#sieBelList1",
+            ejsUrl: "views/dhy/scrollSiebelCoupons.ejs",
+            getUrl: function (page, pageSize) {
+                return "coupon/list?page=" + page + "&pagesize=" + pageSize + "&status=" + "可用" + "&type=siebel";
+            },
+            totalPage: function (data) {
+                var result = false;
+                if (data) {
+                    var _total = data["total"];
+                    var _count = data["count"];
+                    var _index = data["index"];
+                    var _maxPageSize = _count !== 0 ? Math.ceil(_total / _count) : 0;
+                    if (_index <= _maxPageSize) {
+                        result = _maxPageSize
+                    } else {
+                        console.log("page error!");
+                        App.Popover.weak({txt: "没有了更多内容了..."})
+                    }
+                }
+                return result;
+            }
+        });
+        <% } %>
+        //tabs切换
+        var listTabs = App.component.tabs({
+            callback: function () {
+                var me = this;
+                var _index = arguments[0]["index"] + 1;
+                <% if(type == 2){ %>
+                /**********门店分类滚动加载列表**********/
+                var sieBelListScroll=function(sieBelList,status){
+                    var _sieBelList= $(sieBelList);
+                    _sieBelList.prev().remove();
+                    _sieBelList.next().remove();
+
+                    App.component.scrollLoading({
+                        wrapper: "#sieBelWrap",
+                        list: sieBelList,
+                        ejsUrl: "views/dhy/scrollSiebelCoupons.ejs",
+                        getUrl: function (page, pageSize) {
+                            return "coupon/list?page=" + page + "&pagesize=" + pageSize + "&status=" + status +
+                                    "&type=siebel";
+                        },
+                        totalPage: function (data) {
+                            var result = false;
+                            if (data) {
+                                var _total = data["total"];
+                                var _count = data["count"];
+                                var _index = data["index"];
+                                var _maxPageSize = _count !== 0 ? Math.ceil(_total / _count) : 0;
+                                if (_index < _maxPageSize) {
+                                    result = _maxPageSize
+                                } else {
+                                    console.log("page error!");
+                                    App.Popover.weak({txt: "没有了更多内容了..."})
+                                }
+                            }
+                            return result;
+                        }
+                    });
+                }
+                if(_index == "1"){
+                    //可使用
+                    sieBelListScroll("#sieBelList1","可用");
+                } else if (_index == "2") {
+                    //已使用
+                    sieBelListScroll("#sieBelList2","已应用");
+                } else if (_index == "3") {
+                    //已过期
+                    sieBelListScroll("#sieBelList3","过期的");
+                }
+                <% } %>
+            }
+        });
+    });
+</script>

@@ -1,0 +1,88 @@
+<div class="m-invitation-mod clearfix">
+    <div class="advertisement">
+        <img src="/public/static/img/module/myInvitationBanner.jpg" alt=""/>
+        <!--<a href="#/myInvitationRule" class="diff-btn" >活动规则</a>-->
+    </div>
+    <div class="u-normal-mod">
+        <ul class="u-list">
+            <% if(data.regCode && data.regCode.employeeNo){ %>
+            <li>
+                <a title="步步高员工">
+                    步步高员工(<%= data.regCode.employeeNo %>)
+                    <span class="g-fl-rg green">已认证</span>
+                </a>
+            </li>
+            <% } %>
+            <li>
+                <a title="我的邀请码">
+                    我的邀请码
+                    <span class="g-fl-rg"><%= data.regCode.invitationCode %></span>
+                </a>
+            </li>
+            <li>
+                <a href="#/myInvitationList" title>
+                    已成功邀请<%= data.regCode.invitedNum %>人
+                        <span class="g-fl-rg orange">
+                             查看详情 <span class="icon iconfont icon-youjiantou"></span>
+                        </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <% if(data.newUser){ %>
+    <div class="u-normal-mod">
+        <div class="u-title">
+            <a title="助力邀请人">
+                助力邀请人
+            </a>
+        </div>
+        <div class="u-cont">
+            <div class="m-flex-box">
+                <div class="input-box flex-box-item">
+                    <input id="invitationCode" type="text" placeholder="请输入邀请人编码" pattern="[0-9]*"/>
+                </div>
+                <div class="btn-box flex-box-item">
+                    <button id="invitationCodeSubmit" type="button"
+                            class="u-btn u-radius u-btn-normal u-btn-block disabled">确定
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>
+    <div class="u-normal-mod">
+        <div class="u-title">
+            <a title="好友邀请攻略">好友邀请攻略</a>
+        </div>
+        <div class="u-cont">
+            <div class="qrcode-box clearfix">
+                <div class="qcode">
+                    <img src="/public/static/img/qcode.jpg" alt=""/>
+                </div>
+                <div class="qcode-text">
+                    长按识别二维码，关注【小步之家】公 众账号，注册填写邀请码，就能助力您的好友哦！
+                </div>
+            </div>
+            <div class="summary-tip">
+                <span class="iconfont icon-tishi"></span> 温馨提示：首次登录未提交邀请码，可在7天有效期内，进
+                入【会员中心】-【我的邀请码】中填写哦！
+            </div>
+        </div>
+    </div>
+    <div class="qrcode-btn">
+        <a id="invitationShare" class="u-btn u-radius u-btn-normal u-btn-block">呼朋唤友</a>
+    </div>
+    <!--<div class="u-qrcode-mod">-->
+        <!--<div class="title">邀请好友二维码</div>-->
+        <!--<div class="qrcode-box">-->
+            <!--<img src="/code/qrcode/<%= encodeURIComponent('http://' + window.location.host + '/invitation/scan/' + data.regCode.invitationCode) %>?eclevel=M&version=6&scale=4"-->
+                 <!--alt=""/>-->
+        <!--</div>-->
+        <!--<div class="qrcode-btn">-->
+            <!--<a id="invitationShare" class="u-btn u-radius u-btn-normal u-btn-submit u-btn-block">呼朋唤友</a>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="m-invitation-share">
+        <div class="share"></div>
+    </div>
+</div>

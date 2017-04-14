@@ -1,0 +1,46 @@
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 5, ../../sass/component/infiniteRem.scss */
+.preloader, .weui-infinite-scroll .infinite-preloader {
+  width: 20px;
+  height: 20px;
+  transform-origin: 50%;
+  animation: preloader-spin 1s steps(12, end) infinite;
+}
+/* line 10, ../../sass/component/infiniteRem.scss */
+.preloader:after, .weui-infinite-scroll .infinite-preloader:after {
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100%;
+}
+
+/* line 21, ../../sass/component/infiniteRem.scss */
+.weui-infinite-scroll {
+  height: 24px;
+  line-height: 24px;
+  padding: 10px;
+  text-align: center;
+}
+/* line 27, ../../sass/component/infiniteRem.scss */
+.weui-infinite-scroll .infinite-preloader {
+  display: inline-block;
+  margin-right: 4px;
+  vertical-align: -4px;
+}

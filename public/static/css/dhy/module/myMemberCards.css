@@ -1,0 +1,175 @@
+@charset "UTF-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:03
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 11, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod {
+  margin-top: 0.26667rem;
+}
+/* line 13, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-title-box {
+  margin-top: 0.53333rem;
+  padding: 0.53333rem 0;
+  background: #fff;
+  text-align: center;
+  color: #666;
+}
+/* line 19, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-title-box a {
+  color: #666;
+  font-size: 0.37333rem;
+}
+/* line 25, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-card-box {
+  background-color: #ffffff;
+  padding: 0.26667rem 0;
+  width: 9.45333rem;
+  margin: 0 auto;
+  overflow: hidden;
+  zoom: 1;
+}
+/* line 33, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-card-box .m-card {
+  position: relative;
+  width: 7.57333rem;
+  height: 4.8rem;
+  margin: 0.26667rem auto;
+  background: url("/public/static/img/module/myMemberCards_card.png") no-repeat;
+  background-size: contain;
+}
+/* line 41, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-card-box .m-card .m-card-flag {
+  position: absolute;
+  top: -0.13333rem;
+  left: -0.13333rem;
+  width: 2.49333rem;
+  height: 2.46667rem;
+  background: url("/public/static/img/module/myMemberCards_flag.png") no-repeat;
+  background-size: contain;
+  overflow: hidden;
+}
+/* line 52, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-card-box .m-card .m-card-flag .text-box {
+  position: absolute;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  transform-origin: 0 0;
+  text-align: center;
+  top: 1.33333rem;
+  left: 0.06667rem;
+  font-size: 0.32rem;
+  line-height: 0.34667rem;
+  color: #f85631;
+}
+/* line 76, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-card-box .m-card .m-card-type {
+  position: absolute;
+  right: 0.53333rem;
+  top: 0.44rem;
+  color: #ffffff;
+  font-size: 0.42667rem;
+  font-family: "微软雅黑", serif;
+}
+/* line 85, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-card-box .m-card .m-card-num {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 3.73333rem;
+  color: #ffffff;
+  font-size: 0.50667rem;
+  font-family: "微软雅黑", serif;
+  text-align: center;
+}
+/* line 97, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-card-box .m-barcode-box, .m-myMemberCards-mod .m-card-box .m-qrcode-box {
+  width: 7.6rem;
+  margin: 0 auto;
+  padding: 0.26667rem 0;
+}
+/* line 102, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-card-box .m-barcode-box img, .m-myMemberCards-mod .m-card-box .m-qrcode-box img {
+  border: none;
+  width: 100%;
+}
+/* line 107, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-card-box .m-barcode-box .m-qrcode, .m-myMemberCards-mod .m-card-box .m-qrcode-box .m-qrcode {
+  width: 3.86667rem;
+  height: 3.86667rem;
+  margin: 0 auto;
+  position: relative;
+}
+/* line 113, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-card-box .m-barcode-box .m-qrcode .m-icon, .m-myMemberCards-mod .m-card-box .m-qrcode-box .m-qrcode .m-icon {
+  width: 0.8rem;
+  height: 0.8rem;
+  -webkit-border-radius: 0.13333rem;
+  -moz-border-radius: 0.13333rem;
+  border-radius: 0.13333rem;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-image: url("/public/static/img/module/myMemberCard_qrcode_icon.jpg");
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+/* line 140, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-card-box .m-barcode-box .m-qrcode-text, .m-myMemberCards-mod .m-card-box .m-qrcode-box .m-qrcode-text {
+  color: #666;
+  font-size: 0.32rem;
+  text-align: center;
+  font-family: "微软雅黑", serif;
+  padding: 0.26667rem 0;
+}
+/* line 151, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-bottom-line {
+  height: 0.24rem;
+  width: 9.45333rem;
+  margin: 0 auto;
+  background-repeat: no-repeat, no-repeat;
+  background-color: #ffffff;
+  background-image: url("/public/static/img/module/myMemberCards_line_circle.png"), url("/public/static/img/module/myMemberCards_line_circle.png");
+  background-size: 0.24rem 0.24rem;
+  background-position: 9.33333rem 0, -0.12rem 0;
+  overflow: hidden;
+}
+/* line 162, ../../../sass/dhy/module/myMemberCards.scss */
+.m-myMemberCards-mod .m-bottom-line .m-line {
+  width: 9.45333rem;
+  height: 0.02667rem;
+  background-color: #f5f5f5;
+  margin: 0.10667rem auto;
+}

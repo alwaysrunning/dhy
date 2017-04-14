@@ -1,0 +1,268 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 13:36
+ * */
+@import
+"../common/mixin",
+"../common/variable";
+
+.u-form {
+  background-color: $default-bg;
+  .u-display-block{
+    display: block;
+  }
+  .u-display-none{
+    display: none;
+  }
+  .u-show{
+    //display: block;
+    opacity: 1;
+    transition: all ease 0.2s;
+  }
+  .u-hidden{
+    //display: none;
+    opacity: 0;
+    transition: all ease 0.2s;
+  }
+}
+
+.u-form-item-order.active {
+  background-color: $active-bg;
+}
+/* 表单输入项 */
+.u-form-item-padding{
+  padding:0 Rem(10);
+}
+.u-form-item {
+  position: relative;
+  font-size: $font-size-sub;
+  height: $line-height-bar;
+  line-height: $line-height-bar;
+  .u-form-item-line{
+    padding-left: Rem(20);
+    border-bottom: 1px solid $border-default-color;
+    position: relative;
+    .u-placeholder-label{
+      position: absolute;
+    }
+  }
+  .u-form-input-text{
+   height: 100%;
+  }
+  label:not(.u-switch):not(.u-checkbox):not(.u-radio){
+    width: $form-label-width;
+    position: absolute;
+    text-align: left;
+    box-sizing: border-box;
+  }
+
+  input,
+  textarea{
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    border: 0;
+    background: none;
+  }
+  input[type="checkbox"],input[type="radio"]{
+    padding-left: 0;
+  }
+  .u-icon-close{
+    position: absolute;
+    top: 0;
+    right: Rem(6*2);
+  }
+
+  .u-form-input-text,.u-form-input-textarea{
+    padding-left: $form-label-width;
+  }
+
+  .g-form-item-rg{
+    position: absolute;
+    right: Rem(10);
+    top: 0;
+    i{
+      margin: 0 Rem(10*2);
+    }
+  }
+  .g-form-item-lf{
+    position: absolute;
+  }
+
+  .u-form-item-error,.u-form-item-warning{
+    .u-form-input-text{
+      color:$font-error-color;
+    }
+  }
+
+}
+
+.m-form-item-icon{
+  .icon-shouji,.icon-yanzhengma{
+    font-size: Rem(24*2);
+  }
+  .u-form-input-text{
+    padding-left: Rem(60);
+  }
+}
+
+//下拉历史记录
+.u-form-history{
+  .u-form-history-list{
+    position: relative;
+    left: 0;
+    top: 0;
+    background: $history-bg;
+    width: 100%;
+    z-index: $z-index-base+10;
+    -webkit-animation-duration: 0.3s;
+    animation-duration:0.3s;
+    display: none;
+    ul{
+      max-height: Rem(450);
+      overflow-y: auto;
+    }
+    ul li,.u-form-history-list-clear{
+      padding-left: Rem(82);
+      border-bottom: 1px solid $stable-bg;
+      cursor: pointer;
+    }
+    ul li:not(.disabled):not(:disabled):active,ul li.active,ul li:hover,ul li:focus,
+    .u-form-history-list-clear:not(.disabled):not(:disabled):active,
+    .u-form-history-list-clear.active,
+    .u-form-history-list-clear:hover,
+    .u-form-history-list-clear:focus{
+      background:#fff3ed;
+    }
+  }
+  .u-display-block{
+    display: block;
+  }
+  .u-display-none{
+    display: none;
+  }
+  .u-form-history-list.u-active{
+    display: block;
+    z-index: $z-index-base;
+  }
+  .u-form-history-footer{
+    border-top:1px solid $border-default-color;
+    .u-form-history-close{
+      margin-right: Rem(20);
+    }
+  }
+}
+
+.u-form-input-text-orange{
+  width: 100%;
+  color:#b6aeab;
+  background:#f6efeb;
+  border:1px solid #f6efeb;
+  padding: Rem(20) 0;
+}
+//搜索框
+.u-search-form{
+  width: Rem(550);
+  height: Rem(60);
+  margin: 0 auto;
+  .u-search-input{
+    position: relative;
+    width: Rem(520);
+    padding: 0 Rem(30);
+    height: Rem(55);
+    line-height: Rem(55);
+    border: 1px solid #f2f2f2;
+    border-radius: Rem(55);
+    font-size: Rem(24);
+    background:#fff;
+  }
+  .u-search-text{
+    text-align: center;
+    background:#fff;
+    width: Rem(480);
+    height: Rem(55);
+    background: url("../../img/module/ioi_searchbg_0.png") no-repeat Rem(110) center;
+    //background-size: contain;
+    border:none;
+  }
+
+  @media (-webkit-min-device-pixel-ratio:1){
+    .u-search-text{
+      background: url("../../img/module/ioi_searchbg_1.png") no-repeat Rem(110) center;
+    }
+  }
+
+  @media (device-width:320px) and (-webkit-min-device-pixel-ratio:2){
+    .u-search-text{
+      background: url("../../img/module/ioi_searchbg_0.png") no-repeat Rem(100) center;
+    }
+  }
+  @media (device-width:375px) and (-webkit-min-device-pixel-ratio:2){
+    .u-search-text{
+      background: url("../../img/module/ioi_searchbg_0.png") no-repeat Rem(100) center;
+    }
+  }
+  @media (device-width:414px) and (-webkit-min-device-pixel-ratio:2){
+    .u-search-text{
+      background: url("../../img/module/ioi_searchbg_0.png") no-repeat Rem(100) center;
+    }
+  }
+  .u-search-text.noBg{
+    background:none;
+  }
+  .u-search-icon{
+    font-size: Rem(24);
+    position: absolute;
+    left: 30%;
+    top: 25%;
+    color:$font-them-color;
+    -webkit-text-stroke-width:0;
+    b{
+      font-size: Rem(20);
+      font-weight: normal;
+      margin-left: Rem(10);
+      color:#999;
+
+    }
+  }
+}
+//加减框
+.u-count-form{
+  width: Rem(170);
+  height: Rem(45);
+  line-height: Rem(45);
+  border: 1px solid $border-default-color;
+  border-radius: 4px;
+  background:#fff;
+  @include displayBox;
+  text-align: center;
+  .iconfont{
+    font-size: Rem(14*2);
+  }
+  .ucf-lf{
+    color:#666;
+    @include box-flex(1);
+    border-right: 1px solid $border-default-color;
+    width:Rem(48);
+  }
+  .ucf-ct{
+    @include box-flex(2);
+  }
+  .ucf-rg{
+    border-left: 1px solid $border-default-color;
+    @include box-flex(1);
+    color:#666;
+    width:Rem(48);
+  }
+  .u-form-input-num{
+    background:#fff;
+    border: 0 none;
+    box-sizing: border-box;
+    width:Rem(72);
+    text-align: center;
+    font-size: Rem(24);
+  }
+}

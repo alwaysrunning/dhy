@@ -1,0 +1,37 @@
+<div class="m-personalInfo-page u-scrollBar">
+    <div class="u-tips-txt-line">
+        完善个人资料，激活会员身份，将享受更多会员权益哦！
+    </div>
+    <div class="u-form">
+        <form id="personalInfoForm" class="u-form" >
+            <div class="u-form-item">
+                <div class="u-form-item-line">
+                    <label for="#">手机号:</label>
+                    <input type="tel" class="u-form-input-text" value="<%= mobile %>" readonly id="mobile">
+                </div>
+            </div>
+            <div class="u-form-item">
+                <div class="u-form-item-line">
+                    <input type="text" placeholder="请输入您的姓名" value="" class="u-listen-input" id="name">
+                    <div class="g-form-item-rg">
+                        <i class="icon iconfont icon-guanbi u-hidden"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="u-form-item">
+                <div class="u-form-item-line">
+                    <input type="text" placeholder="请输入身份证号码以便激活会员身份" value=""  class="u-listen-input" id="idNo">
+                    <div class="g-form-item-rg">
+                        <i class="icon iconfont icon-guanbi u-hidden"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="u-tips-txt-line">
+                温馨提示：身份证号码一经提交无法修改，请谨慎填写!
+            </div>
+            <div class="u-lp-btn-submit">
+                <button type="button" class="u-btn u-radius u-btn-block" disabled="" id="personalInfoFormSubmit">提交</button>
+            </div>
+        </form>
+    </div>
+</div>

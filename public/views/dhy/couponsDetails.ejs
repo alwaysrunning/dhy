@@ -1,0 +1,102 @@
+<!--门店-->
+<% if(type==2){%>
+<section class="u-coupons-details u-coupons-member-details u-scrollBar">
+
+    <div class="m-cmd-ban">
+        <div class="mcb-coupons">
+            <p style="margin-top:0.6rem;"></p>
+            <p><%= voucherName %></p>
+            <p>优惠券码:<%= fourCheckNo %></p>
+        </div>
+    </div>
+
+    <div class="m-cmd-mod">
+        <ul class="u-list">
+            <li>
+                <a>
+                    使用有效期 <%= startTime.replace(/%20/g," ") %> 至 <%= endTime.replace(/%20/g," ") %>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <% if(vendorDesc){%>
+    <div class="u-mod">
+        <div class="u-title">
+            <h4>使用说明</h4>
+        </div>
+        <div class="u-cont">
+            <%= decodeURIComponent(vendorDesc) %>
+        </div>
+    </div>
+    <%}%>
+</section>
+<!--联盟-->
+<% }else if(type==3 || type=="18" || type=="20"){ %>
+<section class="u-coupons-details u-coupons-member-details u-scrollBar">
+
+    <div class="m-cmd-ban">
+        <div class="mcb-coupons">
+            <h2><% if(data["price"]){ %><%= data["price"] %>元<% }else{ %> &nbsp; <% } %></h2>
+            <p><%= data["name"] %></p>
+            <% if(data["voucherNo"]){ %>
+                <p>优惠券码:<%= data["voucherNo"] %></p>
+            <% }else if(type=="3" && codeid ){ %>
+                <p>优惠券码:<%= codeid %></p>
+            <% } %>
+        </div>
+        <% if(type=="3" && codeid){ %>
+        <div class="mcb-code">
+            <a href="#/couponsDetailsCode?code=<%= codeid %>">&nbsp;</a>
+        </div>
+        <% }else if(type=="18" && data["voucherNo"] ){ %>
+        <div class="mcb-code">
+            <a href="#/couponsDetailsCode?code=<%= data["voucherNo"] %>">&nbsp;</a>
+        </div>
+        <% }else if(type=="20"){ %>
+        <div class="mcb-third-code">
+            第三方平台自助兑换
+        </div>
+        <% } %>
+    </div>
+
+    <div class="m-cmd-mod">
+        <ul class="u-list">
+            <li>
+                <a>
+                    有效期 <%= data["begintime"]%> 至 <%= data["endtime"]%>
+                </a>
+            </li>
+            <% if(data["stores"]&& data["stores"].length>0 && codeid && type!=="20"){ %>
+            <li class="u-drop-down-wrap" id="upSlider">
+                <div class="u-drop-text">
+                    <span data-option-parent-id="0" id="selectStoreId">使用门店</span>
+                    <i class="g-fl-rg icon iconfont icon-xiajiantou"></i>
+                </div>
+                <div class="u-drop-down-show u-hidden">
+
+                </div>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+    <% if(data["instruction"].length>0){%>
+    <div class="u-mod">
+        <div class="u-title">
+            <h4>使用说明</h4>
+        </div>
+        <div class="u-cont">
+            <%= data["instruction"] %>
+        </div>
+    </div>
+    <% } %>
+    <% if(type=="3" && codeid){ %>
+    <div class="u-lp-btn-submit">
+        <a id="myUnionAccountFormSubmit" data-href="#/couponsDetailsCode?code=<%= codeid %>" class="u-btn u-radius u-btn-block" >立即使用</a>
+    </div>
+    <% }else if(type=="18" && data["voucherNo"] ){ %>
+    <div class="u-lp-btn-submit">
+        <a id="myUnionAccountFormSubmit" data-href="#/couponsDetailsCode?code=<%= data["voucherNo"] %>" class="u-btn u-radius u-btn-block" >立即使用</a>
+    </div>
+    <% } %>
+</section>
+<% } %>

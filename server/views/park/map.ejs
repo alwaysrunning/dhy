@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/static/css/park/app.css"/>
+    <!--ignore-->
+    <script src="/public/static/js/lib/flexible.js"></script>
+    <!--ignore-->
+    <script src="/public/static/js/lib/jquery.min.js"></script>
+    <script src="/public/static/js/extends/touch.js"></script>
+</head>
+<body>
+
+<div id="map-container" class="m-map-wrap">
+
+</div>
+<script type="text/javascript" src="/public/static/js/extends/modal.js"></script>
+<script type="text/javascript" src="/public/static/js/extends/wxTools.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        WxTools.getGeoInfo({
+            err:function (err) {
+                console.warn(err);
+            },
+            success:function (QMap,currLatLng,latLng) {
+                //console.log(QMap,latLng);
+                //地图初始化
+                var Maps = new QMap.Map(document.getElementById('map-container'), {
+                    center: currLatLng,
+                    zoom:16
+                });
+            }
+        });
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:48
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//商户订单
+.m-merchantOrders-page {
+  .u-fixed-top {
+
+  }
+  .m-order-list-mod {
+    margin-top: Rem(20+70);
+    //padding-bottom: Rem(40);
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    @include autoWH;
+    background: #f5f5f5;
+    .u-tabs-show{
+      //@include autoWH;
+    }
+    .u-refresh-wrapper, .u-refresh {
+      background: #f5f5f5;
+    }
+  }
+}
+
+.u-merchantOrder-list {
+  .u-btn-small-size {
+    border: Rem(2) solid $button-white-border-color;
+    margin: 0 Rem(10);
+    font-size: Rem(12*2);
+  }
+  li {
+    background: $default-bg;
+    margin-bottom: Rem(20);
+    a{
+      color:$txt-default;
+    }
+  }
+  li .ugh-title {
+    .u-badge-link {
+      margin-left: Rem(20);
+      border-radius: Rem(20*2);
+      border: 1px solid $button-white-border-color;
+      padding: Rem(2*2) Rem(5*2);
+      font-size: Rem(20);
+      vertical-align: middle;
+    }
+  }
+  li .u-g-hd {
+    height: Rem(80);
+    line-height: Rem(80);
+    padding: 0 Rem(20);
+    font-size: Rem(14*2);
+    .icon {
+      margin-right: Rem(10);
+    }
+    b {
+      font-weight: normal;
+      color: $font-them-color;
+    }
+  }
+
+  li .u-g-bd {
+    padding: Rem(20);
+    background: #fffbf9;
+    .g-lf-box {
+      width: Rem(540);
+      height: Rem(100);
+      overflow: hidden;
+      img {
+        @include g-fl-lf;
+        width: Rem(100);
+        height: Rem(100);
+        margin-right: Rem(20);
+      }
+    }
+    .g-rg-box {
+      width: Rem(170);
+      text-align: right;
+      overflow: hidden;
+      h6 {
+        font-weight: bold;
+        font-size: Rem(14*2);
+        margin-bottom: Rem(30);
+      }
+    }
+    .u-g-imgTxt {
+      font-size: Rem(20);
+      height: Rem(65);
+      overflow: hidden;
+      @include text-overflow;
+    }
+  }
+
+  li .u-g-ft {
+    .ugf-total{
+      text-align: right;
+      padding: Rem(10) 0;
+    }
+    .g-lf-box {
+      p {
+        margin: Rem(5) 0;
+      }
+    }
+    .g-rg-box {
+      padding-top: Rem(10);
+    }
+    padding: Rem(10) Rem(20);
+  }
+  li .u-g-bt{
+    padding: Rem(20);
+    border-top: $border-default;
+    .ugb-lf{
+      @include g-fl-lf;
+      @include text-overflow;
+      width: Rem(360);
+      overflow: hidden;
+      vertical-align: middle;
+      height: Rem(56);
+      line-height: Rem(56);
+    }
+    .ugb-rg{
+      @include g-fl-rg;
+      width: Rem(350);
+      overflow: hidden;
+      text-align: right;
+      height: Rem(56);
+    }
+    .u-btn{
+      font-size: $font-size-sub;
+      padding: Rem(10);
+      height: auto;
+      line-height: normal;
+      margin: 0 Rem(5);
+    }
+  }
+}

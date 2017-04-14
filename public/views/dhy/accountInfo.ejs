@@ -1,0 +1,54 @@
+<div class="m-accountInfo-page u-scrollBar">
+    <ul class="u-list">
+        <li>
+            <a title="头像">
+                <div class="g-fl-rg">
+                    <i class="u-member-img-ico">
+                        <% if(data.weixin && data.weixin["headimgurl"]){ %>
+                        <img src="<%= data.weixin["headimgurl"] %>"  class="g-fl-lf">
+                        <% }else{ %>
+                        <img src="static/img/module/member_ico_0.png" class="g-fl-lf">
+                        <% } %>
+                    </i>
+                </div>
+                头像
+            </a>
+        </li>
+        <% if(data.weixin && data.weixin["nickname"]){ %>
+        <li>
+            <a title="姓名">
+                <div class="g-fl-rg">
+                    <span class="u-text-sub"><%= data.weixin["nickname"] %></span>
+                </div>
+                姓名
+            </a>
+        </li>
+        <% } %>
+        <li>
+            <a href="#/restSetPhone?mobile=<%= data.meber.mobile %>" title="手机号码">
+                <div class="g-fl-rg">
+                    <span class="u-text-sub">
+                        <%
+                            var _mobile=data.meber.mobile,_mobileLg=_mobile.length;
+                            var _mobileStr=_mobile.replace(/(\d{3})\d{6}(\d{2})/,"$1********$2");
+                        %>
+                        <%= _mobileStr %>
+                    </span>
+                    <span class="icon iconfont icon-youjiantou"></span>
+                </div>
+                手机号码
+            </a>
+        </li>
+        <li class="u-border-margin">
+            <a href="#/accountSafe" title="账户安全">
+                <div class="g-fl-rg">
+                    <span class="icon iconfont icon-youjiantou"></span>
+                </div>
+                账户安全
+            </a>
+        </li>
+        <li style="padding: 0;" class="u-border-margin">
+            <button class="u-btn-block u-btn-white" type="button" id="loginOut">切换账户</button>
+        </li>
+    </ul>
+</div>

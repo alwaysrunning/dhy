@@ -1,0 +1,236 @@
+<div class="m-ordersDetails-mod m-orderConfirm-mod u-scrollBar">
+    <div class="m-mod-box" id="payType" data-paytype="0">
+        <div class="u-normal-tit">
+            <i class="icon iconfont icon-zhifufangshi"></i>
+            支付方式
+        </div>
+        <ul class="u-normal-list">
+            <% if(!product.shopFromType){ %>
+            <li class="u-active" data-mid="0" data-mname="积分" >
+                <div class="g-label-lf g-fl-lf">
+                    <i class="u-ico-img-jf"></i>积分
+                </div>
+                <div class="g-label-rg g-fl-rg u-text-align-rg">
+                   <i class="icon iconfont icon-gouxuan"></i>
+                </div>
+            </li>
+            <!--<li data-mid="2" data-mname="红包" >-->
+                <!--<div class="g-label-lf g-fl-lf">-->
+                    <!--<i class="u-ico-img-hb"></i>红包-->
+                <!--</div>-->
+                <!--<div class="g-label-rg g-fl-rg u-text-align-rg">-->
+                    <!--<i class="icon iconfont icon-gouxuan"></i>-->
+                <!--</div>-->
+            <!--</li>-->
+            <% } %>
+            <li data-mid="4" data-mname="微信" >
+                <div class="g-label-lf g-fl-lf">
+                    <i class="u-ico-img-wx"></i>微信
+                </div>
+                <div class="g-label-rg g-fl-rg u-text-align-rg">
+                    <i class="icon iconfont icon-gouxuan"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <% if(data["delivery_type"]){ %>
+    <div class="m-mod-box">
+        <div class="u-normal-tit">
+            <i class="icon iconfont icon-daohuofangshi"></i>
+            到货方式
+        </div>
+        <ul class="u-normal-list" id="harvestType">
+            <% if( harvestArr.length>0){ %>
+                <% harvestArr.forEach(function(item){%>
+                <li data-mid="<%= item["id"] %>" data-mname="<%= item["name"] %>">
+                    <div class="g-label-lf g-fl-lf">
+                       <%= item["name"] %>
+                    </div>
+                    <div class="g-label-rg g-fl-rg u-text-align-rg">
+                        <i class="icon iconfont icon-gouxuan"></i>
+                    </div>
+                </li>
+                <% }) %>
+            <% }else{ %>
+            <li data-mid="" data-mname="不支持此配送方式">
+                该礼品不支持此配送方式
+            </li>
+            <% } %>
+        </ul>
+    </div>
+    <% } %>
+
+    <div class="m-mod-box" id="linkcallType">
+        <div class="mmb-tit">
+            <i class="icon iconfont icon-lianxifangshi"></i>
+            联系方式
+        </div>
+       <div class="mmb-cont">
+           <div class="u-form-item">
+               <div class="u-form-item-line">
+                   <label>联系人:</label>
+                   <input id="receiver" type="text" placeholder="请填写联系人姓名" class="u-form-input-text" value="<%= address.length>0?address[0]["name"]:'' %>">
+                   <div class="g-form-item-rg">
+                       <i class="icon iconfont icon-guanbi <%= address.length>0 && address[0]["name"].length>0 ?'':'u-hidden' %>"></i>
+                   </div>
+               </div>
+           </div>
+           <div class="u-form-item">
+               <div class="u-form-item-line">
+                   <label>手机号:</label>
+                   <input id="tel" type="text" placeholder="请填写本人手机号码" class="u-form-input-text" value="<%= address.length>0?address[0]["mobile"]:'' %>">
+                   <div class="g-form-item-rg">
+                       <i class="icon iconfont icon-guanbi <%= address.length>0 && address[0]["mobile"].length>0 ?'':'u-hidden' %>"></i>
+                   </div>
+               </div>
+           </div>
+           <div class="u-form-item">
+               <div class="u-form-item-line">
+                   <label for="storeAddress">提货地址:</label>
+                   <input id="address" type="text" name="storeAddress" class="u-form-input-text" value="<%= storeAddress %>">
+                   <div class="g-form-item-rg">
+                       <i class="icon iconfont icon-guanbi <%= storeAddress.length>0 ?'':'u-hidden' %>"></i>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+
+    <% if(data["delivery_type"]){ %>
+    <div class="m-mod-box">
+        <div class="u-normal-tit">
+            <i class="icon iconfont icon-peisongfangshi"></i>
+            配送方式
+        </div>
+        <ul class="u-normal-list" id="distributtype">
+
+            <li>
+                <div class="g-label-lf g-fl-lf" id="distributtypeStr">
+
+                </div>
+                <div class="g-label-rg g-fl-rg u-text-align-rg clearfix">
+                    <span class="g-fl-lf u-text-disabled">
+                        运费:<span class="transportFee">0</span><i class="payTypeStr">积分</i>
+                    </span>
+                    <!--<i class="icon iconfont icon-gouxuan"></i>-->
+                </div>
+            </li>
+        </ul>
+    </div>
+    <% } %>
+    <div class="m-mod-box">
+        <ul class="u-merchantOrder-list">
+            <li>
+                <div class="u-g-hd clearfix">
+                    <i class="icon iconfont icon-shangpinqingdan"></i>
+                    商品清单
+                </div>
+                <div class="u-g-bd clearfix">
+                    <div class="g-lf-box g-fl-lf">
+                        <img src="<%= product["image"] %>" alt="<%= product["name"] %>">
+                        <p class="u-g-imgTxt"><%= product["name"] %></p>
+                        <div class="u-count-form" data-maxnum="<%= data["num"] %>">
+                            <div class="ucf-lf ucf-amount-decrease">
+                                <i class="icon iconfont icon-jian"></i>
+                            </div>
+                            <div class="ucf-ct">
+                                <input type="text" class="u-form-input-num ucf-amount-input" value="1">
+                            </div>
+                            <div class="ucf-rg ucf-amount-increase">
+                                <i class="icon iconfont icon-jia"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="g-rg-box g-fl-rg">
+                        <% if(!product.shopFromType){ %>
+                        <!--<p class="u-fontColor-them"><%= product["gaobi"] %> 红包</p>-->
+                        <p class="u-fontColor-them"><%= product["integral"] %> 积分</p>
+                        <!--<i class="icon iconfont icon-shanchu"></i>-->
+                        <% }else{ %>
+                        <p class="u-fontColor-them"><%= product["gaobi"] %> 元</p>
+                        <% } %>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="m-mod-box">
+        <ul class="u-normal-list">
+            <li>
+                <div class="g-label-lf g-fl-lf">
+                    运费
+                </div>
+                <div class="g-label-rg g-fl-rg u-text-align-rg">
+                    运费:<span class="transportFee">0</span><i class="payTypeStr">积分</i>
+                </div>
+            </li>
+            <li>
+                <div class="g-label-lf g-fl-lf">
+                    商品总金额
+                </div>
+                <div class="g-label-rg g-fl-rg u-text-align-rg">
+                    <span id="shopMoney" data-fee="<%= product["transportfee"] %>" data-delivery=""><%= product["shopMoney"] %></span><i class="payTypeStr">积分</i>
+                </div>
+            </li>
+            <li>
+                <div class="g-label-lf g-fl-lf g-label-lf-lg">
+                    需支付总金额
+                </div>
+                <div class="g-label-rg g-fl-rg u-text-align-rg" style="width: auto;">
+                    <span id="shopPayMoney"><%= product["shopPayMoney"] %></span><i class="payTypeStr">积分</i>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="m-mod-box" style="margin-bottom: 40px;">
+        <div class="u-orderConfirm-sbumit-mod">
+            <div class="uosm-lf">
+                需支付总金额：<span class="u-fontColor-them"><span id="totalPayMoney" data-num="1"><%= product["shopPayMoney"] %></span><i class="payTypeStr">积分</i></span>
+            </div>
+            <div class="uosm-rg">
+                <button type="button" class="u-btn u-radius u-btn-block u-btn-submit u-active" id="orderConfirmBtn">提交订单</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        if(!DEBUG){
+            App.getJSON("weixin/sign?url=" +encodeURIComponent(window.location.href.split('#')[0]), function (data) {
+                wx.config({
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: data.appId, // 必填，公众号的唯一标识
+                    timestamp: data.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                    signature: data.signature,// 必填，签名，见附录1
+                    jsApiList: [
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage',
+                        'showMenuItems',
+                        'hideAllNonBaseMenuItem',
+                        'scanQRCode',
+                        'chooseWXPay',
+                        'hideMenuItems',
+                        'showOptionMenu'
+                    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+            });
+            wx.ready(function(){
+                wx.hideMenuItems({
+                    menuList: [
+                        "menuItem:share:appMessage",
+                        "menuItem:share:timeline",
+                        "menuItem:share:qq",
+                        "menuItem:share:weiboApp",
+                        "menuItem:share:facebook",
+                        "menuItem:share:QZone",
+                        "menuItem:copyUrl",
+                        "menuItem:share:email"
+                    ]
+                });
+            });
+        }
+    })
+</script>

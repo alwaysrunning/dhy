@@ -1,0 +1,77 @@
+<% if(data.data.length>0){ %>
+<% data.data.forEach(function(item){ %>
+<li>
+    <div class="u-g-hd clearfix">
+           <span class="ugh-title">
+               <span><i class="icon iconfont icon-dingdanliebiaoleibie"></i><%= item["giftcategoryName"] %></span>
+           </span>
+        <div class="g-fl-rg">
+            <i class="u-color-default"><%= item["statusDescription"] %></i>
+        </div>
+    </div>
+    <div class="u-g-bd clearfix">
+        <a href="#/pointsDetails?&id=<%= item["id"] %>&type=<%= item["giftcategoryId"] %>&giftcategoryName=<%= item["giftcategoryName"] %>">
+            <div class="g-lf-box g-fl-lf">
+                <img src="<%= item["image"] %>" alt="<%= item["name"] %>">
+                <p><%= item["name"] %></p>
+            </div>
+            <div class="g-rg-box g-fl-rg">
+                <%
+                    var _num=item["num"];
+                    var _payItem=item.pay;
+                    var _integralItem=parseFloat(item["integral"]);
+                    var _gaobiItem=parseFloat(item["gaobi"]);
+                    var _wxItem=item["weichatPay"]?parseFloat(item["weichatPay"]):"";
+                    var _trasportfeeItem=parseFloat(item["trasportfee"]?item["trasportfee"]:"0");
+                    var _transportgaobiItem=parseFloat(item["transportgaobi"]?item["transportgaobi"]:"0");
+                    var _transportwxItem=parseFloat(item["transportWeichatPay"]?item["transportWeichatPay"]:"0");
+                    //pPrice=Math.round(_integral/_num)-_trasportfee
+                    var pPrice ="";
+                    if(item.pay=="0") {
+                        pPrice = parseFloat(_integralItem/_num) ;
+                    }else if(item.pay=="2" || item.pay=="1") {
+                        pPrice = parseFloat(_gaobiItem/_num);
+                    }else if(item.pay=="4"){
+                        pPrice = parseFloat(_wxItem/_num);
+                    }
+                %>
+                <% if(pPrice) { %>
+                <h6>
+                    <%= pPrice.toFixed(2) %>
+                    <% if(_payItem=="0"){ %>
+                    积分
+                    <% }else if(_payItem=="1" || _payItem=="2"){ %>
+                    <!--红包-->
+                    <% }else if(_payItem=="4"){ %>
+                    元
+                    <% } %>
+                </h6>
+                <% } %>
+                <i class="u-badge-number">X<%= item["num"] %></i>
+            </div>
+        </a>
+    </div>
+    <div class="u-g-ft clearfix">
+        <div class="g-lf-box g-fl-lf">
+            数量：共<%= item["num"] %>件
+        </div>
+        <div class="g-rg-box g-fl-rg">
+            <% if(item.pay=="0") { %>
+
+            <p>合计：<%= _integralItem+_trasportfeeItem %>（含邮费）</p>
+
+            <% }else if(item.pay=="2" || item.pay=="1") { %>
+
+            <p>合计：<%= _gaobiItem+_transportgaobiItem %>（含邮费）</p>
+
+            <% }else if(item.pay=="4"){ %>
+
+            <p>合计：<%= _wxItem+_transportwxItem %>（含邮费）</p>
+            <% } %>
+        </div>
+    </div>
+</li>
+<% }) %>
+<% }else{ %>
+
+<% } %>

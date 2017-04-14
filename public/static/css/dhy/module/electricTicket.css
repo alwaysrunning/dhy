@@ -1,0 +1,213 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:08
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 13, ../../../sass/dhy/module/electricTicket.scss */
+.u-fontColor-them {
+  color: #ff6666;
+}
+
+/* line 17, ../../../sass/dhy/module/electricTicket.scss */
+.u-electricticket-scroll-mod {
+  height: 100%;
+  position: relative;
+}
+
+/* line 24, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-electricTicket-list {
+  background: #fff;
+  overflow-x: hidden;
+}
+/* line 27, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-electricTicket-list li {
+  position: relative;
+  padding-left: 0.26667rem;
+  font-size: 0.32rem;
+  zoom: 1;
+  -moz-transition: -moz-transform 0.2s;
+  -o-transition: -o-transform 0.2s;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+}
+/* line 99, ../../../sass/common/_mixin.scss */
+.m-electricTicket-mod .u-electricTicket-list li::before, .m-electricTicket-mod .u-electricTicket-list li::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 104, ../../../sass/common/_mixin.scss */
+.m-electricTicket-mod .u-electricTicket-list li::after {
+  clear: both;
+}
+/* line 33, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-electricTicket-list li h5 {
+  margin-bottom: 0.13333rem;
+}
+/* line 36, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-electricTicket-list li .uel-rg p {
+  color: #ff6666;
+  padding-top: 0.26667rem;
+}
+/* line 40, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-electricTicket-list li .u-delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 2rem;
+  text-align: center;
+  background: #ff4352;
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+/* line 50, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-electricTicket-list li .u-delete i {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 100%;
+}
+/* line 57, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-electricTicket-list li.slide {
+  -moz-transform: translateX(-2rem);
+  -ms-transform: translateX(-2rem);
+  -webkit-transform: translateX(-2rem);
+  transform: translateX(-2rem);
+}
+/* line 61, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-electricTicket-list li a {
+  color: #333;
+  display: block;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 0.26667rem 0.26667rem 0.26667rem 0;
+}
+/* line 67, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-electricTicket-list li:active, .m-electricTicket-mod .u-electricTicket-list li.u-active, .m-electricTicket-mod .u-electricTicket-list li:hover, .m-electricTicket-mod .u-electricTicket-list li:focus {
+  background: #efefef;
+}
+/* line 73, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-ticket-details-list .mlm-tit {
+  border-bottom: 1px solid #f2f2f2;
+  padding: 0.26667rem;
+}
+/* line 76, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-ticket-details-list .mlm-tit ul {
+  width: 100%;
+  zoom: 1;
+}
+/* line 99, ../../../sass/common/_mixin.scss */
+.m-electricTicket-mod .u-ticket-details-list .mlm-tit ul::before, .m-electricTicket-mod .u-ticket-details-list .mlm-tit ul::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 104, ../../../sass/common/_mixin.scss */
+.m-electricTicket-mod .u-ticket-details-list .mlm-tit ul::after {
+  clear: both;
+}
+/* line 80, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-ticket-details-list .mlm-tit ul li {
+  float: left;
+  width: 1.89333rem;
+  text-align: center;
+}
+/* line 85, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-ticket-details-list .mlm-tit ul li:nth-child(1) {
+  width: 2.93333rem;
+}
+/* line 90, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-ticket-details-list .mlm-cont dl dd {
+  zoom: 1;
+}
+/* line 99, ../../../sass/common/_mixin.scss */
+.m-electricTicket-mod .u-ticket-details-list .mlm-cont dl dd::before, .m-electricTicket-mod .u-ticket-details-list .mlm-cont dl dd::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 104, ../../../sass/common/_mixin.scss */
+.m-electricTicket-mod .u-ticket-details-list .mlm-cont dl dd::after {
+  clear: both;
+}
+/* line 92, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-ticket-details-list .mlm-cont dl dd .mc-item {
+  float: left;
+  padding: 0.13333rem 0.26667rem 0.13333rem 0.33333rem;
+  width: 1.46667rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.32rem;
+}
+/* line 99, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-ticket-details-list .mlm-cont dl dd h5 {
+  padding: 0.26667rem 0.26667rem 0 0.26667rem;
+}
+/* line 103, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-ticket-details-list .mlm-cont dl dd .mc-item-line .mc-item {
+  box-sizing: content-box;
+}
+/* line 106, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .u-ticket-details-list .mlm-cont dl dd .mc-item-line .mc-item:nth-child(1) {
+  padding-left: 0.26667rem;
+  text-align: left;
+  width: 2.93333rem;
+}
+/* line 116, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .mem-line-mod {
+  background: #fff;
+  margin: 0.26667rem 0;
+  padding: 0.26667rem;
+  font-size: 0.32rem;
+  color: #333;
+}
+/* line 122, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .mem-line-mod .mlm-box {
+  width: 100%;
+  display: -webkit-box;
+  /* Safari and Chrome */
+  display: -moz-box;
+  /* Firefox */
+  display: box;
+}
+/* line 126, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .mem-line-mod .mlm-item {
+  -moz-box-flex: 1;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  text-align: center;
+}
+/* line 130, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .mem-line-mod .mlm-item:first-child {
+  text-align: left;
+}
+/* line 133, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .mem-line-mod .mlm-item:last-child {
+  text-align: right;
+}
+/* line 137, ../../../sass/dhy/module/electricTicket.scss */
+.m-electricTicket-mod .mem-line-mod .mlm-list li {
+  padding: 0.13333rem 0;
+}

@@ -1,0 +1,251 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+@import "variable";
+
+@mixin placehold-img {
+  position: relative;
+  & > span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $z-index-img;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+  }
+}
+
+@mixin img {
+  position: relative;
+  & > span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: $z-index-img;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+  }
+}
+
+@mixin avatar($size: $avatar-width) {
+  width: #{$size}px;
+  height: #{$size}px;
+  -webkit-border-radius: $border-radius-max;
+  overflow: hidden;
+  & > span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -webkit-border-radius: $border-radius-max;
+  }
+
+}
+
+@mixin icon {
+  font-family: "iconfont" !important;
+  font-size: Rem(32*2);
+  line-height: $line-height-bar;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: Rem(0.2*2);;
+  display: block;
+  color: rgba(0, 0, 0, .5);
+}
+
+@mixin arrowlink {
+  @include icon;
+  color: #c7c7c7;
+  content: $icon-arrow;
+  position: absolute;
+  right: $wrap-padding;
+  top: 50%;
+  margin-top: Rem(-22*2);
+  margin-right: Rem(-10*2);;
+}
+
+@mixin nowrap {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin border-radius($border-size:1px,$border-color: $bordercolor,$border-radius: $border-radius-base) {
+  border: $border-size solid $border-color;
+  border-radius: $border-radius;
+}
+
+@mixin input-placeholder($color) {
+  input::-moz-placeholder {
+    color: $color;
+  }
+  input::-webkit-input-placeholder {
+    color: $color;
+  }
+}
+
+/*===========public==============*/
+@mixin clearfix {
+  zoom: 1;
+  &::before, &::after {
+    display: table;
+    line-height: 0;
+    content: ""
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin g-fl-rg {
+  float: right;
+}
+
+@mixin g-fl-lf {
+  float: left;
+}
+
+@mixin box-flex($num) {
+  -moz-box-flex: $num;
+  -webkit-box-flex: $num;
+  box-flex: $num;
+}
+
+@mixin displayBox {
+  display: -webkit-box; /* Safari and Chrome */
+  display: -moz-box; /* Firefox */
+  display: box;
+}
+
+@mixin g-flex {
+  display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box; /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox; /* 混合版本语法: IE 10 */
+  display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+  display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+
+@mixin scrollTouch {
+  overflow: auto; /* winphone8和android4+ */
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch; /* ios5+ */
+}
+
+@mixin u-fixed-top {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1222;
+}
+@mixin text-overflow{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+@mixin overflow{
+  overflow: hidden;
+}
+/* Fade */
+@mixin u-animation-fade{
+  -webkit-animation-name: u-fade;
+  animation-name: u-fade;
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+/*******************/
+@mixin hairline($position:"top",$color:$colors) {
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    right: auto;
+    height: 1px;
+    width: 100%;
+    background-color: $color;
+    display: block;
+    z-index: 15;
+    @if ($position=="top") {
+      transform-origin: 50% 0%;
+    } @else if ($position=="left") {
+      transform-origin: 0% 50%;
+    } @else if ($position=="bottom") {
+      transform-origin: 50% 100%;
+    } @else if ($position=="right") {
+      transform-origin: 100% 50%;
+    }
+
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+      transform: scaleY(0.5);
+    }
+    @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+      transform: scaleY(0.33);
+    }
+  }
+}
+
+// For right and bottom
+@mixin hairline-remove($position) {
+  @if ($position!="left" & & $position!="top") {
+    &:after {
+      display: none;
+    }
+  } @else if ($position!="right" & & $position!="bottom") {
+    &:before {
+      display: none;
+    }
+  }
+
+}
+
+// For right and bottom
+@mixin hairline-color($position, $color) {
+  @if ($position!="left" & & $position!="top") {
+    &:after {
+      background-color: $color;
+    }
+  } @else if ($position!="right" & & $position!="bottom") {
+    &:before {
+      background-color: $color;
+    }
+  }
+
+}
+
+@mixin autoWH{
+  height: 100%;
+}
+
+@mixin scrollable() {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin flexBox() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($num) {
+  -webkit-box-flex: $num; /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $num; /* OLD - Firefox 19- */
+  /* For old syntax, otherwise collapses. */
+  -webkit-flex: $num; /* Chrome */
+  -ms-flex: $num; /* IE 10 */
+  flex: $num;
+}

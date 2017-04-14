@@ -1,0 +1,40 @@
+{
+	"name": "wxServer",
+	"version": "2.0.0",
+	"private": true,
+	"scripts": {
+		"start": "forever -a start ./server/bin/www",
+		"test": "forever -a start ./server/bin/wwwTest",
+		"testPre": "forever -a start ./server/bin/wwwTestPre",
+		"dev": "nodemon ./server/bin/www",
+		"install": "node ./node_modules/svn-npm-crutch/lib/svn-npm-crutch.js",
+		"pushTest": "fis3 release -d ../wxServerTest",
+		"pushTestPre": "fis3 release -d ../wxServerTestPre",
+		"push": "fis3 release -d ../wxServerPush"
+	},
+	"dependencies": {
+		"body-parser": "~1.13.2",
+		"bwip-js": "^0.14.2",
+		"compression": "^1.6.1",
+		"cookie-parser": "~1.3.5",
+		"debug": "~2.2.0",
+		"ejs": "^2.3.4",
+		"express": "~4.13.1",
+		"lodash": "^4.15.0",
+		"log4js": "^0.6.31",
+		"morgan": "~1.6.1",
+		"multer": "^1.1.0",
+		"q": "^1.4.1",
+		"serve-favicon": "~2.3.0"
+	},
+	"svnDependencies": {
+		"api": "svn://10.201.23.242/yunhou-code/H5/server/trunk/cnpm/api/v3.0",
+		"logs": "svn://10.201.23.242/yunhou-code/H5/server/trunk/cnpm/logs"
+	},
+	"devDependencies": {
+		"async": "~2.0.0-rc.5",
+		"nodemon": "^1.11.0",
+		"rimraf": "^2.5.2",
+		"svn-npm-crutch": "^0.5.4"
+	}
+}

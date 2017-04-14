@@ -1,0 +1,157 @@
+<div class="m-goodsDetails-mod u-scrollBar">
+    <div class="u-scroll-wrap" id="scrollWrap">
+        <div id="scrollBox" class="u-scroll-box">
+            <div class="m-mod-box u-goods-info">
+                <!--图片轮播组件-->
+                <div class="u-image-slide u-slide u-slider-mod">
+                    <div id="slide1">
+                        <ul>
+                            <% if(data["showImageUrl"] && data["showImageUrl"].length>0){ %>
+
+                            <% data["showImageUrl"].forEach(function(imgItem){ %>
+                            <li><a href="javascript:void(0);"><img src="<%= imgItem %>"></a></li>
+                            <% }) %>
+
+                            <% }else if(data["image"]){ %>
+                            <li><a href="javascript:void(0);"><img src="<%= data["image"] %>"></a></li>
+                            <% }else{ %>
+                            <li style="text-align: center;"><h1>暂无图片</h1></li>
+                            <%}%>
+                        </ul>
+                    </div>
+                    <div class="usm-ft">
+                        <dl class="u-slider-dot">
+                            <% if(data["showImageUrl"] && data["showImageUrl"].length>0){ %>
+                                <% data["showImageUrl"].forEach(function(imgItem){ %>
+                                <dd></dd>
+                                <% }) %>
+                            <%}%>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="u-goods-title">
+                    <div class="u-badge-text">预售</div>
+                    <%= data["name"] %>
+                </div>
+
+                <ul class="u-normal-list" id="pedPriceBar">
+                    <li data-id="<%= data["id"] %>">
+                        <div class="g-fl-lf">
+                            <% if(!shopFromType){ %>
+                            <!--<div class="u-yunhoubao">红包:<%= data["gaobi"] %></div>-->
+                            <div class="u-integral">积分:<%= data["integral"] %></div>
+                            <div class="u-price">原价:<%= data["value"] %></div>
+                            <% }else if(shopFromType=="secKill"){ %>
+                            <div class="u-yunhoubao">&yen;<%= data["gaobi"] %></div>
+                            <div class="u-price">原价:<%= data["value"] %></div>
+                            <% } %>
+                        </div>
+                        <div class="g-fl-rg clearfix">
+                            <% if(!robBuyState){ %>
+                            <a class="u-btn u-radius u-btn-exchange">立即兑换</a>
+                            <% }else if(robBuyState=="before"){ %>
+                            <a class="u-btn u-radius u-btn-exchange u-btn-disabled" disabled>即将抢购</a>
+                            <% }else if(robBuyState=="over"){ %>
+                            <a class="u-btn u-radius u-btn-exchange u-btn-disabled" disabled>已售完</a>
+                            <% }else{ %>
+                            <a class="u-btn u-radius u-btn-exchange">立即抢购</a>
+                            <% } %>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="m-mod-box u-goods-store">
+                <ul class="u-normal-list">
+                    <li class="clearfix">
+                        <div class="g-fl-lf u-goods-label">
+                            兑换门店:
+                        </div>
+                        <div class="u-goods-select" id="shopArea" data-val="<%= storesList["county"] %> <%= storesList["name"] %> " data-value="<%= storesList["countyId"] %>,<%= storesList["id"] %>,0">
+                            <% if(storesList["county"]){ %>
+                            <span class="txt"><%= storesList["county"] %> <%= storesList["name"] %></span>
+                            <% }else{ %>
+                            <span class="txt">地区选择</span>
+                            <% } %>
+                            <span class="g-fl-rg icon iconfont icon-xiajiantou"></span>
+                        </div>
+                        <input type="hidden" id="shopAreaHidden" value="<%= storesList["countyId"] %>,<%= storesList["id"] %>,0"
+                               data-val="<%= storesList["county"] %> <%= storesList["name"] %>"
+                               data-gaobi="<%= data["gaobi"] %>"
+                               data-integral="<%= data["integral"] %>"
+                               data-name="<%= data["name"] %>"
+                               data-image="<%= data["image"] %>"
+                               data-transportfee="<%= data["transportfee"] %>"
+                        >
+
+                    </li>
+                </ul>
+            </div>
+            <div class="m-mod-box">
+                <ul class="u-normal-list">
+                    <li>
+                        <div class="u-g-hd clearfix">
+                            商品信息
+                        </div>
+                    </li>
+                    <li>
+                        <div class="u-g-bd">
+                            <% var _description=data["description"]; %>
+                            <%= _description.replace(/\s+/g,"<br>") %>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="m-split">
+                <div class="u-spl-ml"></div>
+                <div class="u-spl-text">继续拖动，查看商品详情</div>
+            </div>
+
+            <div class="u-spl-details-more" id="detailsMore">
+                <%= data["details"] %>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+   $(function(){
+
+       if(!DEBUG){
+           App.getJSON("weixin/sign?url=" +encodeURIComponent(window.location.href.split('#')[0]), function (data) {
+               wx.config({
+                   debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                   appId: data.appId, // 必填，公众号的唯一标识
+                   timestamp: data.timestamp, // 必填，生成签名的时间戳
+                   nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                   signature: data.signature,// 必填，签名，见附录1
+                   jsApiList: [
+                       'onMenuShareTimeline',
+                       'onMenuShareAppMessage',
+                       'showMenuItems',
+                       'hideAllNonBaseMenuItem',
+                       'scanQRCode',
+                       'chooseWXPay',
+                       'hideMenuItems',
+                       'showOptionMenu'
+                   ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+               });
+           });
+           wx.ready(function(){
+               wx.showOptionMenu({
+                   menuList: [
+                       "menuItem:share:appMessage",
+                       "menuItem:share:timeline",
+                       "menuItem:share:qq",
+                       "menuItem:share:weiboApp",
+                       "menuItem:share:facebook",
+                       "menuItem:share:QZone",
+                       "menuItem:copyUrl",
+                       "menuItem:share:email"
+                   ]
+               });
+           });
+       }
+   })
+</script>

@@ -1,0 +1,15 @@
+<% data.forEach(function (item) { %>
+<%
+    var _mobile=item.mobile,_mobileLg=_mobile.length;
+    var _mobileStr=_mobile.replace(/(\d{3})\d{6}(\d{2})/,"$1********$2");
+%>
+<li>
+    <a title="邀请人">
+                        <span class="g-fl-lf">
+                            <span class="t-l-t"><%= _mobileStr %></span>
+                            <span class="t-l-b"><%= item.inviteTime %></span>
+                        </span>
+        <span class="g-fl-rg green"><%= item.weichatName %></span>
+    </a>
+</li>
+<% }); %>

@@ -1,0 +1,361 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2016/3/14
+ * Time: 15:29
+ * */
+@import
+"variable",
+"mixin",
+"compass/css3";
+//
+// Base styles
+// --------------------------------------------------
+
+// Use box sizing on all the things!
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout:none;
+}
+/*CSS Reset*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+header,
+hgroup,
+nav,
+section,
+article,
+aside,
+footer,
+figure,
+figcaption,
+menu,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+caption, th {
+  text-align: left;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+li {
+  list-style: none;
+}
+
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option{
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  outline: 0;
+}
+
+button{
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+}
+
+a{
+  -webkit-touch-callout:none;
+  text-decoration: none;
+}
+
+:focus{
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+em,i {
+  font-style: normal;
+}
+//
+// Address variable `h1` font-size and margin within `section` and `article`
+// contexts in Firefox 4+, Safari, and Chrome.
+//
+h1 {
+  font-size:Rem(40);
+  margin: Rem(25) 0;
+}
+// We fix position the body and scroll `.g-content`.
+body {
+  //position: absolute;
+  //top: 0;
+  //right: 0;
+  //bottom: 0;
+  //left: 0;
+  font-family: $font-family-default;
+  line-height: $line-height-base;
+  font-size: $font-size-base;
+  color: $txt-default;
+  background: $stable-bg;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -ms-text-size-adjust: 100%; // 2
+  -webkit-text-size-adjust: 100%;/* 缩放网页，文字大小不变 */
+  -webkit-tap-highlight-color: transparent;/* 防止点击闪烁 */
+  outline: 0;
+  z-index: 0;
+}
+
+a, input, textarea, select, button {
+  outline: 0;
+}
+
+
+// Universal link styling
+a {
+  color: $color-link;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0); // Removes the dark touch outlines on links in webkit browsers.
+
+  &:active {
+    color: $color-link-active;
+  }
+}
+
+.g-wrap{
+  min-width: Rem(320);
+  max-width: Rem(750);
+  transition: all ease 0.2s;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+  /*闪烁抖动*/
+  -webkit-backface-visibility: hidden;
+  font-size: Rem(24);
+}
+// Wrapper to be used around all content not in .bar-title and .bar-tab
+.g-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-backface-visibility: hidden;
+  z-index: 1;
+}
+
+// Hack to force all relatively and absolutely positioned elements still render while scrolling
+// Note: This is a bug for "-webkit-overflow-scrolling: touch"
+//.g-content > * {
+  //transform: translateZ(0); //这一行会导致三星 S4 android 4.2 无法滚动
+//
+//}
+
+// Pad top/bottom of content so it doesn't hide behind bars.
+// Note: For these to work, content must come after both bars in the markup
+.bar-nav ~ .g-content {
+  top: $bar-base-height;
+}
+.bar-header-secondary ~ .g-content {
+  top: ($bar-base-height*2);
+}
+
+// Footer bar margin
+.bar-footer ~ .g-content {
+  bottom: $bar-base-height;
+}
+.bar-footer-secondary ~ .g-content {
+  bottom: ($bar-base-height*2);
+}
+
+// Tab bar margin
+.bar-tab ~ .g-content {
+  bottom: $bar-tab-height;
+}
+.bar-footer-secondary-tab ~ .g-content {
+  bottom: ($bar-tab-height+$bar-base-height);
+}
+
+// Utility classes
+.g-content-padded {
+  margin: $bar-side-spacing;
+}
+.text-center {
+  text-align: center;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.clearfix {
+  @include clearfix;
+}
+
+.g-fl-rg{
+  @include g-fl-rg;
+}
+
+.g-fl-lf{
+  @include g-fl-lf;
+}
+.u-scroll-inside{
+  height: 100%;
+}
+.u-fixed-top{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index:$z-index-base+222;
+}
+.scroll-mod{
+  @include autoWH;
+}
+//滚动css兼容
+.m-js-scroll{
+  overflow: hidden;
+   .scroll-mod{
+     width: 100%;
+     position: absolute;
+     z-index: 1;
+     -webkit-tap-highlight-color: rgba(0,0,0,0);
+     -webkit-transform: translateZ(0);
+     -moz-transform: translateZ(0);
+     -ms-transform: translateZ(0);
+     -o-transform: translateZ(0);
+     transform: translateZ(0);
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+     -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+     -ms-text-size-adjust: none;
+     -o-text-size-adjust: none;
+     text-size-adjust: none;
+   }
+}
+.m-native-scroll{
+
+}
+.u-scrollBar{
+  height: 100%;
+}
+.g-empty-data{
+  background-color: #f2f2f2;
+  text-align: center;
+
+}
+.m-empty-data{
+  @include inline-block;
+  padding-top: Rem(300);
+  $list:"i404","collect","comming","message","coupons","network","order","point","red";
+  .u-sprite{
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    @include background-size(100%);
+    width: Rem(293);
+    height: Rem(291);
+    @include inline-block;
+    @for $i from 1 to length($list)+1{
+      &.#{nth($list,$i)}{
+        background-image: url("/public/static/img/message/#{nth($list,$i)}.png");
+      }
+    }
+  }
+  .msg{
+    margin-top: Rem(53-26);
+    font-size: Rem(26);
+    color: #333333;
+  }
+}
+
+.u-hidden{
+  display: none;
+}
+.mtb10{
+  margin: Rem(20) 0;
+}
+.u-hidden{
+  display: none;
+}
+.displayBox{
+  display:-webkit-box; /* Safari and Chrome */
+  display:-moz-box; /* Firefox */
+  display:box;
+}
+.u-color-default{
+  color:$font-them-color;
+}
+.text-overflow{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.g-fixed-top{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: $z-index-base+10;
+}
+.u-lazy-img{
+  background: url("../../img/lazy_logo.png") no-repeat center center;
+  background-size:contain;
+}
+img{
+  @extend .u-animation-fade;
+}
+.u-noTips-center{
+  text-align: center;
+  margin: Rem(20) auto;
+}
+
+
+
+
+

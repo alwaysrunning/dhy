@@ -1,0 +1,84 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:45
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//重置手机号码
+.m-pp-ban {
+  background: #fff;
+  border-bottom: 1px solid $border-default-color;
+  .m-pp-ban-center {
+    width: Rem(505);
+    margin: 0 auto;
+    padding: Rem(30) 0;
+  }
+  ul {
+    width: 100%;
+    display: -webkit-box; /* Safari and Chrome */
+    display: -moz-box; /* Firefox */
+    display: box;
+    li {
+      text-align: center;
+      color: #666;
+      i {
+        display: block;
+        width: Rem(80);
+        height: Rem(80);
+        margin: Rem(10) auto;
+      }
+      h4 {
+        font-size: Rem(12*2);
+      }
+    }
+    li:nth-child(1) {
+      -webkit-box-flex: 1.0; /* Safari and Chrome */
+      -moz-box-flex: 1.0; /* Firefox */
+      box-flex: 1.0;
+      i {
+        background: url("/public/static/img/module/restphone_stepBanIco_0.png") no-repeat center top;
+        background-size: contain;
+      }
+    }
+    li:nth-child(2) {
+      -webkit-box-flex: 2.0; /* Safari and Chrome */
+      -moz-box-flex: 2.0; /* Firefox */
+      box-flex: 2.0;
+      i {
+        width: 100%;
+        background: url("/public/static/img/module/restphone_stepBanIco_2.png") no-repeat center center;
+        background-size: contain;
+      }
+    }
+    li:nth-child(3) {
+      -webkit-box-flex: 1.0; /* Safari and Chrome */
+      -moz-box-flex: 1.0; /* Firefox */
+      box-flex: 1.0;
+      color:#c6c6c6;
+      i {
+        background: url("/public/static/img/module/restphone_stepBanIco_1.png") no-repeat center top;
+        background-size: contain;
+      }
+    }
+  }
+  .u-active {
+    li:nth-child(2) {
+      i {
+        width: 100%;
+        background: url("/public/static/img/module/restphone_stepBanIco_2_1.png") no-repeat center center;
+        background-size: contain;
+      }
+    }
+    li:nth-child(3) {
+      color:#666;
+      i {
+        background: url("/public/static/img/module/restphone_stepBanIco_1_1.png") no-repeat center top;
+        background-size: contain;
+      }
+    }
+  }
+}

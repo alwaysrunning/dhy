@@ -1,0 +1,95 @@
+<section class="m-electricTicket-mod u-scrollBar">
+
+    <div class="mem-line-mod">
+        交易日期：<%= data["transDate"] %>
+    </div>
+
+    <div class="mem-line-mod">
+       <div class="mlm-box">
+           <div class="mlm-item">
+               交易编号: <%= data["txnId"] %>
+           </div>
+           <div class="mlm-item">
+               收银台: <%= data["bar"] %>
+           </div>
+           <div class="mlm-item">
+               收银员: <%= data["cashier"] %>
+           </div>
+       </div>
+    </div>
+
+    <div class="mem-line-mod">
+       <div class="mlm-box">
+           <div class="mlm-item">
+               <p>交易业态</p>
+               <p><%= data["partnerCd"] %></p>
+           </div>
+           <div class="mlm-item">
+               <p>交易门店</p>
+               <p><%= data["carrierCd"] %></p>
+           </div>
+           <div class="mlm-item">
+               <p>交易POS机编号</p>
+               <p><%= data["posNum"] %></p>
+           </div>
+       </div>
+    </div>
+
+    <div class="mem-line-mod u-ticket-details-list" style="padding-left: 0;padding-right: 0;">
+        <div class="mlm-tit">
+            <ul>
+                <li>商品名</li>
+                <li>单价</li>
+                <li>数量</li>
+                <li>金额</li>
+            </ul>
+        </div>
+        <div class="mlm-cont">
+            <dl id="products">
+                <% data["products"].forEach(function(item){ %>
+                <dd data-num="<%= item["num"] %>" data-pay="<%= item["pay"] %>">
+                   <h5><%= item["prodName"] %></h5>
+                   <div class="mc-item-line clearfix">
+                       <div class="mc-item">
+                           <%= item["prodNo"] %>
+                       </div>
+                       <div class="mc-item">
+                           <%= item["price"] %>
+                       </div>
+                       <div class="mc-item">
+                           <%= item["num"] %>
+                       </div>
+                       <div class="mc-item">
+                           <%= item["pay"] %>
+                       </div>
+                   </div>
+                </dd>
+                <% }) %>
+            </dl>
+        </div>
+    </div>
+
+    <div class="mem-line-mod">
+        <ul class="mlm-list">
+            <li>总数量：<span id="totalNum"></span></li>
+            <li>商品金额：<span id="totalPay"></span></li>
+            <% data["vouchers"].forEach(function(item){ %>
+            <li>优惠券编号：<%= item["voucherNo"] %></li>
+            <li>优惠券使用金额：<%= item["amount"] %></li>
+            <% }) %>
+            <li>实付金额 ：<%= data["amtVal"] %></li>
+            <li>支付金额：
+                <% for(var i = 0;i<data["pay"].length;i++){%>
+                    <%=data["pay"][i].payType%>(<%=data["pay"][i].payAmount%>)<%if(i<data["pay"].length-1){%>、<%}%>
+                <%} %>
+            </li>
+            <!--<li>交易卡号：无</li>-->
+            <li>会员卡号：<%= data["memberCard"] %></li>
+            <!--<li>扣减积分：0</li>-->
+            <li>此次交易获取积分：<%= data["txnPoint"] %></li>
+            <li>账户当前总积分：<%= data["pointValue"] %></li>
+            <li>创建日期：<%= data["createDate"] %></li>
+        </ul>
+    </div>
+
+</section>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>账户申诉</title>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <script type="text/javascript" src="../../js/lib/flexible.js"></script>
+    <link rel="stylesheet" href="../../css/app.css">
+</head>
+<body>
+<div class="g-app">
+    <div class="m-complaint-page">
+        <form class="u-form">
+            <div class="u-form-item">
+                <div class="u-form-item-line">
+                    <input type="tel" placeholder="请输入原手机号码" value="">
+                    <div class="g-form-item-rg">
+                        <i class="icon iconfont icon-guanbi u-hidden"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="u-form-item">
+                <div class="u-form-item-line">
+                    <input type="tel" placeholder="请输入新手机号码" value="">
+                    <div class="g-form-item-rg">
+                        <i class="icon iconfont icon-guanbi u-hidden"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="u-form-item">
+                <div class="u-form-item-line">
+                    <input type="text" placeholder="验证码" value="">
+                    <div class="g-form-item-rg">
+                        <i class="icon iconfont icon-guanbi"></i>
+                        <i class="u-badge-text">获取验证码</i>
+                    </div>
+                </div>
+            </div>
+            <div class="u-form-item">
+                <div class="u-form-item-line">
+                    <input type="tel" placeholder="请输入身份证号" value="">
+                </div>
+            </div>
+            <div class="u-title-h4">
+                <h4>上传身份证</h4>
+            </div>
+            <div class="m-id-mod">
+                <div class="u-dropzone  needsclick dz-clickable" id="idUploadForm">
+                    <div class="dz-message needsclick">
+                        <span class="note needsclick"><i><img src="../../img/component/dropzone/complaint_icon_bg_0.png"></i></span>
+                    </div>
+                </div>
+                <h4>身份证正面</h4>
+                <div class="u-dropzone  needsclick dz-clickable" id="idUploadFormVerso">
+                    <div class="dz-message needsclick">
+                        <span class="note needsclick"><i><img src="../../img/component/dropzone/complaint_icon_bg_0.png"></i></span>
+                    </div>
+                </div>
+                <h4>身份证反面</h4>
+            </div>
+            <div class="u-btn-normal-line">
+                <button class="u-btn u-radius u-btn-block " type="button">查看示例</button>
+            </div>
+            <div class="u-btn-normal-line">
+                <button class="u-btn u-radius u-btn-block u-btn-submit" type="submit" disabled>提交</button>
+            </div>
+            <div class="u-normal-tips-line u-btn-normal-line u-tips-flex-box">
+                <b>温馨提示：</b>
+                <p>请按照页面提示填写您的真实、准确信息，云猴尊重并
+                    保护您的个人隐私权，但不承诺您的申请一定能获得审
+                    核通过。因您提交不真实、不准确、失效的个人信息所
+                    引发的一切后果及风险由您自行承担。</p>
+            </div>
+        </form>
+
+    </div>
+</div>
+<script type="text/javascript" src="../../js/extends/dropzone.js"></script>
+<script type="text/javascript">
+
+    var myDropzone = new Dropzone("#idUploadForm", { url: "/file/post"});
+    myDropzone.on("complete", function(file) {
+       var addDom=document.querySelector(".dz-message");
+        addDom.parentNode.removeChild(addDom);
+    });
+
+    var myDropzoneVerso = new Dropzone("#idUploadFormVerso", { url: "/file/post"});
+    myDropzoneVerso.on("complete", function(file) {
+        var addDom=document.querySelector(".dz-message");
+        addDom.parentNode.removeChild(addDom);
+    });
+</script>
+</body>
+</html>

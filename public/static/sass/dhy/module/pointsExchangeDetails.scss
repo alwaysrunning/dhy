@@ -1,0 +1,197 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:02
+ * */
+@import "../../common/variable",
+"../../common/mixin";
+//商品详情
+.g-fixed-bar {
+  position: fixed;
+  //position:absolute;
+  width: 100%;
+  margin: 0;
+  left: 0;
+  top: 0;
+  z-index: $z-index-base+115;
+  background: #fff;
+}
+
+#pedPriceBarTmp {
+  width: 100%;
+  .u-yunhoubao, .u-integral {
+    font-size: Rem(32);
+    color: $font-them-color;
+    display: inline-block;
+    margin-right: Rem(20);
+  }
+  .u-price {
+    font-size: Rem(20);
+    color: $font-sub-color;
+    text-decoration: line-through;
+    display: inline-block;
+    line-height: Rem(32);
+    height: Rem(32);
+  }
+  .u-btn-exchange {
+    font-size: Rem(28);
+    height: Rem(60);
+    line-height: Rem(60);
+    padding: 0 Rem(20);
+    margin-bottom: 0;
+  }
+}
+//谢沐沐
+.m-goodsDetails-mod {
+  position: relative;
+  height: 100%;
+  .m-mod-box {
+    background-color: #ffffff;
+    margin-bottom: Rem(20);
+    color: #333;
+  }
+
+  .u-image-slide {
+    height: Rem(470);
+    padding: Rem(20) 0;
+  }
+  .u-yunhoubao, .u-integral {
+    font-size: Rem(32);
+    color: $font-them-color;
+    display: inline-block;
+    margin-right: Rem(20);
+  }
+
+  .u-price {
+    font-size: Rem(20);
+    color: $font-sub-color;
+    text-decoration: line-through;
+    display: inline-block;
+    line-height: Rem(32);
+    height: Rem(32);
+  }
+
+  .u-btn-exchange {
+    font-size: Rem(28);
+    height: Rem(60);
+    line-height: Rem(60);
+    padding: 0 Rem(20);
+    margin-bottom: 0;
+  }
+
+  .u-goods-title {
+    font-size: Rem(28);
+    padding-left: Rem(20);
+    .u-badge-text {
+      display: inline-block;
+      background: $font-them-color;
+      cursor: pointer;
+      color: #fff;
+      font-size: Rem(20);
+      text-align: center;
+      border-radius: Rem(5);
+      padding: 0 Rem(10);
+    }
+  }
+
+  .u-goods-store {
+    .u-goods-label, .u-goods-select {
+      font-size: Rem(26);
+    }
+    .iconfont {
+      font-size: Rem(26);
+    }
+    .u-goods-label {
+      margin-right: Rem(20);
+    }
+    .u-goods-select {
+      width: 100%;
+    }
+    input.txt{
+      border: none;
+    }
+  }
+
+  .u-g-hd {
+    font-size: Rem(26);
+    color: #333;
+  }
+
+  .m-split {
+    position: relative;
+    height: Rem(40);
+    line-height: Rem(40);
+    margin-bottom: Rem(40);
+
+    .u-spl-ml {
+      position: absolute;
+      width: 100%;
+      height: 0;
+      border-bottom: 1px solid #e5e5e5;
+      top: 50%;
+      z-index: 1;
+    }
+
+    .u-spl-text {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: Rem(360);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
+      z-index: 10;
+      color: #999999;
+      background-color: #f5f5f5;
+      text-align: center;
+    }
+  }
+
+  .u-normal-list {
+    background: #fff;
+    li{
+      padding: Rem(20);
+    }
+  }
+
+  .u-spl-details-more {
+    padding: Rem(10) Rem(20) Rem(20) Rem(20);
+    min-height: Rem(2000);
+    text-align: center;
+    img {
+      width: 100%;
+    }
+  }
+  .u-scroll-wrap {
+    //position: absolute;
+    //left: 0;
+    //top: 0;
+    //bottom: 0;
+    //width: 100%;
+    //height: 100%;
+    //overflow: hidden;
+  }
+  .u-scroll-box {
+    //width: 100%;
+    //position: absolute;
+    //-webkit-transform: translateZ(0);
+    //-moz-transform: translateZ(0);
+    //-ms-transform: translateZ(0);
+    //-o-transform: translateZ(0);
+    //transform: translateZ(0);
+    //-webkit-touch-callout: none;
+    //-webkit-user-select: none;
+    //-moz-user-select: none;
+    //-ms-user-select: none;
+    //user-select: none;
+    //-webkit-text-size-adjust: none;
+    //-moz-text-size-adjust: none;
+    //-ms-text-size-adjust: none;
+    //-o-text-size-adjust: none;
+    //text-size-adjust: none;
+  }
+}

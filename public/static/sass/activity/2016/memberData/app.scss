@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+@import "../../../common/flexible";//适配类
+@import "../../../common/common_reset";//初始化样式类
+@import "icon_font";//字体
+@import "base";//基础类
+@import "sprite";//sprite
+@import "swiper";//滑动
+
+//分享遮罩
+.u-public-share-mask{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: none;
+
+  .share {
+    position: absolute;
+    right: Rem(20);
+    top: Rem(20);
+    width: Rem(578);
+    height: Rem(296);
+    background: url("/public/static/img/module/shareLayer_tips.png") no-repeat;
+    background-size: contain;
+  }
+}

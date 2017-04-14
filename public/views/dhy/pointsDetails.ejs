@@ -1,0 +1,230 @@
+<!--优惠券-->
+<% if(type=="17" || type=="18" || type=="19" || type=="20"){%>
+<div class="m-ordersDetails-mod u-scrollBar">
+    <div class="m-mod-box">
+        <ul class="u-normal-list">
+            <li>
+                <div class="g-label-lf g-fl-lf">
+                    到货方式：
+                </div>
+                <div class="g-label-rg g-fl-lf clearfix">
+                    <%
+                        var deliveryStr="";
+                        switch(data["distributtype"]){
+                            case "1":
+                                deliveryStr="门店自提";
+                                break;
+                            case "2":
+                                //deliveryStr="普通快递";//普通快递 (红包)抵邮 (非高币)积分抵邮
+                                if(data["pay"]==1){
+                                    deliveryStr="红包抵邮"
+                                }else if(data["pay"]==0){
+                                    deliveryStr="积分抵邮"
+                                }else if(data["pay"]==4){
+                                    deliveryStr="微信抵邮"
+                                }
+                                break;
+                            case "3":
+                                deliveryStr="到货付邮";
+                                break;
+                            case "4":
+                                deliveryStr="第三方平台";
+                                break;
+                        }
+                    %>
+                    <%= deliveryStr %>
+                    <!--<span class="g-fl-rg">运费： <i class="u-color-default">0积分</i></span>-->
+                </div>
+            </li>
+            <li>
+                <div class="g-label-lf g-fl-lf">
+                    消费地址：
+                </div>
+                <div class="g-label-rg g-fl-lf">
+                    <%= decodeURIComponent(data["address"]) %><br>
+                    <%= decodeURIComponent(data["accepter"]) %> <%= decodeURIComponent(data["telphone"]) %>
+                </div>
+            </li>
+            <li>
+                <div class="g-label-lf g-fl-lf">
+                    配送方式：
+                </div>
+                <div class="g-label-rg g-fl-lf clearfix">
+                    <%
+                        var distributtypeStr="";
+                        switch(data["distributtype"]){
+                            case "1":
+                                distributtypeStr="门店自提";//门店自提
+                                break;
+                            case "2":
+                                distributtypeStr="微信/积分/红包付邮";//普通快递 红包抵邮 (非高币)积分抵邮
+                                break;
+                            case "3":
+                                distributtypeStr="到货付邮";
+                                break;
+                            case "4":
+                                distributtypeStr="第三方平台";
+                                break;
+                        }
+                    %>
+                    <%= distributtypeStr %>
+                   <div class="g-fl-rg">
+                       运费:
+                       <% if(data.pay=="0"){ %>
+                       <span class="u-color-default"><%= data["trasportfee"] %>积分</span>
+                       <% }else if(data.pay=="2" || data.pay=="1"){ %>
+                       <!--<span class="u-color-default"><%= data["transportgaobi"] %>红包</span>-->
+                       <% }else if(data.pay=="4"){ %>
+                       <span class="u-color-default"><%= data["transportWeichatPay"] %>元</span>
+                       <% } %>
+                   </div>
+                </div>
+            </li>
+            <li>
+                <div class="g-label-lf g-fl-lf">
+                    支付方式：
+                </div>
+                <div class="g-label-rg g-fl-lf">
+                    <%
+                        var payStr="";
+                        switch (parseInt(data["pay"])){
+                            case 0:
+                                payStr="积分支付";
+                            break;
+                            case 1:
+                                payStr="红包支付";
+                                break;
+                            case 2:
+                                payStr="红包支付";
+                                break;
+                            case 4:
+                                payStr="微信支付";
+                                break;
+                            default :
+                                payStr="此类支付方式不支持";
+                        }
+                    %>
+                    <%= payStr %>
+                </div>
+            </li>
+            <!--<li>-->
+                <!--<div class="g-label-lf g-fl-lf">-->
+                    <!--物流信息：-->
+                <!--</div>-->
+                <!--<div class="g-label-rg g-fl-lf">-->
+                    <!--<div class="u-courier-code clearfix">-->
+                        <!--EMS10988888888-->
+                        <!--<div class="g-fl-rg">-->
+                            <!--<i class="icon iconfont icon-shangjiantou"></i>-->
+                            <!--&lt;!&ndash;<i class="icon iconfont icon-xiajiantou"></i>&ndash;&gt;-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="u-courier-list-mod">-->
+                <!--<dl class="u-courier-list">-->
+                    <!--<dd class="u-active">-->
+                        <!--<i></i>-->
+                        <!--<b>长沙市邮政速递物流公司 银盆岭南路揽投部安排投递，预计-->
+                            <!--12：00：00前投递</b>-->
+                        <!--<p>2015-09-28   09：56：12</p>-->
+                    <!--</dd>-->
+                    <!--<dd>-->
+                        <!--<i></i>-->
+                        <!--<b>到达长沙市处理中心（经传）</b>-->
+                        <!--<p>2015-09-28   09：56：12</p>-->
+                    <!--</dd>-->
+                    <!--<dd>-->
+                        <!--<i></i>-->
+                        <!--<b>到达长沙市处理中心（经传）</b>-->
+                        <!--<p>2015-09-28   09：56：12</p>-->
+                    <!--</dd>-->
+                <!--</dl>-->
+            <!--</li>-->
+        </ul>
+    </div>
+
+    <div class="m-mod-box">
+        <ul class="u-merchantOrder-list">
+            <li>
+                <div class="u-g-hd clearfix">
+                    <span class="ugh-title">
+                        <span><i class="icon iconfont icon-dingdanliebiaoleibie"></i><%= data["giftcategoryName"] %></span>
+                    </span>
+                    <div class="g-fl-rg">
+                        <b><%= data["statusDescription"] %></b>
+                    </div>
+                </div>
+                <div class="u-g-bd clearfix">
+                    <div class="g-lf-box g-fl-lf">
+                       <a>
+                           <img src="<%= data["image"] %>">
+                           <p><%= data["name"] %></p>
+                       </a>
+                    </div>
+                    <div class="g-rg-box g-fl-rg">
+                        <% if(data.pay=="0"){ %>
+                            <h6><%= data["singalIntegral"] %>积分</h6>
+                        <% }else if(data.pay=="2" || data.pay=="1"){ %>
+                            <!--<h6><%= data["singalGaobi"] %>红包</h6>-->
+                        <% }else if(data.pay=="4"){ %>
+                            <h6><%= data["weichatPay"]/data["num"] %>元</h6>
+                        <% } %>
+                        <i class="u-badge-number">X<%= data["num"] %></i>
+                    </div>
+                </div>
+                <div class="u-g-ft clearfix">
+                    <div class="g-lf-box g-fl-lf">
+                        数量：共<%= data["num"] %>件
+                    </div>
+                    <div class="g-rg-box g-fl-rg">
+                        <% if(data.pay=="0") { %>
+
+                        <p>合计：<%= data["integral"]+data["trasportfee"] %>（含邮费）</p>
+
+                        <% }else if(data.pay=="2" || data.pay=="1") { %>
+
+                        <p>合计：<%= data["gaobi"]+data["transportgaobi"] %>（含邮费）</p>
+
+                        <% }else if(data.pay=="4"){ %>
+
+                        <p>合计：<%= data["weichatPay"]+data["transportWeichatPay"]  %>（含邮费）</p>
+                        <% } %>
+
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="m-mod-box">
+        <ul class="u-normal-list">
+            <li>
+                <div class="g-label-lf g-fl-lf">
+                    订单号：
+                </div>
+                <div class="g-label-rg g-fl-lf">
+                    <%= data["code"] %>
+                </div>
+            </li>
+            <li>
+                <div class="g-label-lf g-fl-lf">
+                    下单时间：
+                </div>
+                <div class="g-label-rg g-fl-lf">
+                    <%= data["createtime"] %>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <% if(data["giftcategoryId"]!==18 && data["couponsId"] && data["giftcategoryName"]){ %>
+    <div class="m-mod-button-box">
+        <a href="#/couponsDetails?type=<%= data["giftcategoryId"] %>&couponid=<%= data["couponsId"] %>&fromUrl=<%= encodeURIComponent(window.location.hash) %>" class="u-btn u-radius u-btn-block u-btn-submit u-active">查看<%= data["giftcategoryName"] %></a>
+    </div>
+    <% }else if(data["thirdKey"]){ %>
+        <div class="m-mod-button-box">
+            <a href="#/couponsDetails?type=<%= data["giftcategoryId"] %>&codeid=<%= data["thirdKey"] %>&giftId=<%= data["giftId"] %>&fromUrl=<%= encodeURIComponent(window.location.hash) %>" class="u-btn u-radius u-btn-block u-btn-submit u-active">查看<%= data["giftcategoryName"] %></a>
+        </div>
+    <% } %>
+</div>
+<% } %>

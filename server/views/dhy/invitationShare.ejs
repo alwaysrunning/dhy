@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/public/static/css/invitation/app.css"/>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><!--ignore-->
+    <script src="/public/static/js/lib/flexible.js"></script>
+    <script type="text/javascript" src="/public/static/js/lib/jquery.min.js"></script>
+</head>
+<body>
+<div class="viewport">
+    <div class="content">
+        <div class="inf-box">
+            <div class="icon-img">
+                <% if(data.regCode && data.regCode.weichatPic && (data.regCode.weichatPic.indexOf('wx') >= 0)){ %>
+                <img src="<%= decodeURIComponent(data.regCode.weichatPic) %>">
+                <% }else{ %>
+                <img src="/public/static/img/module/member_ico_0.png">
+                <% } %>
+            </div>
+            <p class="name">我是<%= data.regCode.weichatName %></p>
+
+            <p>诚挚邀请您和我一起注册小步之家吧！</p>
+
+            <p>记得填写我的邀请码哦：<%= data.regCode.invitationCode %></p>
+        </div>
+        <div class="inv-box">
+            <% if(data.regAccounts.datas.length > 0){ %>
+            <div class="title clearfix">
+                <div class="left">我还邀请了Ta们</div>
+                <div class="right">总共邀请了<%= data.regCode.invitedNum %>位</div>
+            </div>
+            <div class="heads">
+                <ul>
+                    <% data.regAccounts.datas.forEach(function(item){ %>
+                    <li>
+                        <% if(item.weichatPic && (item.weichatPic.indexOf('wx') >= 0)){ %>
+                        <img src="<%= decodeURIComponent(item.weichatPic) %>">
+                        <% }else{ %>
+                        <img src="/public/static/img/module/member_ico_0.png">
+                        <% } %>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
+            <% }else{ %>
+            <div class="empty">
+                <p>
+                    您暂时还没有好友给您助力，
+                </p>
+                <p>
+                    赶紧去邀请好友吧！
+                </p>
+            </div>
+            <% } %>
+        </div>
+        <div class="rule-box" style="display: none;">
+            <div class="rule-banner"></div>
+            <div class="rule-text">
+                <p>1、A1显示邀请人微信头像，邀请码根据邀请人的不同显示不同的邀请ID</p>
+                <p>2、A2显示最新邀请的5个已注册用户微信头像，具体显示多少个用户，以UI设计版面为准，显示总共邀请了多少位已注册用户</p>
+            </div>
+        </div>
+        <div class="rule-box">
+            <div class="qrcode-box">
+                <img src="/public/invitation/img/qrcode.jpg" alt=""/>
+            </div>
+        </div>
+    </div>
+    <img class="touch" src="/public/invitation/img/1.png" alt=""/>
+</div>
+
+<script>
+    $(function(){
+        $.getJSON('/api/weixin/sign', {
+            url: encodeURIComponent(window.location.href.split('#')[0])
+        }).then(function(data){
+            wx.config({
+                //debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: data.appId, // 必填，公众号的唯一标识
+                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                signature: data.signature,// 必填，签名，见附录1
+                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'showMenuItems', 'hideAllNonBaseMenuItem'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+        });
+        wx.ready(function(){
+            wx.hideAllNonBaseMenuItem();
+
+            wx.onMenuShareTimeline({
+                title: '【小步之家】千万会员幸福之家', // 分享标题
+                link: window.location.href, // 分享链接
+                imgUrl: 'http://' + window.location.host + '/invitation/img/share.jpg', // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+            wx.onMenuShareAppMessage({
+                title: '【小步之家】千万会员幸福之家', // 分享标题
+                desc: '快和我一起加入吧！30秒变会员，活动资讯，一手掌握。还有更多折扣、赠礼、抽奖、多倍积分等着你哟~', // 分享描述
+                link: window.location.href, // 分享链接
+                imgUrl: 'http://' + window.location.host + '/invitation/img/share.jpg', // 分享图标
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+            wx.showMenuItems({
+                menuList: ['menuItem:share:appMessage', 'menuItem:share:timeline'] // 要显示的菜单项，所有menu项见附录3
+            });
+        });
+    });
+</script>
+</body>
+</html>

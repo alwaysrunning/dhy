@@ -1,0 +1,35 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:43
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//完善个人信息
+.m-personalInfo-page {
+  .u-form-item label:not(.u-switch):not(.u-checkbox):not(.u-radio) {
+    width: Rem(50*2);
+  }
+  .u-form-item .u-form-input-text, .u-form-item .u-form-input-textarea {
+    padding-left: Rem(50*2);
+  }
+}
+
+.u-tips-txt-line {
+  background: $stable-bg;
+  color: #999;
+  padding: Rem(25);
+  text-align: left;
+  .icon-tishi{
+    vertical-align: middle;
+    margin: 0 Rem(10);
+  }
+}
+
+.u-tips-bg-orange{
+  background: $txt-tips-warning;
+  color:$button-normal-bg-color;
+}

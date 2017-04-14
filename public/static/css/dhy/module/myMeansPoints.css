@@ -1,0 +1,39 @@
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 7, ../../../sass/dhy/module/myMeansPoints.scss */
+.m-myMeansPoints-mod .u-points-panel {
+  background: #fff;
+  text-align: center;
+  padding: 1.06667rem 0;
+  margin-bottom: 0.53333rem;
+  position: relative;
+}
+/* line 13, ../../../sass/dhy/module/myMeansPoints.scss */
+.m-myMeansPoints-mod .u-points-panel h3 {
+  color: #ff6666;
+  font-size: 0.8rem;
+}
+/* line 17, ../../../sass/dhy/module/myMeansPoints.scss */
+.m-myMeansPoints-mod .u-points-panel p {
+  font-size: 0.37333rem;
+}
+/* line 20, ../../../sass/dhy/module/myMeansPoints.scss */
+.m-myMeansPoints-mod .u-points-panel .u-use-rule {
+  position: absolute;
+  top: 0.13333rem;
+  right: 0.13333rem;
+  text-decoration: underline;
+}

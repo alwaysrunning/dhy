@@ -1,0 +1,179 @@
+@charset "UTF-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:27
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * 按钮
+ */
+/* line 12, ../../sass/component/button.scss */
+.u-btn {
+  height: 1.17333rem;
+  line-height: 1.17333rem;
+  margin: 0 0 0.13333rem 0;
+  min-width: 0.73333rem;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  font-size: 0.42667rem;
+  background: #ff6666;
+  color: #fff;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  background-clip: padding-box;
+  cursor: pointer;
+  transition: background-color 300ms ease-out 0s, border-color 300ms ease-out 0s;
+}
+
+/* line 30, ../../sass/component/button.scss */
+.u-btn:not(.disabled):not(:disabled):active, .u-btn.active, .u-btn:hover, .u-btn:focus {
+  background: #ea590f;
+  color: #fff;
+}
+
+/* line 35, ../../sass/component/button.scss */
+.u-btn[disabled], .u-btn.disabled, .u-btn:disabled, .u-btn[disabled]:hover, .u-btn[disabled]:focus {
+  background: #e5e5e5;
+  color: #b3b3b3;
+  border: 0;
+  background-clip: padding-box;
+}
+
+/* line 42, ../../sass/component/button.scss */
+.u-btn-block {
+  width: 100%;
+  display: block;
+}
+
+/* line 47, ../../sass/component/button.scss */
+.u-radius {
+  border-radius: 0.08rem;
+}
+
+/* line 51, ../../sass/component/button.scss */
+.u-btn-normal {
+  background: #ff6666;
+  color: #fff;
+}
+
+/* line 55, ../../sass/component/button.scss */
+.u-btn-normal:not(.disabled):not(:disabled):active, .u-btn-normal.u-active, .u-btn-normal:hover, .u-btn-normal:focus {
+  background: #ea590f;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* line 61, ../../sass/component/button.scss */
+.u-btn-submit {
+  background: #fff;
+  color: #ff6666;
+  border: 1px solid #ff6666;
+}
+
+/* line 66, ../../sass/component/button.scss */
+.u-btn-submit:not(.disabled):not(:disabled):active, .u-btn-submit.u-active, .u-btn-submit:hover, .u-btn-submit:focus {
+  background: #ff6666;
+  color: #fff;
+}
+
+/* line 71, ../../sass/component/button.scss */
+.u-btn-white {
+  background: #fff;
+  color: #ff6666;
+}
+
+/* line 75, ../../sass/component/button.scss */
+.u-btn-border-gray {
+  background: #fff;
+  color: #999;
+  border: 1px solid #999;
+}
+
+/* line 80, ../../sass/component/button.scss */
+.u-btn-white:not(.disabled):not(:disabled):active, .u-btn-white.u-active, .u-btn-white:hover, .u-btn-white:focus {
+  background: #ff6666;
+  color: #fff;
+}
+
+/* line 85, ../../sass/component/button.scss */
+.u-fixed-bottom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  -moz-box-orient: horizontal;
+  -moz-box-pack: center;
+  -moz-box-align: end;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: end;
+  background: rgba(0, 0, 0, 0.4);
+}
+/* line 104, ../../sass/component/button.scss */
+.u-fixed-bottom .u-fixed-bd {
+  font-size: 0.56rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  -webkit-transform: translateY(100%);
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: ease-out;
+  -webkit-transition-duration: 0.3s;
+  transform: translateY(100%);
+  transition-property: all;
+  transition-timing-function: ease-out;
+  transition-duration: 0.3s;
+  background: #e5e6e7;
+}
+/* line 120, ../../sass/component/button.scss */
+.u-fixed-bottom .u-fixed-bd .u-btn {
+  margin: 0;
+  border-bottom: 1px solid #e5e6e7;
+  color: #333;
+}
+/* line 125, ../../sass/component/button.scss */
+.u-fixed-bottom .u-fixed-bd .u-btn:last-child {
+  margin: 0.13333rem 0;
+  border-bottom: none;
+}
+/* line 129, ../../sass/component/button.scss */
+.u-fixed-bottom .u-fixed-bd .u-btn:not(.disabled):not(:disabled):active, .u-fixed-bottom .u-fixed-bd .u-btn-white.u-active, .u-fixed-bottom .u-fixed-bd .u-btn-white:hover, .u-fixed-bottom .u-fixed-bd .u-btn-white:focus {
+  color: #fff;
+}
+
+/* line 134, ../../sass/component/button.scss */
+.u-fixed-bottom.u-active {
+  pointer-events: inherit;
+  opacity: 1;
+}
+/* line 137, ../../sass/component/button.scss */
+.u-fixed-bottom.u-active .u-fixed-bd {
+  -webkit-transform: translateY(0);
+  -webkit-transition-delay: 0.3s;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+/* line 145, ../../sass/component/button.scss */
+.u-btn-small-size {
+  width: 1.86667rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+}

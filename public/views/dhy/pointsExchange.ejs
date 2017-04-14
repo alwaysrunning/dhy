@@ -1,0 +1,505 @@
+<section class="m-pointsExchange-mod u-scrollBar">
+    <div class="mpm-hd clearfix">
+        <div class="mh-lf g-fl-lf">
+            <% if(channel=="120135"){ %>
+            <div class="u-drop-down">
+                <a class="u-drop-text">
+                    <span>步步高王府店</span>
+                </a>
+            </div>
+            <% }else {%>
+            <div class="u-drop-down" data-id="<%= curCity["id"] %>" data-name="<%= curCity["name"] %>"  id="curCity">
+                <a href="#/locationList?fromUrl=<%= encodeURIComponent("#/pointsExchange") %>" class="u-drop-text">
+                    <span><%= curCity["name"] %></span>
+                    <i class="icon iconfont icon-xiajiantou"></i>
+                </a>
+            </div>
+            <% } %>
+        </div>
+        <div class="mh-rg  g-fl-rg">
+            <form class="u-search-form" id="searchForm">
+                <div class="u-search-input">
+                    <input type="text" value="" placeholder="慧生活，上步步高" class="u-search-text">
+                </div>
+            </form>
+        </div>
+    </div>
+    <% if(adList.length>0){ %>
+    <div class="mpm-ban" id="mpmBan">
+        <div class="u-slider-mod">
+            <div class="usm-bd u-slide" id="slide1">
+                <ul class="u-slider-list">
+                    <% adList.forEach(function(item){ %>
+
+                        <% if(item.linkType==3||item.linkType==5){ %>
+                        <%# 3积分商品优惠券 详情/列表 %>
+                            <% if(item.linkContent.length>0 && item.islist==0){ %>
+                                <li>
+                                    <a  href="#/pointsExchangeDetails?id=<%= item.linkContent %>" title="<%= item.name %>">
+                                        <img src="<%= item.image %>" alt="<%= item.name %>">
+                                    </a>
+                                </li>
+                            <% }else if(item.linkContent.length>1 && item.islist==1) { %>
+                                <li>
+                                    <a  href="#/pointsExchangeList?idArr=<%= item.linkContent %>" title="<%= item.name %>">
+                                        <img src="<%= item.image %>" alt="<%= item.name %>">
+                                    </a>
+                                </li>
+                            <% }else{ %>
+                                <li>
+                                    <a title="<%= item.name %>">
+                                        <img src="<%= item.image %>" alt="<%= item.name %>">
+                                    </a>
+                                </li>
+                            <% } %>
+                        <% }else if(item.linkType==4){ %>
+                        <%# 4云猴小店商品 详情/列表 TODO %>
+                        <li>
+                            <a title="<%= item.name %>">
+                                <img src="<%= item.image %>" alt="<%= item.name %>">
+                            </a>
+                        </li>
+                        <% }else if(item.linkType==6){ %>
+                        <%# 6 URL H5 %>
+                        <li>
+                            <a <% if(item.linkContent.length>0 ){ %> href="<%= item.linkContent %>" <% } %> title="<%= item.name %>">
+                                <img src="<%= item.image %>" alt="<%= item.name %>">
+                            </a>
+                        </li>
+                        <% }else if(item.linkType==12){ %>
+                        <%# 12 云猴小店 TODO %>
+                        <li>
+                            <a title="<%= item.name %>">
+                                <img src="<%= item.image %>" alt="<%= item.name %>">
+                            </a>
+                        </li>
+                        <% }else if(item.linkType==9){ %>
+                            <%# 9不跳转 %>
+                            <li>
+                                <a title="<%= item.name %>">
+                                    <img src="<%= item.image %>" alt="<%= item.name %>">
+                                </a>
+                            </li>
+                        <% } %>
+                    <% }) %>
+                </ul>
+            </div>
+            <div class="usm-ft">
+                <dl class="u-slider-dot">
+                    <% adList.forEach(function(item){ %>
+                        <% if(item.linkType==1){ %>
+                        <%# 1商城商品 详情/列表 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==2){ %>
+                        <%# 2商城二级栏目 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==3){ %>
+                        <%# 3积分商品 详情/列表 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==4){ %>
+                        <%# 4云猴小店商品 详情/列表 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==5){ %>
+                        <%# 5优惠券 详情/列表 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==6){ %>
+                        <%# 6 URL H5 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==12){ %>
+                        <%# 12 云猴小店 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==9){ %>
+                        <%# 9不跳转 %>
+                        <dd></dd>
+                        <% } %>
+                    <% }) %>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <% } %>
+    <div class="mpm-sort">
+        <% if(channel=="120135"){ %>
+
+        <% } else { %>
+        <div class="ms-item">
+            <div class="u-drop-down u-drop-down-wrap" id="dropDownArea" data-locked="false">
+                <div class="u-drop-text">
+                    <span data-option-parent-id="<%= curCity["id"] %>">地区</span>
+                    <i class="icon iconfont icon-xiajiantou"></i>
+                </div>
+                <div class="u-drop-down-show u-hidden">
+
+                </div>
+            </div>
+        </div>
+        <% } %>
+        <div class="ms-item">
+            <div class="u-drop-down u-drop-down-wrap" id="dropDownOrder" data-locked="false">
+                <div class="u-drop-text">
+                    <span data-option-parent-id="price-asc">智能排序</span>
+                    <i class="icon iconfont icon-xiajiantou"></i>
+                </div>
+                <div class="u-drop-down-show u-hidden">
+                    <dl class="u-drop-list">
+                        <dd class="u-drop-option" data-option="sell-desc">销量最高</dd>
+                        <dd class="u-drop-option" data-option="sell-asc">销量最低</dd>
+                        <dd class="u-drop-option" data-option="price-desc">价格最高</dd>
+                        <dd class="u-drop-option" data-option="price-asc">价格最低</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="ms-item">
+            <div class="u-drop-down u-drop-down-wrap"  id="dropDownSort"  data-locked="false">
+                <div class="u-drop-text">
+                    <span data-option-parent-id="0">分类</span>
+                    <i class="icon iconfont icon-xiajiantou"></i>
+                </div>
+                <div class="u-drop-down-show u-hidden">
+                    <dl class="u-drop-list">
+                        <% if(sortGoods.length>0){ %>
+                            <dd class="u-drop-option" data-option="0">所有积分</dd>
+                            <% sortGoods.forEach(function(item){%>
+                            <dd class="u-drop-option" data-option="<%= item.id %>"><%= item.name %></dd>
+                            <% }) %>
+                        <% } %>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mpm-bd" id="mpmBd">
+        <div class="u-product-img-list">
+            <div class="u-refresh" id="pointsExchangeList">
+                <ul class="u-data-list" id="pointsExchangeListInit">
+                    <% if(data.length>0){ %>
+                    <% data.forEach(function(item){ %>
+                    <li>
+                        <a href="#/pointsExchangeDetails?id=<%= item["id"] %>" title="<%= item["name"] %>">
+                            <div class="upil-img">
+                                <img class="u-lazy"  src="<%= item["image"] %>" alt="<%= item["name"] %>">
+                            </div>
+                            <h4 class="upil-title"><%= item["name"] %></h4>
+                            <div class="upil-price">
+                                <!--<div class="upil-pitem">-->
+                                    <!--红包<b><%= item["gaobi"] %></b>-->
+                                <!--</div>-->
+                                <div class="upil-pitem">
+                                    <b><%= item["integral"] %></b> 积分
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <% }) %>
+                    <% }else{ %>
+                    <p style="text-align: center;margin: 10px auto;">暂无数据 -!- ...</p>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    $(function(){
+        'use strict';
+        var Channel="<%= channel %>";
+        $(document).off('touchmove');
+
+        var _storesId="120135"; //王府的门店id
+
+        //遮罩修复
+        var pedPriceBarTmp=$("#pedPriceBarTmp");
+        var tmpBar=$("#tmpBar");
+        if(pedPriceBarTmp){
+            pedPriceBarTmp.remove();
+        }
+        if(tmpBar){
+            tmpBar.remove();
+        }
+
+        function autoCssTop(objStr){
+            var obj=$(objStr)
+            if(obj.offset() && obj.offset().top){
+                obj.find(".u-drop-down-show").css({"top":obj.offset().top+obj.offset().height})
+            }
+        }
+        //初始化地区
+        function exchangeListRender(areaId){
+            var _area=areaId;
+            var _category=0;// gift/category接口获得的分类
+            var _order="price"; //order 排序方式 price 价格, sell 销量
+            var _orderType="asc";//orderType  排序方式 asc 升序, desc 降序
+            var _ids="";
+            var ban=$("#mpmBan");
+            var bd = $('#mpmBd');
+            return App.component.scrollLoading({
+                judge:true,
+                wrapper:"#pointsExchangeList",//#pointsExchangeList .scroll-mod
+                ejsUrl:"views/dhy/scrollPointsExchangeList.ejs",
+                getUrl:function(page,pageSize){
+                    var sQueryUrl="gift/search?area="+_area+"&category="+_category+"&page="+page+"&pagesize="+pageSize+"&order="+_order+"&ordertype="+_orderType+"&ids="+_ids;
+                    if(Channel==_storesId){
+                        sQueryUrl="gift/search?storesid="+_storesId+"&category="+_category+"&page="+page+"&pagesize="+pageSize+"&order="+_order+"&ordertype="+_orderType+"&ids="+_ids;
+                    }
+                    return sQueryUrl;
+                },
+                totalPage:function(data){
+                    var result=false;
+                    console.log(data,"===");
+                    if(data){
+                        var _total=data["total"];
+                        var _count= data["pagesize"];
+                        var _index=data["page"];
+                        var _maxPageSize=_count!==0?Math.ceil(_total/_count):0;
+                        if(_index<=_maxPageSize){
+                            result=_maxPageSize
+                        }else{
+                            console.log("page error!");
+                            $(".u-refresh-label").html("没有更多内容了");
+                            App.Popover.weak({txt:"没有了更多内容了..."});
+                        }
+                    }
+                    return result;
+                },
+                callbackScrollStart:function(){
+                    var dist=Math.abs(arguments[0]);
+                    if(dist>=0){
+                        ban.addClass("u-hidden");
+                        bd.addClass('u-no-ban');
+                        autoCssTop("#dropDownArea");
+                        autoCssTop("#dropDownOrder");
+                        autoCssTop("#dropDownSort");
+                        this.refresh();
+                    }
+                },
+                callbackScrollEnd:function(){
+                    var dist=Math.abs(arguments[0]);
+                    if(dist<=5){
+                        ban.removeClass("u-hidden");
+                        bd.removeClass('u-no-ban');
+                        autoCssTop("#dropDownArea");
+                        autoCssTop("#dropDownOrder");
+                        autoCssTop("#dropDownSort");
+                        this.refresh();
+                    }
+                },
+                callbackCreate:function(){
+                    var _down=$(".u-refresh-down");
+                    <% if(data.length==0){ %>
+                    if(!_down.hasClass("u-hidden")){
+                        _down.addClass("u-hidden");
+                    }
+                    <% }else{ %>
+                    if(_down.hasClass("u-hidden")){
+                        _down.removeClass("u-hidden");
+                    }
+                    <% } %>
+                }
+            });
+        }
+
+        var InitExchange=exchangeListRender(<%= curCity["id"] %>);
+
+        //条件重新渲染
+        function reRenderList(options){
+            var sortId=$("#dropDownOrder .u-drop-text span").data("option-parent-id");
+            var sortArr=sortId.split("-");
+            var opts={
+                area:$("#dropDownArea .u-drop-text span").data("option-parent-id"),
+                category:$("#dropDownSort .u-drop-text span").data("option-parent-id"),
+                order:sortArr[0],//排序方式 price 价格, sell 销量
+                orderType:sortArr[1],//排序方式 asc 升序, desc 降序
+                ids:""
+            };
+            $.extend(opts,options);
+
+            var _area=opts.area;
+            var _category=opts.category;//商品分类
+            var _page=1;
+            var _pageSize=10;
+            var _order=opts.order;
+            var _orderType=opts.orderType;
+            var _ids=opts.ids;
+            var _searchQueryUrl="gift/search?area="+_area+"&category="+_category+"&page="+_page+"&pagesize="+_pageSize+"&order="+_order+"&ordertype="+_orderType+"&ids="+_ids;
+            if(Channel==_storesId){
+                _searchQueryUrl="gift/search?storesid="+_storesId+"&category="+_category+"&page="+_page+"&pagesize="+_pageSize+"&order="+_order+"&ordertype="+_orderType+"&ids="+_ids;
+            }
+            App.getJSON(_searchQueryUrl,function(res2){
+                if(res2.code=="0000"){
+                    console.log(res2,"+++----");
+                    if(res2.data.length>0){
+                        $(".u-refresh-down").removeClass("u-hidden");
+                    }else{
+                        $(".u-refresh-down").addClass("u-hidden");
+                    }
+                    App.reRender({
+                        wrap:"#pointsExchangeList .u-data-list",
+                        url:"views/dhy/scrollPointsExchangeListInit.ejs",
+                        data:{data:res2.data}
+                    });
+                    //*
+                    InitExchange.rePlay(function(){
+                        InitExchange.opts.getUrl=function(page,pageSize){
+                            var _reQueryUrl="gift/search?area="+_area+"&category="+_category+"&page="+page+"&pagesize="+pageSize+"&order="+_order+"&ordertype="+_orderType+"&ids="+_ids;
+                            if(Channel=="120135"){
+                                _reQueryUrl="gift/search?storesid="+_storesId+"&category="+_category+"&page="+page+"&pagesize="+pageSize+"&order="+_order+"&ordertype="+_orderType+"&ids="+_ids
+                            }
+                            return _reQueryUrl;
+                        };
+                    });
+                    InitExchange.refresh();
+                }
+            })
+        }
+        /***slider***/
+        $('#slide1').swipeSlide({
+            continuousScroll:true,
+            lazyLoad : true,
+            speed : 3000,
+            transitionType : 'cubic-bezier(0.22, 0.69, 0.72, 0.88)',
+            firstCallback : function(i,sum,me){
+                me.siblings('.usm-ft').find('.u-slider-dot').children().first().addClass('u-active');
+            },
+            callback : function(i,sum,me){
+                me.siblings('.usm-ft').find('.u-slider-dot').children().eq(i).addClass('u-active').siblings().removeClass('u-active');
+            }
+        });
+        /***下拉***/
+        var Area=$("#dropDownArea");
+        var Order=$("#dropDownOrder");
+        var Sort=$("#dropDownSort");
+        //地区
+        var eleCurCity=$("#curCity");
+
+        var posCity={id:eleCurCity.data("id"),name:eleCurCity.data("name")};
+
+        if(posCity.id){
+            App.getJSON("store/area?areaid="+posCity.id,function(res){
+                if(res.code=="0000"){
+                    App.component.dropDown({
+                        wrap:"#dropDownArea",
+                        tmpUrl:"views/dhy/dropDownCity.ejs",
+                        tmpArr:{data:res.data,curCity:posCity},
+                        callback:function(){
+                            reRenderList();
+                        },
+                        callbackOpen:function(){
+                            Order.data("locked",true);
+                            Sort.data("locked",true);
+                        },
+                        callbackClose:function(){
+                            Order.data("locked",false);
+                            Sort.data("locked",false);
+                        }
+                    });
+                }
+            })
+        }
+        //排序
+        App.component.dropDown({
+            wrap:"#dropDownOrder",
+            tmpArr:[
+                {id:"sell-desc",name:"销量最高"},
+                {id:"sell-asc",name:"销量最低"},
+                {id:"price-desc",name:"价格最高"},
+                {id:"price-asc",name:"价格最低"}
+            ],
+            callback:function(){
+                var _agr=arguments[0].split("-");
+                console.log(_agr);
+                reRenderList({
+                    order:_agr[0],
+                    orderType:_agr[1]
+                });
+            },
+            callbackOpen:function(){
+                Area.data("locked",true);
+                Sort.data("locked",true);
+            },
+            callbackClose:function(){
+                Area.data("locked",false);
+                Sort.data("locked",false);
+            }
+        });
+        //分类
+        var sortGoodsArr=[];
+        $("#dropDownSort .u-drop-list dd").each(function(index,item){
+            sortGoodsArr[index]={};
+            sortGoodsArr[index]["id"]=$(this).data("option");
+            sortGoodsArr[index]["name"]=$(this).text();
+        });
+        App.component.dropDown({
+            wrap:"#dropDownSort",
+            tmpArr:sortGoodsArr,
+            callback:function(){
+                console.log(arguments)
+                reRenderList({
+                    category:arguments[0]
+                });
+            },
+            callbackOpen:function(){
+                Order.data("locked",true);
+                Area.data("locked",true);
+            },
+            callbackClose:function(){
+                Order.data("locked",false);
+                Area.data("locked",false);
+            }
+        });
+        //搜索
+        var searchText=$("#searchForm .u-search-text");
+        searchText.on("focus",function(){
+            $(this).addClass("noBg");
+            $(this).attr("placeholder","");
+        }).on("blur",function(){
+            var _val=$(this).val();
+            if(!_val.length>0){
+                $(this).removeClass("noBg");
+                $(this).attr("placeholder","慧生活，上步步高");
+            }
+        })
+        $("#searchForm").on("submit",function(){
+            var _giftName=searchText.val();
+            window.location.hash="#/search?giftname="+_giftName;
+            return false;
+        })
+
+        if(!window.DEBUG){
+            App.getJSON("weixin/sign?url=" +encodeURIComponent(window.location.href.split('#')[0]), function (data) {
+                wx.config({
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: data.appId, // 必填，公众号的唯一标识
+                    timestamp: data.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                    signature: data.signature,// 必填，签名，见附录1
+                    jsApiList: [
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage',
+                        'showMenuItems',
+                        'hideAllNonBaseMenuItem',
+                        'scanQRCode',
+                        'chooseWXPay',
+                        'hideMenuItems',
+                        'showOptionMenu'
+                    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+            });
+            wx.ready(function(){
+                wx.showOptionMenu({
+                    menuList: [
+                        "menuItem:share:appMessage",
+                        "menuItem:share:timeline",
+                        "menuItem:share:qq",
+                        "menuItem:share:weiboApp",
+                        "menuItem:share:facebook",
+                        "menuItem:share:QZone",
+                        "menuItem:copyUrl",
+                        "menuItem:share:email"
+                    ]
+                });
+            });
+        }
+
+    })
+</script>

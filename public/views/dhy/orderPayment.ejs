@@ -1,0 +1,71 @@
+<div class="m-ordersDetails-mod m-orderConfirm-mod m-orderPayment" id="orderPayment">
+
+    <div class="m-mod-box m-requiredToPay">
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <label>所需支付金额:</label>
+                <% if(orderType=="1"){ %>
+                    <input type="text" value="<%= payMoney %>" class="u-form-input-text" id="payMoney" data-mark="1" disabled="" style="color:#c30;" >
+                <% }else{ %>
+                    <input type="text" value="<%= payMoney %>" class="u-form-input-text" id="payMoney" data-mark="1" style="color:#c30;" >
+                <% } %>
+                <div class="g-form-item-rg">
+                    <i class="icon iconfont icon-guanbi <% if(orderType=="1"){ %> u-hidden <% }else if(orderType=="0" && !payMoney){ %> u-hidden <% } %>"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-mod-box" id="payType" data-paytype="0">
+        <div class="u-normal-tit">
+            <i class="icon iconfont icon-zhifufangshi"></i>
+            支付方式
+        </div>
+        <ul class="u-normal-list">
+            <!--<li data-mid="2" data-mname="红包">-->
+                <!--<div class="g-fl-lf g-pay-item">-->
+                    <!--<i class="icon iconfont icon-gouxuan"></i>-->
+                <!--</div>-->
+                <!--<div class="g-fl-lf g-pay-item">-->
+                    <!--<i class="u-ico-img-hb"></i>红包-->
+                <!--</div>-->
+                <!--<div class="g-fl-rg g-pay-item">-->
+                    <!--<span class="u-fontColor-them"><%= redBalance %></span>-->
+                <!--</div>-->
+            <!--</li>-->
+            <li data-mid="4" data-mname="微信" >
+                <div class="g-fl-lf g-pay-item">
+                    <i class="icon iconfont icon-gouxuan"></i>
+                </div>
+                <div class="g-fl-lf g-pay-item">
+                    <i class="u-ico-img-wx"></i>微信
+                </div>
+                <div class="g-fl-rg g-pay-item">
+                    <span class="u-fontColor-them">100.00</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="m-mod-box" id="payPwdMod">
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <label>支付密码:</label>
+                <input type="password" value="" class="u-form-input-text" placeholder="请输入支付密码" id="payPwd">
+                <div class="g-form-item-rg">
+                    <i class="icon iconfont icon-guanbi u-hidden"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-mod-box" style="text-align: right;background: none;padding-right: 15px;">
+        <div class="u-forget-pwd-txt">
+            <a href='#/appealPayPwd'>忘记密码?</a>
+        </div>
+    </div>
+
+    <div class="m-submit-mod">
+        <button id="orderPayBtn" disabled="" type="button" class="u-btn u-radius u-btn-block">确认付款</button>
+    </div>
+</div>

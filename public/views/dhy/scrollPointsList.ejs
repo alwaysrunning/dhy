@@ -1,0 +1,18 @@
+<% if(data.data.listTxn.length>0){ %>
+<% for(var i=0; i<data.data.listTxn.length; i++) {%>
+<li>
+    <a>
+        <div class="upl-lf g-fl-lf">
+            <h3><%= data.data.listTxn[i]['partner'] %></h3>
+            <p><% var transDt=data.data.listTxn[i]['transDt'].split(" ",2) %><%= transDt[0] %></p>
+        </div>
+        <div class="upl-rg g-fl-rg">
+            <h3 class="<% if(data.data.listTxn[i]['point'].toString().search(/\+/g) === -1){ %>upl-reduce<% }else{ %>upl-add<% } %>"><%= data.data.listTxn[i]['point'] %></h3>
+            <p><%= data.data.listTxn[i]['transType'] %></p>
+        </div>
+    </a>
+</li>
+<% } %>
+<% }else{ %>
+<p style="text-align: center;">暂无数据...(/ □ \)</p>
+<% } %>

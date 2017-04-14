@@ -1,0 +1,22 @@
+<% if(data.length>0){ %>
+<% data.forEach(function(item){ %>
+<li>
+    <a href="#/pointsExchangeDetails?id=<%= item["id"] %>" title="<%= item["name"] %>">
+        <div class="upil-img">
+            <img class="u-lazy"  src="<%= item["image"] %>" alt="<%= item["name"] %>">
+        </div>
+        <h4 class="upil-title"><%= item["name"] %></h4>
+        <div class="upil-price">
+            <!--<div class="upil-pitem">-->
+                <!--红包<b><%= item["gaobi"] %></b>-->
+            <!--</div>-->
+            <div class="upil-pitem">
+                <b><%= item["integral"] %></b> 积分
+            </div>
+        </div>
+    </a>
+</li>
+<% }) %>
+<% }else{ %>
+<p style="text-align: center;margin: 10px auto;">暂无数据 -!- ...</p>
+<% } %>

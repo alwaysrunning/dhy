@@ -1,0 +1,303 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:11
+ * */
+@import "../../common/variable",
+"../../common/mixin";
+//我的邀请码
+.m-invitation-mod {
+  position: relative;
+  min-height: Rem(1254);
+
+  .advertisement {
+    position: relative;
+    width: Rem(750);
+    height: Rem(180);
+    margin-bottom: Rem(20);
+    overflow: hidden;
+
+    .diff-btn {
+      position: absolute;
+      bottom: Rem(20);
+      right: Rem(20);
+      display: block;
+      height: Rem(36);
+      border: Rem(3) solid rgba(255, 255, 255, .5);
+      padding: 0 Rem(20);
+      -webkit-border-radius: Rem(18);
+      -moz-border-radius: Rem(18);
+      border-radius: Rem(18);
+      background-color: rgba(0, 0, 0, .5);
+      color: #ffffff;
+      font-size: Rem(26);
+      line-height: Rem(36);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .u-normal-mod {
+    margin-bottom: Rem(20);
+
+    .green {
+      color: #33c165;
+    }
+    .orange {
+      color: #ff6414;
+    }
+
+    .u-cont {
+      padding: Rem(30) Rem(20);
+
+      .m-flex-box {
+        display: -moz-box;
+        display: -webkit-box;
+        display: box;
+
+        .flex-box-item {
+          -webkit-box-flex: 1;
+          box-flex: 1;
+        }
+      }
+      .input-box {
+        -webkit-box-flex: 0;
+        box-flex: 0;
+        width: Rem(540);
+
+        input {
+          border: 1px solid #f2f2f2;
+          padding: Rem(20);
+          height: Rem(75);
+          width: 100%;
+          line-height: Rem(75);
+          background-color: #fbfbfb;
+          font-size: Rem(24);
+
+          -webkit-appearance: none;
+
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
+          -webkit-border-radius: Rem(5);
+          -moz-border-radius: Rem(5);
+          border-radius: Rem(5);
+        }
+      }
+
+      .btn-box {
+        padding: 0 Rem(15);
+
+        .u-btn {
+          height: Rem(75);
+          line-height: Rem(75);
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .qcode{
+    width: Rem(155);
+    height: Rem(155);
+    overflow: hidden;
+    float: left;
+
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .qcode-text{
+    font-size: Rem(26);
+    color: #333;
+    padding: Rem(20);
+    margin-left: Rem(155);
+  }
+
+  .summary-tip {
+    background-color: #fff2db;
+    border-top: 1px solid #ffeed5;
+    line-height: Rem(38);
+    padding: Rem(20);
+    margin-top: Rem(20);
+    color: #ff6f00;
+
+    & .m-iconfont-b2b {
+      color: #ff6f00;
+      width: Rem(20);
+      height: Rem(20);
+      float: left;
+      font-size: Rem(20);
+    }
+  }
+
+  .qrcode-btn{
+    margin: Rem(20) auto;
+    padding: 0 Rem(20);
+  }
+
+  .u-qrcode-mod {
+    padding: Rem(40);
+
+    .title, .qrcode-box {
+      text-align: center;
+    }
+    .title {
+      color: #333333;
+      height: Rem(47);
+      line-height: Rem(47);
+      font-size: Rem(28);
+
+    }
+    .qrcode-box {
+      margin: 0 auto;
+      width: Rem(310);
+      height: Rem(310);
+      padding: Rem(10);
+      background-color: #ffffff;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .qrcode-btn {
+      margin: Rem(20) auto;
+      width: Rem(310);
+    }
+  }
+
+  .m-invitation-share {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: none;
+
+    .share {
+      position: absolute;
+      right: Rem(20);
+      top: Rem(20);
+      width: Rem(578);
+      height: Rem(296);
+      background: url("/public/static/img/module/myInvitationShareLayer.png") no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+.m-invitation-rule-mod{
+  .ad-box{
+    padding: Rem(20);
+    width: Rem(710);
+    height: Rem(180);
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .rules{
+    padding: Rem(20);
+    color: #333333;
+    font-size: Rem(28);
+    line-height: Rem(38);
+  }
+}
+
+//我邀请的人
+.m-invitation-list-mod {
+
+  .m-invitation-count-mod {
+    width: Rem(750);
+    padding-top: Rem(40);
+
+    //#f7513c,#f18d49
+    background: radial-gradient(50% 0, 100% 100%, #f18d49, #f7513c);
+    background: -webkit-radial-gradient(50% 0, 100% 100%, #f18d49, #f7513c);
+
+    .count-box {
+      color: #ffffff;
+
+      .title {
+        text-align: center;
+        font-size: Rem(28);
+        line-height: Rem(30);
+      }
+      .num {
+        text-align: center;
+        font-size: Rem(48);
+        line-height: Rem(80);
+      }
+    }
+  }
+
+  .m-invitation-scroller-mod {
+    position: absolute;
+    top: Rem(160);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+
+    .m-scroller-refresh {
+      margin-top: Rem(20);
+
+    }
+
+    .tip {
+      font-size: Rem(24);
+      height: Rem(72);
+      line-height: Rem(72);
+      color: #b3b3b3;
+      text-align: center;
+    }
+
+    .u-list {
+
+      li {
+        height: Rem(120);
+        line-height: Rem(120);
+
+        a {
+          height: Rem(120);
+          line-height: Rem(120);
+
+          .g-fl-lf {
+            width: Rem(450);
+            padding: Rem(20) 0;
+            .t-l-t {
+              display: block;
+              height: Rem(50);
+              line-height: Rem(50);
+              font-size: Rem(28);
+              color: #333333;
+            }
+            .t-l-b {
+              display: block;
+              height: Rem(30);
+              line-height: Rem(30);
+              font-size: Rem(24);
+              color: #666666;
+            }
+          }
+          .fl-rg {
+            height: Rem(120);
+            line-height: Rem(120);
+          }
+        }
+      }
+    }
+  }
+}

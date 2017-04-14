@@ -1,0 +1,129 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:57
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 14, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .u-scan-code-ban {
+  overflow: hidden;
+  width: 100%;
+  padding-top: 0.8rem;
+  display: -webkit-box;
+  /* Safari and Chrome */
+  display: -moz-box;
+  /* Firefox */
+  display: box;
+  background: url("/public/static/img/module/myMeans_bg_0.jpg") no-repeat center center;
+  background-size: 100%;
+}
+/* line 22, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .u-scan-code-ban .m-scan-code, .m-myMeans-mod .u-scan-code-ban .m-payment-code {
+  -webkit-box-flex: 1.0;
+  /* Safari and Chrome */
+  -moz-box-flex: 1.0;
+  /* Firefox */
+  box-flex: 1.0;
+  height: 2.4rem;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+}
+/* line 30, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .u-scan-code-ban .m-scan-code h3, .m-myMeans-mod .u-scan-code-ban .m-payment-code h3 {
+  font-size: 0.32rem;
+  padding-left: 2.4rem;
+}
+/* line 34, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .u-scan-code-ban .m-scan-code i, .m-myMeans-mod .u-scan-code-ban .m-payment-code i {
+  display: block;
+  width: 0.85333rem;
+  height: 0.85333rem;
+  margin: 0.26667rem auto;
+  background: url("/public/static/img/module/member_ico_3.png") no-repeat center center;
+  background-size: contain;
+  vertical-align: middle;
+}
+/* line 45, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .u-scan-code-ban .m-payment-code h3 {
+  padding-right: 2.4rem;
+}
+/* line 48, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .u-scan-code-ban .m-payment-code i {
+  background: url("/public/static/img/module/member_ico_4.png") no-repeat center center;
+  background-size: contain;
+}
+/* line 56, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .m-myMeans-module .u-normal-mod {
+  zoom: 1;
+  overflow-x: hidden;
+  margin-bottom: 0.26667rem;
+}
+/* line 99, ../../../sass/common/_mixin.scss */
+.m-myMeans-mod .m-myMeans-module .u-normal-mod::before, .m-myMeans-mod .m-myMeans-module .u-normal-mod::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 104, ../../../sass/common/_mixin.scss */
+.m-myMeans-mod .m-myMeans-module .u-normal-mod::after {
+  clear: both;
+}
+/* line 61, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .m-myMeans-module .u-normal-mod .unm-flex-lf {
+  float: left;
+  text-align: center;
+  width: 2.66667rem;
+}
+/* line 68, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .m-myMeans-module .u-normal-mod .unm-flex-lf a {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 1.06667rem;
+  color: #333;
+}
+/* line 75, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .m-myMeans-module .u-normal-mod .unm-flex-lf .iconfont {
+  font-size: 0.64rem;
+}
+/* line 79, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .m-myMeans-module .u-normal-mod .unm-flex-rg {
+  width: 7.2rem;
+  float: left;
+}
+/* line 85, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .m-myMeans-module .u-normal-mod .unm-flex-rg .u-list {
+  border-left: 1px solid #f2f2f2;
+}
+/* line 86, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .m-myMeans-module .u-normal-mod .unm-flex-rg .u-list li {
+  padding-left: 0;
+}
+/* line 89, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .m-myMeans-module .u-normal-mod .unm-flex-rg .u-list li a {
+  padding-left: 0.26667rem;
+}
+/* line 92, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .m-myMeans-module .u-normal-mod .unm-flex-rg .u-list .u-text-sub {
+  color: #ff6414;
+}
+/* line 101, ../../../sass/dhy/module/myMeans.scss */
+.m-myMeans-mod .m-myMeans-module .u-normal-mod:nth-child(2) .unm-flex-lf a {
+  padding-top: 0.4rem;
+}

@@ -1,0 +1,61 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/14
+ * Time: 16:02
+ * */
+@import
+"variable",
+"mixin";
+//
+// Bars
+// --------------------------------------------------
+
+.g-bar {
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  height: $bar-base-height;
+  padding-right: $bar-side-spacing;
+  padding-left: $bar-side-spacing;
+  background-color: #fff;
+  @include hairline(bottom, $border-default-color);
+  -webkit-backface-visibility: hidden; // Make sure the bar is visible when a modal animates in.
+  backface-visibility: hidden;
+  ~ .g-content{
+    top:Rem(2.2*40);
+  }
+}
+
+.g-bar-footer {
+  bottom: 0;
+  ~ .g-content{
+    bottom:Rem(2.2*40);
+  }
+}
+
+// Modifier class to dock any bar below .u-bar-nav
+.g-bar-header-secondary {
+  top: $bar-base-height;
+}
+
+// Modifier class to dock any bar above a standard bar
+.g-bar-footer-secondary {
+  bottom: $bar-base-height;
+}
+
+// Modifier class to dock any bar above a .u-bar-tab
+.g-bar-footer-secondary-tab {
+  bottom: $bar-tab-height;
+}
+
+// Give the footers the correct border
+.g-bar-footer,
+.g-bar-footer-secondary,
+.g-bar-footer-secondary-tab {
+  @include hairline(top, $border-default-color);
+  @include hairline-remove(bottom);
+}
+

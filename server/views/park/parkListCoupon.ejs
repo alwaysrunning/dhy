@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/static/css/park/app.css"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <!--ignore-->
+    <script src="/public/static/js/lib/flexible.js"></script>
+    <!--ignore-->
+    <script src="/public/static/js/lib/jquery.min.js"></script>
+    <script src="/public/static/js/extends/touch.js"></script>
+</head>
+<body>
+<div class="viewport">
+    <div class="bg dark">
+        <div class="ad">
+            <img src="/public/park/images/banner.jpg" alt=""/>
+        </div>
+        <div class="park-list-mod <% if(couponsData.length > 0){ %> park-limit-height <%}%>">
+            <div class="park-list">
+                <div class="park-list-scroll clearfix">
+                    <% parks.forEach(function(item){ %>
+                    <div class="park-card">
+                        <div class="park-card-info">
+                            <div class="park-card-info-item title"><%= item.shopName %></div>
+                            <div class="park-card-info-item clearfix">
+                                <div class="park-card-info-title">剩余车位:</div>
+                                <span class="orange"><%= item.spareBerth %></span> / <%= item.totalNum %>
+                            </div>
+                            <div class="park-card-info-item clearfix">
+                                <div class="park-card-info-title">开放时间:</div>
+                                <%- item.businessTime %>
+                            </div>
+                            <div class="park-card-info-item clearfix">
+                                <div class="park-card-info-title">地　　址:</div>
+                                <%= item.address %>
+                            </div>
+                        </div>
+                        <div class="park-card-btns flex-box">
+                            <div class="park-card-btn flex-box-item goGps"
+                                 data-gps="<%= item.longitude %>,<%= item.latitude %>"
+                                 data-address="<%= item.address %>"
+                                 data-name="<%= item.shopName %>"
+                                 data-shop="<%= item.shopId %>"
+                            >
+                                <span class="iconfont-park icon-daozheliqu"></span>
+                                到这里去
+                            </div>
+                            <!--<div class="park-card-btn flex-box-item">-->
+                            <!--<span class="iconfont-park icon-woyaotingche"></span>-->
+                            <!--我要停车-->
+                            <!--</div>-->
+                            <% if(item.isSmart){ %>
+                            <div class="park-card-btn flex-box-item find" data-shop="<%= item.shopId %>">
+                                <span class="iconfont-park icon-woyaoquche"></span>
+                                停车&找车
+                            </div>
+                            <% } %>
+                            <div class="park-card-btn flex-box-item pay" data-shop="<%= item.shopId %>">
+                                <span class="iconfont-park icon-woyaojiaofei"></span>
+                                我要缴费
+                            </div>
+                            <div class="park-card-btn flex-box-item manage" data-shop="<%= item.shopId %>">
+                                <span class="iconfont-park icon-wangfuguanlichepai"></span>
+                                管理车牌
+                            </div>
+                        </div>
+                        <div class="park-card-rule <%= item.detail.length > 60 ? 'close' : 'no-exp' %>">
+                            <div class="park-card-rule-text">
+                                收费标准:<%- item.detail %>
+                            </div>
+                            <div class="park-card-rule-close">
+                                <span class="iconfont-park icon-shangjiantou"></span>
+                            </div>
+                            <span class="iconfont-park icon-xiajiantou"></span>
+                        </div>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+        <% if(couponsData.length > 0){ %>
+        <div class="park-couponList">
+
+            <div class="park-hr">
+                <h6>会员限量领取</h6>
+            </div>
+            <ul class="mcm-coupons-list" id="list">
+                <% couponsData.forEach(function(item){ %>
+                <li data-id="<%= item.id %>"
+                    class="<% if(item.status == "1"){ %> receive <% }else if(item.percentage == "0"){ %> over <% } %>">
+                    <div class="mcl-bd">
+                        <div class="mcl-bd-lf">
+                            <h4>&yen;<em><%= item.price %></em></h4>
+                            <p>
+                                <% if(item.type == 5) { %>
+                                <i>母婴</i>
+                                <% }else if(item.type == 0){ %>
+                                <i>超市</i>
+                                <% }else if(item.type == 4){ %>
+                                <i>百货</i>
+                                <% }else if(item.type == 6){ %>
+                                <i>电器</i>
+                                <% }else if(item.type == 7){ %>
+                                <i>停车</i>
+                                <% } %>
+
+                                <%
+                                    //length属性读出来的汉字长度为1
+                                    function cutString(str, len) {
+                                        if (str.length * 2 <= len) {
+                                            return str;
+                                        }
+                                        var strlen = 0;
+                                        var s = "";
+                                        for (var i = 0; i < str.length; i++) {
+                                            s = s + str.charAt(i);
+                                            if (str.charCodeAt(i) > 128) {
+                                                strlen = strlen + 2;
+                                                if (strlen >= len) {
+                                                    return s.substring(0, s.length - 1) + "...";
+                                                }
+                                            } else {
+                                                strlen = strlen + 1;
+                                                if (strlen >= len) {
+                                                    return s.substring(0, s.length - 2) + "...";
+                                                }
+                                            }
+                                        }
+                                        return s;
+                                    }
+                                %>
+
+                                <%= cutString(item.name, 24) %>
+                            </p>
+                            <p class="limit-time">使用时间：<%= item.begintime.split(" ")[0] %>
+                                ~ <%= item.endtime.split(" ")[0] %> </p>
+                        </div>
+                        <div class="mcl-bd-rg" data-id="<%= item.id %>" data-price="<%= item.price %>">
+                            <div class="mcl-circle">
+                                <div class="jCircle mod-circle" data-circle="<%= item.percentage %>"></div>
+                                <a class="u-right-buy">立即抢购</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mcl-ft">
+                        <div class="mcl-ft-hd">
+                            <h5><i></i>使用规则</h5>
+                            <em><i class="iconfont-park icon-xiajiantou"></i></em>
+                        </div>
+                        <div class="mcl-ft-text-mod">
+                            <div class="mcl-ft-bd">
+                                <%= item.instruction %>
+                            </div>
+                            <div class="mcl-ft-ft">
+                                <i class="iconfont-park icon-shangjiantou"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mcl-ft-shadow">
+
+                    </div>
+                </li>
+                <% }) %>
+            </ul>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<script type='text/javascript' src='/public/static/js/extends/dropload.js' charset='utf-8'></script>
+<script type='text/javascript' src='/public/static/js/extends/doT.js' charset='utf-8'></script>
+<script type='text/javascript' src='/public/static/js/extends/circleCanvas.js' charset='utf-8'></script>
+<script type="text/javascript" src="/public/static/js/extends/modal.js"></script>
+<script id="listTmpl" type="text/x-dot-template">
+    {{~it.list :item:index}}
+    <li data-id="{{= item.id }}" class="{{? item.status=='1' }} receive {{?? item.percentage=='0' }} over {{??}} {{?}}">
+        <div class="mcl-bd">
+            <div class="mcl-bd-lf">
+                <h4>&yen;<em>{{= item.price }}</em></h4>
+                <p>
+                    {{? item.type == '5' }}
+                    <i>母婴</i>
+                    {{? }}
+
+                    {{? item.type == '0' }}
+                    <i>超市</i>
+                    {{? }}
+
+                    {{? item.type == '4' }}
+                    <i>百货</i>
+                    {{? }}
+
+                    {{? item.type == '6' }}
+                    <i>电器</i>
+                    {{? }}
+
+                    {{? item.type == '7' }}
+                    <i>停车</i>
+                    {{? }}
+
+                    {{= item.name }}
+                </p>
+                <p class="limit-time">使用时间：{{= item.begintime.split(" ")[0] }} ~ {{= item.endtime.split(" ")[0] }} </p>
+            </div>
+            <div class="mcl-bd-rg" data-id="{{= item.id }}">
+                {{? item.status=="0" && item.percentage!=='0'}}
+
+                {{? }}
+
+                <div class="mcl-circle">
+                    <div class="jCircle mod-circle" data-circle="{{= item.percentage }}"></div>
+                    <a class="u-right-buy">立即抢购</a>
+                </div>
+            </div>
+        </div>
+        <div class="mcl-ft">
+            <div class="mcl-ft-hd">
+                <h5><i></i>使用规则</h5>
+                <em><i class="icon iconfont icon-xiajiantou"></i></em>
+            </div>
+            <div class="mcl-ft-text-mod">
+                <div class="mcl-ft-bd">
+                    {{= item.instruction }}
+                </div>
+                <div class="mcl-ft-ft">
+                    <i class="icon iconfont icon-shangjiantou"></i>
+                </div>
+            </div>
+        </div>
+        <div class="mcl-ft-shadow">
+
+        </div>
+    </li>
+    {{~}}
+</script>
+<script>
+    $(function () {
+
+        /************停车优惠券**************/
+        <% if(couponsData.length > 0){ %>
+
+        var InitDataLg = "<%= couponsData.length %>";
+        var StoreId = "<%= storeId %>";
+        var isLogin =<%= isLogin %>;
+        var ListMod = $("#list");
+        var page = 1;
+        var pageSize = 2;
+        var Me = null;
+        var Channel = "<%= channel %>";
+        var Modal = $.fn.Modal;
+
+
+        $.extend($.ajaxSettings, {
+            beforeSend: function () {
+//                Modal.loading({
+//                    msg:"正在加载请稍后..."
+//                });
+            },
+            complete: function () {
+//                setTimeout(function () {
+//                    Modal.loading({del:true});
+//                }, 1000);
+            },
+            error: function (xhr) {
+                var errorTxt = "";
+                var codeTxt = "";
+                codeTxt = xhr.responseJSON.code;
+                errorTxt = xhr.responseJSON.message;
+                Modal.weak({txt: errorTxt});
+            }
+        });
+
+        //领取优惠券
+        function getCoupon($this, couponId, storeid,couponPrice, callback) {
+            var _callback = callback || function () {};
+
+            $.getJSON('/api/etc/cars',function (license) {
+
+                if(license.data.length>0){
+                    var _msgHTML="";
+                    var _msgLi="";
+                    var _selectLicense="";
+
+                    $.each(license.data,function (key,val) {
+                        if(val.isDefault){
+                            _msgLi += "<li class='on' data-id='"+val.id+"'>"+val.carNo+"</li>"
+                        }else{
+                            _msgLi += "<li data-id='"+val.id+"'>"+val.carNo+"</li>"
+                        }
+                    });
+
+                    _msgHTML="<ul class='u-modal-license-list' id='licenseList'>"+_msgLi+"</ul>"+"<a class='u-modal-licenseBt' href='/park/manage/"+Channel +"'>管理车牌</a>";
+
+                    Modal.confirm({
+                        autoClose:"",
+                        msgHd: "请选择需减免的车牌",
+                        msgHTML:_msgHTML,
+                        confirmCallback: function () {
+                            if(_selectLicense){
+
+                                $.post('/api/dhy/coupon/getCouponReceive', {
+                                    "couponId": couponId,
+                                    "storeid": storeid,
+                                    "carNo":_selectLicense
+                                }, function (data) {
+                                    if (data.code !== "9999") {
+                                        //手动关闭
+                                        $("#uMask").removeClass("u-mask-active");
+                                        $("#confirmModal").removeClass("u-modal-active");
+                                        Modal.weak({txt: couponPrice+"元停车费已到账，您太机智"});
+
+                                        var _mc = $this.find(".mod-circle");
+                                        _mc.attr("data-circle", data.data.percentage).empty();
+                                        CircleSimple(_mc);
+                                    } else {
+                                        Modal.weak({txt: "领取失败!"});
+                                    }
+                                    _callback(data);
+                                });
+                            }else{
+                                Modal.weak({txt: "请选择减免的车牌"});
+                            }
+                        },
+                        callback:function () {
+                          $("#licenseList li").on("click",function () {
+                              $(this).addClass("on").siblings().removeClass("on");
+                              _selectLicense=$(this).html();
+                          })
+                        }
+                    });
+
+                }else{
+
+                    Modal.confirm({
+                        autoClose:"",
+                        msgHd: "请输入需减免的车牌",
+                        msgHTML:"<div class='u-modal-line'><input type='text' class='u-modal-input' placeholder='请输入有效车牌' id='carno'/></div><div class='u-modal-line'><input type='checkbox' name='agree' class='u-modal-agree-checkbox' checked disabled>同意绑定车牌</div>",
+                        confirmCallback: function () {
+                            var express = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
+                            var carNo=$("#carno").val();
+                            if(express.test(carNo)){
+                                //绑定车牌
+                                $.getJSON('/api/etc/bind?carno='+carNo,function (bData) {
+                                    //手动关闭
+                                    $("#uMask").removeClass("u-mask-active");
+                                    $("#confirmModal").removeClass("u-modal-active");
+                                    Modal.weak({txt: bData.message});
+                                }).then(function () {
+                                    //车牌信息和优惠券消费绑定
+                                    $.post('/api/dhy/coupon/getCouponReceive', {
+                                        "couponId": couponId,
+                                        "storeid": storeid,
+                                        "carNo":carNo
+                                    }, function (data) {
+                                        if (data.code !== "9999") {
+                                            //手动关闭
+                                            $("#uMask").removeClass("u-mask-active");
+                                            $("#confirmModal").removeClass("u-modal-active");
+                                            Modal.weak({txt: couponPrice+"元停车费已到账，您太机智"});
+
+                                            var _mc = $this.find(".mod-circle");
+                                            _mc.attr("data-circle", data.data.percentage).empty();
+                                            CircleSimple(_mc);
+                                        } else {
+                                            Modal.weak({txt: "领取失败!"});
+                                        }
+                                        _callback(data);
+                                    });
+
+                                });
+
+
+                            }else{
+                                Modal.weak({txt: "请正确输入车牌信息!(格式例如:湘A12345)"});
+                            }
+                        }
+                    });
+
+                }
+            });
+
+        }
+
+        //获取优惠券列表
+        function queryCouponList(isLogin, storeid, page, pageSize, callback, errCallback) {
+            var _callback = callback || function () {
+                    };
+            var _errCallback = errCallback || function () {
+                    };
+            var _url = '/api/dhy/coupon/getCouponList?storeid=' + storeid
+                    + "&isLogin" + isLogin
+                    //+"&type="+type
+                    //+"&sort="+sort
+                    + "&page=" + page
+                    + "&pageSize" + pageSize;
+
+
+            $.ajax({
+                type: 'GET',
+                url: _url,
+                success: function (data) {
+                    _callback(data)
+                },
+                error: function (xhr, type) {
+                    _errCallback(xhr, type);
+                }
+            });
+        }
+
+        //圈圈
+        var CircleInit = function () {
+            var Circle = $.fn.Circle;
+            var $circle = $('.jCircle');
+            $circle.each(function (index, item) {
+                var value = Number($(item).attr('data-circle'));
+                var dpr = Number($('html').attr('data-dpr'));
+                new Circle({
+                    dom: item,//容器
+                    pbColor: '#f95d5b',//进度条颜色
+                    pbWidth: 7 * (dpr / 2),//进度条宽度
+                    value: value,//当前值
+                    radius: 24 * dpr,     //值为(radius-20)/2
+                    openVal: 1.6,   //圆缺口范围，2为满圆
+                    fontSize: 24 * (dpr / 2),
+                    rotate: 128
+                });
+            });
+        }
+
+        var CircleSimple = function (dom) {
+            var Circle = $.fn.Circle;
+            var $circle = $(dom);
+            var value = Number($circle.attr('data-circle'));
+            var dpr = Number($('html').attr('data-dpr'));
+            new Circle({
+                dom: $(dom),//容器
+                pbColor: '#f95d5b',//进度条颜色
+                pbWidth: 7 * (dpr / 2),//进度条宽度
+                value: value,//当前值
+                radius: 24 * dpr,     //值为(radius-20)/2
+                openVal: 1.6,   //圆缺口范围，2为满圆
+                fontSize: 24 * (dpr / 2),
+                rotate: 128
+            });
+        }
+
+        //显示展开
+        var showMore = function () {
+
+            $(".mcl-ft-hd").off().on("click", function () {
+                $(this).find("em").hide();
+                $(this).next().show();
+            });
+            $('.mcl-ft-ft').off().on("click", function () {
+                $(this).parent().hide();
+                $(this).parent().prev().find("em").show();
+            })
+            //领取优惠券
+            ListMod.find(".mcl-bd-rg").off().on("click", function () {
+                if (isLogin) {
+                    var couponId = $(this).data("id");
+                    var couponPrice = $(this).data("price");
+                    var _parent = $(this).parents("li");
+                    console.log("==领取优惠券...==");
+                    getCoupon($(this), couponId, StoreId,couponPrice);
+                } else {
+                    Modal.confirm({
+                        msgHd: "提示",
+                        msg: "您当前尚未登录,现在就去登录?",
+                        confirmCallback: function () {
+                            if (Channel) {
+                                var jmpUrl = "/#/login?channel=" + Channel.toLocaleUpperCase() + "&fromUrl=" + encodeURIComponent(location.href);
+                                console.log("-----", jmpUrl);
+                                location.href = jmpUrl;
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        //页面初始化
+        var PageInit = function (callback) {
+            var _callback = callback || function () {};
+            $('.park-couponList').off();
+            CircleInit();
+            loadedMore();
+            showMore();
+            _callback();
+        }
+
+        //加载更多
+        var loadedMore = function () {
+            Me = $('.park-couponList').dropload({
+                scrollArea: window,
+                autoLoad: false,
+                loadDownFn: function (me) {
+                    page++;
+                    //var dropLoadDown=$(".dropload-down");
+                    queryCouponList(isLogin, StoreId, page, pageSize, function (data) {
+                        if (data.data.length <= 0) {
+                            // 锁定
+                            me.lock();
+                            // 无数据
+                            me.noData();
+                            me.resetload();
+                        } else {
+                            var dotTmpl = doT.template($("#listTmpl").html());
+                            var dotRes = dotTmpl({list: data.data});
+                            setTimeout(function () {
+                                ListMod.append(dotRes);
+                                showMore();
+                                CircleInit();
+
+                                me.resetload();
+                            }, 1000);
+                        }
+                    }, function () {
+                        me.resetload();
+                    });
+                }
+            });
+            if (InitDataLg < 5) {
+                $(".dropload-down").hide();
+            }
+        };
+
+        PageInit();
+
+        <% } %>
+        /*******停车场*******/
+        $.getJSON('http://' + window.location.host + '/api/weixin/sign?callback=?', {
+            url: encodeURIComponent(window.location.href.split('#')[0])
+        }).then(function (data) {
+            wx.config({
+//                debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: data.appId, // 必填，公众号的唯一标识
+                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                signature: data.signature,// 必填，签名，见附录1
+                jsApiList: [
+                    'showMenuItems',
+                    'hideAllNonBaseMenuItem',
+                    'chooseWXPay',
+                    'hideMenuItems',
+                    'openLocation'
+                ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+        });
+
+        wx.ready(function () {
+            wx.hideAllNonBaseMenuItem();
+
+            $('.goGps').click(function () {
+                var shopId = $(this).attr('data-shop');
+                var gpsArray = $(this).attr('data-gps').split(',');
+                var address = $(this).attr('data-address');
+                var name = $(this).attr('data-name');
+                if(shopId=="012838"){
+                    window.location.href ='/park/map/parkShopNav?channel=012838';
+                }else{
+                    if (gpsArray.length == 2) {
+                        var longitude = parseFloat(gpsArray[0]);
+                        var latitude = parseFloat(gpsArray[1]);
+                        wx.openLocation({
+                            latitude: latitude, // 纬度，浮点数，范围为90 ~ -90
+                            longitude: longitude, // 经度，浮点数，范围为180 ~ -180。
+                            //scale: 1, // 地图缩放级别,整形值,范围从1~28。默认为最大
+                            //infoUrl: '', // 在查看位置界面底部显示的超链接,可点击跳转
+                            name: name, // 位置名
+                            address: address // 地址详情说明
+                        });
+                    }
+                }
+            });
+
+        });
+
+        $('.find').click(function (e) {
+            var shopId = $(this).attr('data-shop');
+            window.location.href = 'http://' + window.location.host + '/park/jump?shop=' + shopId;
+        });
+
+        $('.pay').click(function (e) {
+            var shopId = $(this).attr('data-shop');
+            window.location.href = 'http://' + window.location.host + '/park/car/#/car/' + shopId;
+        });
+
+        $('.manage').click(function (e) {
+            var shopId = $(this).attr('data-shop');
+            window.location.href = 'http://' + window.location.host + '/park/manage/' + shopId;
+        });
+
+//        var scroll = new IScroll($('.park-list').get(0), {
+//            click: true
+//        });
+
+        $('.park-card-rule').on('click', function () {
+            if (!$(this).hasClass('no-exp')) {
+                $(this).toggleClass('close');
+                //scroll.refresh();
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

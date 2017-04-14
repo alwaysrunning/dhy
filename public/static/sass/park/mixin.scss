@@ -1,0 +1,160 @@
+@mixin flexbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flexbox-inline {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+
+@mixin flex-direction($fd) {
+  -webkit-flex-direction: $fd;
+  -ms-flex-direction: $fd;
+  flex-direction: $fd;
+}
+
+@mixin flex-wrap($fw) {
+  -webkit-flex-wrap: $fw;
+  -ms-flex-wrap: $fw;
+  flex-wrap: $fw;
+
+  @if ($fw == nowrap) {
+    -webkit-box-lines: single;
+    -moz-box-lines: single;
+  } @else if ($fw == wrap) {
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+  }
+}
+
+@mixin flex-shrink($fs) {
+  -webkit-flex-shrink: $fs;
+  -ms-flex: 0 $fs auto;
+  flex-shrink: $fs;
+}
+
+@mixin justify-content($jc) {
+  @if ($jc == flex-start) {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+  } @else if ($jc==flex-end) {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+  } @else if ($jc == space-between) {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  } @else {
+    -webkit-box-pack: $jc;
+    -ms-flex-pack: $jc;
+    -webkit-justify-content: $jc;
+    justify-content: $jc;
+  }
+}
+
+@mixin align-items($ai) {
+  @if ($ai == flex-start) {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+  } @else if ($ai == flex-end) {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+  } @else {
+    -webkit-box-align: $ai;
+    -ms-flex-align: $ai;
+    -webkit-align-items: $ai;
+    align-items: $ai;
+  }
+}
+
+@mixin align-content($ai) {
+  -ms-flex-line-pack: $ai;
+  -webkit-align-content: $ai;
+  align-content: $ai;
+}
+
+@mixin align-self($as) {
+  -ms-flex-item-align: $as;
+  -webkit-align-self: $as;
+  align-self: $as;
+}
+
+@mixin hairline($position:top,$color:transparent) {
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    right: auto;
+    background-color: $color;
+    display: block;
+    z-index: 15;
+    @if ($position==top) {
+      height: 1px;
+      width: 100%;
+      transform-origin: 50% 0%;
+    } @else if ($position==left) {
+      width: 1px;
+      height: 100%;
+      transform-origin: 0% 50%;
+    } @else if ($position==bottom) {
+      height: 1px;
+      width: 100%;
+      transform-origin: 50% 100%;
+    } @else if ($position==right) {
+      width: 1px;
+      height: 100%;
+      transform-origin: 100% 50%;
+    }
+
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+      transform: scaleY(0.5);
+    }
+    @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+      transform: scaleY(0.33);
+    }
+  }
+}
+
+// For right and bottom
+@mixin hairline-remove($position) {
+  @if ($position!=left & & $position!=top) {
+    &:after {
+      display: none;
+    }
+  } @else if ($position!=right & & $position!=bottom) {
+    &:before {
+      display: none;
+    }
+  }
+
+}
+
+// For right and bottom
+@mixin hairline-color($position, $color) {
+  @if ($position!=left & & $position!=top) {
+    &:after {
+      background-color: $color;
+    }
+  } @else if ($position!=right & & $position!=bottom) {
+    &:before {
+      background-color: $color;
+    }
+  }
+
+}

@@ -1,0 +1,149 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:52
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//我的联通账户
+.u-points-ban {
+  height: Rem(430);
+  background: #faf0eb;
+  .upb-mod {
+    padding: Rem(50) 0;
+    background: url("/public/static/img/module/upointsBan_0.png") repeat-x 0 bottom;
+    -webkit-animation: cloud 10s linear 0s infinite alternate;
+    animation: cloud 10s linear 0s infinite alternate;
+    height: Rem(330);
+  }
+  ul {
+    width: Rem(530);
+    margin: 0 auto;
+    text-align: center;
+  }
+  li {
+    margin-bottom: Rem(5);
+    h5 {
+      font-size: Rem(36)
+    }
+  ;
+    h4 {
+      font-size: Rem(48)
+    }
+  ;
+    .u-btn {
+      height: Rem(80);
+      line-height: Rem(80);
+    }
+  }
+  li.u-btn-line {
+    margin-bottom: Rem(20);
+  }
+}
+
+.m-unionAccount-mod {
+  .u-unionAccount-list-mod {
+    margin-top: Rem(20);
+    .u-list {
+      li .icon {
+        font-size: Rem(24*2);
+        vertical-align: bottom;
+      }
+      li:active, li.u-active, li:hover, li:focus {
+        background: #fffbf9;
+      }
+    }
+  }
+}
+
+//银联账户+兑换
+.m-myUnionAccount-mod {
+
+  .u-myUnionCard-list {
+    padding: Rem(20);
+    li {
+      padding: Rem(15);
+      border-radius: 4px;
+      background: #fff;
+      margin: Rem(20) 0;
+      h4 {
+        font-size: Rem(20);
+        color: #666;
+      }
+      p {
+        font-size: Rem(36);
+        text-align: center;
+      }
+    }
+    li.u-active-off {
+      text-align: center;
+      border: 1px dotted #d2d2d2;
+      background: #fff9f6;
+      a {
+        padding: Rem(15);
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #333;
+        font-size: Rem(24);
+        .iconfont {
+          font-size: Rem(24*2);
+          color: #e5e2e1;
+          margin-right: Rem(10);
+        }
+      }
+    }
+    li.u-line-btn {
+      background: none;
+      padding: 0;
+    }
+  }
+}
+
+.u-myUnionCard-slider {
+  height: Rem(318);
+  .upb-mod {
+    padding: Rem(60) 0 0 0;
+    height: Rem(260);
+    @include clearfix;
+    .upb-slider-view {
+      height: Rem(260);
+      overflow: hidden;
+      position: relative;
+      .u-slider-hd {
+        width: Rem(540);
+        margin: 0 auto;
+        overflow: visible;
+      }
+      ul {
+        @include clearfix;
+      }
+      ul li {
+        @include g-fl-lf;
+        margin: 0 Rem(20);
+        background: url("/public/static/img/module/myUnionCard_bg_0.png") no-repeat center center;
+        background-size: contain;
+        width: Rem(500);
+        height: Rem(220+40);
+        color: #fff;
+        font-size: Rem(30);
+        .box {
+          padding: Rem(20);
+        }
+        h4 {
+          margin-bottom: Rem(10);
+        }
+        p {
+          margin-bottom: Rem(10);
+        }
+        h5 {
+          font-size: Rem(36);
+        }
+      }
+    }
+
+  }
+}

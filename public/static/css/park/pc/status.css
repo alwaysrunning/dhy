@@ -1,0 +1,28 @@
+/* line 3, ../../../sass/park/pc/status.scss */
+.status {
+  width: Rem(750);
+  background-color: #ffffff;
+  padding: Rem(47) 0 Rem(90);
+}
+/* line 8, ../../../sass/park/pc/status.scss */
+.status .status-icon {
+  width: Rem(76);
+  height: Rem(76);
+  font-size: Rem(74);
+  margin: Rem(45) auto;
+  display: block;
+}
+/* line 15, ../../../sass/park/pc/status.scss */
+.status .status-icon.icon-chenggong {
+  color: #2fd967;
+}
+/* line 18, ../../../sass/park/pc/status.scss */
+.status .status-icon.icon-shibai {
+  color: #fb5858;
+}
+/* line 23, ../../../sass/park/pc/status.scss */
+.status .status-text {
+  text-align: center;
+  font-size: Rem(24);
+  line-height: Rem(40);
+}

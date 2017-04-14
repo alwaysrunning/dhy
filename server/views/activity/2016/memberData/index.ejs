@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <meta name="full-screen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no,email=no,address=no"/>
+    <title><%= title %></title>
+    <script src="/public/static/js/lib/flexible.js"></script><!--ignore-->
+    <link rel="stylesheet" href="/public/static/css/activity/2016/memberData/app.css">
+</head>
+<body>
+<div class="viewport">
+    <!--div.g-p.g-p$*6-->
+    <div class="g-container swiper-container">
+        <div class="swiper-wrapper">
+            <% if(!data){ %>
+                <div class="g-p swiper-slide g-p6"></div>
+            <%}else { %>
+                <div class="g-p swiper-slide g-p0">
+                    <div class="u-left"></div>
+                    <div class="u-right"></div>
+                </div>
+                <div class="g-p swiper-slide g-p1">
+                    <div class="m-fade m-fade1"></div>
+                    <div class="m-fade m-fade2">
+                        <div class="candle"></div>
+                        <p class="time"><%= data.regTime %></p>
+                        <div class="message">
+                            <p>我与步步高结缘，从此踏上买买买的幸福人生</p>
+                        </div>
+                    </div>
+                    <div class="m-fade m-fade3"></div>
+                    <div class="m-fade m-fade4">
+                        <div></div>
+                        <div class="rank">
+                            <p>我是第<span><%= data.regRank %></span>位</p>
+                        </div>
+                        <p class="designation">永远被步步高珍惜的顾客</p>
+                    </div>
+                    <div class="m-fade m-fade5"></div>
+                    <div class="m-fade m-fade6">
+                        <p class="favorite">我最爱去的门店是</p>
+                        <div class="shop">
+                            <p><%= data.store1 %></p>
+                        </div>
+                    </div>
+                    <div class="m-fade m-fade7"></div>
+                </div>
+                <div class="g-p swiper-slide g-p2">
+                    <div class="m-fade m-fade1"></div>
+                    <div class="m-fade m-fade2">
+                        <p>这一年，我在步步高交易</p>
+                        <div>
+                            <p><%= data.transNum %></p>
+                            <p>次</p>
+                        </div>
+                    </div>
+                    <div class="m-fade m-fade3">
+                    </div>
+                    <div class="m-fade m-fade4">
+                        <p>共消费</p>
+                        <p class="money"><%= data.saleTotal %><span>元</span></p>
+                    </div>
+                    <div class="m-fade m-fade5"></div>
+                    <div class="m-fade m-fade6">
+                        <p>荣登步步高<span>幸福榜</span></p>
+                        <p>位</p>
+                        <div class="order">
+                            <div class="number">
+                                <p><%= data.saleRank %></p>
+                            </div>
+                            <div class="star star1"></div>
+                            <div class="star star2"></div>
+                            <div class="star star3"></div>
+                        </div>
+                    </div>
+                    <div class="m-fade m-fade7"></div>
+                    <div class="m-fade m-fade8">
+                        <div class="star">
+                            <p>原来我是</p>
+                        </div>
+                        <div class="fans fans<%= data.saleTotalGrade %>">
+                        </div>
+                    </div>
+                </div>
+                <div class="g-p swiper-slide g-p3">
+                    <div class="m-fade m-fade1"></div>
+                    <div class="m-fade m-fade2">
+                        <!--<p>这一年，我获得了</p>-->
+                        <!--<p>12345<span>积分</span></p>-->
+                        <div class="hourglass"></div>
+                        <div class="pig-coins">
+                            <div class="coins"></div>
+                            <div class="pig"></div>
+                        </div>
+                    </div>
+                    <div class="m-fade m-fade3"></div>
+                    <div class="m-fade m-fade4">
+                        <p>这一年，我获得了</p>
+                        <p class="integral"><span><%= data.point %></span>积分=<span><%= data.pointPrice %></span>元</p>
+                        <p class="tip">PS：积分不仅能兑换礼品，还能当钱花哟！</p>
+                    </div>
+                    <div class="m-fade m-fade5"></div>
+                    <div class="m-fade m-fade6">
+                        <p>他们都说我在买这些东西的时候</p>
+                        <p>最幸福</p>
+                        <p class="name"><%= data.category1%></p>
+                    </div>
+                </div>
+                <div class="g-p swiper-slide g-p4">
+                    <div class="m-fade m-fade1"></div>
+                    <div class="m-fade m-fade2"></div>
+                    <div class="m-fade m-fade3"></div>
+                </div>
+            <% }%>
+            <div class="g-p swiper-slide g-p5">
+                <img class="qr" src="/public/activity/2016/memberData/img/qr.png">
+                <a class="share" id="share">分享给好友</a>
+                <img class="touch" src="/public/invitation/img/1.png" alt=""/>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="u-public-share-mask" id="shareMask">
+    <div class="share"></div>
+</div>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/public/static/js/lib/jquery.min.js"></script>
+<script src="/public/static/js/extends/swiper.jquery.min.js"></script>
+<script src="/public/activity/2016/memberData/js/flow.js"></script>
+<script>
+
+    $(function () {
+        var init = function () {
+            var bgMedia=new Audio(['/public/activity/2016/memberData/music/bg.mp3']);
+            if(!!bgMedia.canPlayType('audio/mpeg')){
+                bgMedia.loop=true;
+                bgMedia.play();
+            }
+            var mySwiper = new Swiper('.g-container', {
+                direction: 'vertical',
+                height : window.innerHeight,
+                onSlideChangeEnd: function (swiper, event) {
+                    var list = $(".g-p" + (swiper.activeIndex) + " .m-fade");
+                    new Flow(list, {time: 500}).startUp();
+                }
+            });
+            $(".g-container").css("transform", "translateX(0)");
+            //微信分享
+            $.getJSON('/api/weixin/sign', {
+                url: encodeURIComponent(window.location.href.split('#')[0])
+            }, function (data) {
+                wx.config({
+                    //debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: data.appId, // 必填，公众号的唯一标识
+                    timestamp: data.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                    signature: data.signature,// 必填，签名，见附录1
+                    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'showMenuItems', 'hideAllNonBaseMenuItem'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+            });
+
+            wx.ready(function () {
+
+                wx.hideAllNonBaseMenuItem();
+
+                wx.onMenuShareTimeline({
+                    title: '<%= title %>', // 分享标题
+                    link: 'http://' + window.location.host + '/activity/memberData2016', // 分享链接
+                    imgUrl: 'http://' + window.location.host + '/public/activity/2016/memberData/img/share_icon_memberData2016.png', // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+                wx.onMenuShareAppMessage({
+                    title: '<%= title %>', // 分享标题
+                    desc: '点击进入我的幸福之旅……', // 分享描述
+                    link: 'http://' + window.location.host + '/activity/memberData2016', // 分享链接
+                    imgUrl: 'http://' + window.location.host + '/public/activity/2016/memberData/img/share_icon_memberData2016.png', // 分享图标
+                    type: '', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+                wx.showMenuItems({
+                    menuList: ['menuItem:share:appMessage', 'menuItem:share:timeline'] // 要显示的菜单项，所有menu项见附录3
+                });
+
+            });
+
+            var shareMask = $("#shareMask");
+            $("#share").on("click", function () {
+                shareMask.show();
+            });
+            shareMask.on("click", function () {
+                $(this).hide();
+            });
+        };
+        init();
+    });
+</script>
+</body>
+</html>

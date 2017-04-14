@@ -1,0 +1,161 @@
+<div class="m-redList-mod u-tabs-wrap">
+    <header>
+        <nav class="u-nav-tab u-tabs-nav">
+            <ul>
+                <li class="u-active"><a href="javascript:void(0);">消费明细</a></li>
+                <!--<li><a href="javascript:void(0);">已生效</a></li>-->
+                <!--<li><a href="javascript:void(0);">未生效</a></li>-->
+                <!--<li><a href="javascript:void(0);">已失效</a></li>-->
+            </ul>
+        </nav>
+    </header>
+    <section class="m-redList-list-mod">
+        <div class="u-refresh" id="consume">
+            <ul class="u-points-list u-data-list">
+                <% if(data.REC.length>0){ %>
+                <% for(var i=0; i<data.REC.length; i++) {%>
+                <li>
+                    <a>
+                        <div class="upl-lf g-fl-lf">
+                            <h3><%= data.REC[i]["TXDESC"] %></h3>
+                            <p><%= data.REC[i]['DATETIME'] %></p>
+                        </div>
+                        <div class="upl-rg g-fl-rg">
+                            <h3> 余额：<%= data.REC[i]["GBBAL"] %></h3>
+                            <p class="<% if(data.REC[i]["DCFLAG"].toString().search(/\+/g) === -1){
+                            %>upl-reduce<% }else{ %>upl-add<% } %>"> <%= data.REC[i]["DCFLAG"] %><%= data.REC[i]["TXAMT"] %></p>
+                        </div>
+                    </a>
+                </li>
+                <% } %>
+                <% }else{ %>
+                <p style="text-align: center;">暂无数据...(/ □ \)</p>
+                <% } %>
+            </ul>
+        </div>
+    </section>
+</div>
+<script type="text/javascript">
+    $(function(){
+        //列表加载
+        var RedListInit=App.component.scrollLoading({
+            wrapper:"#consume",
+            ejsUrl:"views/dhy/scrollRedList.ejs",
+            getUrl:function(page,pageSize){
+                return "account/balance/list?page="+page+"&pagesize="+pageSize+"&type=2";
+            },
+            totalPage:function(data){
+                return data?data['data']['TOTALPAGE']:false;
+            }
+        });
+
+        console.log(RedListInit);
+        function reRenderRedList(options){
+            var opt={
+                type:"U2",//未生效，已生效，已失效其值分别是U1,U2,U3,
+                page:1,
+                pageSize:10,
+                tplType:0
+            }
+            $.extend(opt,options);
+
+            var reFreshDown=$(".u-refresh-down");
+
+            switch (opt.tplType){
+                case 0:
+                    App.getJSON("account/balance/list?page=1&pagesize=10&type=2",function(res){
+                        console.log(res,"0");
+                        if(res.data["REC"].length>5){
+                            if(reFreshDown.hasClass("u-hidden")){
+                                reFreshDown.removeClass("u-hidden").find(".u-refresh-label").html("&#8593;加载更多..");
+                            }
+                        }else{
+                            $(".u-refresh-down").addClass("u-hidden");
+                        }
+
+                        App.reRender({
+                            wrap:"#consume .u-data-list",
+                            url:"views/dhy/scrollRedListInit.ejs",
+                            data:{data:res.data}
+                        });
+
+                        RedListInit.rePlay(function(){
+                            RedListInit.opts.ejsUrl="views/dhy/scrollRedList.ejs";
+                            RedListInit.opts.getUrl=function(page,pageSize){
+                                return "account/balance/list?page="+page+"&pagesize="+pageSize+"&type=2";
+                            };
+                            RedListInit.opts.totalPage=function(data){
+                                return data?data['data']['TOTALPAGE']:false;
+                            }
+                        });
+
+                        RedListInit.refresh();
+                    })
+
+                    break;
+                case 1:
+                    App.getJSON("account/balance/list/type?type="+opt.type+"&page="+opt.page+"&pagesize="+opt.pageSize,function(res){
+                        console.log(res,"1",RedListInit);
+                        if(res.data["REC"].length>5){
+                            if(reFreshDown.hasClass("u-hidden")){
+                                reFreshDown.removeClass("u-hidden").find(".u-refresh-label").html("&#8593;加载更多..");
+                            }
+                        }else{
+                            $(".u-refresh-down").addClass("u-hidden");
+                        }
+
+                        App.reRender({
+                            wrap:"#consume .u-data-list",
+                            url:"views/dhy/scrollRedListInit2.ejs",
+                            data:{data:res.data}
+                        });
+
+                        if(RedListInit){
+                            RedListInit.rePlay(function(){
+                                RedListInit.opts.ejsUrl="views/dhy/scrollRedList2.ejs";
+                                RedListInit.opts.getUrl=function(page,pageSize){
+                                    return "account/balance/list/type?type="+opt.type+"&page="+page+"&pagesize="+pageSize;
+                                };
+                                RedListInit.opts.totalPage=function(data){
+                                    return data?data['data']['TOTALPAGE']:false;
+                                }
+                            });
+                            RedListInit.refresh();
+                        }
+
+                    })
+
+                    break;
+            }
+
+
+        }
+
+        var listTabs=App.component.tabs({
+            callback:function(){
+               var index=arguments[0]["index"];
+               console.log(arguments,index,"===");
+               $("#consume .u-data-list").empty();
+               switch (index){
+                   //消费明细
+                   case 0:
+                       reRenderRedList({tplType:0});
+                       break;
+                   //已生效
+                   case 1:
+                       reRenderRedList({type:"U2",tplType:1});
+                       break;
+                   //未生效
+                   case 2:
+                       reRenderRedList({type:"U1",tplType:1});
+                       break;
+                   //已失去效
+                   case 3:
+                       reRenderRedList({type:"U3",tplType:1});
+                       break;
+               }
+            }
+        });
+
+    });
+</script>

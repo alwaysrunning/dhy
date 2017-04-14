@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/**
+*协议规则
+**/
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 9, ../../../sass/dhy/module/licenses.scss */
+.m-licenses-mod {
+  font-size: 0.37333rem;
+  padding: 0.26667rem;
+}
+/* line 12, ../../../sass/dhy/module/licenses.scss */
+.m-licenses-mod p {
+  margin: 0;
+}

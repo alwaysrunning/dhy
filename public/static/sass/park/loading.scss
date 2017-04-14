@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+.loading{
+
+  .car-num {
+    font-size: Rem(48);
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .searching{
+    font-size: Rem(26);
+    text-align: center;
+  }
+
+  .animate-box {
+    width: Rem(280);
+    height: Rem(280);
+    margin: Rem(30) auto;
+    background: url("../../../park/images/car_run.png") no-repeat;
+    background-size: Rem(1126) Rem(280);
+
+    -webkit-animation: car_run .6s infinite;
+    -o-animation: car_run .6s infinite;
+    animation: car_run .6s infinite;
+    -webkit-animation-timing-function: steps(1, start);
+    -o-animation-timing-function: steps(1, start);
+    animation-timing-function: steps(1, start);
+  }
+
+  @-webkit-keyframes car_run {
+    0% {
+      background-position: 0 0;
+    }
+    25% {
+      background-position: Rem(-282) 0;
+    }
+    50% {
+      background-position: Rem(-564) 0;
+    }
+    75% {
+      background-position: Rem(-846) 0;
+    }
+  }
+
+  @keyframes car_run {
+    0% {
+      background-position: 0 0;
+    }
+    25% {
+      background-position: Rem(-282) 0;
+    }
+    50% {
+      background-position: Rem(-564) 0;
+    }
+    75% {
+      background-position: Rem(-846) 0;
+    }
+  }
+}

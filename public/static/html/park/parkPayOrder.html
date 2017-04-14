@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缴费单</title>
+    <script src="../../js/lib/flexible.js"></script>
+    <link rel="stylesheet" href="../../css/park/app.css"/>
+</head>
+<body class="order">
+<div class="viewport">
+    <div class="bg dark">
+        <div class="list order-list">
+            <div class="list-item">
+                <div class="list-title">
+                    <span class="iconfont-park icon-wodetingchexinxi"></span>
+                    <div class="list-text">我的停车信息</div>
+                </div>
+                <div class="list-body">
+                    <div class="list-text">进场时间：2015-08-22 12:23:11</div>
+
+                    <div class="list-text">出场时间：2015-8-22 16:22:11</div>
+
+                    <div class="list-text">停车时间：4小时11分</div>
+
+                    <div class="list-text">车牌号码：湘A88888</div>
+
+                    <div class="list-text">总价：<span class="orange">20元</span></div>
+                </div>
+            </div>
+            <!--非会员减免（输了小票号）-->
+            <div class="list-item">
+                <div class="list-title">
+                    <span class="iconfont-park icon-jiaofeifangshi"></span>
+                    <div class="list-text">缴费方式</div>
+                </div>
+                <div class="list-body">
+                    <div class="discount clearfix">
+                        <div class="method fl">
+                            <span class="iconfont-park icon-xuanze"></span>
+                            <div class="list-text">消费减免</div>
+                        </div>
+                        <div class="discount-list fr">
+                            <div class="discount-list-item">
+                                <div class="fl list-text">可减免:<span class="green"> ¥ 0</span></div>
+                                <div class="list-text">待抵扣消费余额:<span class="orange"> ¥ 100</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="discount-total clearfix">
+                        <div class="list-text fl">共计减免金额：<span class="green">¥ 0</span></div>
+                        <button class="btn-link fr">添加停车券编号</button>
+                    </div>
+                </div>
+            </div>
+            <div class="list-item">
+                <div class="list-body">
+                    <div class="list-text">
+                        消费减免停车费规则: <br/>
+                        消费200抵10元,500抵15元 800抵20元(封顶)；<br/>
+                        消费小票当日有效；<br/>
+                        小票微信抵用后,在出场时不能重复使用；<br/>
+                        单张小票只能抵用一次,不能拆单；<br/>
+                        多张小票可以累计后抵用。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="dark-layer"></div>-->
+<!--<div class="dailog">-->
+    <!--<div class="dailog-head clearfix">-->
+        <!--<span class="iconfont-park icon-guanbi"></span>-->
+    <!--</div>-->
+    <!--<div class="dailog-content">-->
+        <!--<input type="text" placeholder="请输入有效的停车券编号"/>-->
+    <!--</div>-->
+    <!--<div class="dailog-btns flex-box">-->
+        <!--<button class="dailog-btn flex-box-item" type="button">取消</button>-->
+        <!--<button class="dailog-btn orange flex-box-item" type="button">确定</button>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="float-nav bottom">
+    <div class="flex-box">
+        <div class="flex-box-item">
+            <p class="float-text">需支付：<span class="orange">¥ 20</span></p>
+        </div>
+        <div class="flex-box-item btn-box">
+            <button class="btn" type="button">确认支付</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

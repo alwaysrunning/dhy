@@ -1,0 +1,72 @@
+<div class="m-pc-locateCar">
+    <div class="location-main">
+        <% carList.forEach(function (car, index) { %>
+        <div class="colorful location <%= index == 0 ? 'loaded' : '' %>" data-carno="<%= car %>">
+            <div class="locate-head">
+                <div class="head">
+                    <div class="icon">
+                        <img src="/public/park/images/car.jpg" alt="">
+                    </div>
+                    <div class="text"><%= car %></div>
+                </div>
+            </div>
+            <% if(index == 0){ %>
+
+            <% if(firstCarStatus.err){ %>
+            <div class="err">
+                <p>没有查询到该车牌信息，可能是：</p>
+                <ul>
+                    <li>1、车辆停放在非视频识别区域G层、UG层，无法通过车牌查询。</li>
+                    <li>2、该车牌所属车辆未进场。</li>
+                </ul>
+                <div class="list-border">
+                    <div class="list-item">
+                        停车场<i class="orange">B1</i>层、<i class="orange">B1M</i>层、<i
+                                class="orange">B2</i>层区域，查询车牌即可寻车；<br>
+                        <i class="orange">G</i>层、<i class="orange">UG</i>层区域，手动或打开蓝牙摇一摇，记录爱车停放位置。
+                    </div>
+                </div>
+            </div>
+            <% }else{ %>
+            <div class="locate-body">
+                <ul>
+                    <li class="clearfix">
+                        <span class="iconfont-park">&#xe614;</span>
+                        <span class="text"><%= parkName %></span>
+                    </li>
+                    <% if(firstCarStatus.park.AreaName){ %>
+                    <li class="clearfix">
+                        <span class="iconfont-park">&#xe612;</span>
+                        <span class="text"><%= firstCarStatus.park.AreaName %>层<%= firstCarStatus.park.ParkingNo %>
+                            车位</span>
+                    </li>
+                    <% } %>
+                    <li class="clearfix">
+                        <span class="iconfont-park">&#xe613;</span>
+                        <% if(firstCarStatus.car){ %>
+                        <span class="text">进场时间:<%= firstCarStatus.car.inTime %></span>
+                        <% }else{ %>
+                        <span class="text">进场时间:暂无信息</span>
+                        <% } %>
+                    </li>
+                    <li class="clearfix">
+                        <span class="iconfont-park">&#xe615;</span>
+                        <% if(firstCarStatus.car){ %>
+                        <span class="text">停车时长:<%= firstCarStatus.car.stayTime %></span>
+                        <% }else{ %>
+                        <span class="text">停车时长:暂无信息</span>
+                        <% } %>
+                    </li>
+                </ul>
+            </div>
+            <% } %>
+
+            <% if(!firstCarStatus.err && firstCarStatus.park.ParkingNo){ %>
+            <!--<a class="newbtn" href="http://api.mxcity.cn/IndoorNavigation/?poiId=<%= firstCarStatus.park.ParkingNo %>">一键导航</a>-->
+            <% } %>
+            <!--<a class="newbtn" href="/park/pc/query/<%= shopId %>">查询其他车牌</a>-->
+            <% } %>
+        </div>
+        <% }) %>
+    </div>
+</div>

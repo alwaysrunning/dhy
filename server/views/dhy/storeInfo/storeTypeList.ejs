@@ -1,0 +1,60 @@
+<%- include("_header") %>
+<!-- page 容器 -->
+<div class="page" id="storeTypeList">
+
+    <!-- 这里是页面内容区 -->
+    <div class="content infinite-scroll" data-distance="100">
+
+        <div class="content-padded m-storeTypeList-mod">
+            <div class="u-fixed-msm">
+                <div class="u-logo-mod">
+                    <div class="u-logo-img">
+
+                    </div>
+                    <div class="u-logo-txt">
+                        <h3>生活美学倡导者</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-block">
+                <% if(data.total == 0){ %>
+                <div class="g-empty-data">
+                    <div class="m-empty-data">
+                        <div class="u-sprite red"></div>
+                        <p class="msg">暂无门店数据，敬请期待~</p>
+                    </div>
+                </div>
+                <% }else{ %>
+                <ul class="u-operation-list" id="operationList">
+                    <% data.data.forEach(function(item){ %>
+                    <li>
+                        <a data-href="storeList?categoryId=<%= item["categoryId"] %>&sellerid=<%= item["id"] %>&logoImg=<%= encodeURIComponent(item["logoImg"]) %>&categoryName=<%= encodeURIComponent(item["name"]) %>"
+
+                           href="storeList?categoryId=<%= item["categoryId"] %>&sellerid=<%= item["id"] %>&logoImg=<%= encodeURIComponent(item["logoImg"]) %>&categoryName=<%= encodeURIComponent(item["name"]) %>" class="external">
+
+                            <div class="uol-img" style="background-image: url(<%= item["logoImg"] %>)">
+
+                            </div>
+                            <div class="uol-txt">
+                                <%= item["name"] %>
+                            </div>
+                        </a>
+                    </li>
+                    <% }) %>
+                </ul>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- 加载提示符 -->
+        <div class="infinite-scroll-preloader">
+            <div class="preloader"></div>
+            <div class="preloader-over-tips"></div>
+        </div>
+    </div>
+</div>
+<!-- popup, panel 等放在这里 -->
+<div class="panel-overlay"></div>
+<%- include("_footer") %>
+

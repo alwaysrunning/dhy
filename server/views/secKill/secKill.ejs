@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>星品汇爆款抢购</title>
+    <!-- build:js /BigBangKill/js/lib.js -->
+    <script type="text/javascript" src="/public/static/js/lib/flexible.js"></script><!--ignore-->
+    <script type="text/javascript" src="/public/static/js/extends/handlebars.js"></script>
+    <script type="text/javascript" src="/public/static/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/public/static/js/extends/iscrollv4.2.5.js"></script>
+    <!-- endbuild -->
+    <!-- build:css /BigBangKill/css/index.css -->
+    <link rel="stylesheet" href="/public/secKill/css/index.css">
+    <style type="text/css">
+        #noActiveTips{
+            text-align: center;
+            padding:10px 0;
+            box-flex:1;
+            -moz-box-flex:1;
+            -webkit-box-flex:1;
+            display: none;
+        }
+    </style>
+    <!-- endbuild -->
+    <script>
+        var init = {
+            serverTime:<%=serverTime%>,
+            timePoints:<%-JSON.stringify(timePoint)%>,
+            activeCode:<%=activeId%>
+        }
+    </script>
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?73458c2d98c6f30b6667ba80e1f6034b";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script><!--ignore-->
+</head>
+<body>
+<div class="viewport">
+    <div class="main load" id="wrapper">
+        <div class="toucher">
+            <div class="time-left">
+                <div class="time-main">
+                    <div class="border"></div>
+                    <div class="time">
+                        <div class="text">距活动开始还有</div>
+                        <div class="flip-time">
+                            <div id="DD" class="time-box">00</div>
+                            <div class="time-dot">天</div>
+                            <div id="HH" class="time-box"></div>
+                            <div class="time-dot">时</div>
+                            <div id="MM" class="time-box"></div>
+                            <div class="time-dot">分</div>
+                            <div id="SS" class="time-box"></div>
+                            <div class="time-dot">秒</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="remind">
+                    <div class="btn">提醒我</div>
+                </div>
+            </div>
+            <div id="lists" class="lists"></div>
+            <script id="listTemplate" type="text/x-handlebars-template">
+                {{#each this}}
+                <div class="list-item" data-href="/#/pointsExchangeDetails?id={{id}}&shopFromType=secKill">
+                    <div class="ico">
+                        <img src="{{image}}"/>
+                    </div>
+                    <div class="info">
+                        <div class="title">{{name}}</div>
+                        <div class="box">
+                            <div class="box-left">
+                                <div class="count">
+                                    <div class="count-process">
+                                        <div class="count-process-in"
+                                             style="width:{{Math '({{num}} / ({{num}} + {{exchanged}}) * 100).toFixed(1)'}}%"></div>
+                                    </div>
+                                    <div class="count-num">剩余{{Math
+                                        '({{num}}/({{num}}+{{exchanged}})*100).toFixed(1)'}}%
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <div class="price-red">
+                                        <i>¥</i>{{gaobi}}
+                                    </div>
+                                    <div class="price-gary cross">
+                                        <i>¥</i>{{value}}
+                                    </div>
+                                    <!--<div class="price-red">-->
+                                        <!--{{integral}}<i>积分</i>-->
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                            <div class="box-right">
+                                {{#if num}}
+                                <div class="btn btn-in">购买</div>
+                                {{else}}
+                                <div class="btn btn-in disable">已售完</div>
+                                {{/if}}
+                                <div class="btn btn-out disable"></div>
+                                <input type="hidden" class="hasNum" data-num="{{num}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{#if introductions}}
+                <div class="brief-txt">
+                    <p class="cut-txt">{{cutString introductions 100}}</p>
+                    <p class="all-txt">{{introductions}}</p>
+                    {{#isCutString introductions 100}}
+
+                    {{else}}
+                    <i class="icon iconfont icon-xiajiantou"></i>
+                    {{/isCutString}}
+                </div>
+                {{/if}}
+                {{/each}}
+            </script>
+        </div>
+    </div>
+    <div class="header">
+
+        <div class="location-selected clearfix">
+            <div class="ls-lf">
+                <div id="curCity" class="u-drop-down">
+                    <a class="u-drop-text">
+                        <span></span>
+                        <i class="icon iconfont icon-xiajiantou"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ls-rg">
+               <h4>星品汇爆款抢购</h4>
+            </div>
+        </div>
+
+        <div class="ad">
+            <div class="u-slider-mod">
+                <div class="usm-bd u-slide" id="slide1">
+                    <ul class="u-slider-list">
+                        <% adList.forEach(function(item){ %>
+
+                        <% if(item.linkType==3||item.linkType==5){ %>
+                            <%# 3积分商品 优惠券 详情/列表 %>
+                            <% if(item.linkContent.length>0 && item.islist==0){ %>
+                            <li>
+                                <a  href="#/pointsExchangeDetails?id=<%= item.linkContent %>" title="<%= item.name %>">
+                                    <img src="<%= item.image %>" alt="<%= item.name %>">
+                                </a>
+                            </li>
+                            <% }else if(item.linkContent.length>1 && item.islist==1) { %>
+                            <li>
+                                <a  href="#/pointsExchangeList?idArr=<%= item.linkContent %>" title="<%= item.name %>">
+                                    <img src="<%= item.image %>" alt="<%= item.name %>">
+                                </a>
+                            </li>
+                            <% }else{ %>
+                            <li>
+                                <a title="<%= item.name %>">
+                                    <img src="<%= item.image %>" alt="<%= item.name %>">
+                                </a>
+                            </li>
+                            <% } %>
+                        <% }else if(item.linkType==4){ %>
+                        <%# 4云猴小店商品 详情/列表 TODO %>
+                        <li>
+                            <a title="<%= item.name %>">
+                                <img src="<%= item.image %>" alt="<%= item.name %>">
+                            </a>
+                        </li>
+                        <% }else if(item.linkType==6){ %>
+                        <%# 6 URL H5 %>
+                        <li>
+                            <a <% if(item.linkContent.length>0 ){ %> href="<%= item.linkContent %>" <% } %> title="<%= item.name %>">
+                                <img src="<%= item.image %>" alt="<%= item.name %>">
+                            </a>
+                        </li>
+                        <% }else if(item.linkType==12){ %>
+                        <%# 12 云猴小店 TODO %>
+                        <li>
+                            <a title="<%= item.name %>">
+                                <img src="<%= item.image %>" alt="<%= item.name %>">
+                            </a>
+                        </li>
+                        <% }else if(item.linkType==9){ %>
+                        <%# 9不跳转 %>
+                        <li>
+                            <a title="<%= item.name %>">
+                                <img src="<%= item.image %>" alt="<%= item.name %>">
+                            </a>
+                        </li>
+                        <% } %>
+                        <% }) %>
+                    </ul>
+                </div>
+                <div class="usm-ft">
+                    <dl class="u-slider-dot">
+                        <% adList.forEach(function(item){ %>
+                        <% if(item.linkType==1){ %>
+                        <%# 1商城商品 详情/列表 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==2){ %>
+                        <%# 2商城二级栏目 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==3){ %>
+                        <%# 3积分商品 详情/列表 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==4){ %>
+                        <%# 4云猴小店商品 详情/列表 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==5){ %>
+                        <%# 5优惠券 详情/列表 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==6){ %>
+                        <%# 6 URL H5 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==12){ %>
+                        <%# 12 云猴小店 %>
+                        <dd></dd>
+                        <% }else if(item.linkType==9){ %>
+                        <%# 9不跳转 %>
+                        <dd></dd>
+                        <% } %>
+                        <% }) %>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div id="tabNav" class="nav"><div id="noActiveTips">当前地区暂未开放此活动</div></div>
+        <script id="tabsTemplate" type="text/x-handlebars-template">
+                {{#each this}}
+                <div class="tab">
+
+                    <div class="time">{{time}}</div>
+                    <div class="state">{{state.text}}</div>
+                </div>
+                {{/each}}
+        </script>
+    </div>
+    <div class="overlayer">
+        <div class="message-box">
+            <div class="message-content color">
+                <input id="mobile" type="tel" placeholder="请输入11位手机号码">
+            </div>
+            <div class="message-btn">
+                <div class="btn cancel">取消</div>
+                <div class="btn red confirm">确定</div>
+            </div>
+        </div>
+    </div>
+    <div class="info-box">错误信息</div>
+</div>
+<!-- build:js /BigBangKill/js/sdk.js -->
+<script type="text/javascript" src="/public/secKill/js/sdk/sdk.js"></script>
+<script type="text/javascript" src="/public/secKill/js/sdk/fire.js"></script>
+<script type="text/javascript" src="/public/secKill/js/sdk/util.js"></script>
+<script type="text/javascript" src="/public/secKill/js/sdk/timecounter.js"></script>
+<script type="text/javascript" src="/public/secKill/js/sdk/scrollLoader.js"></script>
+<script type="text/javascript" src="/public/secKill/js/sdk/bridge.js"></script>
+<script type="text/javascript" src="/public/secKill/js/tabs.js"></script>
+<script type="text/javascript" src="/public/secKill/js/page.js"></script>
+<script type="text/javascript" src="/public/secKill/js/counter.js"></script>
+<script type="text/javascript" src="/public/static/js/extends/swipeSlide.js"></script>
+<!-- endbuild -->
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    $(function () {
+        /***slider***/
+        $('#slide1').swipeSlide({
+            continuousScroll:true,
+            lazyLoad : true,
+            speed : 3000,
+            transitionType : 'cubic-bezier(0.22, 0.69, 0.72, 0.88)',
+            firstCallback : function(i,sum,me){
+                me.siblings('.usm-ft').find('.u-slider-dot').children().first().addClass('u-active');
+            },
+            callback : function(i,sum,me){
+                me.siblings('.usm-ft').find('.u-slider-dot').children().eq(i).addClass('u-active').siblings().removeClass('u-active');
+            }
+        });
+        //微信签名
+        $.getJSON('/api/weixin/sign', {
+            url: encodeURIComponent(window.location.href.split('#')[0])
+        }, function (data) {
+            wx.config({
+                //debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: data.appId, // 必填，公众号的唯一标识
+                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                signature: data.signature,// 必填，签名，见附录1
+                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'showMenuItems', 'hideAllNonBaseMenuItem'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+        });
+        wx.ready(function () {
+            wx.showOptionMenu({
+                menuList: [
+                    "menuItem:share:appMessage",
+                    "menuItem:share:timeline",
+                    "menuItem:share:qq",
+                    "menuItem:share:weiboApp",
+                    "menuItem:share:facebook",
+                    "menuItem:share:QZone",
+                    "menuItem:copyUrl",
+                    "menuItem:share:email"
+                ]
+            });
+        });
+
+        function getParam (item) {
+            var sValue = location.href.match(new RegExp("[\?\&]" + item + "=([^\&]*)(\&?)", "i"));
+            return sValue ? sValue[1] : sValue;
+        }
+        function getLocation(res,callback){
+            if(!res || !res.latitude && !res.longitude){
+                //长沙
+                res={
+                    latitude:"28.12",//北纬
+                    longitude:"113"//东经
+                };
+            }
+            var _callback=callback||function(){};
+            $.getJSON("/api/area/location?lat="+res.latitude+"&lng="+res.longitude,function(resArea){
+                console.log(resArea);
+                //alert(JSON.stringify(resArea));
+                if(resArea.code="0000"){
+                    if(resArea.data.find){
+                        localStorage["city"]=JSON.stringify({"id":resArea.data.find.id,"name":resArea.data.find.name});
+                    }else{
+                        alert("当前地区尚未开通此服务");
+                        localStorage["city"]=JSON.stringify({"id":"430100000000","name":"长沙"});
+                    }
+                    _callback();
+                }
+            });
+        }
+        //自动定位
+        function autoLocation(callback){
+            wx.ready(function (){
+                wx.getLocation({
+                    type: 'wgs84',
+                    success: function (res) {
+                        console.log("自动定位成功...");
+                        getLocation(res,callback,true)
+                    },
+                    fail:function(){
+                        console.log("自动定位失败...");
+                        location.href="/secKill/?active=4&cityId=430100000000";
+                    },
+                    cancel:function(){
+                        console.log("自动定位取消...");
+                    }
+                });
+            });
+        }
+        var getCityId=getParam("cityId");
+
+        if(!getCityId){
+            if(JSON.parse(localStorage.getItem("city"))){
+                getCityId=JSON.parse(localStorage.getItem("city")).id;
+                location.href="/secKill/?active=4&cityId="+getCityId;
+            }else {
+                autoLocation(function(){
+                    getCityId=JSON.parse(localStorage.getItem("city")).id;
+                    location.href="/secKill/?active=4&cityId="+getCityId;
+                });
+            }
+            return
+        }
+
+        var _curCity= $("#curCity");
+        var localStorageCity=JSON.parse(localStorage.getItem("city"))||{"id":"430100000000","name":"长沙市"};
+        _curCity.data("id",localStorageCity.id);
+        _curCity.data("name",localStorageCity.name);
+        _curCity.find("span").html(localStorageCity.name);
+
+        _curCity.find("a").attr("href","/#/locationList?fromUrl="+encodeURIComponent("/secKill/?active=4"));
+
+        if(init.timePoints.length<=0){
+            $("#noActiveTips").show();
+        }
+
+        YunHouSDK.use('sdk.kill.counter,sdk.kill.tabs,sdk.kill.page', function (counter, tabs, page) {
+            var adHeight = $('.ad').height(), nav = $('#tabNav'), place = $('.nav-place'), holder = $('.nav-holder');
+            var pageController = new page($('#listTemplate').html(), init.timePoints);
+            var tabsController = new tabs(init.serverTime, $('#tabsTemplate').html(), init.timePoints);
+            var updateState = function (index, state) {
+                $('.main').removeClass('load in pass before').addClass(state.state)
+                        .find('.btn-out').html(state.text);
+            };
+            tabsController.on('switch', function (index) {
+                var state = tabsController.getState(index);
+                counter.render(index, '#DD', '#HH', '#MM', '#SS');
+                pageController.show(index);
+                updateState(index, state);
+
+                //统计部分
+                var time = init.timePoints[index];
+                _hmt.push(['_trackEvent', '活动' + init.activeCode, '时间节点切换', '时间节点', index + ':' + time]);
+                //统计部分
+            }).on('stateChange', function (index, state) {
+                updateState(index, state.state);
+            });
+            pageController.on('data', function (index, el) {
+                var state = tabsController.getState(index);
+                updateState(index, state);
+                $(el[0]).on('click', function () {
+                    //统计部分 &robBuyState=
+                    //_hmt.push(['_trackEvent', '活动' + init.activeCode, '跳转商品', '商品信息', url]);
+                    console.log(state);
+                    var _num=$(this).find(".hasNum").data("num");
+                    var _jumpUrl=$(this).data('href');
+                    if(state && state.state){
+                        if(state.state=="before" && _num>0){
+                            _jumpUrl+="&robBuyState=before";
+                        }else if(state.state=="in" && _num>0){
+                            _jumpUrl+="&robBuyState=in";
+                        }else if(state.state=="pass" && _num>0 ){
+                            _jumpUrl+="&robBuyState=pass";
+                        }else {
+                            _jumpUrl+="&robBuyState=over";
+                        }
+                    }
+                    //console.log(_jumpUrl,_num);
+                    window.location.href=_jumpUrl;
+                });
+                $(el[2]).on('click',function () {
+                    $(this).toggleClass("autoH");
+                    $(this).find(".iconfont").toggleClass("icon-shangjiantou");
+                });
+            });
+            counter.init(init.serverTime, init.timePoints);
+            tabsController.render('#tabNav', init.timePoints);
+
+            var timer = null;
+            var update = function () {
+                var index = tabsController.getActive();
+                tabsController.update();
+                counter.render(index, '#DD', '#HH', '#MM', '#SS');
+                timer = setTimeout(update, 1000);
+            };
+            update();
+        });
+        var tips = function (text, fade) {
+            $('.info-box').html(text).fadeIn();
+            if (!fade) {
+                setTimeout(function () {
+                    $('.info-box').fadeOut();
+                }, 3000);
+            }
+        }
+        var sending = false;
+        var isMobile = function (mobile) {
+            return typeof mobile == 'string' && mobile.length == 11;
+        };
+        var sendMobile = function () {
+            var mobile = $('#mobile').val();
+            if (!sending) {
+                if (isMobile(mobile)) {
+                    $.ajax({
+                        url: '/secKill/mobile',
+                        data: {
+                            mobile: mobile
+                        },
+                        timeout: 10000, //超时时间设置，单位毫秒
+                        beforeSend: function () {
+                            tips('发送中', true);
+                            sending = true;
+                        },
+                        complete: function (err) {
+                            sending = false;
+                        },
+                        dataType: 'json',
+                        type: 'post',
+                        success: function (data) {
+                            tips(data.message);
+                            $('.overlayer').fadeOut();
+                            //统计部分
+                            _hmt.push(['_trackEvent', '活动' + init.activeCode, '成功发送提醒手机']);
+                            //统计部分
+                        },
+                        error: function (err) {
+                            console.log(err);
+                            tips(err.responseText);
+                            $('.overlayer').fadeOut();
+                            //统计部分
+                            _hmt.push(['_trackEvent', '活动' + init.activeCode, '发送提醒手机报错']);
+                            //统计部分
+                        }
+                    });
+                } else {
+                    tips('请输入正确的11位手机号码');
+                }
+            }
+        };
+        $('.remind .btn').on('touchend', function () {
+            $('.overlayer').fadeIn();
+            //统计部分
+            _hmt.push(['_trackEvent', '活动' + init.activeCode, '点击提醒']);
+            //统计部分
+        });
+        $('.overlayer .cancel').on('touchend', function () {
+            $('.overlayer').fadeOut();
+            $('#mobile').blur();
+        });
+        $('.overlayer .confirm').on('touchend', function () {
+            sendMobile();
+            //统计部分
+            _hmt.push(['_trackEvent', '活动' + init.activeCode, '点击发送提醒手机']);
+            //统计部分
+            $('#mobile').blur();
+        });
+    });
+</script>
+</body>
+</html>

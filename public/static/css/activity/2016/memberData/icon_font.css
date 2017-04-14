@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "DFWaWaW5";
+  src: url("/public/static/fonts/DFWaWaW5.eot");
+  /* IE9 */
+  src: url("/public/static/fonts/DFWaWaW5.eot?#iefix") format("embedded-opentype"), url("/public/static/fonts/DFWaWaW5.woff") format("woff"), url("/public/static/fonts/DFWaWaW5.ttf") format("truetype"), url("/public/static/fonts/DFWaWaW5.svg#DFWaWaW5") format("svg");
+  /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
+}

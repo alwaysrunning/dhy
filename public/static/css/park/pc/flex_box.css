@@ -1,0 +1,10 @@
+/* line 3, ../../../sass/park/pc/flex_box.scss */
+.flex-box {
+  display: box;
+  display: -webkit-box;
+}
+/* line 7, ../../../sass/park/pc/flex_box.scss */
+.flex-box .flex-box-item {
+  -webkit-box-flex: 1;
+  box-flex: 1;
+}

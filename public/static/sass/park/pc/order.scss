@@ -1,0 +1,127 @@
+@charset "utf-8";
+.order{
+  .order-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: Rem(97);
+    overflow: hidden;
+
+    .scroller{
+      position: absolute;
+    }
+
+    .discount{
+      .method {
+        width: Rem(150);
+
+        .icon-xuanze {
+          color: #f95d5b;
+        }
+      }
+
+      .discount-list {
+        width: Rem(480);
+        .discount-list-item {
+          margin-bottom: Rem(10);
+          .btn-link {
+            width: Rem(290);
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .discount-total{
+      padding: Rem(20) Rem(10);
+      margin-top: Rem(10);
+      background-color: #fffbf9;
+    }
+  }
+
+  .orange {
+    color: #f95d5b;
+  }
+
+  .green {
+    color: #27a269;
+  }
+
+  .float-nav{
+    position: absolute;
+    bottom: 0;
+
+    .flex-box{
+
+      .float-text{
+        height: Rem(60);
+        line-height: Rem(60);
+        font-size: Rem(24);
+      }
+
+      .btn-box{
+        width: Rem(250);
+        box-flex: 0;
+        -webkit-box-flex: 0;
+        text-align: right;
+
+        .btn{
+          padding: 0 Rem(40);
+        }
+      }
+    }
+  }
+}
+
+.weixinpay{
+  .big-title{
+    margin: Rem(60) auto Rem(30);
+    padding-bottom: Rem(30);
+    text-align: center;
+    font-size: Rem(80);
+    border-bottom: 1px solid #E0E0E0;
+
+    .center-title{
+      margin: Rem(20) auto;
+      text-align: center;
+      font-size: Rem(40);
+    }
+  }
+
+  .warm{
+    padding: 0 Rem(20);
+    color: #c4c4c4;
+  }
+
+  .list-text{
+    font-size: Rem(30);
+  }
+
+  .btn-box{
+    margin: Rem(30) auto;
+    padding: 0 Rem(20);
+
+  }
+}
+
+
+#history-box{
+  margin-top: Rem(20);
+  border:1px solid #f2f2f2;
+}
+
+.manage-btn-tips{
+  text-align: left;
+  font-size: Rem(24);
+  color: #999;
+  margin-top: Rem(10);
+  .iconfont-park{
+    font-size: Rem(32);
+    vertical-align: middle;
+  }
+}
+
+

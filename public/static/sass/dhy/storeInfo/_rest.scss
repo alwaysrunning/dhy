@@ -1,0 +1,133 @@
+@charset "utf-8";
+/*CSS Reset*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+header,
+hgroup,
+nav,
+section,
+article,
+aside,
+footer,
+figure,
+figcaption,
+menu,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+}
+caption, th {
+  text-align: left;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+li {
+  list-style: none;
+}
+
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option{
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  outline: 0;
+}
+
+button{
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+}
+
+a{
+  -webkit-touch-callout:none;
+  text-decoration: none;
+}
+
+:focus{
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+em,i {
+  font-style: normal;
+}
+body, .page {
+  background: #f5f5f5;
+}
+.infinite-scroll-preloader {
+  margin-top:-20px;
+}
+.preloader{
+  display: none;
+}
+.preloader.on{
+  display:inline-block;
+}
+.clearfix {
+  zoom: 1;
+}
+
+.clearfix::before, .clearfix::after {
+  display: table;
+  line-height: 0;
+  content: ""
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.fl-lf{
+  display: inline-block;
+  float: left;
+}
+
+.fl-rg{
+  display: inline-block;
+  float:right;
+}

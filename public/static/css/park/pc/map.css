@@ -1,0 +1,6 @@
+/* line 2, ../../../sass/park/pc/map.scss */
+.m-map-wrap {
+  width: Rem(750);
+  height: Rem(750);
+  margin: 0 auto;
+}

@@ -1,0 +1,48 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:43
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 13, ../../../sass/dhy/module/personalInfo.scss */
+.m-personalInfo-page .u-form-item label:not(.u-switch):not(.u-checkbox):not(.u-radio) {
+  width: 1.33333rem;
+}
+/* line 16, ../../../sass/dhy/module/personalInfo.scss */
+.m-personalInfo-page .u-form-item .u-form-input-text, .m-personalInfo-page .u-form-item .u-form-input-textarea {
+  padding-left: 1.33333rem;
+}
+
+/* line 21, ../../../sass/dhy/module/personalInfo.scss */
+.u-tips-txt-line {
+  background: #f2f2f2;
+  color: #999;
+  padding: 0.33333rem;
+  text-align: left;
+}
+/* line 26, ../../../sass/dhy/module/personalInfo.scss */
+.u-tips-txt-line .icon-tishi {
+  vertical-align: middle;
+  margin: 0 0.13333rem;
+}
+
+/* line 32, ../../../sass/dhy/module/personalInfo.scss */
+.u-tips-bg-orange {
+  background: #fff9f2;
+  color: #ff6666;
+}

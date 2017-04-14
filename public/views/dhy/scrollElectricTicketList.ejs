@@ -1,0 +1,13 @@
+<% data.data.forEach(function(item){ %>
+<li>
+    <a href="#/electricTicketDetails?txnId=<%= item["txnId"] %>&cardno=<%= item["cardNo"] %>&carriercd=<%= item["carrierCd"]%>" class="clearfix" data-txnId="<%= item["txnId"] %>">
+        <div class="uel-lf g-fl-lf">
+            <h5><%= item["transDt"] %></h5>
+            <p><%= item["carrier"] %></p>
+        </div>
+        <div class="uel-rg g-fl-rg">
+            <p>实付金额：<%= item["amount"] %>元</p>
+        </div>
+    </a>
+</li>
+<% }) %>

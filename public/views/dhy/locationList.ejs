@@ -1,0 +1,36 @@
+<div class="m-location-list-mod u-scrollBar">
+    <div class="u-city-cur-select" data-id="<%= curCity["id"] %>" data-name="<%= curCity["name"] %>">
+        <p class="clearfix"><span>您当前定位的城市： <b id="topCurCity"><%= curCity["name"] %></b></span><i id="autoLocation"
+                                                                                   class="icon iconfont icon-dingwei g-fl-rg"></i>
+        </p>
+    </div>
+    <div id="letter"></div>
+    <div id="matchOk">
+        <div id="citySortBox">
+            <div>
+                <ul class="u-city-sort-box">
+                    <% if(data.length > 0){ %>
+                    <% data.forEach(function(item){ %>
+                    <% item.children.forEach(function(area){ %>
+                    <li class="u-city-sort-list" data-id="<%= area["id"] %>" data-name="<%= area["name"] %>">
+                        <h4 class="u-city-sort-num-name"><%= area["name"] %></h4>
+                    </li>
+                    <% }) %>
+                    <% }) %>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <div class="u-city-sort-initials">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+    <div id="matchFail" class="u-city-match-fail u-hidden">
+        <p>您所在的城市</p>
+        <p id="curCityTxt"></p>
+        <p id="changeCityBtn">[更换城市]</p>
+        <p>尚未开通服务，敬请期待 </p>
+    </div>
+</div>

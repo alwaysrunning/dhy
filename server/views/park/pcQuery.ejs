@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/static/css/park/pc/pcPark.css"/>
+    <script src="/public/static/js/lib/flexible.js"></script><!--ignore-->
+    <script src="/public/static/js/lib/jquery.min.js"></script>
+    <script src="/public/static/js/extends/touch.js"></script>
+    <script src="/public/static/js/extends/typeahead.jquery.js"></script>
+    <script src="/public/static/js/extends/ejs.js"></script>
+    <script>
+        var parkid = '<%= shopId %>';
+    </script>
+</head>
+<body class="m-pc-query-car">
+<div class="viewport">
+    <div class="bg light-dark">
+        <div class="list my-car">
+            <div class="list-item remove-margin">
+                <div class="list-title">
+                    <h1>
+                        <span class="title-text"><%= title %>--查询停车位</span>
+                    </h1>
+                </div>
+                <div class="list-body remove-padding">
+                    <div class="list-line remove-height-limit add-hairline">
+                        <div class="car-search">
+                            <div class="car-input flex-box">
+                                <div class="licence-num flex-box-item">
+                                    <input class="licence-num-input" type="text" placeholder="车牌后5位"
+                                           id="licenceCodeInput"
+                                           pattern="[0-9]|[a-z]|[A-Z]*"/>
+                                </div>
+                            </div>
+                            <div class="dailog-select">
+                                <div class="slide-box"></div>
+                                <span class="dailog-arrow"></span>
+                            </div>
+                            <span class="car-tips lighter"><i class="iconfont-park icon-tishi"></i>示例：车牌“湘A1FA23”，输入“123"或“1FA”即可</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="m-query-result" id="queryResult">
+
+        </div>
+    </div>
+</div>
+<div class="dailog-warm" style="display: none;"></div>
+<script src="/public/park/js/util.js"></script>
+<script src="/public/park/js/pc/location.js"></script>
+</body>
+</html>

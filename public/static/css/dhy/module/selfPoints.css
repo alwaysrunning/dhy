@@ -1,0 +1,38 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/24
+ * Time: 11:49
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 11, ../../../sass/dhy/module/selfPoints.scss */
+.m-selfPoints-mod .u-list li .iconfont {
+  vertical-align: middle;
+}
+
+/* line 16, ../../../sass/dhy/module/selfPoints.scss */
+.m-cardPoints-page .mcp-tips-txt {
+  padding-bottom: 0.26667rem;
+}
+/* line 19, ../../../sass/dhy/module/selfPoints.scss */
+.m-cardPoints-page .u-tips-txt-line {
+  margin: 0 0.26667rem;
+}
+/* line 22, ../../../sass/dhy/module/selfPoints.scss */
+.m-cardPoints-page .u-form-item-padding {
+  margin-top: 0.26667rem;
+}

@@ -1,0 +1,26 @@
+<% if(data.data.REC.length>0){ %>
+    <% data.data.REC.forEach(function(item){ %>
+        <li data-id="<%= item["REDPKGID"] %>">
+            <a>
+                <div class="upl-lf g-fl-lf">
+                    <h3><%= item["BIZTYPE"] %></h3>
+                    <% if(item['EXPDT'] && item['PRDDT']){ %>
+
+                    <p>有效期:<%= item['PRDDT'].slice(0,4) %>-<%= item['PRDDT'].slice(4,6) %>-<%= item['PRDDT'].slice(6,8) %>
+                        至 <%= item['EXPDT'].slice(0,4) %>-<%= item['EXPDT'].slice(4,6) %>-<%= item['EXPDT'].slice(6,8) %></p>
+
+                    <% }else{ %>
+
+                    <p>失效日期:<%= item['EXPDT'].slice(0,4) %>-<%= item['EXPDT'].slice(4,6) %>-<%= item['EXPDT'].slice(6,8) %></p>
+
+                    <% } %>
+                </div>
+                <div class="upl-rg g-fl-rg">
+                    <h3 class="u-fontColor-them">&yen; <%= item["REDPKGAMT"] %></h3>
+                </div>
+            </a>
+        </li>
+    <% }) %>
+<% }else{ %>
+<p style="text-align: center;">暂无数据...(/ □ \)</p>
+<% } %>

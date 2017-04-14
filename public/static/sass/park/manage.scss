@@ -1,0 +1,132 @@
+@import "mixin";
+
+.car-manage-select {
+  position: absolute;
+  top: Rem(80);
+  left: 0;
+  right: 0;
+  height: Rem(128);
+  padding: 0 Rem(20);
+  background-color: #ffffff;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.car-manage-list {
+  position: absolute;
+  top: Rem(129+80);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+
+  .car-manage-list-scroll {
+    padding: Rem(20) 0;
+
+    .car-manage-list-item {
+      padding: Rem(20);
+      border-top: 1px solid #f2f2f2;
+      background-color: #ffffff;
+
+      .car-manage-list-item-bg {
+        -webkit-border-radius: Rem(10);
+        -moz-border-radius: Rem(10);
+        border-radius: Rem(10);
+        background-color: #3f6bd0;
+        padding: Rem(20);
+
+        .car-manage-list-item-inner {
+          -webkit-border-radius: Rem(10);
+          -moz-border-radius: Rem(10);
+          border-radius: Rem(10);
+
+          border: Rem(5) solid #ffffff;
+          background-color: #3f6bd0;
+
+          .car-manage-list-item-number {
+            width: Rem(300);
+            padding: Rem(25);
+
+            @include flexbox;
+
+
+            .car-manage-list-bar {
+              border-top: Rem(5) solid #ffffff;
+              border-bottom: Rem(5) solid #ffffff;
+              width: Rem(60);
+
+              @include flex-shrink(0)
+            }
+
+            .car-manage-list-item-number-text {
+              position: relative;
+              font-size: Rem(60);
+              color: #ffffff;
+              line-height: Rem(149);
+              text-align: center;
+
+              @include flex-shrink(1);
+              flex-grow: 1;
+
+              .center-box {
+                white-space: nowrap;
+              }
+            }
+          }
+
+          .car-manage-list-item-btn {
+            padding: Rem(27) 0;
+            text-align: center;
+            border-left: Rem(5) solid #ffffff;
+
+            .car-icon {
+              height: Rem(130);
+              padding-top: Rem(25);
+              text-align: center;
+              margin: 0 auto;
+
+              @include flexbox;
+              @include flex-wrap(nowrap);
+              @include justify-content(flex-start);
+              @include align-items(center);
+              @include flex-direction(column);
+
+              .iconfont-park {
+                @include flex-shrink(0);
+
+                width: Rem(48);
+                height: Rem(48);
+                font-size: Rem(45);
+                line-height: Rem(48);
+                color: #ffffff;
+                padding-bottom: Rem(20);
+              }
+
+              .car-icon-text {
+                @include flex-shrink(1);
+                color: #ffffff;
+                white-space: nowrap;
+              }
+            }
+          }
+        }
+      }
+
+      .car-empty {
+        text-align: center;
+      }
+
+      &:last-child {
+        border-bottom: 1px solid #f2f2f2;
+      }
+    }
+  }
+}
+
+.car-manage-list-num{
+  padding: Rem(30) Rem(20);
+  background: #f2f3f7;
+  color:#999;
+  b{
+    color:#f96968;
+  }
+}

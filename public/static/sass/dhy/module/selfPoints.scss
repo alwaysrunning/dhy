@@ -1,0 +1,25 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/24
+ * Time: 11:49
+ * */
+@import "../../common/variable",
+"../../common/mixin";
+.m-selfPoints-mod{
+  .u-list li .iconfont{
+    vertical-align:middle;
+  }
+}
+.m-cardPoints-page{
+  .mcp-tips-txt{
+    padding-bottom: Rem(20);
+  }
+  .u-tips-txt-line{
+    margin:0 Rem(20);
+  }
+  .u-form-item-padding{
+    margin-top: Rem(20);
+  }
+}

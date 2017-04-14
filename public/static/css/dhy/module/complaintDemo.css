@@ -1,0 +1,86 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:11
+ * */
+/* line 10, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo {
+  background: #fff;
+}
+/* line 12, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-mod {
+  font-size: Rem(24);
+}
+/* line 14, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-mod .g-mod-tit {
+  height: Rem(78);
+  line-height: Rem(78);
+  background: #f2f2f2;
+  padding: 0 Rem(10) 0 Rem(20);
+}
+/* line 19, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-mod .g-mod-tit h2 {
+  color: #999;
+  font-size: Rem(24);
+}
+/* line 24, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-mod .g-mod-cont {
+  padding: Rem(30) Rem(20);
+}
+/* line 28, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-mod .u-item-list li {
+  color: #333;
+  font-size: Rem(28);
+  line-height: Rem(36);
+  margin: Rem(24);
+}
+/* line 35, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-mod .u-id-show {
+  padding-top: Rem(24);
+}
+/* line 37, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-mod .u-id-show li {
+  text-align: center;
+  margin-bottom: Rem(50);
+}
+/* line 40, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-mod .u-id-show li img {
+  max-width: Rem(375);
+  margin: 0 auto;
+}
+/* line 44, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-mod .u-id-show li h4 {
+  font-weight: normal;
+  color: #333;
+  margin-top: Rem(10);
+}
+/* line 50, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-mod .u-id-show li:last-child {
+  margin-bottom: Rem(0);
+}
+/* line 55, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-tips-mod {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  font-size: Rem(24);
+  padding: Rem(20) Rem(10) Rem(30) Rem(10);
+}
+/* line 61, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-tips-mod .gtm-lf {
+  text-align: center;
+  width: Rem(130);
+  vertical-align: middle;
+}
+/* line 66, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-tips-mod .gtm-rg {
+  text-align: left;
+  width: Rem(570);
+}
+/* line 70, ../../../sass/dhy/module/complaintDemo.scss */
+.m-id-demo .g-tips-mod p, .m-id-demo .g-tips-mod .gtm-lf {
+  font-style: normal;
+  line-height: Rem(36);
+  color: #999;
+}

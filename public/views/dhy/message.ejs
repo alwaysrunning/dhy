@@ -1,0 +1,41 @@
+<section class="m-message-mod u-scrollBar">
+    <% if(data.length>0){ %>
+    <ul class="u-message-list">
+        <% data.forEach(function(item){%>
+        <li>
+            <a href="#/messageDetails?type=<%= item["type"] %>" class="clearfix">
+                <div class="g-fl-lf uml-lf">
+                    <span class="icon iconfont
+                    <% if(item["type"]==3){ %>
+                        icon-huodongxiaoxi
+                    <% }else if(item["type"]==2){ %>
+                        icon-youhuixinxi
+                    <% }else if(item["type"]==4){ %>
+                        icon-xitongguangbo
+                    <% }else if(item["type"]==1){ %>
+                        icon-wuliuxinxi
+                    <% } %> ">
+                    </span>
+                    <% if(parseInt(item["noreadcount"]) > 99 ){ %> <i>99+</i> <% }else if( item["noreadcount"]>0 ){ %> <i> <%= item["noreadcount"] %> </i><% } %>
+                </div>
+                <div class="g-fl-lf uml-rg">
+                    <% if(item["type"]==3){ %>
+                    <h4>活动消息</h4>
+                    <% }else if(item["type"]==2){ %>
+                    <h4>优惠信息</h4>
+                    <% }else if(item["type"]==4){ %>
+                    <h4>系统广播</h4>
+                    <% }else if(item["type"]==1){ %>
+                    <h4>物流信息</h4>
+                    <% } %>
+                    <p><% if(item["content"].length>0){ %> <%= item["content"] %> <% }else{ %> 暂未收到消息 <%}%></p>
+                    <span class="uml-time"><%= item["date"] %></span>
+                </div>
+            </a>
+        </li>
+        <% }) %>
+    </ul>
+    <% }else{ %>
+    <p class="umm-no-message">暂未收到消息</p>
+    <% } %>
+</section>

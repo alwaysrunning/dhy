@@ -1,0 +1,41 @@
+<div class="u-city-tabs-mod" id="areaTabsWrap">
+    <div class="uctm-hd u-drop-option" data-option="<%= data.curCity.id %>" data-name="<%= data.curCity.name %>" data-option-parent-id="<%= data.curCity.id %>" id="allArea">
+        <%= data.curCity.name %>所有地区
+    </div>
+    <div class="uctm-bd">
+        <div class="uctm-lf">
+            <ul>
+                <% data.data.forEach(function(area){ %>
+                <li data-id="<%= area.id %>" data-name="<%= area.name %>"><%= area.name %></li>
+                <% }) %>
+            </ul>
+        </div>
+        <div class="uctm-rg">
+            <% data.data.forEach(function(area){ %>
+            <div class="uctm-box u-hidden" data-id="<%= area.id %>" data-name="<%= area.name %>">
+                <dl>
+                    <% area.stores.forEach(function(item){ %>
+                    <dd class="u-drop-option"
+                        data-option="<%= item.id %>"
+                        data-name="<%= item.name %>"
+                        data-option-parent-id="<%= item.county_id %>"
+                        data-option-parent-name="<%= item.county %>" >
+                        <%= item.name %>
+                    </dd>
+                    <% }) %>
+                </dl>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var areaTabs=App.component.tabs({
+            wrap:"#areaTabsWrap",
+            nav:".uctm-lf ul li",
+            show:".uctm-rg .uctm-box",
+            hideName:"u-hidden"
+        })
+    })
+</script>

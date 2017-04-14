@@ -1,0 +1,19 @@
+<li>
+    <a title="<%= item["name"] %>" class="clearfix">
+        <div class="ucl-border-lf g-fl-lf">
+
+        </div>
+        <div class="ucl-txt g-fl-lf">
+            <h4><%= item["name"] %></h4>
+            <p>优惠券号：<%= item["code"] %></p>
+            <p>使用期限：<%= item["startTime"] %>-<%= item["endTime"] %></p>
+        </div>
+        <div class="ucl-price g-fl-lf">
+            <% if(item["type"]=="1"){%><h3>&yen;<%= item["amount"] %></h3><% }else{ %><h3>折扣:<%= item["discount"] %></h3><% } %>
+            <h5><%= item["shopName"] %></h5>
+        </div>
+        <div class="ucl-border-rg g-fl-lf">
+
+        </div>
+    </a>
+</li>

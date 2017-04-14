@@ -1,0 +1,78 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:05
+ * */
+@import "../../common/variable",
+"../../common/mixin";
+//积分换礼
+.m-pointsExchange-mod {
+  @include clearfix;
+  height: 100%;
+  background: #f2f3f7;
+  .u-refresh-wrapper {
+    background: #fff;
+  }
+  #curCity {
+    width: Rem(140);
+    .u-drop-text span {
+      width: Rem(100);
+    }
+  }
+  //min-height: Rem(1600);
+  .mpm-hd {
+    padding: Rem(20) 0;
+    background: #f2f3f7;
+  }
+  .mh-lf {
+    width: Rem(160);
+    padding-top: Rem(5);
+    height: Rem(50);
+  }
+  .mh-rg {
+    height: Rem(55);
+  }
+  .mpm-ban {
+    height: Rem(310);
+    //transition: all ease 0.2s;
+  }
+  .mpm-sort {
+    width: 100%;
+    @include displayBox;
+    //margin-top:Rem(20);
+    padding: Rem(10) 0;
+    background: #fff;
+    border-bottom: 1px solid $border-default-color;
+    .ms-item {
+      -webkit-box-flex: 1.0; /* Safari and Chrome */
+      -moz-box-flex: 1.0; /* Firefox */
+      box-flex: 1.0;
+    }
+    .u-drop-down {
+      width: Rem(200);
+      .u-drop-text span {
+        width: Rem(100);
+      }
+      .u-drop-text .iconfont {
+        width: Rem(30);
+      }
+    }
+  }
+  .mpm-bd {
+    //position: relative;
+    background: #f2f3f7;
+    margin-top: Rem(20);
+    height: 100%;
+    //min-height: Rem(600);
+    //position: relative;
+  }
+  .g-fixed-top .mpm-bd {
+    padding-top: Rem(500);
+  }
+
+  //  .u-refresh-wrapper{
+  //    top:Rem(495);
+  //  }
+}

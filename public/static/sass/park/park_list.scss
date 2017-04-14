@@ -1,0 +1,383 @@
+@charset "utf-8";
+@import "../component/modal";
+/*mixin*/
+@mixin scrollable() {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin flexBox() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($num) {
+  -webkit-box-flex: $num; /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $num; /* OLD - Firefox 19- */
+  /* For old syntax, otherwise collapses. */
+  -webkit-flex: $num; /* Chrome */
+  -ms-flex: $num; /* IE 10 */
+  flex: $num;
+}
+
+.ad{
+  //position: absolute;
+  //top: 0;
+  //left: 0;
+  //right: 0;
+  height: Rem(260);
+  background-color: #f0f0f0;
+  overflow: hidden;
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.park-list-mod{
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.park-limit-height{
+  max-height: Rem(225*4);
+}
+.park-list{
+  //position: absolute;
+  //top: Rem(260);
+  //left: 0;
+  //right: 0;
+  //bottom:0;
+  //overflow: hidden;
+
+  .park-list-scroll{
+    padding: Rem(22) Rem(20) 0 Rem(20);
+    overflow: hidden;
+
+    .park-card{
+      background-color: #ffffff;
+      -webkit-border-radius: Rem(5);
+      -moz-border-radius: Rem(5);
+      border-radius: Rem(5);
+      overflow: hidden;
+      margin-bottom: Rem(20);
+
+      .park-card-info{
+        padding: Rem(20);
+        border-bottom: 1px solid #f2f2f2;
+        position: relative;
+
+        .park-card-info-item{
+          font-size: Rem(24);
+          line-height: Rem(32);
+          color: #333333;
+          padding: Rem(5) 0;
+          margin-left: Rem(120);
+          width: Rem(350);
+          .orange{
+            color: #f95d5b;
+          }
+
+          &.title{
+            font-size: Rem(28);
+            font-weight: bold;
+            margin-left:0
+          }
+
+          .park-card-info-title{
+            float: left;
+            margin-left: Rem(-120);
+          }
+        }
+
+        .park-card-info-coupon{           
+          position: absolute;
+          right: Rem(30);
+          top:Rem(30);
+          .pcic-img{
+            background: url("/public/static/img/park/park_member_coupon.png") no-repeat center center;
+            background-size: contain;
+            width: Rem(90);
+            height: Rem(90);
+            margin: 0 auto;
+          }
+          .u-right-buy{
+            padding: Rem(4*2) Rem(4*2);
+            background: #f95d5b;
+            color: #fff;
+            font-size: Rem(12*2);
+            border-radius: Rem(10*2);
+            margin: Rem(5) auto 0 auto;
+            display: inline-block;
+          }
+        }
+      }
+
+      .park-card-btns{
+        height: Rem(86);
+        border-bottom: 1px solid #f2f2f2;
+
+        .park-card-btn{
+          margin: Rem(23) 0;
+          border-right: 1px solid #f2f2f2;
+          text-align: center;
+          font-size: Rem(24);
+          color: #f95d5b;
+
+          .iconfont-park{
+            color: #f95d5b;
+            font-size: Rem(32);
+            line-height: Rem(32);
+            vertical-align: middle;
+          }
+        }
+      }
+
+      .park-card-rule{
+        position: relative;
+        background-color: #fff9f6;
+        padding: Rem(20) Rem(20) Rem(10);
+
+        .iconfont-park{
+          color: #999;
+        }
+
+        .park-card-rule-text{
+          overflow: hidden;
+          line-height: Rem(32);
+        }
+
+        .icon-xiajiantou{
+          position: absolute;
+          right: Rem(20);
+          top: Rem(20);
+          line-height: Rem(32);
+          font-size: Rem(28);
+          display: none;
+        }
+
+        .park-card-rule-close{
+          text-align: center;
+          line-height: Rem(32);
+          display: block;
+
+          .iconfont-park{
+            font-size: Rem(28);
+            line-height: Rem(32);
+          }
+        }
+
+        &.close{
+          padding-right: Rem(50);
+          padding-bottom: Rem(20);
+
+          .park-card-rule-text{
+            height: Rem(32);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .park-card-rule-close{
+            display: none;
+          }
+
+          .icon-xiajiantou{
+            display: block;
+          }
+        }
+
+        &.no-exp{
+          padding-bottom: Rem(20);
+
+          .park-card-rule-close{
+            display: none;
+          }
+
+          .icon-xiajiantou{
+            display: none;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.park-hr{
+  text-align: center;
+  height: Rem(48);
+  line-height: Rem(48);
+  margin-bottom: Rem(20);
+  background:url("/public/static/img/park/par_dot_0.png") repeat-x center center;
+  h6{
+    font-size: Rem(24);
+    margin: 0 auto;
+    display: block;
+    width: Rem(180);
+    background:#f5f5f5;
+  }
+}
+//优惠券列表
+.park-couponList{
+  padding: 0 Rem(20);
+  overflow: hidden;
+  .iconfont-park{
+    font-size: Rem(28);
+    line-height: Rem(32);
+  }
+  //领取列表
+  .mcm-coupons-list{
+    li{
+      border-top: Rem(5*2) solid #f95d5b;
+      border-left: none;
+      border-right: none;
+      border-radius: Rem(5*2);
+      background: #fff;
+      margin-bottom: Rem(15*2);
+      //-moz-box-shadow: 0 2px 3px #ddd;
+      //-webkit-box-shadow: 0 2px 3px #ddd;
+      //box-shadow: 0 2px 3px #ddd;
+    }
+
+    li.over{
+      .u-right-buy{
+        background: #ccc;
+      }
+    }
+
+    li.receive{
+      .mcl-circle{
+        display: none;
+      }
+      .mcl-bd-rg{
+        padding-top: 0;
+        background: url("/public/static/img/module/coupons_listBg_5.jpg") no-repeat right top;
+        background-size: contain;
+      }
+      .mcl-bd{
+        padding-right: 0;
+      }
+      .circle-cancvsDom{
+        display: none;
+      }
+    }
+
+    .mcl-bd{
+      @include flexBox;
+      padding: 0 Rem(10*2);
+      h4{
+        color: #f95d5b;
+        padding-top: Rem(10*2);
+        margin-bottom: Rem(10);
+        font-size: Rem(32);
+      }
+      h4 em{
+        font-size: Rem(58);
+        margin-left: Rem(5*2);
+      }
+
+      .mcl-bd-lf{
+        @include flex(3);
+        p{
+          font-size: Rem(28);
+          line-height: Rem(34);
+        }
+        p i{
+          padding: Rem(4*2) Rem(3*2);
+          border-radius: 4px;
+          border: 1px solid #f95d5b;
+          font-size: Rem(24);
+          color: #f95d5b;
+          vertical-align:bottom;
+          font-style:normal;
+          box-shadow: none;
+        }
+        .limit-time{
+          color: #b2b2b3;
+          padding: Rem(5*2) 0;
+          font-size: Rem(12*2);
+        }
+      }
+
+      .mcl-bd-rg{
+        @include flex(1);
+        padding: Rem(10*2) 0;
+        text-align: center;
+      }
+    }
+  }
+
+  .u-right-buy{
+    padding: Rem(4*2) Rem(4*2);
+    background: #f95d5b;
+    color: #fff;
+    font-size: Rem(12*2);
+    border-radius: Rem(20);
+    margin: Rem(16) auto 0 auto;
+    display: inline-block;
+    line-height: Rem(27);
+    height: Rem(27);
+    width: Rem(110);
+  }
+  .mod-circle{
+    width: Rem(110);
+    height: Rem(100);
+    margin: 0 auto ;
+  }
+  //使用规则
+  .mcl-ft{
+    background-image: url("/public/static/img/module/coupons_listBg_3.png"),url("/public/static/img/module/coupons_listBg_4.png");
+    background-repeat: no-repeat;
+    background-position: 0 0, right 0;
+    padding:Rem(5*2) Rem(10*2);
+    .mcl-ft-hd{
+      @include flexBox;
+      padding-top: Rem(5*2);
+      border-top: 1px dashed #dedddd;
+      h5{
+        @include flex(3);
+        font-size: Rem(26);
+        font-weight: normal;
+        i{
+          border-radius: 40px;
+          background: #3cc87b;
+          margin-right: 10px;
+          width: 4px;
+          height: 4px;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      em{
+        @include flex(1);
+        font-weight: normal;
+        text-align: right;
+      }
+    }
+    .mcl-ft-bd{
+      font-size: Rem(12*2);
+      color: #666;
+      padding: Rem(5*2);
+    }
+    .mcl-ft-ft{
+      text-align: center;
+    }
+    .mcl-ft-text-mod{
+      display: none;
+    }
+  }
+
+  .mcl-ft-shadow{
+    height: Rem(2*2);
+    -moz-box-shadow: 0 1px 2px #ddd;
+    -webkit-box-shadow: 0 1px 2px #ddd;
+    box-shadow: 0 1px 2px #ddd;
+  }
+
+  .no-click{
+    pointer-events: none
+  }
+}

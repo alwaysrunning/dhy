@@ -1,0 +1,60 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 14:40
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//登录
+.u-lp-reg-tips {
+  padding: Rem(20);
+  background: $stable-bg;
+  color: #c4c4c4;
+  a {
+    color: #9f9f9f;
+    text-decoration: underline;
+  }
+}
+
+.u-lp-btn-login, .u-lp-btn-submit {
+  padding: Rem(20);
+  background: $stable-bg;
+}
+
+.m-lp-bottom-tips {
+  margin: Rem(320) 0 Rem(200) 0;
+  text-align: center;
+  color: #666;
+  .u-line-one {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: Rem(40);
+    i {
+      display: block;
+      width: Rem(30);
+      height: Rem(30);
+      margin: 0 auto;
+      position: relative;
+      top: Rem(15);
+      background: $stable-bg;
+    }
+  }
+  p {
+    padding: 0 Rem(60);
+  }
+}
+
+.u-btn-normal-line {
+  padding: Rem(20);
+}
+
+.u-normal-tips-line {
+  color: #b3b3b3;
+}
+
+.mcp-jg {
+  height: Rem(20);
+  background: #f5f5f5;
+}

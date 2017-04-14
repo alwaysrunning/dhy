@@ -1,0 +1,23 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:00
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//红包明细
+.m-redList-mod {
+  @include autoWH;
+  .m-redList-list-mod {
+    margin-top: Rem(20);
+    @include autoWH;
+    position: relative;
+    background: #fff;
+  }
+  .u-refresh-wrapper {
+    background: #fff;
+  }
+}

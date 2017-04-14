@@ -1,0 +1,474 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:56
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//我的优惠券
+.m-myCoupons-mod-list {
+  margin: Rem(20) 0;
+  .u-list {
+    margin-bottom: Rem(20);
+  }
+  .u-list li .iconfont{
+    vertical-align: middle;
+  }
+  .u-list li .g-fl-rg .iconfont{
+    vertical-align: bottom;
+  }
+}
+
+//优惠券列表
+.u-coupons-list {
+  li {
+    margin: Rem(20) auto;
+    width: Rem(710);
+    overflow: hidden;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      @include clearfix;
+    }
+    .ucl-txt {
+      width: Rem(530);
+      height: Rem(164);
+      padding: Rem(20);
+      background: #fffbf9;
+      h4 {
+        font-size: Rem(32);
+        margin: Rem(5) 0 Rem(5) 0;
+        height: Rem(42);
+        @include text-overflow;
+      }
+    }
+    .ucl-price {
+      width: Rem(144);
+      height: Rem(164);
+      padding: Rem(30) Rem(20) Rem(10) 0;
+      background: #ff8200;
+      text-align: right;
+      color: #fff;
+      h3 {
+        font-size: Rem(32);
+        font-weight: bold;
+      }
+      h5 {
+        font-size: Rem(24);
+        height: Rem(36);
+        @include text-overflow;
+        padding-left: Rem(10);
+      }
+      h2 {
+        text-align: center;
+        font-size: Rem(24*2);
+        font-weight: bold;
+        margin: Rem(5) 0 0 Rem(20);
+      }
+    }
+    .ucl-border-lf {
+      padding: Rem(20) 0;
+      width: Rem(10);
+      height: Rem(164);
+      background: url("/public/static/img/module/coupons_listBg_0.png") repeat-y right center;
+      background-size: contain;
+    }
+    .ucl-border-rg {
+      padding: Rem(20) 0;
+      width: Rem(10);
+      height: Rem(164);
+      background: url("/public/static/img/module/coupons_listBg_1.png") repeat-y left center;
+      background-size: contain;
+    }
+  }
+  li.u-active {
+    .ucl-price {
+      background: #cac4be;
+    }
+    .ucl-border-rg {
+      background: url("/public/static/img/module/coupons_listBg_2.png") repeat-y left center;
+      background-size: contain;
+    }
+  }
+}
+.u-coupons-list.u-coupons-disabled{
+  li{
+    .ucl-price {
+      background: #cac4be;
+    }
+    .ucl-border-rg {
+      background: url("/public/static/img/module/coupons_listBg_2.png") repeat-y left center;
+      background-size: contain;
+    }
+  }
+}
+.u-alliance-list {
+  li {
+    .ucl-txt {
+      width: Rem(160);
+      height: Rem(160);
+      line-height: Rem(160);
+      text-align: center;
+      padding: Rem(20) Rem(10) Rem(10) Rem(10);
+      background: #fffbf9;
+      img {
+        width: Rem(120);
+        height: Rem(120);
+      }
+    }
+    .ucl-price {
+      width: Rem(530);
+      height: Rem(160);
+      padding: Rem(20);
+      background: #ff8200;
+      color: #fff;
+      text-align: left;
+      h4 {
+        font-size: Rem(32);
+        margin: 0 0 Rem(5) 0;
+      }
+    }
+    .ucl-border-rg{
+      height: Rem(160);
+    }
+  }
+  li.u-active {
+    .ucl-price {
+      background: #cac4be;
+    }
+  }
+}
+
+//优惠券详情
+.u-coupons-details {
+
+  #upSlider {
+    padding-left: 0;
+    z-index: 130;
+    .u-drop-down-show {
+      background: #fff;
+    }
+    .u-drop-text {
+      padding-left: Rem(20);
+    }
+    .u-drop-text .fl-rg {
+      margin-right: Rem(20);
+    }
+    .u-drop-down-show {
+      height: Rem(300);
+      overflow-y: scroll;
+      animation-duration: 0.3s;
+      //background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 211;
+    }
+    .u-drop-list {
+      background: #fff;
+      dd {
+        line-height: Rem(44);
+        border-top: 1px solid $border-default-color;
+        text-align: left;
+        padding: Rem(20);
+      }
+      dd:not(.disabled):not(:disabled):active, dd.active, dd.u-active, dd:hover, dd:focus {
+        background: #fff3ed;
+      }
+    }
+  }
+  .u-list li {
+    overflow: hidden;
+    position: static;
+  }
+  .u-list li a {
+    font-size: Rem(24);
+  }
+  .u-mod {
+    .u-title {
+      padding: Rem(20);
+      background: #f5f5f5;
+      h4 {
+        color: #9f9f9f;
+      }
+    }
+    .u-cont {
+      padding: Rem(20);
+      background: #ffffff;
+      color: #000;
+    }
+    .ucd-list {
+      padding-left: Rem(20);
+      li {
+        list-style: disc;
+      }
+    }
+  }
+}
+
+.u-coupons-member-details {
+  .m-cmd-ban {
+    height: Rem(380);
+    position: relative;
+    .mcb-coupons {
+      width: Rem(670);
+      height: Rem(300);
+      margin: Rem(80) auto 0 auto;
+      padding-top: Rem(60);
+      text-align: center;
+      background: url("/public/static/img/module/couponsDetails_bg_0.png") no-repeat center center;
+      background-size: contain;
+      color: #ff6414;
+      h2 {
+        font-size: Rem(57);
+      }
+      p {
+        font-size: Rem(26);
+        font-weight: normal;
+      }
+    }
+    .mcb-code {
+      position: absolute;
+      top: Rem(60);
+      right: Rem(100);
+      width: Rem(42);
+      height: Rem(42);
+      background: url("/public/static/img/module/couponsDetails_bg_1.jpg") no-repeat center center;
+      background-size: contain;
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .mcb-third-code {
+      position: absolute;
+      top: Rem(60);
+      right: Rem(100);
+      height: Rem(42);
+      width: Rem(200);
+      text-align: center;
+    }
+  }
+
+  .u-mod {
+    background: #fff;
+    margin-top: Rem(20);
+    .u-title {
+      background: #fff;
+      h4 {
+        color: #333;
+      }
+      border-bottom: 1px solid #f2f2f2;
+    }
+    .u-cont {
+      font-size: Rem(26);
+      line-height: Rem(34);
+    }
+  }
+}
+
+//优惠券列表
+.m-couponsList-mod {
+  //background: #f2f3f7;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  header {
+    margin-bottom: Rem(20);
+  }
+  .u-nav-box {
+    @include autoWH;
+    padding-top: Rem(70);
+    overflow: hidden;
+    //height: Rem(605*2);
+  }
+  .u-nav-show {
+    //@include autoWH;
+    //position: relative;
+    //background:#fff;
+  }
+  .u-refresh {
+    background: none;
+    //@include autoWH;
+    height: auto;
+  }
+  .u-refresh-wrapper {
+    background: none;
+  }
+}
+//联盟商户优惠券
+/*
+* 新界面
+* update 2016-11-17
+* rico
+*/
+.m-couponsList-mod{
+  .mcm-coupons-list{
+    padding:Rem(30) Rem(20);
+    .iconfont{
+      color: #9d9d9d;
+      font-size: Rem(16*2);
+    }
+
+    li{
+      border-top: Rem(5*2) solid #f95d5b;
+      border-left: none;
+      border-right: none;
+      border-radius: Rem(5*2);
+      background: #fff;
+      margin-bottom: Rem(15*2);
+      //-moz-box-shadow: 0 2px 3px #ddd;
+      //-webkit-box-shadow: 0 2px 3px #ddd;
+      //box-shadow: 0 2px 3px #ddd;
+    }
+
+    li.over{
+      .u-right-buy{
+        background: #ccc;
+      }
+    }
+
+    li.receive{
+      .mcl-circle{
+        display: none;
+      }
+      .mcl-bd-rg{
+        padding-top: 0;
+        background: url("/public/static/img/module/coupons_listBg_5.jpg") no-repeat right top;
+        background-size: contain;
+      }
+      .mcl-bd{
+        padding-right: 0;
+      }
+      .circle-cancvsDom{
+        display: none;
+      }
+    }
+
+    ul.mcl-apply{
+      li{
+        border-color:#b7b7b7;
+        .mcl-bd{
+          background: url("/public/static/img/module/i-umi-ysy.jpg") no-repeat right top;
+        }
+      }
+    }
+
+    ul.mcl-expire{
+      li{
+        border-color:#b7b7b7;
+        .mcl-bd{
+          background: url("/public/static/img/module/i-umi-ygq.jpg") no-repeat right top;
+        }
+      }
+    }
+
+    .mcl-bd{
+      padding: 0 Rem(10*2) Rem(10*2) Rem(10*2);
+      a p{
+        color:#333;
+      }
+      h4{
+        color: #f95d5b;
+        padding-top: Rem(10*2);
+      }
+      h4 em{
+        font-size: Rem(24*2);
+        margin-left: Rem(5*2);
+        color:#f95d5b;
+      }
+
+      p{
+        font-size:Rem(14*2);
+        height: Rem(45);
+        overflow: hidden;
+        @include text-overflow;
+      }
+      p i{
+        padding: Rem(2*2) Rem(4*2);
+        border-radius: Rem(2*2);
+        border: 1px solid #f95d5b;
+        margin-right: Rem(5*2);
+        font-size: Rem(12*2);
+        color: #f95d5b;
+        vertical-align: middle;
+      }
+      .limit-time{
+        color: #b2b2b3;
+        padding: Rem(5*2) 0;
+      }
+
+    }
+
+    .u-right-buy{
+      padding: Rem(20*2) Rem(4*2);
+      background: #f95d5b;
+      color: #fff;
+      font-size: Rem(12*2);
+      border-radius: Rem(10*2);
+      margin: Rem(10*2) auto 0 auto;
+    }
+
+    //使用规则
+    .mcl-ft{
+      background-image: url("/public/static/img/module/coupons_listBg_3.png"),url("/public/static/img/module/coupons_listBg_4.png");
+      background-repeat: no-repeat;
+      background-position: left -9px, right -9px;
+      padding: 0 Rem(10*2);
+      background:#fffafa;
+      .mcl-ft-hd{
+        @include flexBox;
+        padding-top: Rem(5*2);
+        border-top: 1px dashed #dedddd;
+        h5{
+          @include flex(3);
+          font-size: Rem(14*2);
+          font-weight: normal;
+          i{
+            border-radius: Rem(40*2);
+            background: #3cc87b;
+            margin-right: Rem(10*2);
+            width: Rem(4*2);
+            height:Rem(4*2);
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+        em{
+          @include flex(1);
+          font-weight: normal;
+          text-align: right;
+        }
+      }
+      .mcl-ft-bd{
+        font-size: Rem(12*2);
+        color: #666;
+        padding: Rem(5*2);
+      }
+      .mcl-ft-ft{
+        text-align: center;
+      }
+      .mcl-ft-text-mod{
+        display: none;
+      }
+    }
+
+    .mcl-ft-shadow{
+      height: Rem(2*2);
+      -moz-box-shadow: 0 1px 2px #ddd;
+      -webkit-box-shadow: 0 1px 2px #ddd;
+      box-shadow: 0 1px 2px #ddd;
+    }
+
+    .no-click{
+      pointer-events: none
+    }
+
+  }
+}

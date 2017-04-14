@@ -1,0 +1,115 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:07
+ * */
+@import "../../common/variable",
+"../../common/mixin";
+
+//城市定位列表
+.m-location-list-mod {
+  min-height: Rem(1400);
+  position: relative;
+  .mllm-top {
+    font-size: Rem(24);
+    padding: Rem(20);
+    .icon-youjiantou {
+      font-size: Rem(16*2);
+    }
+  }
+  .u-city-cur-select {
+    padding: Rem(20);
+    font-size: Rem(24);
+    span {
+      vertical-align: middle;
+      display: inline-block;
+      height: Rem(45);
+      line-height: Rem(45);
+    }
+    .icon-dingwei {
+      width: Rem(45);
+      height: Rem(45);
+      line-height: Rem(45);
+      font-size: Rem(22*2);
+      margin-right: Rem(40);
+    }
+  }
+  #letter {
+    width: Rem(100*2);
+    height: Rem(100*2);
+    border-radius: 5px;
+    font-size: Rem(75*2);
+    color: #555;
+    text-align: center;
+    line-height: Rem(100*2);
+    background: rgba(145, 145, 145, 0.6);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin: Rem(-50*2) 0 0 Rem(-50*2);
+    z-index: 99;
+    display: none;
+  }
+  #citySortBox {
+    overflow: hidden;
+    height: Rem(900);
+    position: relative;
+  }
+  .u-city-sort-box {
+    width: 100%;
+  }
+  .u-city-sort-list {
+    padding: Rem(10) Rem(60) Rem(10) Rem(10);
+    position: relative;
+    height: Rem(60);
+    line-height: Rem(60);
+    border-bottom: 1px solid #ddd;
+  }
+  .u-city-sort-num-name {
+    color: $font-base-color;
+    font-size: Rem(27);
+  }
+  .u-city-sort-letter {
+    height: Rem(70);
+    line-height: Rem(70);
+    padding-left: Rem(20);
+    color: #787878;
+    font-size: Rem(24);
+    border-bottom: 1px solid #ddd;
+    background: #ddd;
+  }
+  .u-city-sort-initials {
+    position: absolute;
+    top: Rem(10*2);
+    right: 0;
+    height: 100%;
+    width: Rem(15*2);
+    padding-right: Rem(10*2);
+    text-align: center;
+    font-size: Rem(12*2);
+    z-index: 130;
+    background: rgba(145, 145, 145, 0);
+  }
+  .u-city-match-fail {
+    text-align: center;
+    line-height: Rem(45);
+    font-size: Rem(24);
+    border-top: 1px solid #ddd;
+    padding: Rem(200) 0 0 0;
+    color: #666;
+    p {
+      margin: Rem(10) 0;
+    }
+    p:nth-child(2) {
+      font-size: Rem(32);
+      color: #333;
+      margin: Rem(20) 0;
+    }
+    p:nth-child(3) {
+      color: $font-them-color;
+      cursor: pointer;
+    }
+  }
+}

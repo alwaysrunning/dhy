@@ -1,0 +1,111 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:50
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//订单详情
+.m-ordersDetails-mod {
+  padding: Rem(20) 0;
+  .m-mod-box {
+    .mmb-tit {
+      padding: Rem(20);
+      border-bottom: 1px solid $border-default-color;
+    }
+    background: $default-bg;
+    margin-bottom: Rem(20);
+    .u-normal-list li {
+      .g-label-lf {
+        width: Rem(140);
+      }
+      .g-label-rg {
+        width: Rem(550);
+      }
+    }
+  }
+  //物流信息
+  .u-courier-list-mod {
+    background: #fff9f6;
+    padding: Rem(0) Rem(20) Rem(0) Rem(30);
+  }
+  .u-courier-list {
+    border-left: 1px solid #dad7d5;
+    padding: Rem(20) Rem(30);
+    dd {
+      margin-bottom: Rem(20);
+      color: $font-base-color;
+      position: relative;
+      b {
+        font-weight: normal;
+      }
+      i {
+        position: absolute;
+        left: Rem(-40);
+        top: 40%;
+        width: Rem(20);
+        height: Rem(20);
+        background: url("/public/static/img/module/pointOder_pointIco_0.png") no-repeat left center;
+        background-size: contain;
+      }
+    }
+    dd.u-active {
+      color: $font-them-color;
+      i {
+        background: url("/public/static/img/module/pointOder_pointIco_1.png") no-repeat left center;
+        background-size: contain;
+      }
+    }
+  }
+}
+
+.m-mod-button-box {
+  padding: 0 Rem(20) Rem(60) Rem(20);
+}
+
+//订单二维码
+.m-order-code-mod {
+  width: Rem(400);
+  margin: Rem(200) auto 0 auto;
+  text-align: center;
+  .mocm-bd {
+    h3 {
+      line-height: Rem(40);
+      word-break: break-all;
+      //overflow: hidden;
+      //word-break:keep-all;/* 不换行 */
+      //white-space:nowrap;/* 不换行 */
+      //text-overflow:ellipsis;
+    }
+  }
+}
+
+
+//订单付款
+.m-submit-mod {
+  padding: 0 Rem(20);
+}
+
+.m-orderPayment {
+  .g-pay-item {
+    margin-right: Rem(20);
+    height: Rem(50);
+    line-height: Rem(50);
+    .u-ico-img-hb, .u-ico-img-wx, i {
+      vertical-align: middle;
+    }
+  }
+}
+
+.m-orderPayCode {
+  background: #fff;
+  padding-top: Rem(300);
+}
+
+.m-times-show {
+  text-align: center;
+  font-size: Rem(24);
+}

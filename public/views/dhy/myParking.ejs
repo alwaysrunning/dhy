@@ -1,0 +1,33 @@
+<section class="m-memberCenter-page u-scrollBar">
+    <div class="u-normal-mod">
+        <ul class="u-list">
+            <!--<li>-->
+            <!--<a href="/park/car" title="我要缴费">-->
+            <!--我要缴费-->
+            <!--<span class="g-fl-rg icon iconfont icon-youjiantou"></span>-->
+            <!--</a>-->
+            <!--</li>-->
+            <li>
+                <a href="/park/parkList<%= shop %>" title="停车场列表">
+                    停车场列表
+                    <span class="g-fl-rg icon iconfont icon-youjiantou"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/park/history" title="停车记录">
+                    停车记录
+                    <span class="g-fl-rg icon iconfont icon-youjiantou"></span>
+                </a>
+            </li>
+            <% if(channel){ %>
+            <li>
+                <a href="/dhy/couponList?type=7&channel=<%= channel %>" title="停车记录">
+                    领取停车券
+                    <span class="g-fl-rg icon iconfont icon-youjiantou"></span>
+                </a>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+
+</section>

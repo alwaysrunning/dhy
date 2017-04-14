@@ -1,0 +1,23 @@
+<% data=data.data %>
+<% data.forEach(function(item){ %>
+ <div class="m-mod-box">
+  <ul class="u-normal-list" data-id="<%= item["id"] %>">
+   <li>
+    <span class="icon iconfont icon-dianpu"></span>
+    <%= item["name"] %>
+   </li>
+   <li class="m-flex-box">
+    <div class="m-customer-info">
+     <div>客服电话：<%= item["contact"] %></div>
+     <div>微信号：<%= item["wechat"] %></div>
+     <div>地址：<%= item["address"] %></div>
+    </div>
+    <div class="m-customer-tel">
+     <a href="tel:<%= item["contact"] %>">
+      <span class="icon iconfont icon-lianxifangshi"></span>
+     </a>
+    </div>
+   </li>
+  </ul>
+ </div>
+<% });%>

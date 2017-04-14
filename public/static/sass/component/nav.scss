@@ -1,0 +1,31 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/11/4
+ * Time: 14:15
+ * */
+@import
+"../common/variable",
+"../common/mixin";
+.u-nav-tab{
+  background:$default-bg;
+  ul{
+    display:-webkit-box; /* Safari and Chrome */
+    display:-moz-box; /* Firefox */
+    display:box;
+    padding: Rem(20) 0 Rem(10) 0;
+    width: 100%;
+  }
+  ul li{
+    -webkit-box-flex:1.0; /* Safari and Chrome */
+    -moz-box-flex:1.0; /* Firefox */
+    box-flex:1.0;
+    text-align: center;
+    a{color:$txt-default;}
+  }
+  ul li.u-active a{
+    display:inline-block;
+    border-bottom: 2px solid $button-normal-bg-color;
+  }
+}

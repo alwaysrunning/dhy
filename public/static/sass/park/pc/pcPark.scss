@@ -1,0 +1,67 @@
+@charset "utf-8";
+/*pc 端css 独立*/
+@import "../../common/flexible";//适配类
+@import "../../common/common_reset";//初始化样式类
+@import "icon_font";//字体图标类
+@import "base";//基础类
+@import "flex_box";//盒子模型公共类
+@import "float";//悬浮公共类
+@import "list";//列表公共类
+@import "btn";//按钮公共类
+@import "dailog";//弹出层类
+
+@import "status";//支付状态
+@import "order";//缴费信息
+@import "loading";//查询
+@import "car";//我的车
+@import "history";//停车历史
+@import "park_list";//停车场列表
+@import "manage";//管理车牌
+@import "locate";//车位信息
+@import "split";//停车初始选择
+@import "memory";//记车位
+@import "map";//地图
+
+
+.m-pc-query-car{
+  .viewport,.list > .list-item{
+    width:98%;
+    margin: 0 auto;
+  }
+  .list > .list-item .list-title{
+    text-align: center;
+  }
+  .list > .list-item .list-body .iconfont-park{
+    float: none;
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .m-query-result{
+
+  }
+}
+
+.m-pc-locateCar{
+  .location .locate-head{
+    padding: 0;
+  }
+  .location .locate-body{
+    padding: 0;
+  }
+  .location .locate-head .head .text{
+    padding-top: Rem(10);
+    padding-bottom: 0;
+  }
+  .location .locate-body ul{
+    @include clearfix;
+    width: 80%;
+    margin: 0 auto Rem(40) auto;
+  }
+  .location .locate-body ul li{
+    display: inline-block;
+    float: left;
+    width: 48%;
+    text-align: center;
+  }
+}

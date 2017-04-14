@@ -1,0 +1,58 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:44
+ * */
+@import
+"../../common/variable",
+"../../common/mixin";
+//账户安全
+.m-accountSafe-page {
+  .u-form-item label:not(.u-switch):not(.u-checkbox):not(.u-radio) {
+    width: Rem(190);
+    font-size: Rem(13*2);
+  }
+  .m-form-item-icon .u-form-input-text {
+    width: Rem(490);
+    padding-left: Rem(220);
+    height: Rem(120);
+    line-height: Rem(120);
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+  }
+  .u-placeholder-label {
+    font-size: Rem(12*2);
+    line-height: Rem(35);
+    width: Rem(360);
+    height: Rem(100);
+    left: Rem(220);
+    top: Rem(18);
+    color: #d9d9d9;
+    z-index: 0;
+  }
+  .u-badge-text {
+    font-size: Rem(12*2);
+  }
+  .u-form-item .g-form-item-rg i {
+    margin: 0;
+  }
+  //.u-form-item {
+  //  height: Rem(120);
+  //  line-height: Rem(120);
+  //}
+  .u-form-item .u-form-item-line{
+    height:Rem(90);
+    display: block;
+  }
+  .u-form-item-line a {
+    color: #333;
+    height:Rem(90);
+    display: block;
+  }
+  .u-form-item-line .u-fontColor-them {
+    color: $font-them-color;
+  }
+}

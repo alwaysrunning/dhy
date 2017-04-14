@@ -1,0 +1,15 @@
+@charset "utf-8";
+/**
+*协议规则
+**/
+@import
+"../../common/variable",
+"../../common/mixin";
+
+.m-licenses-mod{
+  font-size: Rem(28);
+  padding: Rem(20);
+  p{
+    margin: 0;
+  }
+}

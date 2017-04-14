@@ -1,0 +1,52 @@
+<div class="m-pointsList-mod u-scrollBar">
+    <!--<header>-->
+        <!--<nav class="u-nav-tab">-->
+            <!--<ul>-->
+                <!--<li class="u-active"><a href="javascript:void(0);">全部</a></li>-->
+                <!--<li><a href="javascript:void(0);">收入</a></li>-->
+                <!--<li><a href="javascript:void(0);">支出</a></li>-->
+            <!--</ul>-->
+        <!--</nav>-->
+    <!--</header>-->
+    <section class="m-points-list-mod">
+        <div id="scrollMod" class="u-scroll-mod u-refresh">
+            <!--全部-->
+            <div class="u-scroller">
+                <ul class="u-points-list u-scroller-list u-data-list">
+                    <% if(data.listTxn.length>0){ %>
+                    <% for(var i=0; i<data.listTxn.length; i++) {%>
+                    <li>
+                        <a>
+                            <div class="upl-lf g-fl-lf">
+                                <h3><%= data.listTxn[i]['partner'] %></h3>
+                                <p><% var transDt=data.listTxn[i]['transDt'].split(" ",2) %><%= transDt[0] %></p>
+                            </div>
+                            <div class="upl-rg g-fl-rg">
+                                <h3 class="<% if(data.listTxn[i]['point'].toString().search(/\+/g) === -1){ %>upl-reduce<% }else{ %>upl-add<% } %>"><%= data.listTxn[i]['point'] %></h3>
+                                <p><%= data.listTxn[i]['transType'] %></p>
+                            </div>
+                        </a>
+                    </li>
+                    <% } %>
+                    <% }else{ %>
+                    <!--<p style="text-align: center;"> 还没与相关积分记录哦！</p>-->
+                    <div class="g-empty-data">
+                        <div class="m-empty-data">
+                            <div class="u-sprite point"></div>
+                            <p class="msg">还没有相关积分记录哦~</p>
+                        </div>
+                    </div>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+<script type="text/javascript">
+    $(function(){
+        //列表加载
+        var PointsScrollLoading=App.component.scrollLoading({
+            wrapper:"#scrollMod"
+        });
+    });
+</script>

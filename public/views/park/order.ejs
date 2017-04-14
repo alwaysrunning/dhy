@@ -1,0 +1,84 @@
+<div class="bg dark order">
+    <div class="list order-list">
+        <div class="list scroller">
+            <div class="list-item">
+                <div class="list-title">
+                    <span class="iconfont-park icon-wodetingchexinxi"></span>
+
+                    <div class="list-text">我的停车信息</div>
+                </div>
+                <div class="list-body">
+                    <div class="list-text">进场时间：<%= info.inTime %></div>
+
+                    <div class="list-text">出场时间：<%= info.outTime %></div>
+
+                    <div class="list-text">停车时间：<%= info.stayTime %></div>
+
+                    <div class="list-text">车牌号码：<%= info.carNo %></div>
+
+                    <div class="list-text">总价：<span class="orange"><%= info.money / 100 %>元</span></div>
+                </div>
+            </div>
+
+            <div class="list-item">
+                <div class="list-title">
+                    <span class="iconfont-park icon-jiaofeifangshi"></span>
+
+                    <div class="list-text">缴费方式</div>
+                </div>
+                <div class="list-body">
+                    <div class="discount clearfix">
+                        <div class="method fl">
+                            <span class="iconfont-park icon-xuanze"></span>
+                            <div class="list-text">消费减免</div>
+                        </div>
+                        <div class="discount-list fr">
+                            <div class="discount-list-item">
+                                <div class="fl list-text">可减免:<span class="green" id="discountMoney"> ¥ <%=discount.money / 100%></span></div>
+                                <div class="list-text">待抵扣消费余额:<span class="orange" id="discountLeft"> ¥ <%=discount.syje%></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="discount-total clearfix">
+                        <div class="list-text fl">共计减免金额：<span class="green" id="totalDiscount">¥ <%= canDiscount / 100 %></span></div>
+                        <button class="add-pos btn-link fr">添加停车券编号</button>
+                    </div>
+                </div>
+            </div>
+            <div class="list-item">
+                <div class="list-body">
+                    <div class="list-text">
+                        消费减免停车费规则请见商场宣传<br/>
+                        消费小票当日有效；<br/>
+                        小票微信抵用后,在出场时不能重复使用；<br/>
+                        单张小票只能抵用一次,不能拆单；<br/>
+                        多张小票可以累计后抵用。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="float-nav bottom">
+        <div class="flex-box">
+            <div class="flex-box-item need">
+                <p class="float-text">需支付：<span class="orange" id="needPay">¥ <%= (info.money  - canDiscount) / 100 %></span></p>
+            </div>
+            <div class="flex-box-item btn-box">
+                <button class="btn confirm" type="button">确认缴费</button>
+            </div>
+        </div>
+    </div>
+    <div class="dark-layer" style="display: none;"></div>
+    <div class="pos-input-dailog dailog" style="display: none;">
+        <div class="dailog-head clearfix">
+            <span class="cancel iconfont-park icon-guanbi"></span>
+        </div>
+        <div class="dailog-content">
+            <input type="text" pattern="[0-9]*" placeholder="请输入有效的停车券编号"/>
+        </div>
+        <div class="dailog-btns flex-box">
+            <button class="cancel dailog-btn flex-box-item" type="button">取消</button>
+            <button class="ok dailog-btn orange flex-box-item" type="button">确定</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/11/4
+ * Time: 14:15
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 11, ../../sass/component/nav.scss */
+.u-nav-tab {
+  background: #fff;
+}
+/* line 13, ../../sass/component/nav.scss */
+.u-nav-tab ul {
+  display: -webkit-box;
+  /* Safari and Chrome */
+  display: -moz-box;
+  /* Firefox */
+  display: box;
+  padding: 0.26667rem 0 0.13333rem 0;
+  width: 100%;
+}
+/* line 20, ../../sass/component/nav.scss */
+.u-nav-tab ul li {
+  -webkit-box-flex: 1.0;
+  /* Safari and Chrome */
+  -moz-box-flex: 1.0;
+  /* Firefox */
+  box-flex: 1.0;
+  text-align: center;
+}
+/* line 25, ../../sass/component/nav.scss */
+.u-nav-tab ul li a {
+  color: #333;
+}
+/* line 27, ../../sass/component/nav.scss */
+.u-nav-tab ul li.u-active a {
+  display: inline-block;
+  border-bottom: 2px solid #ff6666;
+}

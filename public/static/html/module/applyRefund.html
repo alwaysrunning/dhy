@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>账户资料</title>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <!--<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>-->
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <script type="text/javascript" src="../../js/lib/flexible.js"></script>
+    <link rel="stylesheet" href="../../css/app.css">
+</head>
+<body>
+<div class="g-app clearfix" id="wrap">
+    <div class="g-body animated fadeIn clearfix"><!-- animated fadeIn slideInRight -->
+        <div class="m-apply-refund">
+            <div class="m-process m-list">
+                <div class="icons">
+                    <i class="iconfont icon-tuikuan tag in"></i>
+                    <div class="arrow">
+                        <div class="u-line"></div>
+                        <i class="iconfont icon-youjiantou"></i>
+                    </div>
+                    <i class="iconfont icon-chulizhong tag"></i>
+                </div>
+                <div class="message clearfix">
+                    <p class="left g-fl-lf">您申请退货退款</p>
+                    <p class="right g-fl-rg">卖家处理申请</p>
+                </div>
+            </div>
+            <div class="m-type m-list">
+                <div class="title">退款类型</div>
+                <div class="g-tag">
+                    <label class="u-tag chosen">我要退款（无需退货）<input type="radio" name="type" value="money"><i class="tri"></i><i class="iconfont">&#xe616;</i></label>
+                    <label class="u-tag">我要退货<input type="radio" name="type" value="goods"><i class="tri"></i><i class="iconfont">&#xe616;</i></label>
+                </div>
+            </div>
+            <div class="m-amount m-list">
+                <div class="title">退款金额 <span>(最多</span><span>22.00</span><span>)</span></div>
+                <div class="g-amount">
+                    <input class="amount" type="number" placeholder="请输入退款金额">
+                </div>
+            </div>
+            <div class="m-reason m-list">
+                <div class="title big clearfix">退款原因： <span>商品破损</span><i class="iconfont icon-shangjiantou"></i></div>
+                <ul class="reason">
+                    <li>商品破损</li>
+                    <li>商品与描述的不符合</li>
+                    <li>假冒品牌</li>
+                    <li>不喜欢</li>
+                    <li>七天无理由退换货</li>
+                </ul>
+            </div>
+            <div class="m-description m-list">
+                <div class="title">退款说明 <span>(可不填)</span></div>
+                <textarea placeholder="请输入退款说明"></textarea>
+            </div>
+            <div class="m-photo m-list">
+                <div class="title">上传凭证图片<span>(最多三张)</span></div>
+                <div class="photo clearfix">
+                    <img class="item" src="../../img/certificate.png" alt="">
+                    <img class="item" src="../../img/certificate.png" alt="">
+                    <div class="item add">
+                        <i class="iconfont">&#xe605;</i>
+                        <i class="text">添加新照片</i>
+                    </div>
+                </div>
+            </div>
+            <div class="m-submit">
+                <button type="button" class="u-btn u-radius u-btn-block u-btn-normal">提交申请</button>
+                <button type="button" class="u-btn u-radius u-btn-block u-btn-submit">取消并返回</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

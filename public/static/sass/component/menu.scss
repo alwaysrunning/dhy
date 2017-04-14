@@ -1,0 +1,122 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/31
+ * Time: 11:16
+ * */
+@import "../common/variable",
+"../common/mixin";
+//环形菜单
+.m-ring-menu{
+  z-index: $z-index-base+900;
+  position: fixed;
+  left: Rem(-100);
+  width: Rem(340);
+  height: Rem(340);
+  top:70%;
+  .mrm-start{
+    width: Rem(100);
+    height: Rem(100);
+    line-height: Rem(100);
+    margin: Rem(120) auto 0 auto;
+    border-radius: 50%;
+    background:#ff6719;
+    color:#fff;
+    text-align: center;
+    .icon{
+      font-size: Rem(48);
+    }
+  }
+  .mrm-main{
+    width: Rem(340);
+    height: Rem(340);
+    border-radius: 50%;
+    background:rgba(255,255,255,0.9);
+    ul{
+      position: relative;
+      li{
+        position: absolute;
+        left: 0;
+        top:0;
+        width:Rem(120);
+        height: Rem(120);
+        text-align: center;
+        color:#333;
+        transform-origin:Rem(100) Rem(200);
+        transition:transform 2s,opacity 2s;
+        .icon{
+          font-size: Rem(36);
+        }
+        h5{
+          font-size: Rem(24);
+        }
+        a{
+          color:#333;
+        }
+      }
+      //li:hover{
+      //  color: $font-them-color;-webkit-
+      //}
+      .mrm-icon-txt{
+        width: 100%;
+        height: 100%;
+      }
+      li:nth-child(1){
+        transform: rotate(45deg);
+        transform-origin:Rem(90) Rem(200);
+        transition: all 1s linear 1.5s;
+        .mrm-icon-txt{
+          transform: rotate(-45deg);
+        }
+      }
+      li:nth-child(2){
+        transform: rotate(40deg*2);
+        transform-origin:Rem(115) Rem(205);
+        transition: all 1s linear 2s;
+        .mrm-icon-txt{
+          transform: rotate(-40deg*2);
+        }
+      }
+      li:nth-child(3){
+        transform: rotate(40deg*3);
+        transform-origin:Rem(100) Rem(200);
+        transition: all 1s linear 2.5s;
+        .mrm-icon-txt{
+          transform: rotate(-40deg*3);
+        }
+      }
+      li:nth-child(4){
+        transform: rotate(45deg*4);
+        transform-origin:Rem(110) Rem(170);
+        transition: all 1s linear 3s;
+        .mrm-icon-txt{
+          transform: rotate(-45deg*4);
+        }
+      }
+      li:last-child{
+        transform: rotate(45deg*5);
+        transition: all 1s linear 3s;
+        width: Rem(78);
+        height: Rem(78);
+        transform-origin:Rem(130) Rem(80);
+        border-radius: 50%;
+        border:1px solid #d2d2d2;
+        color:#999;
+        background: #fff;
+        .mrm-icon-txt{
+          transform: rotate(-45deg * 5);
+          line-height: Rem(80);
+        }
+        .icon{
+          font-size: Rem(24);
+        }
+      }
+    }
+  }
+}
+.m-ring-menu{
+   .u-active{
+     opacity: 1;
+   }
+}

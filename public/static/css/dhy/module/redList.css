@@ -1,0 +1,36 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:00
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 12, ../../../sass/dhy/module/redList.scss */
+.m-redList-mod {
+  height: 100%;
+}
+/* line 14, ../../../sass/dhy/module/redList.scss */
+.m-redList-mod .m-redList-list-mod {
+  margin-top: 0.26667rem;
+  height: 100%;
+  position: relative;
+  background: #fff;
+}
+/* line 20, ../../../sass/dhy/module/redList.scss */
+.m-redList-mod .u-refresh-wrapper {
+  background: #fff;
+}

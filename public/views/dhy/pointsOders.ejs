@@ -1,0 +1,352 @@
+<div class="m-merchantOrders-page u-tabs-wrap u-scrollBar">
+    <header class="u-fixed-top">
+        <nav class="u-nav-tab u-tabs-nav">
+            <ul>
+                <li><a href="javascript:void(0);">全部</a></li>
+                <li><a href="javascript:void(0);">待发货<i class="u-badge-number u-hidden" id="fhi"></i></a></li>
+                <li><a href="javascript:void(0);">待收货<i class="u-badge-number u-hidden" id="shi"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="m-order-list-mod">
+        <div class="m-order-list-refresh u-refresh" id="pointsOrder">
+            <!--全部-->
+            <div class="u-tabs-show">
+                <% if(data["all"].length > 0){ %>
+                <ul class="u-merchantOrder-list u-data-list" id="pointsOrderList1">
+                    <% data["all"].forEach(function(item){ %>
+                    <li>
+                        <div class="u-g-hd clearfix">
+        <span class="ugh-title">
+             <span><i class="icon iconfont icon-dingdanliebiaoleibie"></i><%= item["giftcategoryName"] %></span>
+        </span>
+                            <div class="g-fl-rg">
+                                <i class="u-color-default"><%= item["statusDescription"] %></i>
+                            </div>
+                        </div>
+                        <div class="u-g-bd clearfix">
+                            <a href="#/pointsDetails?&id=<%= item["id"] %>&type=<%= item["giftcategoryId"] %>&giftcategoryName=<%= item["giftcategoryName"] %>">
+                                <div class="g-lf-box g-fl-lf">
+                                    <img src="<%= item["image"] %>" alt="<%= item["name"] %>">
+                                    <p><%= item["name"] %></p>
+                                </div>
+                                <div class="g-rg-box g-fl-rg">
+                                    <%
+                                        var _num = item["num"];
+                                        var _payItem = item.pay;
+                                        var _integralItem = parseFloat(item["integral"]);
+                                        var _gaobiItem = parseFloat(item["gaobi"]);
+                                        var _wxItem = item["weichatPay"] ? parseFloat(item["weichatPay"]) : "";
+                                        var _trasportfeeItem = parseFloat(item["trasportfee"] ? item["trasportfee"] : "0");
+                                        var _transportgaobiItem = parseFloat(item["transportgaobi"] ? item["transportgaobi"] : "0");
+                                        var _transportwxItem = parseFloat(item["transportWeichatPay"] ? item["transportWeichatPay"] : "0");
+                                        //pPrice=Math.round(_integral/_num)-_trasportfee
+                                        var pPrice = "";
+                                        if (item.pay == "0") {
+                                            pPrice = parseFloat(_integralItem / _num);
+                                        } else if (item.pay == "2" || item.pay == "1") {
+                                            pPrice = parseFloat(_gaobiItem / _num);
+                                        } else if (item.pay == "4") {
+                                            pPrice = parseFloat(_wxItem / _num);
+                                        }
+                                    %>
+                                    <% if(pPrice) { %>
+                                    <h6>
+                                        <%= pPrice.toFixed(2) %>
+                                        <% if(_payItem == "0"){ %>
+                                        积分
+                                        <% }else if(_payItem == "1" || _payItem == "2"){ %>
+                                        <!--红包-->
+                                        <% }else if(_payItem == "4"){ %>
+                                        元
+                                        <% } %>
+                                    </h6>
+                                    <% } %>
+                                    <i class="u-badge-number">X<%= item["num"] %></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="u-g-ft clearfix">
+                            <div class="g-lf-box g-fl-lf">
+                                数量：共<%= item["num"] %>件
+                            </div>
+                            <div class="g-rg-box g-fl-rg">
+                                <% if(item.pay == "0") { %>
+
+                                <p>合计：<%= _integralItem + _trasportfeeItem %>（含邮费）</p>
+
+                                <% }else if(item.pay == "2" || item.pay == "1") { %>
+
+                                <p>合计：<%= _gaobiItem + _transportgaobiItem %>（含邮费）</p>
+
+                                <% }else if(item.pay == "4"){ %>
+
+                                <p>合计：<%= _wxItem + _transportwxItem %>（含邮费）</p>
+                                <% } %>
+                            </div>
+                        </div>
+                    </li>
+                    <% }) %>
+                </ul>
+                <% }else{ %>
+                <div class="g-empty-data">
+                    <div class="m-empty-data">
+                        <div class="u-sprite order"></div>
+                        <p class="msg">您目前还没有的礼品订单，赶紧去下单吧!~~</p>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <!--待发货-->
+            <div class="u-tabs-show u-tabs-hide">
+                <% if(data["shipped"].length > 0){ %>
+                <ul class="u-merchantOrder-list u-data-list" id="pointsOrderList2">
+                    <% data["shipped"].forEach(function(item){ %>
+                    <li>
+                        <div class="u-g-hd clearfix">
+        <span class="ugh-title">
+             <span><i class="icon iconfont icon-dingdanliebiaoleibie"></i><%= item["giftcategoryName"] %></span>
+        </span>
+                            <div class="g-fl-rg">
+                                <i class="u-color-default"><%= item["statusDescription"] %></i>
+                            </div>
+                        </div>
+                        <div class="u-g-bd clearfix">
+                            <a href="#/pointsDetails?&id=<%= item["id"] %>&type=<%= item["giftcategoryId"] %>&giftcategoryName=<%= item["giftcategoryName"] %>">
+                                <div class="g-lf-box g-fl-lf">
+                                    <img src="<%= item["image"] %>" alt="<%= item["name"] %>">
+                                    <p><%= item["name"] %></p>
+                                </div>
+                                <div class="g-rg-box g-fl-rg">
+                                    <%
+                                        var _num = item["num"];
+                                        var _payItem = item.pay;
+                                        var _integralItem = parseFloat(item["integral"]);
+                                        var _gaobiItem = parseFloat(item["gaobi"]);
+                                        var _wxItem = item["weichatPay"] ? parseFloat(item["weichatPay"]) : "";
+                                        var _trasportfeeItem = parseFloat(item["trasportfee"] ? item["trasportfee"] : "0");
+                                        var _transportgaobiItem = parseFloat(item["transportgaobi"] ? item["transportgaobi"] : "0");
+                                        var _transportwxItem = parseFloat(item["transportWeichatPay"] ? item["transportWeichatPay"] : "0");
+                                        //pPrice=Math.round(_integral/_num)-_trasportfee
+                                        var pPrice = "";
+                                        if (item.pay == "0") {
+                                            pPrice = parseFloat(_integralItem / _num);
+                                        } else if (item.pay == "2" || item.pay == "1") {
+                                            pPrice = parseFloat(_gaobiItem / _num);
+                                        } else if (item.pay == "4") {
+                                            pPrice = parseFloat(_wxItem / _num);
+                                        }
+                                    %>
+                                    <% if(pPrice) { %>
+                                    <h6>
+                                        <%= pPrice.toFixed(2) %>
+                                        <% if(_payItem == "0"){ %>
+                                        积分
+                                        <% }else if(_payItem == "1" || _payItem == "2"){ %>
+                                        <!--红包-->
+                                        <% }else if(_payItem == "4"){ %>
+                                        元
+                                        <% } %>
+                                    </h6>
+                                    <% } %>
+                                    <i class="u-badge-number">X<%= item["num"] %></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="u-g-ft clearfix">
+                            <div class="g-lf-box g-fl-lf">
+                                数量：共<%= item["num"] %>件
+                            </div>
+                            <div class="g-rg-box g-fl-rg">
+                                <% if(item.pay == "0") { %>
+
+                                <p>合计：<%= _integralItem + _trasportfeeItem %>（含邮费）</p>
+
+                                <% }else if(item.pay == "2" || item.pay == "1") { %>
+
+                                <p>合计：<%= _gaobiItem + _transportgaobiItem %>（含邮费）</p>
+
+                                <% }else if(item.pay == "4"){ %>
+
+                                <p>合计：<%= _wxItem + _transportwxItem %>（含邮费）</p>
+                                <% } %>
+                            </div>
+                        </div>
+                    </li>
+                    <% }) %>
+                </ul>
+                <% }else{ %>
+                <div class="g-empty-data">
+                    <div class="m-empty-data">
+                        <div class="u-sprite order"></div>
+                        <p class="msg">您目前还没有<i class="u-fontColor-them">待发货</i>的礼品订单哦~</p>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <!--待收货-->
+            <div class="u-tabs-show u-tabs-hide">
+                <% if(data["receipt"].length > 0){ %>
+                <ul class="u-merchantOrder-list u-data-list" id="pointsOrderList3">
+                    <% data["receipt"].forEach(function(item){ %>
+                    <li>
+                        <div class="u-g-hd clearfix">
+            <span class="ugh-title">
+                 <span><i class="icon iconfont icon-dingdanliebiaoleibie"></i><%= item["giftcategoryName"] %></span>
+            </span>
+                            <div class="g-fl-rg">
+                                <i class="u-color-default"><%= item["statusDescription"] %></i>
+                            </div>
+                        </div>
+                        <div class="u-g-bd clearfix">
+                            <a href="#/pointsDetails?&id=<%= item["id"] %>&type=<%= item["giftcategoryId"] %>&giftcategoryName=<%= item["giftcategoryName"] %>">
+                                <div class="g-lf-box g-fl-lf">
+                                    <img src="<%= item["image"] %>" alt="<%= item["name"] %>">
+                                    <p><%= item["name"] %></p>
+                                </div>
+                                <div class="g-rg-box g-fl-rg">
+                                    <%
+                                        var _num = item["num"];
+                                        var _payItem = item.pay;
+                                        var _integralItem = parseFloat(item["integral"]);
+                                        var _gaobiItem = parseFloat(item["gaobi"]);
+                                        var _wxItem = item["weichatPay"] ? parseFloat(item["weichatPay"]) : "";
+                                        var _trasportfeeItem = parseFloat(item["trasportfee"] ? item["trasportfee"] : "0");
+                                        var _transportgaobiItem = parseFloat(item["transportgaobi"] ? item["transportgaobi"] : "0");
+                                        var _transportwxItem = parseFloat(item["transportWeichatPay"] ? item["transportWeichatPay"] : "0");
+                                        //pPrice=Math.round(_integral/_num)-_trasportfee
+                                        var pPrice = "";
+                                        if (item.pay == "0") {
+                                            pPrice = parseFloat(_integralItem / _num);
+                                        } else if (item.pay == "2" || item.pay == "1") {
+                                            pPrice = parseFloat(_gaobiItem / _num);
+                                        } else if (item.pay == "4") {
+                                            pPrice = parseFloat(_wxItem / _num);
+                                        }
+                                    %>
+                                    <% if(pPrice) { %>
+                                    <h6>
+                                        <%= pPrice.toFixed(2) %>
+                                        <% if(_payItem == "0"){ %>
+                                        积分
+                                        <% }else if(_payItem == "1" || _payItem == "2"){ %>
+                                        <!--红包-->
+                                        <% }else if(_payItem == "4"){ %>
+                                        元
+                                        <% } %>
+                                    </h6>
+                                    <% } %>
+                                    <i class="u-badge-number">X<%= item["num"] %></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="u-g-ft clearfix">
+                            <div class="g-lf-box g-fl-lf">
+                                数量：共<%= item["num"] %>件
+                            </div>
+                            <div class="g-rg-box g-fl-rg">
+                                <% if(item.pay == "0") { %>
+
+                                <p>合计：<%= _integralItem + _trasportfeeItem %>（含邮费）</p>
+
+                                <% }else if(item.pay == "2" || item.pay == "1") { %>
+
+                                <p>合计：<%= _gaobiItem + _transportgaobiItem %>（含邮费）</p>
+
+                                <% }else if(item.pay == "4"){ %>
+
+                                <p>合计：<%= _wxItem + _transportwxItem %>（含邮费）</p>
+                                <% } %>
+                            </div>
+                        </div>
+                    </li>
+                    <% }) %>
+                </ul>
+                <% }else{ %>
+                <div class="g-empty-data">
+                    <div class="m-empty-data">
+                        <div class="u-sprite order"></div>
+                        <p class="msg">您目前还没有<i class="u-fontColor-them">待收货</i>的礼品订单哦~</p>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+</div>
+<script type="text/javascript">
+    $(function () {
+        //初始化
+        App.component.scrollLoading({
+            wrapper: "#pointsOrder",
+            list: "#pointsOrderList1",
+            ejsUrl: "views/dhy/scrollPointsOrder.ejs",
+            getUrl: function (page, pageSize) {
+                return "order/search?page=" + page + "&pagesize=" + pageSize + "&status=0&type=gift";
+            },
+            totalPage: function (data) {
+                var result = false;
+                if (data) {
+                    var _total = data["total"];
+                    var _count = data["pagesize"];
+                    var _index = data["page"];
+                    var _maxPageSize = _count !== 0 ? Math.ceil(_total / _count) : 0;
+                    if (_index <= _maxPageSize) {
+                        result = _maxPageSize
+                    } else {
+                        console.log("page error!");
+                        App.Popover.weak({txt: "没有了更多内容了..."});
+                    }
+                }
+                return result;
+            }
+        });
+
+        var PointsOrderScroll=function(pointsOrderList,status){
+            var _pointsOrderList = $(pointsOrderList);
+            _pointsOrderList.prev().remove();
+            _pointsOrderList.next().remove();
+
+            App.component.scrollLoading({
+                wrapper: "#pointsOrder",
+                list: pointsOrderList,
+                ejsUrl: "views/dhy/scrollPointsOrder.ejs",
+                getUrl: function (page, pageSize) {
+                    return "order/search?page=" + page + "&pagesize=" + pageSize + "&status="+status+"&type=gift";
+                },
+                totalPage: function (data) {
+                    var result = false;
+                    if (data) {
+                        var _total = data["total"];
+                        var _count = data["pagesize"];
+                        var _index = data["page"];
+                        var _maxPageSize = _count !== 0 ? Math.ceil(_total / _count) : 0;
+                        if (_index <= _maxPageSize) {
+                            result = _maxPageSize
+                        } else {
+                            console.log("page error!");
+                            App.Popover.weak({txt: "没有了更多内容了..."});
+                        }
+                    }
+                    return result;
+                }
+            });
+        };
+        var listTabs = App.component.tabs({
+            callback: function () {
+                var me = this;
+                var _index = arguments[0]["index"] + 1;
+                if (_index == "1") {
+                    PointsOrderScroll("#pointsOrderList1",0);
+                } else if (_index == "2") {
+                    //待发货
+                    PointsOrderScroll("#pointsOrderList2",1);
+                } else if (_index == "3") {
+                    //待收获
+                    PointsOrderScroll("#pointsOrderList3",2);
+                }
+            }
+        })
+
+    });
+</script>

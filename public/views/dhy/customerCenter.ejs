@@ -1,0 +1,26 @@
+<div class="m-customer-center">
+    <% if(total === 0){ %>
+    <div class="g-empty-data">
+        <div class="m-empty-data">
+            <div class="u-sprite red"></div>
+            <p class="msg">您目前还没有相关客服哦~</p>
+        </div>
+    </div>
+    <%} else {%>
+    <div class="u-refresh">
+        <ul class="u-list u-customer-cate-list u-scrollBar">
+            <% data.forEach(function(item){%>
+            <li class="clearfix">
+                <a class="clearfix" title="<%= item["name"] %>" href="#/customerSort?categoryId=<%= item["categoryId"] %>&id=<%= item["id"] %>">
+                    <img src="<%= item["logoImg"] %>">
+                    <b><%= item["name"] %></b>
+                    <span class="g-fl-rg icon iconfont icon-youjiantou"></span>
+                </a>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+    <%}%>
+</div>
+
+

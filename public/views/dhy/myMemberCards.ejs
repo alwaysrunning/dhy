@@ -1,0 +1,46 @@
+<div class="m-myMemberCards-mod u-scrollBar">
+    <div class="m-card-box">
+        <%if(muYin){%>
+        <!--个人中心小组件块-->
+        <div class="umi-car">
+            <div class="umi-car-bgimg umi-car-bgimg-my">
+                <h4><%= tier %>会员</h4>
+                <h5>&nbsp;&nbsp;</h5>
+                <h6>NO:<%= code %></h6>
+            </div>
+        </div>
+        <% }else{ %>
+        <div class="m-card">
+            <%if(invitation && invitation.regCode && invitation.regCode.employeeNo){%>
+            <div class="m-card-flag">
+                <div class="text-box">
+                    <div class="text">认证员工</div>
+                    <div class="text"><%=invitation.regCode.employeeNo%></div>
+                </div>
+            </div>
+            <%}%>
+            <div class="m-card-type"><%= tier %>会员</div>
+            <div class="m-card-num">NO:<%= code %></div>
+        </div>
+        <% } %>
+    </div>
+    <div class="m-bottom-line">
+        <div class="m-line"></div>
+    </div>
+    <div class="m-card-box">
+        <div class="m-barcode-box">
+            <img src="../../../code/barcode/<%= code %>?width=2&height=10&scale=4&mobile=<%= moblie %>"/>
+        </div>
+        <div class="m-qrcode-box">
+            <div class="m-qrcode">
+                <div class="m-icon"></div>
+                <img src="../../../code/qrcode/<%= code %>?eclevel=Q&version=2&scale=4&mobile=<%= moblie %>">
+            </div>
+            <div class="m-qrcode-text">使用时请向门店工作人员出示此码</div>
+        </div>
+    </div>
+    <div class="m-title-box">
+        <i class="icon iconfont icon-huiyuanquanyi"></i>
+        <a href="http://viewer.maka.im/k/G9782F6L">会员权益</a>
+    </div>
+</div>

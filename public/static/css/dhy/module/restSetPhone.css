@@ -1,0 +1,113 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:45
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 12, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban {
+  background: #fff;
+  border-bottom: 1px solid #f2f2f2;
+}
+/* line 15, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban .m-pp-ban-center {
+  width: 6.73333rem;
+  margin: 0 auto;
+  padding: 0.4rem 0;
+}
+/* line 20, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban ul {
+  width: 100%;
+  display: -webkit-box;
+  /* Safari and Chrome */
+  display: -moz-box;
+  /* Firefox */
+  display: box;
+}
+/* line 25, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban ul li {
+  text-align: center;
+  color: #666;
+}
+/* line 28, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban ul li i {
+  display: block;
+  width: 1.06667rem;
+  height: 1.06667rem;
+  margin: 0.13333rem auto;
+}
+/* line 34, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban ul li h4 {
+  font-size: 0.32rem;
+}
+/* line 38, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban ul li:nth-child(1) {
+  -webkit-box-flex: 1.0;
+  /* Safari and Chrome */
+  -moz-box-flex: 1.0;
+  /* Firefox */
+  box-flex: 1.0;
+}
+/* line 42, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban ul li:nth-child(1) i {
+  background: url("/public/static/img/module/restphone_stepBanIco_0.png") no-repeat center top;
+  background-size: contain;
+}
+/* line 47, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban ul li:nth-child(2) {
+  -webkit-box-flex: 2.0;
+  /* Safari and Chrome */
+  -moz-box-flex: 2.0;
+  /* Firefox */
+  box-flex: 2.0;
+}
+/* line 51, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban ul li:nth-child(2) i {
+  width: 100%;
+  background: url("/public/static/img/module/restphone_stepBanIco_2.png") no-repeat center center;
+  background-size: contain;
+}
+/* line 57, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban ul li:nth-child(3) {
+  -webkit-box-flex: 1.0;
+  /* Safari and Chrome */
+  -moz-box-flex: 1.0;
+  /* Firefox */
+  box-flex: 1.0;
+  color: #c6c6c6;
+}
+/* line 62, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban ul li:nth-child(3) i {
+  background: url("/public/static/img/module/restphone_stepBanIco_1.png") no-repeat center top;
+  background-size: contain;
+}
+/* line 70, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban .u-active li:nth-child(2) i {
+  width: 100%;
+  background: url("/public/static/img/module/restphone_stepBanIco_2_1.png") no-repeat center center;
+  background-size: contain;
+}
+/* line 76, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban .u-active li:nth-child(3) {
+  color: #666;
+}
+/* line 78, ../../../sass/dhy/module/restSetPhone.scss */
+.m-pp-ban .u-active li:nth-child(3) i {
+  background: url("/public/static/img/module/restphone_stepBanIco_1_1.png") no-repeat center top;
+  background-size: contain;
+}

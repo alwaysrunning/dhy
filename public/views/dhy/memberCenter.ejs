@@ -1,0 +1,183 @@
+<section class="m-memberCenter-page u-scrollBar <% if(channel=="120135"){ %> m-memberCenter-wangfu-page <%}%>">
+    <div class="u-person-info">
+        <!--个人中心小组件块的头部-->
+        <div class="umi-head <% if(muYin){ %> umi-head-my <% } %>">
+            <div class="umi-head-user">
+                <div class="user-name">
+                    <a class="user-name-img" href="#/accountInfo"
+
+                       style="background-image:url('<% if(data.weixin && data.weixin["headimgurl"]){ %> <%= data.weixin["headimgurl"] %>') <% }else{ %> 'static/img/module/member_ico_0.png') <% } %>;"
+                    >
+
+                    </a>
+                    <span class="user-name-tel">
+                        <%
+                        var _mobile = data.mobile, _mobileLg = _mobile.length;
+                        var _mobileStr = _mobile.replace(/(\d{3})\d{6}(\d{2})/, "$1********$2");
+                        %>
+                        <%= _mobileStr %>
+               </span>
+                    <span class="user-name-hy"><%= data.member.grade %>会员</span>
+                </div>
+                <div class="user-xf iconfont">
+                    <a href="#/message">
+                        <i class="icon-xiaoxi">
+                            <% if(data.message > 0){ %>
+                            <b class="user-xf-orl"></b>
+                            <% } %>
+                        </i>
+                    </a>
+                </div>
+                <div class="user-sz iconfont"><a href="#/accountInfo"><i class="icon-wangfushezhi"></i></a></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="umi-head-li">
+                <ul>
+                    <% if(muYin){ %>
+                    <li><a ><span class="icon-img"><img src="/public/static/img/iimg/i-icon-ish-yellow.png" alt="i支付"></span><span>i支付</span></a></li>
+                    <li><a ><span class="icon-img"><img src="/public/static/img/iimg/i-icon-wdsh-yellow.png" alt="我的活动"></span><span>我的活动</span></a></li>
+                    <% }else{ %>
+                    <li><a ><span class="icon-img"><img src="/public/static/img/iimg/i-icon-ish.png" alt="i支付"></span><span>i支付</span></a></li>
+                    <li><a ><span class="icon-img"><img src="/public/static/img/iimg/i-icon-wdsh.png" alt="我的活动"></span><span>我的活动</span></a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <!--我的订单菜单-->
+        <div class="umi-menu">
+            <h2 class="title">
+                <a title="我的订单">
+                    <span class="art iconfont"><i class="icon-youjiantou"></i></span>我的订单
+                </a>
+            </h2>
+            <ul>
+                <!--<li><a href="/o2o/member/orders?#0" title="商品订单"><span class="iconfont"><i class="icon-shanghudingdan"></i></span><span>商品订单</span></a></li>-->
+                <% if(channel=="120135"){ %>
+                <li><a href="/o2o/member/orders" title="商品订单"><span class="iconfont"><i class="icon-shanghudingdan"></i></span><span>商品订单</span></a></li>
+                <% } %>
+                <li><a  href="#/pointsOders" title="礼品订单"><span class="iconfont"><i class="icon-wangfulipindingdan"></i></span><span>礼品订单</span></a></li>
+            </ul>
+        </div>
+        <!--我的资产菜单-->
+        <div class="umi-menu">
+
+            <h2 class="title">
+                <a href="http://o2o.52bill.com/online-offline/OSTPUSR1/USR20011.tran?<%= data.paySignParam %>" title="我的资产">
+                    <span class="art iconfont"><i class="icon-youjiantou"></i></span>我的资产
+                </a>
+                <!--<a title="我的资产">-->
+                    <!--<span class="art iconfont"><i class="icon-youjiantou"></i></span>我的资产-->
+                <!--</a>-->
+            </h2>
+
+            <ul>
+                <li>
+                    <a href="#/myMeansPoints?point=<%= data.integration %>" title="积分">
+                        <span class="iconfont"><i class="icon-jifen"></i></span><span>积分</span><span class="inum"><%= data.integration %></span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#/myCoupons?channel=<%= channel %>" title="优惠券">
+                        <span class="iconfont"><i class="icon-youhuiquan"></i></span><span>票券</span><span class="inum"><%= data.coupon %>张</span>
+                    </a>
+                </li>
+
+                <% if(data.member && !muYin){ %>
+                <li>    <!--id="kaBao"-->
+                    <a title="余额">
+                        <span class="iconfont"><i class="icon-wangfuyue"></i></span><span>余额</span><span class="inum">0</span>
+                    </a>
+                </li>
+                <% } %>
+            </ul>
+
+        </div>
+
+        <!--更多菜单-->
+        <div class="umi-menu">
+            <ul>
+                <li>
+                    <a href="#/electricTicket" title="电子小票">
+                        <span class="iconfont"><i class="icon-wangfudianzixiaopiao"></i></span><span>电子小票</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#/myMemberCards?code=<%= data.cards.cardNo %>&tier=<%= data.member.grade %>&channel=<%= channel %>" title="我的会员卡">
+                        <span class="iconfont"><i class="icon-wangfuhuiyuanqia"></i></span><span>会员卡</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#/myInvitation" title="我的邀请码">
+                        <span class="iconfont"><i class="icon-wangfuwodeyaoqingma"></i></span><span>我的邀请码</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/myParking" title="我的停车">
+                        <span class="iconfont"><i class="icon-wangfuwodetingche"></i></span><span>我的停车</span>
+                    </a>
+                </li>
+                <!--<li>-->
+                    <!--<a href="/o2o/member/address_list" title="地址管理">-->
+                        <!--<span class="iconfont"><i class="icon-wangfudizhiguanli"></i></span><span>地址管理</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <% if(muYin){ %>
+                <li>
+                    <a title="伊利爱儿俱乐部">
+                        <span class="iconfont"><i class="icon-wangfu-yiliaierjulebu"></i></span><span>伊利爱儿俱乐部</span>
+                    </a>
+                </li>
+                <li>
+                    <a title="母婴专家咨询">
+                        <span class="iconfont"><i class="icon-wangfu-muyingzhuanjiazixun"></i></span><span>母婴专家咨询</span>
+                    </a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+
+        <div class="changeuse" id="switchAccount">
+            <a title="切换账户" id="loginOut">
+                切换账户
+            </a>
+        </div>
+
+    </div>
+    <% if(channel=="120135"){ %>
+    <div class="m-memberCenter-fixed-bottom">
+        <ul class="m-menu-nav">
+            <li>
+                <a href="/o2o" title="首页">
+                    <div class="icon iconfont icon-28pxshouye"></div>
+                    <h5>首页</h5>
+                </a>
+            </li>
+            <li>
+                <a href="/o2o/#globalCategory" title="分类">
+                    <div class="icon iconfont icon-28pxshangpinfenlei"></div>
+                    <h5>分类</h5>
+                </a>
+            </li>
+            <li>
+                <a href="http://wx.yunhou.com/o2o/html/cart/cart.html?r=1480042493133&" title="购物车">
+                    <div class="icon iconfont icon-28pxgouwuche"></div>
+                    <h5>购物车</h5>
+                    <% if(shopCartNum){ %>
+                    <i class="u-badge-number"><%= shopCartNum %></i>
+                    <% } %>
+                </a>
+            </li>
+            <li>
+                <a href="#/memberCenter?channel=120135" title="我的">
+                    <div class="icon iconfont icon-28pxwode"></div>
+                    <h5>我的</h5>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <% } %>
+</section>

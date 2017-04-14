@@ -1,0 +1,183 @@
+@charset "utf-8";
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+
+$browser-default-font-size: 75 !default;
+@function Rem($px) {
+  @return $px / $browser-default-font-size * 1rem;
+}
+
+//z-index
+$z-index-base: 2100;
+// Type
+// --------------------------------------------------
+$font-family-default: "Helvetica Neue", Helvetica, sans-serif, STHeiTi, webfont, FontAwesome;
+$font-size-default: Rem(0.85*40);
+$font-weight: 500;
+$font-weight-light: 400;
+$line-height-default: Rem(1.05*40);
+
+//img
+$imgBaseUrl: "../img";
+
+// Colors
+// --------------------------------------------------
+
+// 主色
+$color-primary: #ff6666;//#0894ec  #ff6666
+$color-danger: #f6383a;
+$color-warning: #f60;
+$color-success: #4cd964;
+
+$color-primary-active: #0a8ddf;
+$color-danger-active: darken($color-danger, 10%);
+$color-warning-active: darken($color-warning, 10%);
+$color-success-active: darken($color-success, 10%);
+
+$color-split: #e7e7e7; //分割线的颜色
+$color-bg: #eee;
+$color-text: #3d4145; //文案色
+$color-text-secondary: #5f646e; //次级文案
+$color-text-gray: #999; //灰色文案
+$color-text-gray-light: #ccc; //更灰色文案
+
+//链接色
+$color-link: $color-primary; //链接色有可能不同于主色
+$color-link-active: $color-primary-active; //链接色有可能不同于主色
+
+// Bars
+// --------------------------------------------------
+
+$bar-base-height: Rem(88);
+$bar-tab-height: Rem(100);
+$bar-side-spacing: Rem(20);
+
+// Cards
+// --------------------------------------------------
+
+$card-bg: #fff;
+
+// Buttons
+// --------------------------------------------------
+
+$button-font-size: Rem(0.6*40);
+
+// Borders
+// --------------------------------------------------
+
+$border-default-width: 1px;
+$border-default-color: $color-split;
+$border-default: $border-default-width solid $border-default-color;
+$border-radius: Rem(0.3*40);
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+$font-size-base:        Rem(16*2) !important;
+$font-size-title:       Rem(16*2);
+$font-size-h1:          Rem(18*2);
+$font-size-title-lg:    Rem(17*2);
+$font-size-info:        Rem(16*2);
+$font-size-sub:         Rem(14*2);
+$font-size-tips:        Rem(12*2);
+$font-base-color:       #333;
+$font-sub-color:        #b3b3b3;
+$font-them-color:       #ff6666;
+$font-error-color:      #ff0b0b;
+
+$line-height-base:      1.5;
+$line-height-s:         1.3;
+$line-height-txt:       Rem(24*2);
+$line-height-bar:       Rem(44*2);
+$txt-padding-top:       Rem(10*2);
+$txt-padding-bottom:    Rem(10*2);
+
+$txt-default:           #333;
+$txt-info:              #666;
+$txt-muted:             #bbb;
+$txt-warning:           #ff4222;
+$txt-highlight:         #ff8444;
+$txt-link:              #fc7d3d;
+$txt-feeds:             #314c83;
+$txt-tips-warning:       #fff9f2;
+
+$default-bg:            #fff;
+$stable-bg:             #f2f2f2; //#f5f5f5
+$active-bg:             #e5e6e7;
+$history-bg:            #fff9f6;
+
+$icon-arrow:                            "\e600";
+$icon-checked:                          "\e601";
+$icon-checked-s:                        "\e602";
+$icon-info-block:                       "\e603";
+$icon-success-block:                    "\e604";
+$icon-warn-block:                       "\e605";
+$icon-info:                             "\e606";
+$icon-success:                          "\e607";
+$icon-warn:                             "\e608";
+$icon-warn-lg:                          "\e609";
+$icon-unchecked:                        "\e610";
+$icon-unchecked-s:                      "\e611";
+$icon-vip:                              "\e612";
+$icon-svip:                             "\e613";
+$icon-return:                           "\e614";
+$icon-close:                            "\e60a";
+$icon-close-page:                       "\e60b";
+$icon-search:                           "\e60c";
+$icon-tag:                              "\e60d";
+$icon-tag-s:                            "\e60e";
+$icon-tag-pop:                          "\e60f";
+$icon-color:                            #8e8e93;
+//边框
+$border-default-color:#f2f2f2;
+$border-default-radius:Rem(2*2);
+//常规按钮组
+$button-disabled-bg-color:              #e9ebec;
+$button-disabled-text:                  #ccc;
+$button-height:         Rem(88);
+$button-padding:        0 Rem(10);
+$button-margin: 0 0 Rem(10) 0;
+$button-min-width:      Rem(55);
+$button-size:           Rem(16*2);
+$button-border-radius:  Rem(3*2);
+$button-hot-area:       Rem(7*2);
+$button-bg-color:       #e6e6e6;
+$button-bg-image:       -webkit-gradient(linear,left top, left bottom, color-stop(0.5, #fff), to(#fafafa));
+$button-text:           #999;
+$button-border-color:   #e6e6e6;
+$button-active-bg:      #d4d4d4;
+$button-active-text:    #666;
+$button-disabled-bg:    #e5e5e5;
+$button-disabled-txt:   #b3b3b3;
+
+$button-normal-bg-color:#ff6666;
+$button-normal-text:#fff;
+$button-normal-active-bg:#ea590f;
+$button-normal-active-text:#fff;
+//提交按钮
+$button-white-bg-color:#fff;
+$button-white-text:#ff6666;
+$button-white-border-color:#ff6666;
+//常规列表默认
+$list-default-height:Rem(88);
+$list-default-line-height:Rem(88);
+$list-default-text:#333;
+$list-default-active-bg:#efefef;
+//模拟弹窗
+$modal-btn-text:#ff6666;
+$modal-btn-active-bg:#efefef;
+//表单
+$form-label-width:                      Rem(95*2);
+$form-textarea-height:                  Rem(65*2);
+$form-textarea-margin-top:              Rem(15*2);
+$form-right-close-right:                Rem(125*2);
+$form-left-input-padding-left:          Rem(115*2);
+$form-right-input-padding-right:        Rem(150*2);
+
+$wrap-padding:          Rem(15*2);
+$wrap-padding-s:        Rem(10*2);
+
+//z-index
+//$z-index-base:        100;

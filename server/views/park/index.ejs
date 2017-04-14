@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/static/css/park/app.css"/>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><!--ignore-->
+    <script src="/public/static/js/lib/flexible.js"></script><!--ignore-->
+    <script src="/public/static/js/extends/touch.js"></script>
+</head>
+<body>
+<div class="viewport">
+    <div class="bg light-dark">
+        <div class="split-box">
+            <div class="split-box-item">
+                <a href="/park/memory/<%=shopId%>">
+                    <img class="split-body-img" src="/public/static/img/park/memory.jpg">
+                    <span class="split-body-title">记车位找车</span>
+                    <span class="split-body-subtitle">停车场<i>G层</i>、<i>UG层</i>区域<br>
+                    手输或打开蓝牙摇一摇，记录车位后寻车</span>
+                </a>
+            </div>
+            <div class="split-box-item">
+                <a href="/park/location/<%=shopId%>">
+                    <img class="split-body-img" src="/public/static/img/park/find.jpg">
+                    <span class="split-body-title">查车牌找车</span>
+                    <span class="split-body-subtitle">停车场<i>B1层</i>、<i>BM层</i>、<i>B2层</i>区域<br>
+                    输入车牌，查询车位后寻车</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

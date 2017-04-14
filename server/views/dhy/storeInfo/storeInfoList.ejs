@@ -1,0 +1,120 @@
+<%- include("_header") %>
+<!-- page 容器 -->
+<div class="page" id="storeList">
+    <!-- 这里是页面内容区 -->
+    <div class="content infinite-scroll" data-distance="100">
+        <div class="m-storeList-mod">
+            <% if(adList.length>0){ %>
+            <div class="swiper-container" data-space-between='10' data-pagination='.swiper-pagination'
+                 data-autoplay="1000">
+                <div class="swiper-wrapper">
+                    <% adList.forEach(function(item){ %>
+                    <div class="swiper-slide">
+                        <% if(item.linkType == 3 || item.linkType == 5){ %>
+                        <%# 3积分商品 优惠券 详情/列表 %>
+                        <% if(item.linkContent.length > 0 && item.islist == 0){ %>
+                        <a  class="external" href="#/pointsExchangeDetails?id=<%= item.linkContent %>" title="<%= item.name %>">
+                            <img src="<%= item.image %>" alt="<%= item.name %>">
+                        </a>
+                        <% }else if(item.linkContent.length > 1 && item.islist == 1) { %>
+                        <a  class="external" href="#/pointsExchangeList?idArr=<%= item.linkContent %>" title="<%= item.name %>">
+                            <img src="<%= item.image %>" alt="<%= item.name %>">
+                        </a>
+                        <% }else{ %>
+                        <a  class="external" title="<%= item.name %>">
+                            <img src="<%= item.image %>" alt="<%= item.name %>">
+                        </a>
+                        <% } %>
+                        <% }else if(item.linkType == 4){ %>
+                        <%# 4云猴小店商品 详情/列表 TODO %>
+                        <a  class="external" title="<%= item.name %>">
+                            <img src="<%= item.image %>" alt="<%= item.name %>">
+                        </a>
+                        <% }else if(item.linkType == 6){ %>
+                        <%# 6 URL H5 %>
+                        <a  class="external"
+                                <% if(item.linkContent.length > 0 ){ %>
+                                href="<%= item.linkContent %>"
+                                <% } %>
+                                title="<%= item.name %>">
+                            <img src="<%= item.image %>" alt="<%= item.name %>">
+                        </a>
+                        <% }else if(item.linkType == 12){ %>
+                        <%# 12 云猴小店 TODO %>
+                        <a title="<%= item.name %>" class="external">
+                            <img src="<%= item.image %>" alt="<%= item.name %>">
+                        </a>
+                        <% }else if(item.linkType == 9){ %>
+                        <%# 9不跳转 %>
+                        <a title="<%= item.name %>" class="external">
+                            <img src="<%= item.image %>" alt="<%= item.name %>">
+                        </a>
+                        <% } %>
+                    </div>
+                    <% }) %>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+           <% } %>
+            <div class="msm-filter">
+                <div class="mf-img">
+                 <h5 style="font-weight: normal;"><%= sellerName %></h5>
+                </div>
+                <div class="mf-txt">
+                    <a href="javascript:void(0)" class="button button-warning external disable" id="filterPicker">筛选</a>
+                    <input type="text" class="mf-city-picker" id="cityPicker" value="江西 新余市 渝水区" style="opacity:0;"/>
+                </div>
+            </div>
+
+            <div class="msm-storeList-block">
+                <% if(data.total == 0){ %>
+                <div class="g-empty-data">
+                    <div class="m-empty-data">
+                        <div class="u-sprite red"></div>
+                        <p class="msg">暂无门店数据，敬请期待~</p>
+                    </div>
+                </div>
+                <% }else{ %>
+                <ul class="msb-store-list" id="msbStoreList">
+                    <% data.data.forEach(function(item){ %>
+                    <li>
+                        <div class="msl-hd">
+                            <a href="storeDetails?storeId=<%= item["id"] %>" class="external">
+                                <i class="icon iconfont">&#xe613;</i>
+                                <span><%= item["name"] %></span>
+                            </a>
+                        </div>
+                        <div class="msl-bd">
+                            <div class="msl-txt">
+                                <a href="storeDetails?storeId=<%= item["id"] %>" class="external">
+                                    <p>客服电话：<%= item["contact"] %></p>
+                                    <p>地址：<%= item["address"] %></p>
+                                </a>
+                            </div>
+                            <div class="msl-icon">
+                                <a class="icon iconfont external icon-ditudaohang map-location"
+                                   data-latitude="<%= item["latitudeValue"] %>"
+                                   data-longitude="<%= item["longitudeValue"] %>"
+                                   data-name="<%= item["name"] %>"
+                                   data-address="<%= item["address"] %>"></a>
+                                <a class="icon iconfont external" href="tel:<%= item["contact"] %>">&#xe625;</a>
+                            </div>
+                        </div>
+                    </li>
+                    <% }) %>
+                </ul>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- 加载提示符 -->
+        <div class="infinite-scroll-preloader">
+            <div class="preloader"></div>
+            <div class="preloader-over-tips"></div>
+        </div>
+    </div>
+</div>
+<!-- popup, panel 等放在这里 -->
+<div class="panel-overlay"></div>
+<%- include("_footer") %>
+

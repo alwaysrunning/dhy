@@ -1,0 +1,87 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 16:10
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 13, ../../../sass/dhy/module/message.scss */
+.m-message-mod .umm-no-message {
+  background: #f5f5f5;
+  text-align: center;
+  font-size: 0.32rem;
+  padding: 0.26667rem;
+  color: #666;
+}
+
+/* line 23, ../../../sass/dhy/module/message.scss */
+.m-messageDetails-mod .uml-tit {
+  padding: 0.26667rem;
+  border-bottom: 1px solid #f2f2f2;
+}
+/* line 26, ../../../sass/dhy/module/message.scss */
+.m-messageDetails-mod .uml-tit h5 {
+  font-size: 0.32rem;
+  color: #333;
+}
+/* line 30, ../../../sass/dhy/module/message.scss */
+.m-messageDetails-mod .uml-tit i {
+  width: 0.13333rem;
+  height: 0.13333rem;
+  background: #ff6414;
+  display: inline-block;
+  margin-left: 0.13333rem;
+  vertical-align: middle;
+  border-radius: 0.13333rem;
+}
+/* line 40, ../../../sass/dhy/module/message.scss */
+.m-messageDetails-mod .uml-cont {
+  padding: 0.26667rem;
+  color: #666;
+}
+/* line 43, ../../../sass/dhy/module/message.scss */
+.m-messageDetails-mod .uml-cont .uml-content {
+  position: relative;
+}
+/* line 46, ../../../sass/dhy/module/message.scss */
+.m-messageDetails-mod .uml-cont .u-ellipsis {
+  background: #fff;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+/* line 52, ../../../sass/dhy/module/message.scss */
+.m-messageDetails-mod .uml-cont p {
+  padding: 0.13333rem 0;
+  color: #666;
+  line-height: 0.53333rem;
+  overflow: hidden;
+}
+/* line 72, ../../../sass/dhy/module/message.scss */
+.m-messageDetails-mod .uml-foot {
+  padding: 0 0.26667rem;
+}
+/* line 74, ../../../sass/dhy/module/message.scss */
+.m-messageDetails-mod .uml-foot b {
+  font-weight: normal;
+  color: #999;
+  display: inline-block;
+}
+/* line 79, ../../../sass/dhy/module/message.scss */
+.m-messageDetails-mod .uml-foot .iconfont {
+  vertical-align: middle;
+}

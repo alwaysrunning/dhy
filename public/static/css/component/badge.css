@@ -1,0 +1,46 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 16:17
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/* line 10, ../../sass/component/badge.scss */
+.u-badge-text {
+  color: #ff6666;
+  cursor: pointer;
+}
+
+/* line 14, ../../sass/component/badge.scss */
+.u-badge-text:not(.disabled):not(:disabled):active, .u-badge-text.active, .u-badge-text:hover, .u-badge-text:focus {
+  color: #333;
+}
+
+/* line 17, ../../sass/component/badge.scss */
+.u-badge-text.disabled, .u-badge-text:disabled, .u-badge-text[disabled=""] {
+  color: #c4c4c4;
+}
+
+/* line 21, ../../sass/component/badge.scss */
+.u-badge-number {
+  display: inline-block;
+  background: #ff6666;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  min-width: 0.53333rem;
+  min-height: 0.53333rem;
+  padding: 0.02667rem 0.04rem 0 0.04rem;
+  border-radius: 0.4rem;
+  font-size: 0.32rem;
+}
+
+/* line 33, ../../sass/component/badge.scss */
+.u-badge-number.u-hidden {
+  display: none;
+}

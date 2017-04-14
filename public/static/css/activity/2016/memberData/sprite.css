@@ -1,0 +1,132 @@
+/* line 2, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite {
+  background-image: url(../../../../../activity/2016/memberData/img/spritesheet.png);
+  background-repeat: no-repeat;
+  display: block;
+}
+
+/* line 13, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-candle1 {
+  width: 91px;
+  height: 97px;
+  background-position: -5px -5px;
+}
+
+/* line 19, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-candle2 {
+  width: 91px;
+  height: 96px;
+  background-position: -5px -112px;
+}
+
+/* line 25, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-candle3 {
+  width: 91px;
+  height: 97px;
+  background-position: -5px -218px;
+}
+
+/* line 31, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p1_01 {
+  width: 578px;
+  height: 106px;
+  background-position: -5px -325px;
+}
+
+/* line 40, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p1_03 {
+  width: 421px;
+  height: 110px;
+  background-position: -5px -441px;
+}
+
+/* line 46, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p1_07 {
+  width: 456px;
+  height: 215px;
+  background-position: -5px -561px;
+}
+
+/* line 52, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p2_03 {
+  width: 376px;
+  height: 240px;
+  background-position: -5px -786px;
+}
+
+/* line 58, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p2_07 {
+  width: 342px;
+  height: 216px;
+  background-position: -5px -1036px;
+}
+
+/* line 64, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p2_10 {
+  width: 215px;
+  height: 267px;
+  background-position: -5px -1262px;
+}
+
+/* line 70, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p2_13 {
+  width: 42px;
+  height: 41px;
+  background-position: -5px -1539px;
+}
+
+/* line 76, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p2_19 {
+  width: 51px;
+  height: 51px;
+  background-position: -5px -1590px;
+}
+
+/* line 82, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p2_22 {
+  width: 32px;
+  height: 32px;
+  background-position: -5px -1651px;
+}
+
+/* line 88, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p2_27 {
+  width: 576px;
+  height: 470px;
+  background-position: -5px -1693px;
+}
+
+/* line 94, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p3_03 {
+  width: 40px;
+  height: 42px;
+  background-position: -5px -2173px;
+}
+
+/* line 100, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p3_07 {
+  width: 227px;
+  height: 146px;
+  background-position: -5px -2225px;
+}
+
+/* line 106, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p3_11 {
+  width: 666px;
+  height: 341px;
+  background-position: -5px -2381px;
+}
+
+/* line 112, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p3_14 {
+  width: 617px;
+  height: 518px;
+  background-position: -5px -2732px;
+}
+
+/* line 118, ../../../../sass/activity/2016/memberData/sprite.scss */
+.sprite-p5_03 {
+  width: 534px;
+  height: 98px;
+  background-position: -5px -3260px;
+}

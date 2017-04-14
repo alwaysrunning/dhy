@@ -1,0 +1,163 @@
+@import "../common/common_reset";
+@import "../common/flexible";
+@import "../park/base";
+@import "../park/icon_font";
+
+.viewport{
+  background-color: #a8daff;
+
+  .touch{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+  }
+}
+
+.content {
+  background: #a8daff url('../../../invitation/img/bg.jpg') no-repeat top center;
+  background-size: Rem(750) Rem(520);
+  width: Rem(750);
+  margin: 0 auto;
+  overflow: hidden;
+
+  .inf-box {
+    .icon-img {
+      width: Rem(130);
+      height: Rem(130);
+      border: Rem(5) solid #673f7b;
+      margin: Rem(30) auto Rem(10);
+
+      -webkit-border-radius: 50% 50%;
+      -moz-border-radius: 50% 50%;
+      border-radius: 50% 50%;
+
+      background-color: #ffffff;
+
+      -webkit-box-shadow: Rem(8) Rem(8) Rem(21) rgba(0, 0, 0, .3);
+      -moz-box-shadow: Rem(8) Rem(8) Rem(21) rgba(0, 0, 0, .3);
+      box-shadow: Rem(8) Rem(8) Rem(21) rgba(0, 0, 0, .3);
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    p {
+      font-size: Rem(24);
+      line-height: Rem(30);
+      text-align: center;
+      color: #ffffff;
+    }
+  }
+
+  .inv-box {
+    width: Rem(711-59-48);
+    height: Rem(415-154);
+    margin: Rem(75) auto 0;
+    padding: Rem(154) Rem(59) Rem(0) Rem(48);
+    background: url("../../../invitation/img/invBox.png") no-repeat;
+    background-size: contain;
+
+    .title {
+      font-size: Rem(26);
+      color: #5b2e14;
+
+      .left {
+        float: left;
+      }
+      .right {
+        float: right;
+      }
+    }
+
+    .empty{
+      text-align: center;
+      font-size: Rem(36);
+      line-height: Rem(60);
+      padding: Rem(30) 0;
+    }
+
+    .heads {
+      width: 100%;
+      overflow: hidden;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          width: Rem(90);
+          height: Rem(90);
+          float: left;
+          margin: Rem(45) Rem(15);
+
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          background-color: #FFFFFF;
+
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .rule-box {
+    margin-top: Rem(50);
+    background: url("../../../invitation/img/wav2.jpg") repeat-x top, url('../../../invitation/img/wav1.jpg') repeat-x bottom;
+    background-color: #8ec8ff;
+    background-size: Rem(23) Rem(12);
+    overflow: hidden;
+
+    .rule-banner{
+      width: Rem(686);
+      height: Rem(71);
+      margin:Rem(53) auto;
+      background: url("../../../invitation/img/ruleBanner.jpg") no-repeat;
+      background-size: contain;
+    }
+
+    .rule-text {
+      width: Rem(670);
+      margin: Rem(10) auto Rem(50);
+
+      p{
+        line-height: Rem(30);
+        font-size: Rem(26);
+        color: #333333;
+      }
+    }
+  }
+
+  .qrcode-box{
+    position: relative;
+    width: Rem(662);
+    height: Rem(290);
+    margin: Rem(45) auto;
+    background: url("../../../invitation/img/qrcodeBox.png") no-repeat;
+    background-size: contain;
+
+    img{
+      position: absolute;
+      top: Rem(-80);
+      //width: 100%;
+      //height: 100%;
+      width: Rem(158);
+      height: Rem(158);
+
+      padding-top: Rem(146);
+      padding-left: Rem(52);
+      //padding-bottom: Rem(158);
+      //padding-right: Rem(452);
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<div class="m-restPhone-page u-scrollBar">
+    <form class="u-form" id="myUnionAccountForm">
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <label>当前手机号:</label>
+                <input type="tel" readonly="" value="<%= mobile %>" placeholder="请输入手机号码" class="u-form-input-text">
+                <div class="g-form-item-rg u-hidden">
+                    <i class="icon iconfont icon-guanbi"></i>
+                </div>
+            </div>
+        </div>
+        <div class="u-form-item">
+            <div class="u-form-item-line">
+                <input type="text" value="" placeholder="请输入银行卡号" class="myUnionAccount-input" id="bankCardNumber">
+                <div class="g-form-item-rg">
+                    <i class="icon iconfont icon-guanbi u-hidden"></i>
+                </div>
+            </div>
+        </div>
+        <div class="u-tips-txt-line">
+            温馨提示：验证银联会员身份，尊享小步之家超权益。仅限本人持有银联高端白金卡、金卡等级银行卡
+            会员，且当前手机号与银行卡预留手机号一致！
+        </div>
+        <div class="u-lp-btn-submit">
+            <button class="u-btn u-radius u-btn-block" type="button" disabled id="myUnionAccountFormSubmit">提交验证</button>
+        </div>
+    </form>
+</div>

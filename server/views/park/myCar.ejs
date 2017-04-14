@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/static/css/park/app.css"/>
+    <script src="/public/static/js/lib/flexible.js"></script><!--ignore-->
+    <script src="/public/static/js/lib/jquery.min.js"></script><!--ignore-->
+    <script src="/public/static/js/extends/touch.js"></script>
+    <script src="/public/static/js/extends/ejs.js"></script>
+    <script src="/public/static/js/extends/prouter.js"></script>
+    <script src="/public/static/js/extends/iscroll.js"></script>
+    <script src="/public/park/js/store.js"></script>
+    <style>
+        .tip{
+            font-size: 24px;
+            padding: 0 0 0.26667rem 0;
+            color: #bababa;
+        }
+    </style>
+</head>
+<body>
+<div class="viewport"></div>
+<div class="dailog-warm" style="display: none;"></div>
+
+<script src="/public/park/js/check.js"></script>
+<script src="/public/park/js/routers/car.js"></script>
+<script src="/public/park/js/routers/info.js"></script>
+<script src="/public/park/js/carSelect.js"></script>
+<script src="/public/park/js/pos.js"></script>
+
+<script>
+    var timer;
+    var warm = function (text,callback) {
+        timer = setTimeout(function () {
+            $('.dailog-warm').fadeOut(function(){
+                if($.isFunction(callback)){
+                    callback();
+                }
+            });
+            timer = null;
+        }, 5000);
+        $('.dailog-warm').text(text).fadeIn();
+    };
+
+    checker.check().then(function () {
+        var Router = prouter.Router;
+        Router.use('/car/:shop', new carRouteGroup(Router));
+        Router.use('/info/:shop/:carno', new infoRouteGroup(Router));
+        Router.use(new carRouteGroup(Router));
+        Router.listen();
+    }).fail(function (err) {
+        if (err.code === '200010002') {
+            window.location.href = '/#/login?fromUrl=' + encodeURIComponent(window.location.href);
+        }
+    });
+</script>
+</body>
+</html>

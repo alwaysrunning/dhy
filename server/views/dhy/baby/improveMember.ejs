@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title><%= title %></title>
+    <meta name="description" content=""/>
+    <meta name="author" content="ricopter@qq.com"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <script type="text/javascript" src="/public/static/js/lib/flexible.js"></script><!--ignore-->
+    <script type='text/javascript' src='/public/static/js/lib/jquery-3.1.0.min.js' charset='utf-8'></script>
+    <link rel="stylesheet" href="/public/static/css/dhy/app.css">
+</head>
+<body>
+
+<div class="m-login-page u-scrollBar">
+
+    <div class="ilogin-my">
+        <p class="ilogin-img"><img src="/public/static/img/iimg/i-login-my_03.png" alt=""></p>
+        <p class="ilogin-tipsr">完善会员信息，为您提供更贴心的母婴服务！</p>
+    </div>
+    <form class="u-form" method="post" id="loginForm">
+        <div class="ilogin2-my">
+
+            <!--<div class="ilogin2-myxz" id="babySex">-->
+                <!--<span class="ilogin2-myxz-tit">宝宝性别</span>-->
+                <!--<span class="ilogin2-myxz1 on" data-id="0">-->
+                    <!--<i class="iconfont icon-nan"></i>男-->
+                <!--</span>-->
+                <!--<span class="ilogin2-myxz1" data-id="1">-->
+                    <!--<i class="iconfont icon-nv"></i>女-->
+                <!--</span>-->
+                <!--<span class="ilogin2-myxz1 ilogin2-myxz2" data-id="4">-->
+                    <!--<i class="iconfont icon-wangfu-xingbie"></i>孕中-->
+                <!--</span>-->
+            <!--</div>-->
+
+            <div class="ilogin2-myxz" id="babySelectSex">
+                <span class="ilogin2-myxz-tit" id="babySelectSexVal">宝宝性别</span>
+                <i class="iconfont icon-xiajiantou"></i>
+                <input type="hidden" id="babySelectSexHide">
+            </div>
+
+            <div class="ilogin2-myxz" id="pickerBirthday">
+                <span class="ilogin2-myxz-tit" id="pickerBirthdayVal">出生日期/预产期</span>
+                <i class="iconfont icon-xiajiantou"></i>
+                <input type="hidden" id="pickerBirthdayHide">
+            </div>
+        </div>
+        <div class="u-lp-btn-login ilogin2-my-but">
+            <button class="u-btn u-radius u-btn-block" type="button" id="submitBtn">提交</button>
+        </div>
+    </form>
+
+</div>
+
+<script type='text/javascript' src='/public/static/js/extends/fastclick.js' charset='utf-8'></script>
+<script type='text/javascript' src='/public/static/js/extends/jquery-weui.js' charset='utf-8'></script>
+<script type='text/javascript' src='/public/static/js/module/baby/improveMember.js' charset='utf-8'></script>
+</body>
+</html>

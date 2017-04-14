@@ -1,0 +1,33 @@
+<section class="m-electricTicket-mod u-scrollBar" style="background:#fff;">
+
+    <div class="u-electricticket-scroll-mod">
+        <div class="u-refresh" id="electricTicket">
+            <ul class="u-data-list u-electricTicket-list">
+                <% if(data.length>0){ %>
+                <% data.forEach(function(item){ %>
+                <li>
+                    <a href="#/electricTicketDetails?txnId=<%= item["txnId"] %>&cardno=<%= item["cardNo"] %>&carriercd=<%= item["carrierCd"]%>" class="clearfix" data-txnId="<%= item["txnId"] %>">
+                        <div class="uel-lf g-fl-lf">
+                            <h5><%= item["transDt"] %></h5>
+                            <p><%= item["carrier"] %></p>
+                        </div>
+                        <div class="uel-rg g-fl-rg">
+                            <p>实付金额：<%= item["amount"] %>元</p>
+                        </div>
+                        <div class="u-delete"><i class="iconfont icon-shanchu1"></i></div>
+                    </a>
+                </li>
+                <% }) %>
+                <% }else{ %>
+                <div class="g-empty-data">
+                    <div class="m-empty-data">
+                        <div class="u-sprite order"></div>
+                        <p class="msg">暂无相关数据!~</p>
+                    </div>
+                </div>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+
+</section>

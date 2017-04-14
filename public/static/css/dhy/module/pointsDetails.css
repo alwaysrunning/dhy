@@ -1,0 +1,127 @@
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2016/3/21
+ * Time: 15:50
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 12, ../../../sass/dhy/module/pointsDetails.scss */
+.m-ordersDetails-mod {
+  padding: 0.26667rem 0;
+}
+/* line 14, ../../../sass/dhy/module/pointsDetails.scss */
+.m-ordersDetails-mod .m-mod-box {
+  background: #fff;
+  margin-bottom: 0.26667rem;
+}
+/* line 15, ../../../sass/dhy/module/pointsDetails.scss */
+.m-ordersDetails-mod .m-mod-box .mmb-tit {
+  padding: 0.26667rem;
+  border-bottom: 1px solid #f2f2f2;
+}
+/* line 22, ../../../sass/dhy/module/pointsDetails.scss */
+.m-ordersDetails-mod .m-mod-box .u-normal-list li .g-label-lf {
+  width: 1.86667rem;
+}
+/* line 25, ../../../sass/dhy/module/pointsDetails.scss */
+.m-ordersDetails-mod .m-mod-box .u-normal-list li .g-label-rg {
+  width: 7.33333rem;
+}
+/* line 31, ../../../sass/dhy/module/pointsDetails.scss */
+.m-ordersDetails-mod .u-courier-list-mod {
+  background: #fff9f6;
+  padding: 0rem 0.26667rem 0rem 0.4rem;
+}
+/* line 35, ../../../sass/dhy/module/pointsDetails.scss */
+.m-ordersDetails-mod .u-courier-list {
+  border-left: 1px solid #dad7d5;
+  padding: 0.26667rem 0.4rem;
+}
+/* line 38, ../../../sass/dhy/module/pointsDetails.scss */
+.m-ordersDetails-mod .u-courier-list dd {
+  margin-bottom: 0.26667rem;
+  color: #333;
+  position: relative;
+}
+/* line 42, ../../../sass/dhy/module/pointsDetails.scss */
+.m-ordersDetails-mod .u-courier-list dd b {
+  font-weight: normal;
+}
+/* line 45, ../../../sass/dhy/module/pointsDetails.scss */
+.m-ordersDetails-mod .u-courier-list dd i {
+  position: absolute;
+  left: -0.53333rem;
+  top: 40%;
+  width: 0.26667rem;
+  height: 0.26667rem;
+  background: url("/public/static/img/module/pointOder_pointIco_0.png") no-repeat left center;
+  background-size: contain;
+}
+/* line 55, ../../../sass/dhy/module/pointsDetails.scss */
+.m-ordersDetails-mod .u-courier-list dd.u-active {
+  color: #ff6666;
+}
+/* line 57, ../../../sass/dhy/module/pointsDetails.scss */
+.m-ordersDetails-mod .u-courier-list dd.u-active i {
+  background: url("/public/static/img/module/pointOder_pointIco_1.png") no-repeat left center;
+  background-size: contain;
+}
+
+/* line 65, ../../../sass/dhy/module/pointsDetails.scss */
+.m-mod-button-box {
+  padding: 0 0.26667rem 0.8rem 0.26667rem;
+}
+
+/* line 70, ../../../sass/dhy/module/pointsDetails.scss */
+.m-order-code-mod {
+  width: 5.33333rem;
+  margin: 2.66667rem auto 0 auto;
+  text-align: center;
+}
+/* line 75, ../../../sass/dhy/module/pointsDetails.scss */
+.m-order-code-mod .mocm-bd h3 {
+  line-height: 0.53333rem;
+  word-break: break-all;
+}
+
+/* line 88, ../../../sass/dhy/module/pointsDetails.scss */
+.m-submit-mod {
+  padding: 0 0.26667rem;
+}
+
+/* line 93, ../../../sass/dhy/module/pointsDetails.scss */
+.m-orderPayment .g-pay-item {
+  margin-right: 0.26667rem;
+  height: 0.66667rem;
+  line-height: 0.66667rem;
+}
+/* line 97, ../../../sass/dhy/module/pointsDetails.scss */
+.m-orderPayment .g-pay-item .u-ico-img-hb, .m-orderPayment .g-pay-item .u-ico-img-wx, .m-orderPayment .g-pay-item i {
+  vertical-align: middle;
+}
+
+/* line 103, ../../../sass/dhy/module/pointsDetails.scss */
+.m-orderPayCode {
+  background: #fff;
+  padding-top: 4rem;
+}
+
+/* line 108, ../../../sass/dhy/module/pointsDetails.scss */
+.m-times-show {
+  text-align: center;
+  font-size: 0.32rem;
+}

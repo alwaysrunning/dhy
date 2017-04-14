@@ -1,0 +1,50 @@
+<div class="bg light-dark">
+    <div class="my-car">
+        <div class="title">
+            <span class="iconfont-park icon-chaxuntingchefei"></span>
+            <h4 class="title-text">查询停车费</h4>
+        </div>
+        <div class="car-search">
+            <div class="car-input flex-box">
+                <div class="licence-code btn-link flex-box-item" id="licenceCodeBtn">
+                    <span class="lecence-text"></span>
+                    <span class="iconfont-park icon-xiajiantou"></span>
+                </div>
+                <div class="licence-num flex-box-item">
+                    <input class="licence-num-input" type="text" placeholder="车牌后5位" id="licenceCodeInput"
+                           pattern="[0-9]|[a-z]|[A-Z]*"/>
+                </div>
+                <div class="licence-search btn disabled" id="licenceCodeSubmit">
+                    <span class="iconfont-park icon-sousuo"></span>
+                </div>
+            </div>
+            <div class="dailog-select">
+                <div class="slide-box"></div>
+                <span class="dailog-arrow"></span>
+            </div>
+        </div>
+
+        <div id="history-box" class="list-border">
+            <% data.forEach(function(item){ %>
+            <div class="list-item history" data-no="<%=item.carNo%>">
+                <%= item.carNo %>
+            </div>
+            <% }) %>
+            <% if (data.length === 0){ %>
+            <div class="list-item">
+                暂无绑定车牌
+            </div>
+            <% }else{ %>
+            <!--<div class="list-item clear-history">-->
+                <!--清除历史车牌-->
+            <!--</div>-->
+            <%}%>
+        </div>
+        <div class="manage-btn">
+            <a href="/park/manage/<%=shopId%>" class="btn white block">管理我的车牌</a>
+        </div>
+        <div class="manage-btn-tips">
+           <p><i class="iconfont-park icon-tishi"></i>小技巧：管理历史车牌，绑定您的爱车车牌，快捷查询</p>
+        </div>
+    </div>
+</div>

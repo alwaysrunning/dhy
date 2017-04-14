@@ -1,0 +1,709 @@
+@charset "UTF-8";
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:27
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 12, ../../sass/component/list.scss */
+.u-list {
+  background: #fff;
+}
+/* line 14, ../../sass/component/list.scss */
+.u-list li a {
+  color: #333;
+  font-size: 0.37333rem;
+  display: block;
+  border-bottom: 1px solid #f2f2f2;
+  zoom: 1;
+  padding-right: 0.26667rem;
+}
+/* line 99, ../../sass/common/_mixin.scss */
+.u-list li a::before, .u-list li a::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 104, ../../sass/common/_mixin.scss */
+.u-list li a::after {
+  clear: both;
+}
+/* line 22, ../../sass/component/list.scss */
+.u-list li {
+  padding-left: 0.26667rem;
+  position: relative;
+  border-top: none;
+  zoom: 1;
+  height: 1.17333rem;
+  line-height: 1.17333rem;
+}
+/* line 99, ../../sass/common/_mixin.scss */
+.u-list li::before, .u-list li::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 104, ../../sass/common/_mixin.scss */
+.u-list li::after {
+  clear: both;
+}
+/* line 29, ../../sass/component/list.scss */
+.u-list li .fl-rg, .u-list li .g-fl-rg {
+  height: 1.17333rem;
+  line-height: 1.17333rem;
+}
+/* line 34, ../../sass/component/list.scss */
+.u-list li.u-active {
+  background: #efefef;
+}
+/* line 37, ../../sass/component/list.scss */
+.u-list li:last-child a {
+  border-bottom: none;
+}
+/* line 40, ../../sass/component/list.scss */
+.u-list .u-member-img-ico {
+  display: inline;
+  vertical-align: top;
+}
+/* line 43, ../../sass/component/list.scss */
+.u-list .u-member-img-ico img {
+  width: 0.93333rem;
+  height: 0.93333rem;
+  margin-top: 0.13333rem;
+}
+/* line 49, ../../sass/component/list.scss */
+.u-list .u-border-margin {
+  border-top: 0.26667rem solid #f5f5f5;
+  min-height: 1.33333rem;
+}
+/* line 54, ../../sass/component/list.scss */
+.u-list li.u-active-on {
+  background: #fffbf9;
+}
+/* line 57, ../../sass/component/list.scss */
+.u-list li .iconfont {
+  font-size: 0.64rem;
+  vertical-align: bottom;
+}
+
+/* line 63, ../../sass/component/list.scss */
+.u-normal-mod {
+  background: #fff;
+}
+/* line 65, ../../sass/component/list.scss */
+.u-normal-mod .u-title {
+  padding: 0 0.26667rem;
+  border-bottom: 1px solid #f2f2f2;
+}
+/* line 68, ../../sass/component/list.scss */
+.u-normal-mod .u-title a {
+  display: block;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  color: #333;
+  font-size: 0.37333rem;
+}
+/* line 76, ../../sass/component/list.scss */
+.u-normal-mod .u-title.u-active {
+  background: #efefef;
+}
+/* line 79, ../../sass/component/list.scss */
+.u-normal-mod .u-cont {
+  padding: 0.4rem 0 0.26667rem;
+}
+/* line 82, ../../sass/component/list.scss */
+.u-normal-mod .u-orderIco-list {
+  display: -webkit-box;
+  /* Safari and Chrome */
+  display: -moz-box;
+  /* Firefox */
+  display: box;
+  width: 100%;
+  margin: 0 auto;
+}
+/* line 88, ../../sass/component/list.scss */
+.u-normal-mod .u-orderIco-list li {
+  -webkit-box-flex: 1.0;
+  /* Safari and Chrome */
+  -moz-box-flex: 1.0;
+  /* Firefox */
+  box-flex: 1.0;
+  text-align: center;
+}
+/* line 93, ../../sass/component/list.scss */
+.u-normal-mod .u-orderIco-list li .iconfont {
+  font-size: 0.96rem;
+}
+/* line 96, ../../sass/component/list.scss */
+.u-normal-mod .u-orderIco-list li h6 {
+  color: #ff8444;
+}
+/* line 97, ../../sass/component/list.scss */
+.u-normal-mod .u-orderIco-list li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #333;
+}
+/* line 103, ../../sass/component/list.scss */
+.u-normal-mod .u-orderIco-list li a:active, .u-normal-mod .u-orderIco-list li a.u-active {
+  background: #efefef;
+}
+
+/* line 112, ../../sass/component/list.scss */
+.u-normal-list li {
+  padding: 0.4rem 0.26667rem;
+  font-size: 0.37333rem;
+  border-bottom: 1px solid #f2f2f2;
+  zoom: 1;
+}
+/* line 99, ../../sass/common/_mixin.scss */
+.u-normal-list li::before, .u-normal-list li::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 104, ../../sass/common/_mixin.scss */
+.u-normal-list li::after {
+  clear: both;
+}
+
+/* line 121, ../../sass/component/list.scss */
+.u-points-list li {
+  padding-left: 0.26667rem;
+  font-size: 0.37333rem;
+  zoom: 1;
+}
+/* line 99, ../../sass/common/_mixin.scss */
+.u-points-list li::before, .u-points-list li::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 104, ../../sass/common/_mixin.scss */
+.u-points-list li::after {
+  clear: both;
+}
+
+/* line 129, ../../sass/component/list.scss */
+.u-refresh-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  overflow: hidden;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+}
+
+/* line 140, ../../sass/component/list.scss */
+.u-refresh {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  text-size-adjust: none;
+}
+/* line 182, ../../sass/component/list.scss */
+.u-refresh .u-refresh-up, .u-refresh .u-refresh-down {
+  padding: 0.4rem 0;
+  text-align: center;
+  background: #fff;
+}
+
+/* line 193, ../../sass/component/list.scss */
+.u-tabs-wrap .u-tabs-hide {
+  display: none;
+}
+
+/* line 199, ../../sass/component/list.scss */
+.u-drop-down {
+  width: 1.33333rem;
+  height: 0.6rem;
+  margin: 0 auto;
+  text-align: center;
+}
+/* line 206, ../../sass/component/list.scss */
+.u-drop-down a {
+  color: #333;
+}
+/* line 207, ../../sass/component/list.scss */
+.u-drop-down .u-drop-text {
+  height: 0.6rem;
+  line-height: 0.6rem;
+  zoom: 1;
+}
+/* line 99, ../../sass/common/_mixin.scss */
+.u-drop-down .u-drop-text::before, .u-drop-down .u-drop-text::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 104, ../../sass/common/_mixin.scss */
+.u-drop-down .u-drop-text::after {
+  clear: both;
+}
+/* line 211, ../../sass/component/list.scss */
+.u-drop-down .u-drop-text span {
+  display: inline-block;
+  height: 0.6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 0.06667rem;
+  float: left;
+  text-align: right;
+}
+/* line 219, ../../sass/component/list.scss */
+.u-drop-down .u-drop-text .iconfont {
+  float: left;
+  display: inline-block;
+  width: 0.33333rem;
+  font-size: 0.24rem;
+  text-align: left;
+}
+/* line 227, ../../sass/component/list.scss */
+.u-drop-down .u-drop-down-show {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  z-index: 2211;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+/* line 238, ../../sass/component/list.scss */
+.u-drop-down .u-drop-list {
+  background: #fff;
+}
+/* line 240, ../../sass/component/list.scss */
+.u-drop-down .u-drop-list dd {
+  line-height: 0.58667rem;
+  border-top: 1px solid #f2f2f2;
+  text-align: left;
+  padding: 0.26667rem;
+}
+/* line 246, ../../sass/component/list.scss */
+.u-drop-down .u-drop-list dd:not(.disabled):not(:disabled):active, .u-drop-down .u-drop-list dd.active, .u-drop-down .u-drop-list dd.u-active, .u-drop-down .u-drop-list dd:hover, .u-drop-down .u-drop-list dd:focus {
+  background: #fff3ed;
+}
+
+/* line 252, ../../sass/component/list.scss */
+.u-city-tabs-mod {
+  background: #fff;
+  text-align: left;
+}
+/* line 255, ../../sass/component/list.scss */
+.u-city-tabs-mod .uctm-hd {
+  border-bottom: 1px solid #f2f2f2;
+  border-top: 1px solid #f2f2f2;
+  padding: 0.26667rem 0.13333rem;
+}
+/* line 260, ../../sass/component/list.scss */
+.u-city-tabs-mod .uctm-bd {
+  zoom: 1;
+}
+/* line 99, ../../sass/common/_mixin.scss */
+.u-city-tabs-mod .uctm-bd::before, .u-city-tabs-mod .uctm-bd::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 104, ../../sass/common/_mixin.scss */
+.u-city-tabs-mod .uctm-bd::after {
+  clear: both;
+}
+/* line 262, ../../sass/component/list.scss */
+.u-city-tabs-mod .uctm-bd .uctm-lf {
+  float: left;
+  border-right: 1px solid #f2f2f2;
+}
+/* line 265, ../../sass/component/list.scss */
+.u-city-tabs-mod .uctm-bd .uctm-lf ul li {
+  line-height: 0.58667rem;
+  padding: 0.26667rem 0.13333rem;
+  border-bottom: 1px solid #f2f2f2;
+}
+/* line 270, ../../sass/component/list.scss */
+.u-city-tabs-mod .uctm-bd .uctm-lf ul li.u-active {
+  background: #f2f2f2;
+}
+/* line 274, ../../sass/component/list.scss */
+.u-city-tabs-mod .uctm-bd .uctm-rg {
+  float: left;
+  padding: 0 0.26667rem;
+}
+/* line 277, ../../sass/component/list.scss */
+.u-city-tabs-mod .uctm-bd .uctm-rg dl dd {
+  width: 100%;
+  padding: 0.26667rem 0.13333rem;
+}
+/* line 281, ../../sass/component/list.scss */
+.u-city-tabs-mod .uctm-bd .uctm-rg dl dd.u-active {
+  color: #999;
+}
+
+/* line 288, ../../sass/component/list.scss */
+.u-slider-mod {
+  height: 4.13333rem;
+  overflow: hidden;
+  position: relative;
+}
+/* line 292, ../../sass/component/list.scss */
+.u-slider-mod .usm-ft {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+/* line 299, ../../sass/component/list.scss */
+.u-slider-mod .u-slider-list li {
+  text-align: center;
+  height: 4.13333rem;
+}
+/* line 303, ../../sass/component/list.scss */
+.u-slider-mod .u-slider-list li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* line 308, ../../sass/component/list.scss */
+.u-slider-mod .u-slider-list li img {
+  max-width: 100%;
+}
+/* line 312, ../../sass/component/list.scss */
+.u-slider-mod .u-slider-dot {
+  zoom: 1;
+  text-align: center;
+}
+/* line 99, ../../sass/common/_mixin.scss */
+.u-slider-mod .u-slider-dot::before, .u-slider-mod .u-slider-dot::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 104, ../../sass/common/_mixin.scss */
+.u-slider-mod .u-slider-dot::after {
+  clear: both;
+}
+/* line 315, ../../sass/component/list.scss */
+.u-slider-mod .u-slider-dot dd {
+  width: 0.21333rem;
+  height: 0.21333rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  margin: 0 0.02667rem;
+  display: inline-block;
+  cursor: pointer;
+}
+/* line 324, ../../sass/component/list.scss */
+.u-slider-mod .u-slider-dot dd.u-active {
+  background: white;
+}
+
+/* line 330, ../../sass/component/list.scss */
+.u-slide {
+  position: relative;
+  max-width: 17.06667rem;
+  overflow: hidden;
+  margin: 0 auto 0.53333rem auto;
+  /* 解决js阻塞页面显示首屏 */
+}
+/* line 335, ../../sass/component/list.scss */
+.u-slide ul {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 342, ../../sass/component/list.scss */
+.u-slide li {
+  list-style: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 351, ../../sass/component/list.scss */
+.u-slide li:first-child {
+  z-index: 1;
+}
+/* line 354, ../../sass/component/list.scss */
+.u-slide li img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+/* line 362, ../../sass/component/list.scss */
+.u-slide .dot {
+  position: absolute;
+  right: 0.26667rem;
+  bottom: 0.26667rem;
+  z-index: 5;
+  font-size: 0;
+}
+/* line 369, ../../sass/component/list.scss */
+.u-slide .dot span {
+  display: inline-block;
+  width: 0.13333rem;
+  height: 0.13333rem;
+  margin-left: 0.13333rem;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+/* line 377, ../../sass/component/list.scss */
+.u-slide .dot .cur {
+  background-color: #fff;
+}
+
+/* line 381, ../../sass/component/list.scss */
+.u-slide:after {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-top: 50%;
+}
+
+/* line 389, ../../sass/component/list.scss */
+.u-product-img-list {
+  background: #fff;
+  position: relative;
+  left: -1px;
+  height: 100%;
+}
+/* line 394, ../../sass/component/list.scss */
+.u-product-img-list ul {
+  width: 10rem;
+  margin: 0 auto;
+  zoom: 1;
+  overflow: hidden;
+  position: relative;
+  left: 1px;
+  padding-bottom: 0.8rem;
+}
+/* line 99, ../../sass/common/_mixin.scss */
+.u-product-img-list ul::before, .u-product-img-list ul::after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+/* line 104, ../../sass/common/_mixin.scss */
+.u-product-img-list ul::after {
+  clear: both;
+}
+/* line 403, ../../sass/component/list.scss */
+.u-product-img-list ul li {
+  width: 50%;
+  float: left;
+  background: #fff;
+  border-bottom: 1px solid #f2f2f2;
+}
+/* line 409, ../../sass/component/list.scss */
+.u-product-img-list ul li a {
+  display: block;
+  width: 100%;
+  border-left: 1px solid #f2f2f2;
+}
+/* line 415, ../../sass/component/list.scss */
+.u-product-img-list ul li img {
+  width: 100%;
+  -webkit-animation-name: u-fade;
+  animation-name: u-fade;
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+/* line 420, ../../sass/component/list.scss */
+.u-product-img-list ul li .upil-price {
+  padding: 0 0.26667rem 0.13333rem 0.26667rem;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: -webkit-box;
+  /* Safari and Chrome */
+  display: -moz-box;
+  /* Firefox */
+  display: box;
+}
+/* line 426, ../../sass/component/list.scss */
+.u-product-img-list ul li .upil-price .upil-pitem {
+  -moz-box-flex: 1;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  overflow: hidden;
+  text-align: left;
+  font-size: 0.21333rem;
+}
+/* line 435, ../../sass/component/list.scss */
+.u-product-img-list ul li .upil-price b {
+  margin: 0 0.06667rem;
+  font-size: 0.37333rem;
+  font-weight: bold;
+  vertical-align: middle;
+}
+/* line 441, ../../sass/component/list.scss */
+.u-product-img-list ul li .upil-price del {
+  margin: 0 0.06667rem;
+  color: #b3b3b3;
+}
+/* line 446, ../../sass/component/list.scss */
+.u-product-img-list ul li .upil-title {
+  padding: 0.26667rem 0.26667rem 0rem 0.26667rem;
+  height: 0.8rem;
+  font-size: 0.32rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333;
+  text-align: left;
+}
+/* line 454, ../../sass/component/list.scss */
+.u-product-img-list ul li .upil-img {
+  padding: 0.26667rem 0.26667rem 0.26667rem 0.26667rem;
+  height: 4.53333rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* line 463, ../../sass/component/list.scss */
+.u-message-list {
+  background: #fff;
+}
+/* line 465, ../../sass/component/list.scss */
+.u-message-list li {
+  padding: 0 0.26667rem;
+}
+/* line 467, ../../sass/component/list.scss */
+.u-message-list li a {
+  color: #333;
+  border-bottom: 1px solid #f2f2f2;
+  display: inline-block;
+  padding: 0.26667rem 0;
+}
+/* line 473, ../../sass/component/list.scss */
+.u-message-list li .uml-lf {
+  width: 1.33333rem;
+  position: relative;
+}
+/* line 476, ../../sass/component/list.scss */
+.u-message-list li .uml-lf .iconfont {
+  width: 0.96rem;
+  height: 0.96rem;
+  line-height: 0.96rem;
+  border-radius: 4px;
+  display: inline-block;
+  background: #3edab0;
+  text-align: center;
+  color: #fff;
+  font-size: 0.64rem;
+}
+/* line 487, ../../sass/component/list.scss */
+.u-message-list li .uml-lf i {
+  position: absolute;
+  right: 0.21333rem;
+  top: -0.21333rem;
+  width: 0.42667rem;
+  height: 0.42667rem;
+  line-height: 0.42667rem;
+  border-radius: 40px;
+  background: #ff6414;
+  color: #fff;
+  text-align: center;
+}
+/* line 500, ../../sass/component/list.scss */
+.u-message-list li .uml-rg {
+  width: 8.13333rem;
+  height: 1.2rem;
+  overflow: hidden;
+  position: relative;
+}
+/* line 505, ../../sass/component/list.scss */
+.u-message-list li .uml-rg .uml-time {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #999;
+}
+/* line 511, ../../sass/component/list.scss */
+.u-message-list li .uml-rg h4 {
+  font-size: 0.37333rem;
+}
+/* line 514, ../../sass/component/list.scss */
+.u-message-list li .uml-rg p {
+  font-size: 0.32rem;
+  height: 0.45333rem;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* line 523, ../../sass/component/list.scss */
+.u-message-list li:nth-child(2) .uml-lf .iconfont {
+  background: #ff9c54;
+}
+/* line 528, ../../sass/component/list.scss */
+.u-message-list li:nth-child(3) .uml-lf .iconfont {
+  background: #b77bd6;
+}
+/* line 533, ../../sass/component/list.scss */
+.u-message-list li:nth-child(4) .uml-lf .iconfont {
+  background: #6a95e5;
+}
+/* line 538, ../../sass/component/list.scss */
+.u-message-list li:last-child a {
+  border-bottom: none;
+}
+
+/* line 545, ../../sass/component/list.scss */
+.u-messageDetails-list dt {
+  background: #f5f5f5;
+  text-align: center;
+  font-size: 0.32rem;
+  padding: 0.26667rem;
+  color: #999;
+}
+/* line 553, ../../sass/component/list.scss */
+.u-messageDetails-list dd {
+  background: #fff;
+  margin-bottom: 0.26667rem;
+}

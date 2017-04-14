@@ -1,0 +1,142 @@
+<%- include("_header") %>
+<!-- page 容器 -->
+<div class="page" id="storeDetails">
+    <!-- 这里是页面内容区 -->
+    <div class="content infinite-scroll" data-distance="100">
+        <div class="m-storeList-mod m-storeDetails-mod">
+
+            <div class="swiper-container" data-space-between='10' data-pagination='.swiper-pagination'
+                 data-autoplay="1000">
+                <div class="swiper-wrapper">
+                    <% detail["images"].forEach(function(item){ %>
+                    <div class="swiper-slide">
+                        <img src="<%= item %>" alt="">
+                    </div>
+                   <% }) %>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="msm-tabs-mod">
+                <div class="buttons-tab">
+                    <a href="#tab1" class="tab-link button active">门店简介</a>
+                    <a href="#tab2" class="tab-link button">精彩活动</a>
+                </div>
+            </div>
+
+            <div class="tabs msm-storeDetails-block">
+                <div id="tab1" class="tab active">
+                     <div class="m-store-brief">
+                         <div class="msb-tit">
+                            <div class="msb-icon-txt">
+                                <i class="icon iconfont">&#xe613;</i>
+                                <span><%= detail["name"] %></span>
+                            </div>
+                             <div class="msl-icon">
+                                 <a id="getStoreMap" class="icon iconfont"
+                                    data-address="<%= detail["address"] %>"
+                                    data-name="<%= detail["name"] %>"
+                                    data-longitude="<%= detail["longitudeValue"]%>"
+                                    data-latitude="<%= detail["latitudeValue"] %>">&#xe659;</a>
+                                 <a class="icon iconfont external" href="tel:<%= detail["contact"] %>">&#xe625;</a>
+                             </div>
+                         </div>
+                         <div class="msb-cont">
+                             <p>客服电话：<%= detail["contact"] %></p>
+                             <p>地址：<%= detail["address"] %></p>
+                             <p>营业时间：<%= detail["officeTime"] %></p>
+                             <p>店铺信息：<%- detail["details"] %></p>
+                         </div>
+                     </div>
+                </div>
+                <div id="tab2" class="tab">
+                    <% if(activity.length<=0){%>
+                    <div class="g-empty-data">
+                        <div class="m-empty-data">
+                            <div class="u-sprite comming"></div>
+                            <p class="msg">暂时还没上新，敬请期待哦！</p>
+                        </div>
+                    </div>
+                    <% }else{ %>
+                    <ul class="store-details-list">
+                        <% activity.forEach(function(item){ %>
+                        <li>
+                            <div class="sdl-hd">
+                                <i class="icon iconfont">&#xe61a;</i>
+                                <span><%= item["activityname"] %></span>
+                            </div>
+                            <div class="sdl-bd">
+                                <p><%= item["introduction"] %></p>
+                            </div>
+                            <div class="sdl-ft">
+
+                                <% if(item.linkType == 3 || item.linkType == 5){ %>
+
+                                <%# 3积分商品 优惠券 详情/列表 %>
+                                <% if(item.linkContent.length > 0 && item.islist == 0){ %>
+                                <a class="external" href="#/pointsExchangeDetails?id=<%= item.linkContent %>" >
+                                    查看更多<i class="icon iconfont">&#xe604;</i>
+                                </a>
+                                <% }else if(item.linkContent.length > 1 && item.islist == 1) { %>
+                                <a class="external" href="#/pointsExchangeList?idArr=<%= item.linkContent %>">
+                                    查看更多<i class="icon iconfont">&#xe604;</i>
+                                </a>
+                                <% }else{ %>
+                                <a class="external"  title="<%= item.activityname %>">
+                                    查看更多<i class="icon iconfont">&#xe604;</i>
+                                </a>
+                                <% } %>
+
+                                <% }else if(item.linkType == 4){ %>
+
+                                <%# 4云猴小店商品 详情/列表 TODO %>
+                                <a class="external"  title="<%= item.activityname %>">
+                                    查看更多<i class="icon iconfont">&#xe604;</i>
+                                </a>
+
+                                <% }else if(item.linkType == 6){ %>
+
+                                <%# 6 URL H5 %>
+                                <a class="external"
+                                        <% if(item.linkContent.length > 0 ){ %>
+                                        href="<%= item.linkContent %>"
+                                        <% } %>
+                                       >
+                                    查看更多<i class="icon iconfont">&#xe604;</i>
+                                </a>
+
+                                <% }else if(item.linkType == 12){ %>
+
+                                <%# 12 云猴小店 TODO %>
+                                <a class="external" title="<%= item.activityname %>">
+                                    查看更多<i class="icon iconfont">&#xe604;</i>
+                                </a>
+
+                                <% }else if(item.linkType == 9){ %>
+
+                                <%# 9不跳转 %>
+                                <a class="external" title="<%= item.activityname %>">
+                                    查看更多<i class="icon iconfont">&#xe604;</i>
+                                </a>
+
+                                <% } %>
+                            </div>
+                        </li>
+                        <% }) %>
+                    </ul>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+        <!-- 加载提示符 -->
+        <div class="infinite-scroll-preloader">
+            <div class="preloader"></div>
+            <div class="preloader-over-tips"></div>
+        </div>
+    </div>
+</div>
+<!-- popup, panel 等放在这里 -->
+<div class="panel-overlay"></div>
+<%- include("_footer") %>
+
