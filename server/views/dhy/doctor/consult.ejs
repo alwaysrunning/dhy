@@ -1,0 +1,236 @@
+<%- include("_docHeader") %>
+<body>
+<div class="consult-pages">
+    <div class="consult-top">
+        <img src="/public/doctor/img/consult_top_2.jpg">
+    </div>
+    <div class="weui-tab consult-tab">
+        <div class="weui-navbar">
+            <a class="weui-navbar__item <% if(!status){ %>weui-bar__item--on <% } %> " href="/dhySafe/doctorConsult?channel=<%= channel %>">
+                全部
+            </a>
+            <a class="weui-navbar__item <% if(status=="未回复"){ %>weui-bar__item--on <% } %>" href="/dhySafe/doctorConsult?channel=<%= channel %>&status=未回复">
+                未回复
+            </a>
+            <a class="weui-navbar__item <% if(status=="已回复"){ %>weui-bar__item--on <% } %> " href="/dhySafe/doctorConsult?channel=<%= channel %>&status=已回复">
+                已回复
+            </a>
+            <a class="weui-navbar__item <% if(status=="已关闭"){ %>weui-bar__item--on <% } %> " href="/dhySafe/doctorConsult?channel=<%= channel %>&status=已关闭">
+                已关闭
+            </a>
+        </div>
+        <div class="weui-tab__bd">
+            <div class="weui-tab__bd-item weui-tab__bd-item--active">
+
+                <div id="list">
+                    <% if(data.data.length>0){ %>
+                    <% data.data.forEach(function(item){ %>
+                    <div class="consult-box" data-qid="<%= item["question_id"] %>">
+                        <% if(item["status"]=="未回复"){ %>
+
+                        <a href="/dhySafe/doctorReply?channel=<%= channel %>&id=<%= item["question_id"] %>&questStatus=<%= item["status"] %>">
+                            <div class="consult-box-hd">
+                                <div class="time">
+                                    <span><%= item["createTime"] %></span>
+                                    <span class="status">医生<%= item["status"] %></span>
+                                </div>
+                            </div>
+                            <div class="consult-box-bd">
+                                <div class="content"><%= item["contentText"] %></div>
+                            </div>
+                        </a>
+
+                        <% }else { %>
+
+                        <%
+                            var questStatus= item["status"];
+                            if(item["status"]=="已关闭" && !item["describeEvaluate"]){
+                                questStatus="待评价"
+                            }else if(item["status"]=="已关闭" && item["describeEvaluate"]){
+                                questStatus="已评价"
+                            }
+                        %>
+                            <div class="consult-box-hd">
+                                <div class="time">
+                                    <a href="/dhySafe/doctorReply?channel=<%= channel %>&id=<%= item["question_id"] %>&questStatus=<%= questStatus %>&evaluation=<%= item["evaluation"] %>"  data-type="<%= item["Type"] %>">
+                                        <span><%= item["createTime"] %></span>
+                                        <span class="status"><% if(item["status"]!=="已关闭"){ %>医生<% } %><%= item["status"] %></span>
+                                    </a>
+                                </div>
+                                <% if(item["status"]=="已关闭" && !item["describeEvaluate"]){ %>
+                                <a  href="/dhySafe/doctorAssess?channel=<%= channel %>&id=<%= item["question_id"] %>" class="assessment" >待评价</a>
+                                <% }else if(item["status"]=="已关闭" && item["describeEvaluate"]){ %>
+                                <div class="assessment">
+                                    <% for(var i=0;i<item["describeEvaluate"];i++){ %>
+                                    <i class="iconfont icon-star active"></i>
+                                    <%}%>
+                                    <% for(var j=0;j<5-item["describeEvaluate"];j++){ %>
+                                    <i class="iconfont icon-star"></i>
+                                    <%}%>
+                                </div>
+                                <% } %>
+                            </div>
+                            <div class="consult-box-bd">
+                                <a href="/dhySafe/doctorReply?channel=<%= channel %>&id=<%= item["question_id"] %>&questStatus=<%= questStatus %>&evaluation=<%= item["evaluation"] %>"  data-type="<%= item["Type"] %>">
+
+                                 <div class="content"><%= item["contentText"] %></div>
+
+                                </a>
+                            </div>
+                            <% if(item["name"]){ %>
+
+                            <a href="/dhySafe/doctorReply?channel=<%= channel %>&id=<%= item["question_id"] %>&questStatus=<%= questStatus %>&evaluation=<%= item["evaluation"] %>" class="consult-box-ft" data-type="<%= item["Type"] %>">
+
+                                    <div class="doctor">
+
+                                        <% if(item["image"]){ %>
+                                        <span class="photo"><img src="<%= item["image"] %>"></span>
+                                        <% } %>
+                                        <span class="name"><%= item["name"] %></span>
+                                        <span class="departments"><%= item["clinic"] %></span>
+
+
+                                    </div>
+
+
+                                    <span>
+                                        <% if(item["Type"]=="text"){ %>
+                                        图文咨询
+                                        <%  }else if(item["Type"]=="audio"){ %>
+                                        语音咨询
+                                        <%  }else { %>
+                                        图文咨询
+                                        <% } %>
+                                    </span>
+
+                            </a>
+                            <% } %>
+                        <% } %>
+                    </div>
+                    <% }) %>
+                    <% }else { %>
+                    <div class="no-ask">
+                        <div class="pic"></div>
+                        <div class="text">
+                            <h2>暂无提问记录</h2>
+                            <p>提问记录将显示在这里</p>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+
+            </div>
+            <div class="weui-loadmore" id="weLoadMore">
+                <i class="weui-loading"></i>
+                <span class="weui-loadmore__tips">正在加载</span>
+            </div>
+            <div class="ask-btn">
+                <a href="/dhySafe/doctorAsk?channel=<%= channel %>">我要提问</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+   $(function () {
+       var channel="<%= channel %>";
+       $.extend($.ajaxSettings, {
+           beforeSend: function () {
+               $.showLoading();
+           },
+           complete: function () {
+               $.hideLoading();
+           }
+       });
+
+       var loading = false;  //状态标记
+       var List =$("#list");
+       var Status ="<%= status %>";
+       var Page=0;
+       var weLoadMore= $("#weLoadMore");
+
+       weLoadMore.hide();
+
+       $(document.body).infinite(20).on("infinite", function() {
+           if(loading) return;
+           loading = true;
+           ++Page;
+           console.log("===page==",Page);
+           if(Page == 1){
+               loading = false;
+               return
+           }
+           weLoadMore.show();
+           $.ajax({
+               type: "POST",
+               url:"/dhySafe/doctorConsultList?_csrf=<%= csrfToken %>",
+               data:{
+                   page:Page,
+                   status:Status
+               },
+               success:function (data) {
+                   var resData=data.data;
+                   if(resData.length>0){
+                       resData.forEach(function (item) {
+                           var _html="";
+                           var _assessmentHtml="";
+                           var _typeTxt= item["Type"]=="audio"?"语音咨询":"图文咨询";
+                           var _image=item["image"]?"<span class='photo'><img src='"+item["image"]+"'></span>":"";
+                           var _doctor=item["status"]=="已关闭"?"":"医生";
+
+                           if(item["describeEvaluate"]){
+                               _assessmentHtml+="<div class='assessment'>"
+                               for(var i=0;i<item["describeEvaluate"];i++){
+                                   _assessmentHtml+="<i class='iconfont icon-star active'></i>";
+                               }
+                               for(var j=0;j<5-item["describeEvaluate"];j++){
+                                   _assessmentHtml+="<i class='iconfont icon-star'></i>";
+                               }
+                               _assessmentHtml+="</div>"
+                           }else{
+                               _assessmentHtml="<a href='/dhySafe/doctorAssess?channel="+channel+"&id='"+item["question_id"]+"'>待评价</a>";
+                           }
+
+                           if(item["status"]=="未回复"){
+                               _html="<div class='consult-box'><a href='/dhySafe/doctorReply?channel="+channel+"&id="+item["question_id"] +"&questStatus="+item["status"]+"'>"
+                                       +"<div class='consult-box-hd'><div class='time'><span>"+item['createTime']+"</span><span class='status'>医生"+item["status"]+"</span></div></div>"
+                                       +"<div class='consult-box-bd'><div class='content'>"+item['contentText']+"</div></div>"
+                                       +"</a></div>";
+                           }else{
+                               _html="<div class='consult-box'>"
+                                       +"<div class='consult-box-hd'><div class='time'><a href='/dhySafe/doctorReply?channel="+channel+"&id="+item["question_id"] +"&questStatus="+item["status"]+"'><span>"+item['createTime']+"</span></a><span class='status'>"+_doctor+item["status"]+"</span></div>"+_assessmentHtml+"</div>"
+                                       +"<div class='consult-box-bd'><a href='/dhySafe/doctorReply?channel="+channel+"&id="+item["question_id"] +"&questStatus="+item["status"]+"'><div class='content'>"+item['contentText']+"</div></a></div>"
+                                       +"<a href='/dhySafe/doctorReply?channel="+channel+"&id="+item['question_id'] + "&questStatus="+item['status']+"' class='consult-box-ft'>" +
+                                       "<div class='doctor'>" + _image +
+                                       "<span class='name'>"+item["name"]+"</span>" +
+                                       "<span class='departments'>"+item["clinic"]+"</span>" +
+                                       "</div>" +
+                                       "<span>"+_typeTxt+"</span>"
+                               "</a>"+
+                               "</div>";
+                           }
+
+                           List.append(_html);
+                       })
+                       loading = false;
+                   }else{
+
+                       setTimeout(function () {
+                           $.toast("没有更多内容了", "text");
+                       },500)
+
+                       weLoadMore.hide();
+                       loading = true;
+                       $(document.body).destroyInfinite();
+                   }
+               },
+               error:function (xhr) {
+                   $.toast(xhr.responseJSON.message,"text");
+               }
+           })
+       });
+   })
+</script>
+</body>
+</html>

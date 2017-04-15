@@ -15,20 +15,15 @@ var url = require('url');
 var handleAuth = function (req, res, next) {
     var unionid = req.cookies['unionid'];
     var openid = req.cookies['openid'];
-    var tokenid = req.cookies['tokenid']||'';
-
     if (openid && unionid && openid !== 'undefined' && unionid !== 'undefined') {
         next();
     } else {
-        if(tokenid && tokenid !== undefined && /superapp/ig.test(tokenid)){
-            next();
-        } else{
-            var localUrl = 'http://' + api.config().api.useHost + url.parse(req.originalUrl).pathname;
-            var openUrl = api.weixin.getOpenUrl('/weixin', {
-                url: encodeURIComponent(localUrl)
-            });
-            res.redirect(openUrl);
-        } 
+        //unionid or openid miss
+        var localUrl = 'http://' + api.config().api.useHost + url.parse(req.originalUrl).pathname;
+        var openUrl = api.weixin.getOpenUrl('/weixin', {
+            url: encodeURIComponent(localUrl)
+        });
+        res.redirect(openUrl);
     }
 };
 
@@ -38,16 +33,32 @@ var handleAuth = function (req, res, next) {
 var handleLogin = function (req, res, next) {
     var unionid = req.cookies['unionid'];
     var openid = req.cookies['openid'];
-    var tokenid = req.cookies['tokenid']||'';
+    var channel = req.query["channel"]||req.cookies["channel"]||"012838";
 
-    api.user.mobile(unionid, tokenid).then(function () {
+    var currPathName=req._parsedOriginalUrl.path;
+    var localUrl = req.protocol+"://"+req.headers.host+ currPathName;
+
+    api.user.mobile(unionid).then(function () {
         next();
     }).fail(function () {
         //not login
-        var localUrl = 'http://' + api.config().api.useHost + url.parse(req.originalUrl).pathname;
-        var loginUrl = 'http://' + api.config().api.useHost + '/#/login?fromUrl=' + encodeURIComponent(localUrl);
+        var loginUrl="";
+        if(channel){
+            loginUrl = req.protocol+"://"+ req.headers.host + "/#/login?channel="+channel+"&fromUrl=" + encodeURIComponent(localUrl);
+        }else{
+            loginUrl = req.protocol+"://"+ req.headers.host + "/#/login?fromUrl=" + encodeURIComponent(localUrl);
+        }
         res.redirect(loginUrl);
     });
+
+    // api.user.mobile(unionid).then(function () {
+    //     next();
+    // }).fail(function () {
+    //     //not login
+    //     var localUrl = 'http://' + api.config().api.useHost + url.parse(req.originalUrl).pathname;
+    //     var loginUrl = 'http://' + api.config().api.useHost + '/#/login?channel='+channel+'&fromUrl=' + encodeURIComponent(localUrl);
+    //     res.redirect(loginUrl);
+    // });
 };
 
 /**
@@ -65,16 +76,16 @@ router.get('/nav/:shopId', handleAuth, function (req, res, next) {
 /**
  * 查询车费页
  */
-router.get('/car', function (req, res, next) {
+router.get('/car',handleAuth,handleLogin,function (req, res, next) {
     res.render('park/myCar', {
         title: '查询停车费'
     });
 });
 
 /**
- * 查车位置页
+ * 查车位置页 查车牌找车
  */
-router.get('/location/:shopId', handleAuth, function (req, res, next) {
+router.get('/location/:shopId', handleAuth,handleLogin, function (req, res, next) {
     var unionid = req.cookies['unionid'];
     var openid = req.cookies['openid'];
     var shopId = req.params['shopId'];
@@ -84,7 +95,7 @@ router.get('/location/:shopId', handleAuth, function (req, res, next) {
         api.etc.positionList(shopId, unionid, openid)
     ]).spread(function (cars, parks) {
         res.render('park/location', {
-            title: '查询车位',
+            title: '查车牌找车',
             data: cars.state === 'fulfilled' ? cars.value.data : [],
             positionRecords: parks.state === 'fulfilled' ? parks.value.data : [],
             shopId: shopId
@@ -95,22 +106,26 @@ router.get('/location/:shopId', handleAuth, function (req, res, next) {
 /**
  * 记车位置页
  */
-router.get('/memory/:shopId', handleAuth, function (req, res, next) {
+router.get('/memory/:shopId', handleAuth,handleLogin, function (req, res, next) {
     var unionid = req.cookies['unionid'];
     var openid = req.cookies['openid'];
     var shopId = req.params['shopId'];
 
-    res.render('park/memoryCar', {
-        title: '记车位',
-        shopId: shopId
+    api.etc.cars(unionid).then(function (cars) {
+        res.render('park/memoryCar', {
+            title: '记车位',
+            shopId: shopId,
+            cars:cars
+        });
     });
+
 
 });
 
 /**
  * 车位信息
  */
-router.get('/location/:shopId/:carNo', handleAuth, function (req, res, next) {
+router.get('/location/:shopId/:carNo', handleAuth,handleLogin, function (req, res, next) {
     var carNo = req.params['carNo'];
     var shopId = req.params['shopId'];
     var unionid = req.cookies['unionid'];
@@ -195,7 +210,7 @@ router.get('/jump', function (req, res, next) {
 /**
  * 停车场列表页
  */
-router.get('/parkList', function (req, res, next) {
+router.get('/parkList',handleAuth, handleLogin, function (req, res, next) {
     var unionid = req.cookies['unionid'];
     var openid = req.cookies['openid'];
     var channel= req.query["channel"];//120135 V0101 012838
@@ -458,9 +473,17 @@ router.get('/pc/query/:shopId/:carNo', function (req, res, next) {
         renderPage([carNo], firstCarStatus);
     })
 
-
 });
 
-
+/**
+ * 完善车牌信息
+ */
+router.get('/perfectCarInfo/:shopId', handleAuth, handleLogin, function (req, res, next) {
+    var shopId = req.params['shopId'];
+    res.render('park/perfectCarInfo', {
+        title: '完善车牌信息',
+        shopId: shopId
+    });
+});
 
 module.exports = router;

@@ -17,7 +17,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 /* line 22, ../../sass/park/manage.scss */
 .car-manage-list .car-manage-list-scroll {
@@ -136,18 +137,245 @@
 .car-manage-list .car-manage-list-scroll .car-manage-list-item .car-empty {
   text-align: center;
 }
-/* line 118, ../../sass/park/manage.scss */
+/* line 116, ../../sass/park/manage.scss */
+.car-manage-list .car-manage-list-scroll .car-manage-list-item .car-empty p {
+  margin: Rem(10) 0;
+}
+/* line 119, ../../sass/park/manage.scss */
+.car-manage-list .car-manage-list-scroll .car-manage-list-item .car-empty a {
+  color: #333;
+  display: block;
+}
+/* line 125, ../../sass/park/manage.scss */
 .car-manage-list .car-manage-list-scroll .car-manage-list-item:last-child {
   border-bottom: 1px solid #f2f2f2;
 }
 
-/* line 125, ../../sass/park/manage.scss */
+/* line 132, ../../sass/park/manage.scss */
 .car-manage-list-num {
   padding: Rem(30) Rem(20);
   background: #f2f3f7;
   color: #999;
 }
-/* line 129, ../../sass/park/manage.scss */
+/* line 136, ../../sass/park/manage.scss */
 .car-manage-list-num b {
   color: #f96968;
+}
+
+/* line 142, ../../sass/park/manage.scss */
+.car-manageBind-page .car-manage-bind-banner {
+  height: Rem(200);
+}
+/* line 145, ../../sass/park/manage.scss */
+.car-manageBind-page .car-manage-select {
+  top: Rem(200);
+}
+/* line 148, ../../sass/park/manage.scss */
+.car-manageBind-page .car-manage-list {
+  top: Rem(329);
+}
+
+/* line 154, ../../sass/park/manage.scss */
+.list > .list-item .list-body .skill-tips .iconfont-park {
+  display: inline-block;
+  float: none;
+  vertical-align: middle;
+}
+
+/* line 161, ../../sass/park/manage.scss */
+.skill-tips {
+  text-align: center;
+}
+/* line 163, ../../sass/park/manage.scss */
+.skill-tips .iconfont-park {
+  display: inline-block;
+  float: none;
+  vertical-align: middle;
+}
+/* line 168, ../../sass/park/manage.scss */
+.skill-tips a {
+  color: #f95d5b;
+  text-decoration: underline;
+}
+
+/* line 177, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-manage-select {
+  top: Rem(528);
+  border-bottom: none;
+  background: #f2f3f7;
+}
+/* line 182, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-manage-list {
+  top: Rem(655);
+}
+/* line 185, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-manage-list .car-manage-list-scroll {
+  padding: 0;
+}
+/* line 188, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-search .car-input .licence-code {
+  -webkit-border-top-left-radius: Rem(60);
+  -webkit-border-bottom-left-radius: Rem(60);
+  border-top-left-radius: Rem(60);
+  border-bottom-left-radius: Rem(60);
+  background: #e4e6ea;
+}
+/* line 196, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-search .car-input .licence-num, .g-perfectCarInfo-page .car-search .car-input .licence-num .licence-num-input {
+  background: #e4e6ea;
+}
+/* line 199, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-search .car-input .licence-search {
+  -webkit-border-top-right-radius: Rem(60);
+  -webkit-border-bottom-right-radius: Rem(60);
+  border-top-right-radius: Rem(60);
+  border-bottom-right-radius: Rem(60);
+}
+/* line 206, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-manage-list .car-manage-list-scroll .car-manage-list-item .car-manage-list-item-bg {
+  background: #fff;
+  color: #333;
+}
+/* line 211, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-manage-bind-banner {
+  position: relative;
+  height: Rem(528);
+  background: url("/public/park/images/perfectCarInfo_0.jpg") no-repeat center center;
+  background-size: contain;
+}
+/* line 216, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-manage-bind-banner .car-skip {
+  width: Rem(50);
+  height: Rem(50);
+  display: block;
+  position: absolute;
+  right: Rem(20);
+  top: Rem(20);
+}
+/* line 223, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-manage-bind-banner .car-skip .icon-guanbi {
+  font-size: 24px;
+  color: #fff;
+}
+/* line 164, ../../sass/park/mixin.scss */
+[data-dpr="2"] .g-perfectCarInfo-page .car-manage-bind-banner .car-skip .icon-guanbi {
+  font-size: 48px;
+}
+/* line 168, ../../sass/park/mixin.scss */
+[data-dpr="3"] .g-perfectCarInfo-page .car-manage-bind-banner .car-skip .icon-guanbi {
+  font-size: 72px;
+}
+/* line 230, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-empty-tips {
+  text-align: center;
+  color: #333;
+}
+/* line 233, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-empty-tips .cet-btn {
+  background: #f95d5b;
+  color: #fff;
+  padding: Rem(20) Rem(50);
+  text-align: center;
+  font-size: 16px;
+  display: inline-block;
+}
+/* line 164, ../../sass/park/mixin.scss */
+[data-dpr="2"] .g-perfectCarInfo-page .car-empty-tips .cet-btn {
+  font-size: 32px;
+}
+/* line 168, ../../sass/park/mixin.scss */
+[data-dpr="3"] .g-perfectCarInfo-page .car-empty-tips .cet-btn {
+  font-size: 48px;
+}
+/* line 241, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-empty-tips .cet-bd {
+  margin-top: Rem(30);
+  margin-bottom: Rem(30);
+}
+/* line 245, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-empty-tips img {
+  margin: 0 auto;
+  width: Rem(233);
+  display: block;
+}
+/* line 253, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .car-empty-tips p i {
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  color: #f95d5b;
+}
+/* line 164, ../../sass/park/mixin.scss */
+[data-dpr="2"] .g-perfectCarInfo-page .car-empty-tips p i {
+  font-size: 28px;
+}
+/* line 168, ../../sass/park/mixin.scss */
+[data-dpr="3"] .g-perfectCarInfo-page .car-empty-tips p i {
+  font-size: 42px;
+}
+/* line 261, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .item-perfectCarCard-mod {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  border-bottom: Rem(1) solid #f2f3f7;
+  padding: Rem(25) 0;
+}
+/* line 268, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .item-perfectCarCard-mod .ipm-item {
+  text-align: center;
+  vertical-align: bottom;
+  font-size: 13px;
+}
+/* line 164, ../../sass/park/mixin.scss */
+[data-dpr="2"] .g-perfectCarInfo-page .item-perfectCarCard-mod .ipm-item {
+  font-size: 26px;
+}
+/* line 168, ../../sass/park/mixin.scss */
+[data-dpr="3"] .g-perfectCarInfo-page .item-perfectCarCard-mod .ipm-item {
+  font-size: 39px;
+}
+/* line 273, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .item-perfectCarCard-mod .ipm-item:first-child {
+  text-align: left;
+  width: Rem(400);
+}
+/* line 277, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .item-perfectCarCard-mod .ipm-item:nth-child(2) {
+  width: Rem(216);
+}
+/* line 279, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .item-perfectCarCard-mod .ipm-item:nth-child(2) .ipm-button {
+  width: Rem(188);
+}
+/* line 283, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .item-perfectCarCard-mod .ipm-item:last-child {
+  width: Rem(130);
+}
+/* line 285, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .item-perfectCarCard-mod .ipm-item:last-child .ipm-button {
+  width: Rem(78);
+  margin-left: Rem(10);
+}
+/* line 290, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .item-perfectCarCard-mod .ipm-text {
+  font-size: 26px;
+  padding-left: Rem(30);
+}
+/* line 164, ../../sass/park/mixin.scss */
+[data-dpr="2"] .g-perfectCarInfo-page .item-perfectCarCard-mod .ipm-text {
+  font-size: 52px;
+}
+/* line 168, ../../sass/park/mixin.scss */
+[data-dpr="3"] .g-perfectCarInfo-page .item-perfectCarCard-mod .ipm-text {
+  font-size: 78px;
+}
+/* line 294, ../../sass/park/manage.scss */
+.g-perfectCarInfo-page .item-perfectCarCard-mod .ipm-button {
+  border-radius: Rem(4);
+  text-align: center;
+  color: #f95d5b;
+  border: Rem(1) solid #f95d5b;
+  padding: Rem(20) Rem(10);
 }

@@ -33,7 +33,7 @@ module.exports=conf({
 
         ver: '2.7',
 
-        timeout: 15000
+        timeout: 3500000
     },
     weixin: {
         printLog: true,
@@ -44,7 +44,8 @@ module.exports=conf({
             unionid:'oB8iWjicD_SlyGpSKHWedTrUj4N4'
         },
         ignore: false, //忽略微信，测试时使用
-        tokenDebug: false//是否在测试阶段使用线上微信票据防止冲突
+        tokenDebug: false,//是否在测试阶段使用线上微信票据防止冲突
+        tokenJava:true,//开启向后端请求token
     },
     easy:{
         host:'manage.wx.rongyi.com',

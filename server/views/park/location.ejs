@@ -59,10 +59,11 @@
                         <div class="manage-btn">
                             <a href="/park/manage/<%= shopId %>" class="btn white block">管理我的车牌</a>
                         </div>
+                        <p class="skill-tips"><i class="iconfont-park icon-tishi"></i>小技巧：绑定车牌，尊享会员停车特权！</p>
                     </div>
                 </div>
             </div>
-
+            <% if(positionRecords.length>0){ %>
             <!--<div class="list-item">-->
                 <!--<div class="list-title">-->
                     <!--<span class="iconfont-park icon-wodejilu"></span>-->
@@ -72,6 +73,7 @@
                 <!--<div class="list-body remove-padding my-record-body">-->
                 <!--</div>-->
             <!--</div>-->
+            <% } %>
         </div>
     </div>
 </div>

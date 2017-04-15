@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/doctor/css/weui.min.css"/>
+    <link rel="stylesheet" href="/public/doctor/css/jquery-weui.min.css"/>
+    <link rel="stylesheet" href="/public/doctor/css/doctor.css"/>
+
+    <style type="text/css">
+        .consult-pages{
+
+        }
+        body{
+            -webkit-overflow-scrolling: touch;
+        }
+        /*效果修正*/
+        .ask-pages .health-record .health-record-bd .weui-cells .weui-cell .weui-check__label .icon-male{
+            vertical-align:text-bottom;
+        }
+        .consult-pages .consult-box .consult-box-bd .content{
+           word-break: break-all;
+        }
+        /*上传图片*/
+        .photo-preview .img-show-box{
+            overflow: hidden;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-lines: multiple;
+            -moz-box-lines: multiple;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+        .photo-preview .img-upload-add{
+            width: 70px;
+            height: 70px;
+            position: relative;
+            border:1px solid #f2f2f2;
+            text-align: center;
+            margin: 3px;
+            vertical-align: bottom;
+        }
+        .photo-preview .img-upload-add .icon-add{
+            display: block;
+            font-size: 24px;
+            line-height: 30px;
+            margin-top: 12px;
+            color: #999;
+        }
+        .photo-preview .img-upload-add span{
+            color: #999;
+            font-size: 10px;
+            text-align: center;
+        }
+        .photo-preview .img-upload-add .photo{
+          position: absolute;
+          opacity: 0;
+          top:0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1004;
+        }
+        .photo-preview .img-show-box{
+            overflow: hidden;
+        }
+        .photo-preview .img-show{
+            display: inline-block;
+            border: 1px solid #fff;
+            overflow: hidden;
+            margin: 3px;
+            float: left;
+            position: relative;
+            width: 70px;
+            height: 70px;
+        }
+        .photo-preview .img-show .mask{
+            position: absolute;
+            bottom:0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            text-align: center;
+        }
+        .consult-pages .weui-loadmore{
+
+        }
+        /*聊天回复*/
+        .question-pages{
+            /*height: 100%;*/
+        }
+        .question-pages .talk-list ul li{
+            margin-bottom: 0;
+            padding-bottom: 20px;
+        }
+        .question-pages .talk-list ul li .chat{
+            margin-bottom: 20px;
+        }
+        .question-pages .speak-area .speak-box .speak-text .inner textarea{
+            height: auto;
+            min-height: 24px;
+        }
+        .question-pages .speak-area .speak-box .speak-text{
+            -webkit-box-flex: 2;
+            -ms-flex: 2;
+            flex: 2;
+        }
+        .question-pages .speak-area .speak-box .other{
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            overflow: hidden;
+            text-align: right;
+            margin: 0;
+        }
+        .question-pages .speak-area .speak-box .other .photo-camera{
+            position: relative;
+            width: 32px;
+            display: inline-block;
+            float: right;
+            vertical-align: bottom;
+            overflow: hidden;
+        }
+        .question-pages .speak-area .speak-box .other .submit-button{
+            display: inline-block;
+            float: right;
+            width: 60px;
+            padding-top: 5px;
+            margin-left:0.25rem;
+        }
+        .question-pages .speak-area .speak-box .other .submit-button .sendButton{
+            width: 100%;
+            height: 24px;
+            background: #f3b611;
+            color: #fff;
+            border-radius: 4px;
+            border:none;
+        }
+        .question-pages .speak-area .speak-box .other .submit-button .sendButton[type='button']:disabled{
+            background: #ddd;
+        }
+        .question-pages .speak-area .speak-box .other .photo{
+            position: absolute;
+            opacity: 0;
+            top:0;
+            left: 0;
+            width: 24px;
+            height: 100%;
+            z-index:1005;
+        }
+        .question-pages .talk-list ul li .chat-right .text{
+            word-break: break-all;
+        }
+        .question-pages .fixed-space{
+            height: 0;
+        }
+        .question-pages .talk-list ul li .chat .pic{
+            width: auto;
+            max-width: 6rem;
+            border: none;
+        }
+        .question-pages .talk-list{
+            /*background: #00aaff;*/
+            /*overflow-x: hidden;*/
+            /*overflow-y: scroll;*/
+            /*-webkit-transform-style: preserve-3d;*/ /*使被转换的元素的子元素保留其 3D 转换*/
+            /*-webkit-transform:translate3d(0,0,0);*/ /*开启GPU硬件加速模式，使用GPU代替CPU渲染动画（在安卓系统中有时会有莫名其妙的BUG，建议慎重）*/
+        }
+        .reply-page{
+            overflow: hidden;
+            /*-webkit-overflow-scrolling: touch;*/
+            height: 100%;
+        }
+        .scrollWrapper{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            top:0;
+            right:0;
+            z-index: 1;
+            overflow-x:hidden;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            -webkit-backface-visibility: hidden; /*隐藏转换的元素的背面*/
+            /*overflow: hidden;*/
+            /*width: 100%;*/
+            /*touch-action: none;*/
+        }
+        /*.scrollWrapper,.scrollWrapper *{*/
+            /*-webkit-box-sizing: border-box;*/
+            /*-moz-box-sizing: border-box;*/
+            /*box-sizing: border-box;*/
+        /*}*/
+        .scroll{
+            position: absolute;
+            z-index: 1;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+        .question-pages .speak-area{
+            position: absolute;
+            z-index: 1009;
+            left: 0;
+            bottom: 0;
+        }
+        .question-pages .talk-list-auto{
+          height: 22rem;
+        }
+        .screen-mask{
+            background: rgba(0,0,0,0.5);
+            z-index: 1006;
+            position: absolute;
+            top:0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            pointer-events:none;
+        }
+        .weui-picker-container, .weui-picker-overlay{
+            z-index: 1007;
+        }
+        .assessment .weui-btn:after{
+            border: none;
+        }
+        .consult-pages .ask-btn{
+            left: 0;
+            z-index: 1002;
+            height: 2.25rem;
+        }
+        /*iphone4*/
+        @media (device-height:480px) and (-webkit-min-device-pixel-ratio:2) {
+            /*.question-pages .talk-list-auto{*/
+                /*height: 15rem;*/
+            /*}*/
+            /*.question-pages .talk-list{*/
+                /*height: 10rem;*/
+            /*}*/
+        }
+        /*iphone5*/
+        @media (device-height:568px) and (-webkit-min-device-pixel-ratio:2) {
+            /*.question-pages .talk-list-auto{*/
+                /*height: 20rem;*/
+            /*}*/
+            /*问题详情聊天滚动*/
+            /*.question-pages .talk-list{*/
+                /*height: 15rem;*/
+            /*}*/
+        }
+        /*iphone6*/
+        @media (device-height:667px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone6 */
+            /*.question-pages .talk-list-auto{*/
+                /*height: 23rem;*/
+            /*}*/
+            /*!*问题详情聊天滚动*!*/
+            /*.question-pages .talk-list{*/
+                /*height: 18rem;*/
+            /*}*/
+        }
+        /*iphone6 Plus*/
+        @media (device-height:736px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone6 Plus */
+            /*.question-pages .talk-list-auto{*/
+                /*height: 25rem;*/
+            /*}*/
+            /*问题详情聊天滚动*/
+            /*.question-pages .talk-list{*/
+                /*height: 20rem;*/
+            /*}*/
+        }
+    </style>
+    <script type="text/javascript" src="/public/doctor/js/jquery-2.1.4.js" ></script>
+    <script type="text/javascript" src="/public/doctor/js/jquery-weui.min.js" ></script>
+</head>

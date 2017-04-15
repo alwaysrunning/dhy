@@ -6,6 +6,7 @@ var express = require('express');
 var router = express.Router();
 var multer = require('multer')();
 
+var AuthWareCtrl=require("../libs/AuthWare");
 var checkController = require('../controllers/check');
 var loginController = require('../controllers/login');
 var accountController = require('../controllers/account');
@@ -138,23 +139,24 @@ router.get('/invitation/get', invitationController.invitationGet);//获得邀请
 router.get('/invitation/list', invitationController.invitationList);//获得邀请的人
 router.post('/invitation/submit', invitationController.invitationSubmit);//提交邀请码
 router.post('/invitation/share', invitationController.shareSubmit);//分享后记录头像
-
+//停车缴费
 router.get('/etc/query', etcController.carQuery);
 router.get('/etc/queryCar', etcController.carQueryByCar);
-router.get('/etc/cars', etcController.cars);
 router.get('/etc/info', etcController.info);
-router.get('/etc/bindPos', etcController.bindPos);
-router.get('/etc/pos', etcController.pos);
-router.get('/etc/history', etcController.history);
-router.get('/etc/clear', etcController.clear);
-router.get('/etc/del', etcController.del);
-router.get('/etc/bind', etcController.bind);
-router.post('/etc/orderComfirm', etcController.orderComfirm);
-router.get('/etc/positionList', etcController.positionList);
-router.get('/etc/savePosition', etcController.savePosition);
-router.get('/etc/delPosition', etcController.delPosition);
-router.get('/etc/carStatus', etcController.carStatus);
-router.get('/etc/positionScan',etcController.scanToRememberPosition);
+
+router.get('/etc/cars',AuthWareCtrl.authLoginWare, etcController.cars);
+router.get('/etc/bindPos',AuthWareCtrl.authLoginWare, etcController.bindPos);
+router.get('/etc/pos', AuthWareCtrl.authLoginWare,etcController.pos);
+router.get('/etc/history',AuthWareCtrl.authLoginWare, etcController.history);
+router.get('/etc/clear',AuthWareCtrl.authLoginWare, etcController.clear);
+router.get('/etc/del',AuthWareCtrl.authLoginWare, etcController.del);
+router.get('/etc/bind',AuthWareCtrl.authLoginWare, etcController.bind);
+router.post('/etc/orderComfirm',AuthWareCtrl.authLoginWare, etcController.orderComfirm);
+router.get('/etc/positionList',AuthWareCtrl.authLoginWare, etcController.positionList);
+router.get('/etc/savePosition',AuthWareCtrl.authLoginWare, etcController.savePosition);
+router.get('/etc/delPosition',AuthWareCtrl.authLoginWare,etcController.delPosition);
+router.get('/etc/carStatus', AuthWareCtrl.authLoginWare,etcController.carStatus);
+router.get('/etc/positionScan',AuthWareCtrl.authLoginWare,etcController.scanToRememberPosition);
 
 router.get('/weixin/sign', weixinController.sign);
 router.get('/weixin/ticket', weixinController.ticket);
@@ -163,5 +165,10 @@ router.get('/weixin/token', weixinController.accessToken);
 router.post('/dhy/baby/saveMember',babyApiController.saveMemberInfo);
 router.post('/dhy/coupon/getCouponReceive',couponApiController.getCouponReceive);
 router.get('/dhy/coupon/getCouponList',couponApiController.getCouponList);
+router.post('/dhy/coupon/couponOrderCreate',couponApiController.couponOrderCreate);
+router.post('/dhy/coupon/couponOrderPrepay',couponApiController.couponOrderPrepay);
+router.post("/dhy/coupon/couponOderList",AuthWareCtrl.authLoginWare,couponApiController.couponOderList);
+router.post("/dhy/coupon/couponOrderDel",AuthWareCtrl.authLoginWare,couponApiController.couponOrderDel);
+router.get("/dhy/coupon/couponOrderByOrderCode",AuthWareCtrl.checkLogin,couponApiController.couponOrderByOrderCode);
 
 module.exports = router;

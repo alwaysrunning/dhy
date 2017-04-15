@@ -6235,42 +6235,67 @@ button.swiper-pagination-bullet {
   content: "\e737";
 }
 
-/* line 287, ../../../sass/common/_icon.scss */
+/* line 282, ../../../sass/common/_icon.scss */
+.icon-jiankangdangan:before {
+  content: "\e74e";
+}
+
+/* line 284, ../../../sass/common/_icon.scss */
+.icon-pingjia1:before {
+  content: "\e74f";
+}
+
+/* line 286, ../../../sass/common/_icon.scss */
+.icon-xiangji:before {
+  content: "\e750";
+}
+
+/* line 288, ../../../sass/common/_icon.scss */
+.icon-kuaisutiwen:before {
+  content: "\e751";
+}
+
+/* line 290, ../../../sass/common/_icon.scss */
+.icon-chunyuyisheng:before {
+  content: "\e752";
+}
+
+/* line 297, ../../../sass/common/_icon.scss */
 .icon-nv:before {
   color: #ff7e7e;
 }
 
-/* line 288, ../../../sass/common/_icon.scss */
+/* line 298, ../../../sass/common/_icon.scss */
 .icon-nan:before {
   color: #7baaff;
 }
 
-/* line 289, ../../../sass/common/_icon.scss */
+/* line 299, ../../../sass/common/_icon.scss */
 .icon-guanbi:before {
   color: #d3d3d3;
   cursor: pointer;
 }
 
-/* line 290, ../../../sass/common/_icon.scss */
+/* line 300, ../../../sass/common/_icon.scss */
 .icon-shangjiantou:before {
   cursor: pointer;
   color: #9b9b9b;
 }
 
-/* line 291, ../../../sass/common/_icon.scss */
+/* line 301, ../../../sass/common/_icon.scss */
 .icon-xiajiantou:before {
   cursor: pointer;
   color: #9b9b9b;
 }
 
-/* line 292, ../../../sass/common/_icon.scss */
+/* line 302, ../../../sass/common/_icon.scss */
 .icon-youjiantou:before {
   cursor: pointer;
   color: #9b9b9b;
   font-size: 0.42667rem;
 }
 
-/* line 294, ../../../sass/common/_icon.scss */
+/* line 304, ../../../sass/common/_icon.scss */
 .u-icon-loading:before {
   content: "\f110";
 }
@@ -6506,17 +6531,17 @@ body, .page {
     transform: rotate(360deg);
   }
 }
-/* line 8, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 9, ../../../sass/dhy/module/couponTypeList.scss */
 body, html {
   height: 100%;
 }
 
-/* line 11, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 12, ../../../sass/dhy/module/couponTypeList.scss */
 .weui_btn_dialog.primary {
   color: #fb8684;
 }
 
-/* line 16, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 17, ../../../sass/dhy/module/couponTypeList.scss */
 .g-couponType-page .loader {
   position: absolute;
   top: 0;
@@ -6527,17 +6552,22 @@ body, html {
   height: 100%;
   z-index: 50;
 }
-
 /* line 27, ../../../sass/dhy/module/couponTypeList.scss */
+.g-couponType-page .loading-txt {
+  text-align: center;
+  padding: 0.13333rem;
+}
+
+/* line 32, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod {
   background: #f2f3f7;
 }
-/* line 30, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 35, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .iconfont {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 34, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 39, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-hd {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6547,22 +6577,22 @@ body, html {
   background: #fff;
   position: relative;
 }
-/* line 39, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 44, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-hd .mh-item {
   width: 50%;
   margin: 0 auto;
 }
-/* line 45, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 50, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .u-coupons-type-selected {
   padding: 10px 0;
   text-align: center;
   font-size: 14px;
 }
-/* line 49, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 54, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .u-coupons-type-selected .icon {
   margin-left: 10px;
 }
-/* line 52, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 57, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .u-coupons-type {
   position: absolute;
   left: 0;
@@ -6571,38 +6601,38 @@ body, html {
   border-top: 1px solid #e8e9ea;
   background: #fff;
 }
-/* line 59, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 64, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .u-coupons-type dd {
   border-bottom: 1px solid #e8e9ea;
 }
-/* line 62, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 67, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .u-coupons-type dd a {
   display: block;
   padding: 10px;
   font-size: 14px;
 }
-/* line 67, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 72, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .u-coupons-type dd a .icon-shensuchenggong {
   display: none;
 }
-/* line 72, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 77, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .u-coupons-type dd a.active {
   background: #f2f2f2;
 }
-/* line 75, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 80, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .u-coupons-type dd.on a {
   color: #fb8684;
 }
-/* line 77, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 82, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .u-coupons-type dd.on a .icon-shensuchenggong {
   display: block;
 }
-/* line 83, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 88, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-bd {
   padding: 15px 10px;
   background: #f2f3f7;
 }
-/* line 89, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 94, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list li {
   border-top: 5px solid #f95d5b;
   border-left: none;
@@ -6611,29 +6641,33 @@ body, html {
   background: #fff;
   margin-bottom: 15px;
 }
-/* line 102, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 104, ../../../sass/dhy/module/couponTypeList.scss */
+.m-couponTypeList-mod .mcm-coupons-list li .mcl-link-detail {
+  display: block;
+}
+/* line 110, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list li.over .u-right-buy {
   background: #ccc;
 }
-/* line 108, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 116, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list li.receive .mcl-circle {
   display: none;
 }
-/* line 111, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 119, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list li.receive .mcl-bd-rg {
   padding-top: 0;
   background: url("/public/static/img/module/coupons_listBg_5.jpg") no-repeat right top;
   background-size: contain;
 }
-/* line 116, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 124, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list li.receive .mcl-bd {
   padding-right: 0;
 }
-/* line 119, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 127, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list li.receive .circle-cancvsDom {
   display: none;
 }
-/* line 124, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 132, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list .mcl-bd {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6641,17 +6675,17 @@ body, html {
   display: flex;
   padding: 0 10px;
 }
-/* line 127, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 135, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list .mcl-bd h4 {
   color: #f95d5b;
   padding-top: 10px;
 }
-/* line 131, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 139, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list .mcl-bd h4 em {
   font-size: 24px;
   margin-left: 5px;
 }
-/* line 136, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 144, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list .mcl-bd .mcl-bd-lf {
   -webkit-box-flex: 3;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -6664,11 +6698,11 @@ body, html {
   /* IE 10 */
   flex: 3;
 }
-/* line 138, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 146, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list .mcl-bd .mcl-bd-lf p {
   font-size: 14px;
 }
-/* line 141, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 149, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list .mcl-bd .mcl-bd-lf p i {
   padding: 1px 3px;
   border-radius: 2px;
@@ -6677,13 +6711,13 @@ body, html {
   color: #f95d5b;
   vertical-align: middle;
 }
-/* line 149, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 157, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list .mcl-bd .mcl-bd-lf .limit-time {
   color: #b2b2b3;
   padding: 5px 0;
   font-size: 12px;
 }
-/* line 156, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 164, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcm-coupons-list .mcl-bd .mcl-bd-rg {
   -webkit-box-flex: 1;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -6698,7 +6732,7 @@ body, html {
   padding: 10px 0;
   text-align: center;
 }
-/* line 164, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 172, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .u-right-buy {
   padding: 2px 4px;
   background: #f95d5b;
@@ -6707,20 +6741,20 @@ body, html {
   border-radius: 10px;
   margin: 10px auto 0 auto;
 }
-/* line 172, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 180, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mod-circle {
   width: 60px;
   height: 60px;
   margin: 0 auto;
 }
-/* line 178, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 186, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcl-ft {
   background-image: url("/public/static/img/module/coupons_listBg_3.png"), url("/public/static/img/module/coupons_listBg_4.png");
   background-repeat: no-repeat;
   background-position: 0 0, right 0;
   padding: 5px 10px;
 }
-/* line 183, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 191, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcl-ft .mcl-ft-hd {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6729,7 +6763,7 @@ body, html {
   padding-top: 5px;
   border-top: 1px dashed #dedddd;
 }
-/* line 187, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 195, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcl-ft .mcl-ft-hd h5 {
   -webkit-box-flex: 3;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -6744,7 +6778,7 @@ body, html {
   font-size: 14px;
   font-weight: normal;
 }
-/* line 191, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 199, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcl-ft .mcl-ft-hd h5 i {
   border-radius: 40px;
   background: #3cc87b;
@@ -6754,7 +6788,7 @@ body, html {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 201, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 209, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcl-ft .mcl-ft-hd em {
   -webkit-box-flex: 1;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -6769,28 +6803,28 @@ body, html {
   font-weight: normal;
   text-align: right;
 }
-/* line 207, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 215, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcl-ft .mcl-ft-bd {
   font-size: 12px;
   color: #666;
   padding: 5px;
 }
-/* line 212, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 220, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcl-ft .mcl-ft-ft {
   text-align: center;
 }
-/* line 215, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 223, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcl-ft .mcl-ft-text-mod {
   display: none;
 }
-/* line 220, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 228, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .mcl-ft-shadow {
   height: 2px;
   -moz-box-shadow: 0 1px 2px #ddd;
   -webkit-box-shadow: 0 1px 2px #ddd;
   box-shadow: 0 1px 2px #ddd;
 }
-/* line 227, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 235, ../../../sass/dhy/module/couponTypeList.scss */
 .m-couponTypeList-mod .no-click {
   pointer-events: none;
 }
@@ -6802,7 +6836,7 @@ body, html {
  * Date: 2015/10/15
  * Time: 9:27
  * */
-/* line 240, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 248, ../../../sass/dhy/module/couponTypeList.scss */
 .u-mask {
   background-color: rgba(0, 0, 0, 0.6);
   bottom: 0;
@@ -6816,13 +6850,13 @@ body, html {
   transition: all ease 0.2s;
 }
 
-/* line 253, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 261, ../../../sass/dhy/module/couponTypeList.scss */
 .u-mask.u-mask-active {
   opacity: 1;
   z-index: 2200;
 }
 
-/* line 258, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 266, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal {
   border-radius: 0.05333rem;
   overflow: hidden;
@@ -6839,7 +6873,7 @@ body, html {
   z-index: -9999;
 }
 
-/* line 274, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 282, ../../../sass/dhy/module/couponTypeList.scss */
 .u-icon-loading {
   font-size: 1.44rem;
   display: inline-block;
@@ -6848,47 +6882,47 @@ body, html {
   animation: icon-spin 2s infinite linear;
 }
 
-/* line 282, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 290, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-dialog {
   background: #f8f8f8;
   font-size: 0.672rem;
   padding-top: 0.96rem;
 }
-/* line 286, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 294, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-dialog .u-modal-hd {
   padding: 0 0.48rem 0.24rem 0.48rem;
   font-size: 0.768rem;
   zoom: 1;
 }
-/* line 29, ../../../sass/common/_wxmixin.scss */
+/* line 30, ../../../sass/common/_wxmixin.scss */
 .u-modal-dialog .u-modal-hd::before, .u-modal-dialog .u-modal-hd::after {
   display: table;
   line-height: 0;
   content: "";
 }
-/* line 34, ../../../sass/common/_wxmixin.scss */
+/* line 35, ../../../sass/common/_wxmixin.scss */
 .u-modal-dialog .u-modal-hd::after {
   clear: both;
 }
-/* line 290, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 298, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-dialog .u-modal-hd .umh-lf {
   float: left;
 }
-/* line 293, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 301, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-dialog .u-modal-hd .umh-rg {
   float: right;
 }
-/* line 297, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 305, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-dialog .u-modal-bd {
   padding: 0 0.48rem 0.96rem 0.48rem;
   text-align: left;
   border-bottom: 1px solid #dedede;
 }
-/* line 302, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 310, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-dialog .u-modal-bd.u-align-center {
   text-align: center;
 }
-/* line 305, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 313, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-dialog .u-modal-footer {
   border-collapse: collapse;
   display: table;
@@ -6896,12 +6930,12 @@ body, html {
   overflow: hidden;
   width: 100%;
 }
-/* line 312, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 320, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-dialog .u-modal-text-center {
   text-align: center;
 }
 
-/* line 317, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 325, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-btn {
   font-size: 0.768rem;
   border-right: 1px solid #dedede;
@@ -6919,18 +6953,18 @@ body, html {
   color: #ff6666;
 }
 
-/* line 334, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 342, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-btn:active {
   background: #efefef;
 }
 
-/* line 338, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 346, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-btn:last-child {
   border-right: 0;
   border-radius: 0;
 }
 
-/* line 345, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 353, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-weak .u-weak-txt {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -6938,7 +6972,7 @@ body, html {
   padding: 0.48rem;
 }
 
-/* line 353, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 361, ../../../sass/dhy/module/couponTypeList.scss */
 .u-popup-close {
   color: #ff6666;
   font-size: 1.152rem;
@@ -6947,28 +6981,28 @@ body, html {
   cursor: pointer;
 }
 
-/* line 363, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 371, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-list-exit .yh-modal-popup {
   padding-top: 0;
 }
-/* line 366, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 374, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-list-exit .u-popup-hd {
   zoom: 1;
   height: 2.13333rem;
   line-height: 2.13333rem;
   border-bottom: 1px solid #e7e7e7;
 }
-/* line 29, ../../../sass/common/_wxmixin.scss */
+/* line 30, ../../../sass/common/_wxmixin.scss */
 .u-modal-list-exit .u-popup-hd::before, .u-modal-list-exit .u-popup-hd::after {
   display: table;
   line-height: 0;
   content: "";
 }
-/* line 34, ../../../sass/common/_wxmixin.scss */
+/* line 35, ../../../sass/common/_wxmixin.scss */
 .u-modal-list-exit .u-popup-hd::after {
   clear: both;
 }
-/* line 373, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 381, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-list-exit .u-popup-list-text li {
   zoom: 1;
   text-align: left;
@@ -6978,73 +7012,73 @@ body, html {
   border-bottom: 1px solid #e7e7e7;
   font-size: 0.69333rem;
 }
-/* line 29, ../../../sass/common/_wxmixin.scss */
+/* line 30, ../../../sass/common/_wxmixin.scss */
 .u-modal-list-exit .u-popup-list-text li::before, .u-modal-list-exit .u-popup-list-text li::after {
   display: table;
   line-height: 0;
   content: "";
 }
-/* line 34, ../../../sass/common/_wxmixin.scss */
+/* line 35, ../../../sass/common/_wxmixin.scss */
 .u-modal-list-exit .u-popup-list-text li::after {
   clear: both;
 }
-/* line 381, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 389, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-list-exit .u-popup-list-text li .icon {
   font-size: 1.28rem;
   color: #ff6666;
   display: none;
 }
-/* line 387, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 395, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-list-exit .u-popup-list-text li.u-active {
   background: #e5e6e7;
 }
-/* line 389, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 397, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-list-exit .u-popup-list-text li.u-active .icon {
   display: block;
 }
 
-/* line 397, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 405, ../../../sass/dhy/module/couponTypeList.scss */
 .u-exchange-alert {
   padding: 0.26667rem;
   text-align: left;
 }
-/* line 400, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 408, ../../../sass/dhy/module/couponTypeList.scss */
 .u-exchange-alert p, .u-exchange-alert h4 {
   margin: 0.26667rem 0;
 }
-/* line 403, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 411, ../../../sass/dhy/module/couponTypeList.scss */
 .u-exchange-alert h4 {
   font-size: 0.37333rem;
 }
-/* line 406, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 414, ../../../sass/dhy/module/couponTypeList.scss */
 .u-exchange-alert .u-exchange-tips {
   color: #999;
 }
 
-/* line 411, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 419, ../../../sass/dhy/module/couponTypeList.scss */
 #loadingModal {
   margin-left: -3.6rem;
   width: 7.2rem;
   display: none;
 }
-/* line 415, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 423, ../../../sass/dhy/module/couponTypeList.scss */
 #loadingModal .u-modal-dialog {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   margin: 0 auto;
   border-radius: 0.13333rem;
 }
-/* line 422, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 430, ../../../sass/dhy/module/couponTypeList.scss */
 #loadingModal .u-modal-dialog .u-modal-bd {
   border-bottom: none;
 }
 
-/* line 427, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 435, ../../../sass/dhy/module/couponTypeList.scss */
 #loadingModal.u-modal-active {
   display: block;
 }
 
-/* line 432, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 440, ../../../sass/dhy/module/couponTypeList.scss */
 .u-auto-modal {
   border-radius: 0.05333rem;
   overflow: hidden;
@@ -7058,20 +7092,20 @@ body, html {
   width: 100%;
 }
 
-/* line 445, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 453, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-pay {
   bottom: 0;
 }
-/* line 447, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 455, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-pay .u-modal-dialog {
   padding-top: 0;
   background: #fff;
 }
-/* line 451, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 459, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-pay .u-popup-hd {
   border: 1px solid #ddd;
 }
-/* line 454, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 462, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-pay .u-popup-close {
   float: left;
   margin-top: 0.06667rem;
@@ -7079,7 +7113,7 @@ body, html {
   margin-right: 0;
   font-size: 0.56rem;
 }
-/* line 461, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 469, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-pay .u-popup-title {
   padding-right: 0.66667rem;
   padding-top: 0.13333rem;
@@ -7088,20 +7122,20 @@ body, html {
   font-size: 0.37333rem;
   text-align: center;
 }
-/* line 469, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 477, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-pay .u-popup-pay-mod {
   padding: 0.26667rem 0;
 }
-/* line 471, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 479, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-pay .u-popup-pay-mod .uppm-tit {
   margin: 0.26667rem 0;
   color: #ff6666;
 }
-/* line 475, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 483, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-pay .u-popup-pay-mod .uppm-cont {
   padding: 0.26667rem 0.26667rem 0.26667rem 0.26667rem;
 }
-/* line 478, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 486, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-pay .u-popup-pay-mod .u-form-input-pay {
   border: 1px solid #ddd;
   background: #fbfbfb;
@@ -7112,17 +7146,17 @@ body, html {
   border-radius: 4px;
   color: #bdbdbd;
 }
-/* line 488, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 496, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-pay .u-popup-pay-mod .uppm-foot {
   padding: 0.26667rem;
 }
-/* line 491, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 499, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-pay .u-popup-pay-mod .u-forget-pwd-txt {
   padding: 0.13333rem;
   text-align: right;
 }
 
-/* line 499, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 507, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal.u-modal-active, .u-auto-modal.u-modal-active {
   opacity: 1;
   transform: translate3d(0px, 0px, 0px) scale(1);
@@ -7130,28 +7164,28 @@ body, html {
   z-index: 2201;
 }
 
-/* line 507, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 515, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal.u-modal-confirm {
   border-radius: 0.24rem;
 }
-/* line 509, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 517, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal.u-modal-confirm .u-modal-btn[data-u-modal-cancel] {
   color: #3d4145;
 }
 
-/* line 515, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 523, ../../../sass/dhy/module/couponTypeList.scss */
 #confirmModal .u-modal-hd {
   border-bottom: 1px solid #dedede;
   padding-bottom: 0.48rem;
 }
 
-/* line 521, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 529, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-line {
   text-align: left;
   margin-top: 0.48rem;
   color: #999;
 }
-/* line 525, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 533, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-line .u-modal-input {
   width: 9.84rem;
   height: 1.92rem;
@@ -7163,7 +7197,7 @@ body, html {
   padding: 2px 10px;
   font-size: 0.672rem;
 }
-/* line 536, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 544, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-line .u-modal-agree-checkbox {
   width: 0.48rem;
   height: 0.48rem;
@@ -7173,27 +7207,27 @@ body, html {
   background: none;
 }
 
-/* line 546, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 554, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-line:first-child {
   margin-top: 0.48rem;
 }
 
-/* line 550, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 558, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-license-list {
   zoom: 1;
   margin-top: 0.72rem;
 }
-/* line 29, ../../../sass/common/_wxmixin.scss */
+/* line 30, ../../../sass/common/_wxmixin.scss */
 .u-modal-license-list::before, .u-modal-license-list::after {
   display: table;
   line-height: 0;
   content: "";
 }
-/* line 34, ../../../sass/common/_wxmixin.scss */
+/* line 35, ../../../sass/common/_wxmixin.scss */
 .u-modal-license-list::after {
   clear: both;
 }
-/* line 553, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 561, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-license-list li {
   float: left;
   width: 4.8rem;
@@ -7205,7 +7239,7 @@ body, html {
   margin: 0.24rem;
   color: #333;
 }
-/* line 564, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 572, ../../../sass/dhy/module/couponTypeList.scss */
 .u-modal-license-list li.on {
   background: #fee7e7;
   border: 1px solid #fb807e;
@@ -7213,7 +7247,7 @@ body, html {
 }
 
 /* === Preloader === */
-/* line 573, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 581, ../../../sass/dhy/module/couponTypeList.scss */
 .u-preloader {
   display: inline-block;
   width: 1.8rem;
@@ -7224,7 +7258,7 @@ body, html {
   animation: preloader-spin 1s steps(12, end) infinite;
 }
 
-/* line 583, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 591, ../../../sass/dhy/module/couponTypeList.scss */
 .u-preloader:after {
   display: block;
   content: "";
@@ -7236,7 +7270,7 @@ body, html {
   background-repeat: no-repeat;
 }
 
-/* line 594, ../../../sass/dhy/module/couponTypeList.scss */
+/* line 602, ../../../sass/dhy/module/couponTypeList.scss */
 .u-preloader-white:after {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%23fff'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
 }

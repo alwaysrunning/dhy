@@ -3,6 +3,7 @@ $browser-default-font-size: 20*2 !default;
 @function Rem($px) {
   @return $px / $browser-default-font-size * 1rem;
 }
+
 /*mixin*/
 @mixin scrollable() {
   overflow: auto;
@@ -16,7 +17,7 @@ $browser-default-font-size: 20*2 !default;
   display: flex;
 }
 
-@mixin flex($num) {
+@mixin flex($num:1) {
   -webkit-box-flex: $num; /* OLD - iOS 6-, Safari 3.1-6 */
   -moz-box-flex: $num; /* OLD - Firefox 19- */
   /* For old syntax, otherwise collapses. */
@@ -41,4 +42,20 @@ $browser-default-font-size: 20*2 !default;
 
 @mixin g-fl-lf {
   float: left;
+}
+@mixin text-overflow{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+@mixin font-dpr($font-size){
+  font-size: $font-size+px;
+
+  [data-dpr="2"] & {
+    font-size: ($font-size * 2) +px;
+  }
+
+  [data-dpr="3"] & {
+    font-size: ($font-size * 3) +px;
+  }
 }

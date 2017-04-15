@@ -1,4 +1,4 @@
-<div class="m-couponsList-mod u-tabs-wrap u-scrollBar">
+<div class="u-tabs-wrap u-scrollBar">
 
     <% if(type == 2){ %>
     <!--门店-->
@@ -11,164 +11,168 @@
             </ul>
         </nav>
     </header>
-    <div class="u-nav-box">
-        <div class="u-nav-show-list u-refresh" id="sieBelWrap">
+    <div class="m-couponsList-mod">
+        <div class="u-nav-box" style="overflow: auto;">
+            <div class="u-nav-show-list u-refresh" id="sieBelWrap" >
 
-            <!--可使用-->
-            <div class="u-nav-show u-tabs-show">
-                <% if(data.usable.data.length > 0){ %>
-                <ul class="mcm-coupons-list" id="sieBelList1">
-                    <% data.usable.data.forEach(function(item){ %>
-                    <li >
+                <!--可使用-->
+                <div class="u-nav-show u-tabs-show">
 
-                        <div class="mcl-bd">
-                            <h4>&yen;<em><%= item["vendorAmt"] %></em></h4>
-                            <p>
-                                <%= item["voucherName"] %>
-                            </p>
-                            <p>票券号:<%= item["fourCheckNo"] %></p>
-                            <p class="limit-time">
-                                使用时间：<%= item["startTime"].split(' ')[0].replace(/-/g, ".") %>
-                                ~ <%= item["endTime"].split(' ')[0].replace(/-/g, ".") %>
-                            </p>
-                        </div>
+                    <% if(data.usable.data.length > 0){ %>
+                    <ul class="mcm-coupons-list" id="sieBelList1">
+                        <% data.usable.data.forEach(function(item){ %>
+                        <li >
 
-                        <div class="mcl-ft">
-                            <div class="mcl-ft-hd">
-                                <h5><i></i>使用规则</h5>
-                                <em><i class="icon iconfont icon-xiajiantou"></i></em>
+                            <div class="mcl-bd">
+                                <h4>&yen;<em><%= item["vendorAmt"] %></em></h4>
+                                <p>
+                                    <%= item["voucherName"] %>
+                                </p>
+                                <p>票券号:<%= item["fourCheckNo"] %></p>
+                                <p class="limit-time">
+                                    使用时间：<%= item["startTime"].split(' ')[0].replace(/-/g, ".") %>
+                                    ~ <%= item["endTime"].split(' ')[0].replace(/-/g, ".") %>
+                                </p>
                             </div>
-                            <div class="mcl-ft-text-mod">
-                                <div class="mcl-ft-bd">
-                                   <%=item["vendorDesc"] %>
+
+                            <div class="mcl-ft">
+                                <div class="mcl-ft-hd">
+                                    <h5><i></i>使用规则</h5>
+                                    <em><i class="icon iconfont icon-xiajiantou"></i></em>
                                 </div>
-                                <div class="mcl-ft-ft">
-                                    <i class="icon iconfont icon-shangjiantou"></i>
+                                <div class="mcl-ft-text-mod">
+                                    <div class="mcl-ft-bd">
+                                        <%=item["vendorDesc"] %>
+                                    </div>
+                                    <div class="mcl-ft-ft">
+                                        <i class="icon iconfont icon-shangjiantou"></i>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="mcl-ft-shadow">
+
+                            </div>
+
+                        </li>
+                        <% }) %>
+                    </ul>
+                    <% }else{ %>
+                    <div class="g-empty-data">
+                        <div class="m-empty-data">
+                            <div class="u-sprite coupons"></div>
+                            <p class="msg">暂无此类优惠券~</p>
                         </div>
-
-                        <div class="mcl-ft-shadow">
-
-                        </div>
-
-                    </li>
-                    <% }) %>
-                </ul>
-                <% }else{ %>
-                <div class="g-empty-data">
-                    <div class="m-empty-data">
-                        <div class="u-sprite coupons"></div>
-                        <p class="msg">暂无此类优惠券~</p>
                     </div>
+                    <% } %>
                 </div>
-                <% } %>
-            </div>
 
-            <!--已使用-->
-            <div class="u-nav-show u-tabs-show u-tabs-hide">
-                <% if(data.apply.data.length > 0){ %>
-                <ul class="mcm-coupons-list mcl-apply" id="sieBelList2">
-                    <% data.apply.data.forEach(function(item){ %>
-                    <li>
+                <!--已使用-->
+                <div class="u-nav-show u-tabs-show u-tabs-hide">
+                    <% if(data.apply.data.length > 0){ %>
+                    <ul class="mcm-coupons-list mcl-apply" id="sieBelList2">
+                        <% data.apply.data.forEach(function(item){ %>
+                        <li>
 
-                        <div class="mcl-bd">
-                            <h4>&yen;<em><%= item["vendorAmt"] %></em></h4>
-                            <p>
-                                <%= item["voucherName"] %>
-                            </p>
-                            <p>票券号:<%= item["fourCheckNo"] %></p>
-                            <p class="limit-time">
-                                使用时间：<%= item["startTime"].split(' ')[0].replace(/-/g, ".") %>
-                                ~ <%= item["endTime"].split(' ')[0].replace(/-/g, ".") %>
-                            </p>
-                        </div>
-
-                        <div class="mcl-ft">
-                            <div class="mcl-ft-hd">
-                                <h5><i></i>使用规则</h5>
-                                <em><i class="icon iconfont icon-xiajiantou"></i></em>
+                            <div class="mcl-bd">
+                                <h4>&yen;<em><%= item["vendorAmt"] %></em></h4>
+                                <p>
+                                    <%= item["voucherName"] %>
+                                </p>
+                                <p>票券号:<%= item["fourCheckNo"] %></p>
+                                <p class="limit-time">
+                                    使用时间：<%= item["startTime"].split(' ')[0].replace(/-/g, ".") %>
+                                    ~ <%= item["endTime"].split(' ')[0].replace(/-/g, ".") %>
+                                </p>
                             </div>
-                            <div class="mcl-ft-text-mod">
-                                <div class="mcl-ft-bd">
-                                    <%=item["vendorDesc"] %>
+
+                            <div class="mcl-ft">
+                                <div class="mcl-ft-hd">
+                                    <h5><i></i>使用规则</h5>
+                                    <em><i class="icon iconfont icon-xiajiantou"></i></em>
                                 </div>
-                                <div class="mcl-ft-ft">
-                                    <i class="icon iconfont icon-shangjiantou"></i>
+                                <div class="mcl-ft-text-mod">
+                                    <div class="mcl-ft-bd">
+                                        <%=item["vendorDesc"] %>
+                                    </div>
+                                    <div class="mcl-ft-ft">
+                                        <i class="icon iconfont icon-shangjiantou"></i>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="mcl-ft-shadow">
+
+                            </div>
+
+                        </li>
+                        <% }) %>
+                    </ul>
+                    <% }else{ %>
+                    <div class="g-empty-data">
+                        <div class="m-empty-data">
+                            <div class="u-sprite coupons"></div>
+                            <p class="msg">暂无此类优惠券~</p>
                         </div>
-
-                        <div class="mcl-ft-shadow">
-
-                        </div>
-
-                    </li>
-                    <% }) %>
-                </ul>
-                <% }else{ %>
-                <div class="g-empty-data">
-                    <div class="m-empty-data">
-                        <div class="u-sprite coupons"></div>
-                        <p class="msg">暂无此类优惠券~</p>
                     </div>
+                    <% } %>
                 </div>
-                <% } %>
-            </div>
 
-            <!--已过期-->
-            <div class="u-nav-show u-tabs-show u-tabs-hide">
-                <% if(data.expire.data.length > 0){ %>
-                <ul class="mcm-coupons-list mcl-expire" id="sieBelList3">
-                    <% data.expire.data.forEach(function(item){ %>
-                    <li class="mcl-expire">
+                <!--已过期-->
+                <div class="u-nav-show u-tabs-show u-tabs-hide">
+                    <% if(data.expire.data.length > 0){ %>
+                    <ul class="mcm-coupons-list mcl-expire" id="sieBelList3">
+                        <% data.expire.data.forEach(function(item){ %>
+                        <li class="mcl-expire">
 
-                        <div class="mcl-bd">
-                            <h4>&yen;<em><%= item["vendorAmt"] %></em></h4>
-                            <p>
-                                <%= item["voucherName"] %>
-                            </p>
-                            <p>票券号:<%= item["fourCheckNo"] %></p>
-                            <p class="limit-time">
-                                使用时间：<%= item["startTime"].split(' ')[0].replace(/-/g, ".") %>
-                                ~ <%= item["endTime"].split(' ')[0].replace(/-/g, ".") %>
-                            </p>
-                        </div>
-
-                        <div class="mcl-ft">
-                            <div class="mcl-ft-hd">
-                                <h5><i></i>使用规则</h5>
-                                <em><i class="icon iconfont icon-xiajiantou"></i></em>
+                            <div class="mcl-bd">
+                                <h4>&yen;<em><%= item["vendorAmt"] %></em></h4>
+                                <p>
+                                    <%= item["voucherName"] %>
+                                </p>
+                                <p>票券号:<%= item["fourCheckNo"] %></p>
+                                <p class="limit-time">
+                                    使用时间：<%= item["startTime"].split(' ')[0].replace(/-/g, ".") %>
+                                    ~ <%= item["endTime"].split(' ')[0].replace(/-/g, ".") %>
+                                </p>
                             </div>
-                            <div class="mcl-ft-text-mod">
-                                <div class="mcl-ft-bd">
-                                    <%=item["vendorDesc"] %>
+
+                            <div class="mcl-ft">
+                                <div class="mcl-ft-hd">
+                                    <h5><i></i>使用规则</h5>
+                                    <em><i class="icon iconfont icon-xiajiantou"></i></em>
                                 </div>
-                                <div class="mcl-ft-ft">
-                                    <i class="icon iconfont icon-shangjiantou"></i>
+                                <div class="mcl-ft-text-mod">
+                                    <div class="mcl-ft-bd">
+                                        <%=item["vendorDesc"] %>
+                                    </div>
+                                    <div class="mcl-ft-ft">
+                                        <i class="icon iconfont icon-shangjiantou"></i>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="mcl-ft-shadow">
+
+                            </div>
+
+                        </li>
+                        <% }) %>
+                    </ul>
+                    <% }else{ %>
+                    <div class="g-empty-data">
+                        <div class="m-empty-data">
+                            <div class="u-sprite coupons"></div>
+                            <p class="msg">暂无此类优惠券~</p>
                         </div>
-
-                        <div class="mcl-ft-shadow">
-
-                        </div>
-
-                    </li>
-                    <% }) %>
-                </ul>
-                <% }else{ %>
-                <div class="g-empty-data">
-                    <div class="m-empty-data">
-                        <div class="u-sprite coupons"></div>
-                        <p class="msg">暂无此类优惠券~</p>
                     </div>
+                    <% } %>
                 </div>
-                <% } %>
-            </div>
 
+            </div>
         </div>
     </div>
+
     <% }else{ %>
     <div class="g-empty-data">
         <div class="m-empty-data">
@@ -220,6 +224,9 @@
                     }
                 }
                 return result;
+            },
+            callbackQuery:function () {
+                toggleShow();
             }
         });
         <% } %>
@@ -258,6 +265,9 @@
                                 }
                             }
                             return result;
+                        },
+                        callbackQuery:function () {
+                            toggleShow();
                         }
                     });
                 }

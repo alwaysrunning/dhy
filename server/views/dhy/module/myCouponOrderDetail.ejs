@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= title %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type='text/javascript' src='/public/static/js/lib/jquery-3.1.0.min.js' charset='utf-8'></script>
+    <link rel="stylesheet" href="/public/static/css/dhy/module/myCouponList.css">
+</head>
+<body>
+
+<div class="g-myCouponOrderDetail-page">
+
+   <div class="m-block-row-block">
+       <h4 class="order-status-desc"> 订单状态 :  <%= data.data["statusDescription"] %></h4>
+   </div>
+
+   <div class="m-block-row-block">
+       <div class="u-block-row-couponCode-slide">
+
+           <div class="swiper-container">
+               <!-- Additional required wrapper -->
+               <div class="swiper-wrapper">
+                   <!-- Slides -->
+                   <% data.data["couponlist"].forEach(function (item) { %>
+                   <div class="swiper-slide">
+                       <h4>优惠券码: <span><%= item["coupon_code"] %></span></h4>
+                       <div class="swiper-img" style="background: url('/code/qrcode/<%= item["coupon_code"] %>?eclevel=M&version=6&scale=4') no-repeat center center;background-size:contain;">
+                       </div>
+                   </div>
+                   <% }) %>
+               </div>
+               <!-- If we need pagination -->
+               <div class="swiper-pagination"></div>
+           </div>
+
+       </div>
+
+       <div class="u-block-row-line">
+           <div class="mbr-item">
+               支付方式 :
+           </div>
+           <div class="mbr-item">
+               <% if(data.data["pay"]==1){ %>
+               积分支付
+               <%}else if(data.data["pay"]==2){%>
+               微信支付
+               <% } %>
+           </div>
+       </div>
+   </div>
+
+    <div class="m-myCouponOrderList-block">
+
+        <ul class="u-myCouponOrder-list" id="myCouponOrderList">
+            <li>
+                <div class="uml-hd">
+                    <div class="item">
+                        <i class="icon iconfont icon-dingdanliebiaoleibie"></i><span>优惠券</span>
+                    </div>
+                    <div class="item">
+
+                    </div>
+                </div>
+                <div class="uml-bd">
+                        <div class="item">
+                            <p><%= data.data["couponname"] %></p>
+                        </div>
+                        <div class="item">
+                            <% if(data.data["pay"]==2){ %>
+                            <h6>&yen;<%= data.data["integral"] %></h6>
+                            <% }else if(data.data["pay"]==1){%>
+                            <h6><%= data.data["integral"] %>积分</h6>
+                            <% } %>
+                            <i class="u-badge-number">X<%= data.data["num"] %></i>
+                        </div>
+                </div>
+                <div class="uml-ft">
+                    <div class="item">
+                        数量 :   共<%= data.data["num"] %>件
+                    </div>
+                    <div class="item">
+                        <p>合计 : <%= data.data["integral"] %>（含邮费）</p>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="m-block-row-block">
+
+        <div class="u-block-row-line">
+            <div class="mbr-item">
+                商品总计 :
+            </div>
+            <div class="mbr-item">
+                <% if(data.data["pay"]==1){ %>
+                    <%= data.data["integral"] %>
+                <%}else if(data.data["pay"]==2){%>
+                    <%= data.data["weichatpay"] %>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="u-block-row-line">
+            <div class="mbr-item">
+                实付金额:   
+            </div>
+            <div class="mbr-item">
+                <% if(data.data["pay"]==1){ %>
+                    <%= data.data["integral"] %>
+                <%}else if(data.data["pay"]==2){%>
+                    <%= data.data["weichatpay"] %>
+                <% } %>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="m-block-row-block">
+        <div class="u-block-row-line">
+            <div class="mbr-item">
+                订单号 :
+            </div>
+            <div class="mbr-item">
+                <span id="copyCode"><%= data.data["code"] %></span>
+            </div>
+            <div class="mbr-item">
+                <button type="button" class="u-btn border border copyOrderBtn" data-code="<%= data.data["code"] %>">复制</button>
+            </div>
+        </div>
+        <div class="u-block-row-line">
+            <div class="mbr-item">
+                交易号 :
+            </div>
+            <div class="mbr-item">
+                <% if(data.data["pay"]==1){ %>
+                    <%= data.data["siebel_no"] %>
+                <%}else if(data.data["pay"]==2){%>
+                    <%= data.data["payorder"] %>
+                <% } %>
+            </div>
+        </div>
+        <div class="u-block-row-line">
+            <div class="mbr-item">
+                创建时间 :
+            </div>
+            <div class="mbr-item">
+                <%= data.data["createtime"] %>
+            </div>
+        </div>
+        <div class="u-block-row-line">
+            <div class="mbr-item">
+                付款时间 :
+            </div>
+            <div class="mbr-item">
+                <%= data.data["modifytime"] %>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="m-block-row-block-btn">-->
+        <!--<button class="u-btn border delOrderBtn large" type="button" data-code="<%= data.data["code"] %>">删除订单</button>-->
+    <!--</div>-->
+</div>
+
+<script type='text/javascript' src='/public/static/js/extends/weui1.0.1/jquery-weui.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='/public/static/js/extends/weui1.0.1/swiper.min.js' charset='utf-8'></script>
+<script type="text/javascript" src="/public/static/js/extends/fastclick.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        FastClick.attach(document.body);
+
+        function btnDel() {
+            var $delOrderBtn=$(".delOrderBtn");
+            $delOrderBtn.on("touchstart",function () {
+                var code=$(this).data("code")
+                $.confirm({
+                    title: '是否删除当前订单?',
+                    text: '温馨提示：删除订单将无法找回订单记录',
+                    onOK: function () {
+                        $.ajax({
+                            type: 'POST',
+                            url:"/api/dhy/coupon/couponOrderDel",
+                            data:{
+                                code:code
+                            },
+                            beforeSend: function () {
+                                $.showLoading();
+                            },
+                            success: function(data){
+                                $.hideLoading();
+                            },
+                            error: function(xhr, type){
+                                $.hideLoading();
+                                // 即使加载出错，也得重置
+                                var errorTxt = "";
+                                var codeTxt = "";
+                                codeTxt = xhr.responseJSON.code;
+                                errorTxt = xhr.responseJSON.message;
+                                $.toast(errorTxt, "text");
+                            }
+                        });
+                    },
+                    onCancel: function () {
+
+                    }
+                });
+            })
+        }
+
+        function copyToClipboard(eleId){
+            var temp = document.createElement("input")
+            temp.setAttribute("value",document.querySelector(eleId).innerHTML);
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand("copy");
+            document.body.removeChild(temp);
+            $.toast("复制成功!", "text");
+        }
+
+        btnDel();
+
+        $(".copyOrderBtn").on("click",function () {
+            copyToClipboard("#copyCode");
+        })
+
+        $(".swiper-container").swiper()
+    })
+</script>
+
+</body>
+</html>

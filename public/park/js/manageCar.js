@@ -4,7 +4,8 @@
 !(function () {
     var template = new EJS({url: '/views/park/carCard.ejs'});
     var confirmTemplate = new EJS({url: '/views/park/confirm.ejs'});
-    var scroll = new IScroll($('.car-manage-list').get(0), {
+    var carManageList =$('.car-manage-list');
+    var scroll = new IScroll(carManageList.get(0), {
         click: true
     });
 
@@ -15,8 +16,8 @@
                 parkid: parkid
             }));
 
-            if(data.data.length!=6){
-                $("#maxListNum").empty().append("<p>还可绑定<b>"+(6-parseInt(data.data.length))+"</b>个车牌 (最多添加6个车牌)</p>");
+            if(data.data.length!=2){
+                $("#maxListNum").empty().append("<p>还可绑定<b>"+(2-parseInt(data.data.length))+"</b>个车牌 (最多添加2个车牌)</p>");
             }else{
                 $("#maxListNum").empty().append("<p>记录已满，如需绑定新车牌，删除其他</p>");
             }
@@ -140,4 +141,7 @@
     carSelector.init();
     refreshCarNo();
 
+    carManageList.on("touchstart",function () {
+        licenceCodeInput.blur();
+    });
 })();

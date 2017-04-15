@@ -1,0 +1,613 @@
+@charset "utf-8";
+@import "../extend/weui1.0.1/weui-1.0.1",
+"../extend/weui1.0.1/jquery-weui-1.0.1",
+"../../common/icon",
+"../../common/wxmixin",
+"../../common/wrest",
+"../../component/dropload";
+/**
+** 票券独立出来
+**/
+body,html{
+  height: 100%;
+}
+.g-empty-data{
+  background-color: #f2f2f2;
+  text-align: center;
+
+}
+.m-empty-data{
+  display: inline-block;
+  padding-top: Rem(300);
+  $list:"i404","collect","comming","message","coupons","network","order","point","red";
+  .u-sprite{
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size:100%;
+    width: Rem(293*2);
+    height: Rem(291*2);
+    display: inline-block;
+    @for $i from 1 to length($list)+1{
+      &.#{nth($list,$i)}{
+        background-image: url("/public/static/img/message/#{nth($list,$i)}.png");
+      }
+    }
+  }
+  .msg{
+    margin-top: Rem(53-26);
+    font-size: Rem(26);
+    color: #333333;
+  }
+}
+.u-loading-mask-transparent{
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1009;
+}
+.loadTag{
+  overflow: hidden;
+  height: 100%;
+}
+
+.g-memberCouponList-page{
+  .g-empty-data{
+    background: #f5f5f5;
+  }
+   .u-fixed-top{
+     position: fixed;
+     top:0;
+     left: 0;
+     width: 100%;
+     z-index: 2322;
+   }
+   .u-nav-tab{
+     background: #fff;
+     border-bottom: Rem(1) solid #e8e9ea;
+   }
+  .u-nav-tab ul {
+    @include flexBox();
+    padding: Rem(20) 0 Rem(15) 0;
+    width: 100%;
+  }
+  .u-nav-tab ul li {
+    @include flex();
+    text-align: center;
+  }
+  .u-nav-tab ul li.u-active a{
+    display: inline-block;
+    border-bottom: Rem(4) solid #ff6666;
+  }
+
+  .m-couponsList-mod{
+    margin-top: Rem(130);
+    height: 100%;
+    .mcm-coupons-list{
+      padding:Rem(30) Rem(20);
+      .iconfont{
+        color: #9d9d9d;
+        @include font-dpr(16);
+      }
+
+      li{
+        border-top: Rem(5*2) solid #f95d5b;
+        border-left: none;
+        border-right: none;
+        border-radius: Rem(5*2);
+        background: #fff;
+        margin-bottom: Rem(15*2);
+        //-moz-box-shadow: 0 2px 3px #ddd;
+        //-webkit-box-shadow: 0 2px 3px #ddd;
+        //box-shadow: 0 2px 3px #ddd;
+      }
+
+      li.over{
+        .u-right-buy{
+          background: #ccc;
+        }
+      }
+
+      li.receive{
+        .mcl-circle{
+          display: none;
+        }
+        .mcl-bd-rg{
+          padding-top: 0;
+          background: url("/public/static/img/module/coupons_listBg_5.jpg") no-repeat right top;
+          background-size: contain;
+        }
+        .mcl-bd{
+          padding-right: 0;
+        }
+        .circle-cancvsDom{
+          display: none;
+        }
+      }
+      //已使用
+      &.mcl-apply{
+        li{
+          border-color:#b7b7b7;
+          .mcl-bd{
+            background: url("/public/static/img/module/i-umi-ysy.jpg") no-repeat right top;
+            background-size:30%;
+          }
+        }
+      }
+      //已过期
+      &.mcl-expire{
+        li{
+          border-color:#b7b7b7;
+          .mcl-bd{
+            background: url("/public/static/img/module/i-umi-ygq.jpg") no-repeat right top;
+            background-size:30%;
+          }
+        }
+      }
+
+      .mcl-bd{
+        padding: 0 Rem(10*2) Rem(10*2) Rem(10*2);
+        a p{
+          color:#333;
+        }
+        h4{
+          color: #f95d5b;
+          padding-top: Rem(10*2);
+        }
+        h4 em{
+          @include font-dpr(29);
+          margin-left: Rem(5*2);
+          color:#f95d5b;
+        }
+
+        p{
+          @include font-dpr(14);
+          height: Rem(45*2);
+          overflow: hidden;
+          @include text-overflow;
+        }
+        p i{
+          padding: Rem(2*2) Rem(4*2);
+          border-radius: Rem(2*2);
+          border: 1px solid #f95d5b;
+          margin-right: Rem(5*2);
+          @include font-dpr(12);
+          color: #f95d5b;
+          vertical-align: middle;
+        }
+        .limit-time{
+          color: #b2b2b3;
+          padding: Rem(5*2) 0;
+        }
+
+      }
+
+      .u-right-buy{
+        padding: Rem(20*2) Rem(4*2);
+        background: #f95d5b;
+        color: #fff;
+        @include font-dpr(12);
+        border-radius: Rem(10*2);
+        margin: Rem(10*2) auto 0 auto;
+      }
+
+      //使用规则
+      .mcl-ft{
+        background-image: url("/public/static/img/module/coupons_listBg_3.png"),url("/public/static/img/module/coupons_listBg_4.png");
+        background-repeat: no-repeat;
+        background-position: left -9px, right -9px;
+        padding: 0 Rem(10*2);
+        background:#fffafa;
+        .mcl-ft-hd{
+          @include flexBox;
+          padding-top: Rem(5*2);
+          border-top: 1px dashed #dedddd;
+          h5{
+            @include flex(3);
+            @include font-dpr(14);
+            font-weight: normal;
+            i{
+              border-radius: Rem(40*2);
+              background: #3cc87b;
+              margin-right: Rem(10*2);
+              width: Rem(4*2);
+              height:Rem(4*2);
+              display: inline-block;
+              vertical-align: middle;
+            }
+          }
+          em{
+            @include flex(1);
+            font-weight: normal;
+            text-align: right;
+          }
+        }
+        .mcl-ft-bd{
+          @include font-dpr(12);
+          color: #666;
+          padding: Rem(5*2);
+        }
+        .mcl-ft-ft{
+          text-align: center;
+        }
+        .mcl-ft-text-mod{
+          display: none;
+        }
+      }
+
+      .mcl-ft-shadow{
+        height: Rem(2*2);
+        -moz-box-shadow: 0 1px 2px #ddd;
+        -webkit-box-shadow: 0 1px 2px #ddd;
+        box-shadow: 0 1px 2px #ddd;
+      }
+
+      .no-click{
+        pointer-events: none
+      }
+
+    }
+  }
+
+  .weui-loadmore{
+    display: none;
+  }
+  .weui-loadmore.on{
+    display: block;
+  }
+}
+
+/**
+* 我的优惠券订单列表
+**/
+.g-myCouponOrderList-page{
+  background: #f2f3f7;
+  .u-fixed-top{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    z-index: 2322;
+    border-bottom: Rem(4) solid #e8e9ea;
+  }
+
+  .u-myCouponOrderSort-nav{
+    @include flexBox();
+    padding: Rem(12*2) 0 Rem(10*2) 0;
+    background: #fff;
+    li{
+      @include flex();
+      text-align: center;
+      @include font-dpr(14);
+      a{
+        display: inline-block;
+        padding: Rem(6) 0;
+        border-bottom: Rem(4*2) solid #fff;
+      }
+      &.active a{
+        border-bottom: Rem(4*2) solid #f95d5b;
+        color: #333;
+      }
+    }
+  }
+
+  .m-couponsOrderList-mod{
+    padding-top: Rem(180);
+  }
+
+}
+.u-myCouponOrder-list{
+  li {
+    background: $default-bg;
+    margin-bottom: Rem(40);
+    a{
+      color:$txt-default;
+    }
+
+    .uml-hd{
+      padding: Rem(25*2) Rem(20*2);
+      @include font-dpr(14);
+      @include flexBox();
+      .icon {
+        margin-right: Rem(20);
+        @include font-dpr(20);
+        vertical-align:bottom;
+      }
+      b {
+        font-weight: normal;
+        color: $font-them-color;
+      }
+      .item{
+        @include flex();
+        line-height: Rem(32*2);
+      }
+      .item:nth-child(2){
+        text-align: right;
+      }
+    }
+
+    .uml-bd{
+      padding: Rem(20*2);
+      background: #fffbf9;
+      a{
+        @include flexBox();
+        overflow: hidden;
+      }
+      img {
+        width: Rem(100*2);
+        height: Rem(100*2);
+        margin-right: Rem(20*2);
+        @extend .fl-lf;
+      }
+      .u-badge-link {
+        margin-left: Rem(20);
+        border-radius: Rem(20*2);
+        border: 1px solid $button-white-border-color;
+        padding: Rem(2*2) Rem(5*2);
+        font-size: Rem(20);
+        vertical-align: middle;
+      }
+      .item{
+        @include flex();
+        h6 {
+          @include font-dpr(14);
+          margin-bottom: Rem(10*2);
+          font-weight: normal;
+          color: #f95d5b;
+        }
+      }
+      .item:nth-child(2){
+        text-align: right;
+      }
+
+      .u-badge-number {
+        display: inline-block;
+        background: #ff6666;
+        cursor: pointer;
+        color: #fff;
+        text-align: center;
+        border-radius:Rem(60);
+        padding: 0 Rem(40);
+        @include font-dpr(12);
+      }
+    }
+
+    .uml-ft{
+      @include flexBox();
+      padding: Rem(40);
+      @include font-dpr(14);
+      .item{
+        @include flex();
+      }
+      .item:nth-child(2){
+        text-align: right;
+      }
+    }
+
+    .uml-bt{
+      @include flexBox();
+      padding:0 Rem(40) Rem(40) Rem(40);
+      @include font-dpr(14);
+      .item{
+        @include flex();
+      }
+      .item:nth-child(2){
+        text-align: right;
+      }
+    }
+
+    .u-btn{
+      @include font-dpr(14);
+      padding: Rem(10) Rem(20);
+      line-height: normal;
+      margin: 0 Rem(5);
+      background: #f95d5b;
+      color: #fff;
+      border-radius: Rem(10);
+    }
+    .u-btn.border{
+      background: #fff;
+      border:Rem(4) solid #ddd;
+      color: #333;
+    }
+    .warn-time{
+      color: $button-white-border-color;
+      display: inline-block;
+      padding-top: Rem(10);
+    }
+  }
+
+}
+
+/**
+* 我的优惠券订单详情
+**/
+.g-myCouponOrderDetail-page{
+
+  .u-block-row-couponCode-slide{
+    .swiper-container{
+      padding-bottom: Rem(60);
+    }
+    .swiper-slide h4{
+      text-align: center;
+      font-weight: normal;
+      padding: Rem(40);
+      span{
+        color: #ff6666;
+      }
+    }
+    .swiper-img{
+      width: Rem(750);
+      height: Rem(750);
+      margin: 0 auto;
+    }
+    .swiper-pagination{
+      bottom: Rem(-20);
+    }
+    .swiper-pagination-bullet-active{
+      background: #ff6666;
+    }
+  }
+
+  .order-status-desc{
+    text-align: center;
+    color: #333;
+    font-weight: normal;
+    @include font-dpr(14);
+    padding: Rem(40);
+  }
+  .u-btn{
+    @include font-dpr(14);
+    padding: Rem(10) Rem(20);
+    line-height: normal;
+    margin: 0 Rem(5);
+    background: #f95d5b;
+    color: #fff;
+    border-radius: Rem(10);
+  }
+  .u-btn.border{
+    background: #fff;
+    border:Rem(4) solid #ddd;
+    color: #333;
+  }
+  .u-btn.large{
+    display: inline-block;
+    width: 90%;
+    margin: 0 auto;
+    padding: Rem(20);
+    border-radius: Rem(20);
+  }
+  .m-block-row-block-btn{
+    text-align: center;
+    padding: Rem(60) Rem(40);
+  }
+  .m-block-row-block{
+    background: #fff;
+    margin-bottom: Rem(40);
+  }
+  .codeImg{
+    width: Rem(60);
+    height: Rem(60);
+    vertical-align: middle;
+  }
+  .u-block-row-line{
+    overflow: hidden;
+    border-bottom: Rem(1) solid #f2f2f2;
+    padding:Rem(40) Rem(40);
+    @include font-dpr(12);
+    .mbr-item{
+      @extend .fl-lf;
+      text-align: left;
+      margin-right: Rem(20);
+    }
+    .mbr-item:nth-child(1){
+
+    }
+    .mbr-item:nth-child(3){
+      @extend .fl-rg;
+      text-align: right;
+    }
+  }
+}
+
+//模拟窗口
+.u-mask {
+  background-color: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  height: 100%;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+  transition: all ease 0.2s;
+}
+
+.u-mask.u-mask-active {
+  opacity: 1;
+  z-index: 2200;
+}
+
+.u-modal {
+  border-radius: Rem(4);
+  overflow: hidden;
+  left: 50%;
+  margin-left: Rem(-490*1.8/2);
+  margin-top: 0;
+  opacity: 0;
+  position: fixed;
+  text-align: center;
+  top: 40%;
+  transform: translate3d(0px, 0px, 0px) scale(1.185);
+  transition-property: transform, opacity;
+  width: Rem(490*1.8);
+  z-index: -9999;
+}
+
+.u-icon-loading {
+  font-size: Rem(60*1.8);
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-animation: icon-spin 2s infinite linear;
+  animation: icon-spin 2s infinite linear;
+}
+
+.u-modal-dialog {
+  background: #f8f8f8; //#f8f8f8
+  font-size:  Rem(14*2*1.8);
+  padding-top: Rem(40*1.8);
+  .u-modal-hd {
+    padding: 0 Rem(20*1.8) Rem(10*1.8) Rem(20*1.8);
+    font-size: Rem(32*1.8);
+    @include clearfix;
+    .umh-lf {
+      @include g-fl-lf;
+    }
+    .umh-rg {
+      @include g-fl-rg;
+    }
+  }
+  .u-modal-bd {
+    padding: 0 Rem(20*1.8) Rem(40*1.8) Rem(20*1.8);
+    text-align: left;
+    border-bottom: 1px solid #dedede;
+  }
+  .u-modal-bd.u-align-center {
+    text-align: center;
+  }
+  .u-modal-footer {
+    border-collapse: collapse;
+    display: table;
+    height: Rem(88*1.8);
+    overflow: hidden;
+    width: 100%;
+  }
+  .u-modal-text-center {
+    text-align: center;
+  }
+}
+
+.u-modal-btn {
+  font-size: Rem(32*1.8);
+  border-right: 1px solid #dedede;
+  box-sizing: border-box !important;
+  cursor: pointer;
+  display: table-cell !important;
+  height: Rem(88*1.8);
+  line-height: Rem(88*1.8);
+  overflow: hidden;
+  padding: 0 Rem(5*1.8);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  color: #ff6666;
+}
+
+.u-modal-btn:active {
+  background: #efefef;
+}
+
+.u-modal-btn:last-child {
+  border-right: 0;
+  border-radius: 0;
+}

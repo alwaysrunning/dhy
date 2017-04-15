@@ -10,9 +10,7 @@ var _cipherKey = undefined;
 module.exports.center = function (req, res, next) {
     var unionid = req.cookies['unionid'];
     var openid = req.cookies['openid'];
-    var tokenid = req.cookies['tokenid'];
-    
-    api.user.center(unionid, openid, tokenid).then(function (data) {
+    api.user.center(unionid, openid).then(function (data) {
         res.json(data);
     }).fail(function (err) {
         next(err);
@@ -32,7 +30,6 @@ module.exports.cards = function (req, res, next) {
 module.exports.accountInfo = function (req, res, next) {
     var unionid = req.cookies['unionid'];
     var openid = req.cookies['openid'];
-
     q.all([
         api.user.meberInfo(unionid),
         api.weixin.access_token().then(function (accessToken) {
@@ -400,7 +397,7 @@ module.exports.pointIncrease = function(req,res,next){
 module.exports.paySignParam = function(req,res,next){
     var unionid = req.cookies['unionid'];
     var cardNo = req.query['cardno'];
-    
+
     api.paySign.getUrlSignParam(unionid).then(function (data) {
         res.json({
             data:{

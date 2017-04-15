@@ -66,10 +66,9 @@ define(function (require, exports, module){
             $.each(_dd,function(index,item){
                 var _p=$(this).find(".uml-cont p");
                 var _id=$(this).data("id");
-                var lg=100;
+                var lg=160;
                 var content=_p.data("content");
                 var _lookMore=$(this).find('.u-look-more');
-
 
                 $(this).data("index",$(this).index());
                 $(this).data("parentindex",$(this).parents("dl").data("index"));

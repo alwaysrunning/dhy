@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/static/css/park/app.css"/>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><!--ignore-->
+    <script src="/public/static/js/lib/flexible.js"></script><!--ignore-->
+    <script src="/public/static/js/lib/jquery.min.js"></script>
+    <script src="/public/static/js/extends/iscroll.js"></script>
+    <script src="/public/static/js/extends/touch.js"></script>
+    <script src="/public/park/js/store.js"></script>
+    <script src="/public/park/js/check.js"></script>
+    <script src="/public/park/js/carSelect.js"></script>
+    <script src="/public/static/js/extends/ejs.js"></script>
+    <script>
+        var parkid = '<%= shopId %>';
+    </script>
+</head>
+<body>
+<div class="viewport car-manageBind-page g-perfectCarInfo-page">
+    <div class="bg light-dark">
+        <div class="car-manage-bind-banner">
+            <div class="cmbb-banner">
+
+            </div>
+
+            <a  href="/#/memberCenter?channel=<%= shopId %>" class="car-skip"><i class="icon iconfont-park icon-guanbi"></i></a>
+            <!--<div class="car-manage-list-num" id="maxListNum" style="display: none">-->
+
+            <!--</div>-->
+        </div>
+
+        <div class="car-manage-select">
+            <div class="car-search">
+                <div class="car-input flex-box">
+                    <div class="licence-code btn-link flex-box-item" id="licenceCodeBtn">
+                        <span class="lecence-text"></span>
+                        <span class="iconfont-park icon-xiajiantou"></span>
+                    </div>
+                    <div class="licence-num flex-box-item">
+                        <input class="licence-num-input" type="text" placeholder="车牌后5位" id="licenceCodeInput"
+                               pattern="[0-9]|[a-z]|[A-Z]*"/>
+                    </div>
+                    <div class="licence-search btn disabled" id="licenceCodeSubmit">
+                        绑定
+                    </div>
+                </div>
+                <div class="dailog-select">
+                    <div class="slide-box"></div>
+                    <span class="dailog-arrow"></span>
+                </div>
+            </div>
+        </div>
+        <div class="car-manage-list">
+            <div class="car-manage-list-scroll">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dailog-warm" style="display: none;"></div>
+<script src="/public/park/js/util.js"></script>
+<script src="/public/park/js/perfectCarInfo.js"></script>
+</body>
+</html>

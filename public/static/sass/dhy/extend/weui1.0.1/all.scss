@@ -1,0 +1,955 @@
+@charset "utf-8";
+/*
+ * Created by someone on 2017/3/8.
+*/
+/**
+ * Created by ricopter@qq.com on 2017/2/7.
+ */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+p,
+blockquote,
+pre,
+hr,
+figure,
+table,
+caption,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+menu {
+  margin: 0;
+  padding: 0;
+}
+header,
+footer,
+section,
+article,
+aside,
+nav,
+hgroup,
+address,
+figure,
+figcaption,
+menu,
+details {
+  display: block;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+caption,
+th {
+  text-align: left;
+  font-weight: normal;
+}
+html,
+body,
+fieldset,
+img,
+iframe,
+abbr {
+  border: 0;
+}
+i,
+cite,
+em,
+var,
+address,
+dfn {
+  font-style: normal;
+}
+[hidefocus],
+summary {
+  outline: 0;
+}
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small {
+  font-size: 100%;
+}
+sup,
+sub {
+  font-size: 83%;
+}
+pre,
+code,
+kbd,
+samp {
+  font-family: inherit;
+}
+q:before,
+q:after {
+  content: none;
+}
+textarea {
+  overflow: auto;
+  resize: none;
+}
+label,
+summary {
+  cursor: default;
+}
+a,
+button {
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+em,
+strong,
+b {
+  font-weight: bold;
+}
+ins,
+u,
+s,
+a,
+a:hover {
+  text-decoration: none;
+}
+body,
+textarea,
+input,
+button,
+select,
+keygen,
+legend {
+  color: #333;
+  outline: 0;
+}
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+}
+body {
+  line-height: 1.6;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #fff;
+  height: 100%;
+}
+a img {
+  border: 0;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+a,
+a:hover {
+  color: #333;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #333;
+}
+/* weui reset */
+.btn-radius {
+  border-radius: 40px;
+}
+.weui-cells {
+  font-size: 14px;
+}
+.weui-cells_radio .weui-check:checked + .weui-icon-checked:before {
+  color: #f95d5b;
+}
+.weui-cells_checkbox .weui-check:checked + .weui-icon-checked:before {
+  color: #f95d5b;
+}
+.weui-btn_primary {
+  background-color: #f95d5b;
+  color: #fff!important;
+}
+.weui-btn_primary:not(.weui-btn_disabled):active {
+  background-color: #fb8e8c;
+}
+.weui-btn_disabled.weui-btn_primary {
+  background-color: #ccc;
+}
+.weui-btn_plain-default {
+  color: #f95d5b;
+  border: 1px solid #f95d5b;
+  background-color: #fff;
+}
+.weui-btn_plain-default:not(.weui-btn_plain-disabled):active {
+  color: #fb8e8c;
+  border-color: #fb8e8c;
+  background-color: #fff6f7;
+}
+.weui-btn_plain-primary {
+  color: #f95d5b !important;
+  border: 1px solid #f95d5b;
+  background-color: #fff;
+}
+.weui-btn_plain-primary:not(.weui-btn_plain-disabled):active {
+  color: #fb8e8c;
+  border-color: #fb8e8c;
+}
+.weui-btn_plain-disabled {
+  color: #ccc;
+  border-color: #ccc;
+}
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@font-face {
+  font-family: 'iconfont';
+  /* project id 248143 */
+  src: url('http://at.alicdn.com/t/font_4iesczu3ckd18aor.eot');
+  src: url('http://at.alicdn.com/t/font_4iesczu3ckd18aor.eot?#iefix') format('embedded-opentype'), url('http://at.alicdn.com/t/font_4iesczu3ckd18aor.woff') format('woff'), url('http://at.alicdn.com/t/font_4iesczu3ckd18aor.ttf') format('truetype'), url('http://at.alicdn.com/t/font_4iesczu3ckd18aor.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 18px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-clock:before {
+  content: "\e61d";
+}
+.icon-shangjiantou:before {
+  content: "\e638";
+}
+.icon-xiajiantou:before {
+  content: "\e621";
+}
+.icon-zuojiantou:before {
+  content: "\e61f";
+}
+.icon-youjiantou:before {
+  content: "\e624";
+}
+.icon-gou:before {
+  content: "\e641";
+}
+.icon-cha:before {
+  content: "\e639";
+}
+.icon-qianbao:before {
+  content: "\e62a";
+}
+.icon-jia:before {
+  content: "\e836";
+}
+.icon-jian:before {
+  content: "\e627";
+}
+/*
+ * Created by someone on 2017/3/8.
+*/
+.common-tab .weui-navbar .weui-navbar__item {
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+}
+.common-tab .weui-navbar .weui-navbar__item:after {
+  border: none;
+}
+.common-tab .weui-navbar .weui-navbar__item a {
+  display: inline-block;
+  padding: 13px 5px;
+  font-size: 14px;
+}
+.common-tab .weui-navbar .weui-navbar__item.weui-bar__item--on a {
+  color: #f95d5b;
+  border-bottom: 3px solid #f95d5b;
+}
+.common-tab .weui-navbar:after {
+  border: none;
+}
+.buy-number-area .buy-number {
+  position: relative;
+  width: 120px;
+  height: 30px;
+  overflow: hidden;
+  float: left;
+  margin: 0 10px 0 0;
+}
+.buy-number-area .buy-number .bn-btn {
+  position: absolute;
+  width: 30px;
+  height: 28px;
+  border: 1px solid #eee;
+  background-color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+}
+.buy-number-area .buy-number .bn-btn .iconfont {
+  display: block;
+  width: 12px;
+  height: 12px;
+  font-size: 12px;
+  margin: 4px auto;
+  color: #333;
+}
+.buy-number-area .buy-number .bn-btn.bn-btn-jian {
+  left: 0;
+  right: auto;
+  border-right: none;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.buy-number-area .buy-number .bn-btn.bn-btn-jia {
+  left: auto;
+  right: 0;
+  border-left: none;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.buy-number-area .buy-number .bn-btn:hover {
+  border-color: #999;
+  background-color: #999;
+}
+.buy-number-area .buy-number .bn-btn:hover .iconfont {
+  color: #333;
+}
+.buy-number-area .buy-number .bn-btn:active {
+  border-color: #666;
+  background-color: #666;
+}
+.buy-number-area .buy-number .bn-btn:active .iconfont {
+  color: #ffffff;
+}
+.buy-number-area .buy-number .bn-btn.disabled {
+  border-color: #eeeeee;
+  background-color: #eeeeee;
+}
+.buy-number-area .buy-number .bn-btn.disabled .iconfont {
+  color: #999;
+}
+.buy-number-area .buy-number input {
+  position: absolute;
+  width: 48px;
+  height: 18px;
+  line-height: 18px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 30px;
+  right: 30px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #eeeeee;
+}
+.buy-number-area .buy-number-count {
+  float: right;
+  background-color: #f95d5b;
+  color: #fff;
+  padding: 1px 10px;
+  border-radius: 50px;
+}
+/*
+ * Created by someone on 2017/3/8.
+*/
+.t-msg-pages {
+  background-color: #f2f3f7;
+}
+.t-msg-pages .t-msg-box {
+  margin: 20px 15px;
+}
+.t-msg-pages .t-msg-box .t-msg-box-time {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.t-msg-pages .t-msg-box .t-msg-box-time p {
+  display: inline-block;
+  padding: 2px 10px;
+  background-color: #c0c0c0;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 12px;
+}
+.t-msg-pages .t-msg-box .t-msg-box-time p .iconfont {
+  font-size: 14px;
+}
+.t-msg-pages .t-msg-box .t-msg-box-con {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 15px;
+}
+.t-msg-pages .t-msg-box .t-msg-box-con .tmbc-hd {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+.t-msg-pages .t-msg-box .t-msg-box-con .tmbc-bd {
+  margin-bottom: 5px;
+  color: #666;
+}
+.t-msg-pages .t-msg-box .t-msg-box-con .tmbc-ft {
+  text-align: right;
+  color: #999;
+}
+.t-msg-pages .t-msg-box .t-msg-box-con .tmbc-ft a {
+  color: #999;
+  text-decoration: underline;
+}
+.t-msg-pages .t-msg-box .t-msg-box-con .tmbc-ft a:hover {
+  text-decoration: none;
+}
+.t-msg-pages .t-msg-box .t-msg-box-con .tmbc-coupon .tmbc-coupon-pic {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 15px;
+  background: url("../../assets/img/pic_coupon.jpg") no-repeat;
+  background-size: contain;
+}
+.t-msg-pages .t-msg-box .t-msg-box-con .tmbc-coupon .tmbc-coupon-text .tmbcct-hd {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+.t-msg-pages .t-msg-box .t-msg-box-con .tmbc-coupon .tmbc-coupon-text .tmbcct-bd {
+  margin-bottom: 5px;
+  color: #666;
+}
+.t-msg-pages .t-msg-box .t-msg-box-con .tmbc-coupon .tmbc-coupon-text .tmbcct-ft {
+  color: #999;
+}
+.t-msg-pages .t-msg-box .t-msg-box-con .tmbc-coupon .tmbc-coupon-text .tmbcct-ft a {
+  color: #999;
+  text-decoration: underline;
+}
+.t-msg-pages .t-msg-box .t-msg-box-con .tmbc-coupon .tmbc-coupon-text .tmbcct-ft a:hover {
+  text-decoration: none;
+}
+.t-msg-pages .no-msg {
+  padding-top: 4rem;
+}
+.t-msg-pages .no-msg .pic {
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto 10px;
+  background: url("../../assets/img/no_msg.png") no-repeat;
+  background-size: contain;
+}
+.t-msg-pages .no-msg .text {
+  text-align: center;
+  color: #a9a9bb;
+  font-size: 14px;
+}
+.t-msg-pages .no-msg .text h2 {
+  color: #727282;
+  font-size: 16px;
+  font-weight: normal;
+}
+/*
+ * Created by someone on 2017/3/8.
+*/
+.coupon-detail-pages {
+  background-color: #f2f3f7;
+}
+.coupon-detail-pages .coupon-show {
+  margin: 30px;
+  position: relative;
+}
+.coupon-detail-pages .coupon-show .img-bg {
+  width: 100%;
+}
+.coupon-detail-pages .coupon-show .img-bg img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.coupon-detail-pages .coupon-show .coupon-show-text {
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  text-align: center;
+  color: #f95d5b;
+}
+.coupon-detail-pages .coupon-show .coupon-show-text h2 {
+  font-size: 30px;
+  font-weight: normal;
+}
+.coupon-detail-pages .coupon-show .coupon-show-text h2 small {
+  font-size: 16px;
+}
+.coupon-detail-pages .coupon-detail .weui-cell__ft {
+  color: #333;
+}
+.coupon-detail-pages .coupon-detail .weui-cell__ft .iconfont {
+  color: #666;
+  font-size: 14px;
+}
+.coupon-detail-pages .coupon-detail .child-list {
+  display: none;
+  padding: 10px 15px;
+  background-color: #fbf8f8;
+}
+.coupon-detail-pages .coupon-detail .child-list ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.coupon-detail-pages .coupon-detail .child-list ul li:last-child {
+  border: none;
+}
+.coupon-detail-pages .coupon-detail .child-list.active {
+  display: block;
+}
+.coupon-detail-pages .coupon-detail .usage-rules {
+  padding: 10px 15px;
+  background-color: #fff;
+  line-height: 30px;
+}
+.coupon-detail-pages .fixed-bottom {
+  bottom: 0;
+  padding: 10px;
+  background-color: #f0f0f4;
+  border-top: 1px solid #dddee1;
+  align-items: center;
+}
+.coupon-detail-pages .fixed-bottom .total-money .new {
+  font-size: 18px;
+  color: #f95d5b;
+  margin-right: 10px;
+}
+.coupon-detail-pages .fixed-bottom .total-money .new small {
+  font-size: 14px;
+  color: #666;
+}
+.coupon-detail-pages .fixed-bottom .total-money .old {
+  color: #666;
+  text-decoration: line-through;
+}
+.coupon-get-pages .coupon-get-msg {
+  padding: 40px;
+  text-align: center;
+}
+.coupon-get-pages .coupon-get-msg .cgm-icon-area {
+  margin-bottom: 10px;
+}
+.coupon-get-pages .coupon-get-msg .cgm-icon-area .iconfont {
+  font-size: 40px;
+  line-height: 40px;
+}
+.coupon-get-pages .coupon-get-msg .cgm-icon-area .icon-gou {
+  color: #3cc87b;
+}
+.coupon-get-pages .coupon-get-msg .cgm-icon-area .icon-cha {
+  color: #f95d5b;
+}
+.coupon-get-pages .coupon-get-msg .cgm-text-area h2 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #333;
+}
+.coupon-get-pages .coupon-get-msg .cgm-text-area p {
+  font-size: 14px;
+  color: #666;
+}
+.coupon-get-pages .coupon-get-msg .cgm-btn-area {
+  padding-top: 10px;
+  text-align: center;
+}
+.coupon-get-pages .coupon-get-msg.coupon-get-msg-fail {
+  padding-top: 100px;
+}
+.coupon-get-pages .coupon-get-ops {
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 0 15px;
+}
+.coupon-get-pages .coupon-get-ops .cgo-row {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+.coupon-get-pages .coupon-get-ops .cgo-row:before,
+.coupon-get-pages .coupon-get-ops .cgo-row:after {
+  content: " ";
+  display: table;
+}
+.coupon-get-pages .coupon-get-ops .cgo-row:after {
+  clear: both;
+}
+.coupon-get-pages .coupon-get-ops .cgo-row .cgo-row-hd {
+  float: left;
+}
+.coupon-get-pages .coupon-get-ops .cgo-row .cgo-row-bd {
+  float: right;
+}
+.coupon-get-pages .coupon-get-ops .cgo-code-area {
+  margin-bottom: 20px;
+}
+.coupon-get-pages .coupon-get-ops .cgo-code-area .cca-code {
+  width: 40%;
+  margin: 20px auto 5px;
+}
+.coupon-get-pages .coupon-get-ops .cgo-code-area .cca-code img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.coupon-get-pages .coupon-get-ops .cgo-code-area .cca-text {
+  text-align: center;
+  color: #666;
+}
+.coupon-get-pages .coupon-get-ops .cgo-btn-area {
+  text-align: center;
+  padding-bottom: 30px;
+}
+.coupon-get-pages .coupon-pay .cp-info {
+  padding: 15px;
+  margin-top: 10px;
+  background-color: #fff;
+}
+.coupon-get-pages .coupon-pay .cp-info .cpi-pic {
+  width: 3.5rem;
+  height: 3.5rem;
+  overflow: hidden;
+  margin-right: 15px;
+}
+.coupon-get-pages .coupon-pay .cp-info .cpi-pic img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.coupon-get-pages .coupon-pay .cp-info .cpi-text .cpit-title {
+  line-height: 16px;
+  margin-bottom: 5px;
+}
+.coupon-get-pages .coupon-pay .cp-info .cpi-text .cpit-title:before,
+.coupon-get-pages .coupon-pay .cp-info .cpi-text .cpit-title:after {
+  content: " ";
+  display: table;
+}
+.coupon-get-pages .coupon-pay .cp-info .cpi-text .cpit-title:after {
+  clear: both;
+}
+.coupon-get-pages .coupon-pay .cp-info .cpi-text .cpit-title h2 {
+  float: left;
+  font-size: 16px;
+  font-weight: 400;
+}
+.coupon-get-pages .coupon-pay .cp-info .cpi-text .cpit-title span {
+  float: right;
+  font-size: 14px;
+  color: #f95d5b;
+}
+.coupon-get-pages .coupon-pay .cp-info .cpi-text .cpit-term {
+  clear: both;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+}
+.coupon-get-pages .coupon-pay .cp-method {
+  margin-top: 10px;
+  background-color: #fff;
+}
+.coupon-get-pages .coupon-pay .cp-method .cp-method-hd {
+  padding: 10px 15px;
+}
+.coupon-get-pages .coupon-pay .cp-method .cp-method-hd .iconfont {
+  color: #666;
+}
+.coupon-get-pages .coupon-pay .cp-method .cp-method-bd .weui-cells {
+  margin-top: 0;
+}
+.coupon-get-pages .coupon-pay .cp-method .cp-method-bd .weui-cells .icon {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-right: 8px;
+}
+.coupon-get-pages .coupon-pay .cp-method .cp-method-bd .weui-cells .icon.ic-jf {
+  //background: url("../img/icon_jf.png") no-repeat;
+  background: url("/public/static/img/module/icon_jf.png") no-repeat;
+  background-size: contain;
+}
+.coupon-get-pages .coupon-pay .cp-method .cp-method-bd .weui-cells .icon.ic-wx {
+  //background: url("../img/icon_wx.png") no-repeat;
+  background: url("/public/static/img/module/icon_wx.png") no-repeat;
+  background-size: contain;
+}
+.coupon-get-pages .coupon-pay .cp-count {
+  margin-top: 10px;
+  background-color: #fff;
+}
+.coupon-get-pages .coupon-pay .cp-count ul li {
+  padding: 10px 15px;
+  border-bottom: 1px solid #d9d9d9;
+}
+.coupon-get-pages .coupon-pay .cp-count ul li:before,
+.coupon-get-pages .coupon-pay .cp-count ul li:after {
+  content: " ";
+  display: table;
+}
+.coupon-get-pages .coupon-pay .cp-count ul li:after {
+  clear: both;
+}
+.coupon-get-pages .coupon-pay .cp-count ul li:last-child {
+  border: none;
+}
+.coupon-get-pages .coupon-pay .cp-count ul li label {
+  float: left;
+}
+.coupon-get-pages .coupon-pay .cp-count ul li p {
+  float: right;
+}
+.coupon-get-pages .coupon-pay .cp-count ul li p span {
+  color: #f95d5b;
+}
+.coupon-get-pages .coupon-pay .cp-btn-area {
+  padding: 15px;
+}
+/*
+ * Created by someone on 2017/3/8.
+*/
+.refund-order-details-pages .refund-info {
+  background-color: #fff;
+}
+.refund-order-details-pages .refund-info .ri-money {
+  padding: 15px;
+  border-bottom: 1px dashed #eee;
+}
+.refund-order-details-pages .refund-info .ri-money .ri-money-inner {
+  display: block;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff9f9;
+  border-radius: 100px;
+}
+.refund-order-details-pages .refund-info .ri-money .ri-money-inner h2 {
+  font-size: 18px;
+  color: #f95d5b;
+  font-weight: normal;
+}
+.refund-order-details-pages .refund-info .ri-money .ri-money-inner p {
+  font-size: 14px;
+  color: #666;
+}
+.refund-order-details-pages .refund-info .ri-steps {
+  padding: 0;
+  background: url("../img/refund_step_arrow.png") no-repeat center 1.4rem;
+  background-size: contain;
+}
+.refund-order-details-pages .refund-info .ri-steps .ri-step {
+  margin: 15px;
+  text-align: center;
+}
+.refund-order-details-pages .refund-info .ri-steps .ri-step .ri-step-icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  overflow: hidden;
+}
+.refund-order-details-pages .refund-info .ri-steps .ri-step .ri-step-text {
+  font-size: 14px;
+  color: #666;
+}
+.refund-order-details-pages .refund-info .ri-steps .ri-step .ri-step-text.unfinished {
+  color: #999;
+}
+.refund-order-details-pages .refund-info .ri-steps .ri-step .ri-step-time {
+  font-size: 12px;
+  color: #666;
+}
+.refund-order-details-pages .refund-info .ri-steps-01 .ri-step-01 .ri-step-icon {
+  background: url("../img/refund_step_0101.png") no-repeat center;
+  background-size: contain;
+}
+.refund-order-details-pages .refund-info .ri-steps-01 .ri-step-02 .ri-step-icon {
+  background: url("../img/refund_step_0201.png") no-repeat center;
+  background-size: contain;
+}
+.refund-order-details-pages .refund-info .ri-steps-02 .ri-step-01 .ri-step-icon {
+  background: url("../img/refund_step_0101.png") no-repeat center;
+  background-size: contain;
+}
+.refund-order-details-pages .refund-info .ri-steps-02 .ri-step-02 .ri-step-icon {
+  background: url("../img/refund_step_0202.png") no-repeat center;
+  background-size: contain;
+}
+.refund-order-details-pages .refund-info .ri-steps-03 .ri-step-01 .ri-step-icon {
+  background: url("../img/refund_step_0101.png") no-repeat center;
+  background-size: contain;
+}
+.refund-order-details-pages .refund-info .ri-steps-03 .ri-step-02 .ri-step-icon {
+  background: url("../img/refund_step_0203.png") no-repeat center;
+  background-size: contain;
+}
+.refund-order-details-pages .refund-info .ri-steps-04 .ri-step-01 .ri-step-icon {
+  background: url("../img/refund_step_0101.png") no-repeat center;
+  background-size: contain;
+}
+.refund-order-details-pages .refund-info .ri-steps-04 .ri-step-02 .ri-step-icon {
+  background: url("../img/refund_step_0204.png") no-repeat center;
+  background-size: contain;
+}
+.refund-order-details-pages .refund-info .ri-list {
+  border-top: 1px solid #eee;
+}
+.refund-order-details-pages .refund-info .ri-list ul {
+  margin-left: 10px;
+}
+.refund-order-details-pages .refund-info .ri-list ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.refund-order-details-pages .refund-info .ri-list ul li:last-child {
+  border: none;
+}
+.refund-order-details-pages .refund-other .ro-item {
+  background-color: #fff;
+  margin-top: 10px;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-hd {
+  padding: 10px 15px;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-hd:before,
+.refund-order-details-pages .refund-other .ro-item .ro-item-hd:after {
+  content: " ";
+  display: table;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-hd:after {
+  clear: both;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-hd h2 {
+  float: left;
+  font-size: 14px;
+  color: #333;
+  font-weight: normal;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-hd h2 span {
+  color: #999;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-hd h2 small {
+  color: #999;
+  font-size: 12px;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-hd .iconfont {
+  float: right;
+  font-size: 14px;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd {
+  clear: both;
+  border-top: 1px solid #eee;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-type {
+  padding: 5px 10px;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-type:before,
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-type:after {
+  content: " ";
+  display: table;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-type:after {
+  clear: both;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-type .refund-type-option {
+  float: left;
+  margin: 10px 5px;
+  padding: 5px 10px;
+  background-color: #fff;
+  border: 1px solid #e9e9e9;
+  position: relative;
+  word-break: keep-all;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-type .refund-type-option .tag {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: url("../img/refund_type_unchecked.png") no-repeat center;
+  background-size: contain;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-type .refund-type-option.checked {
+  color: #f95d5b;
+  border-color: #f95d5b;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-type .refund-type-option.checked .tag {
+  background: url("../img/refund_type_checked.png") no-repeat center;
+  background-size: contain;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-reason {
+  background-color: #fbf8f8;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-reason ul {
+  margin-left: 10px;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-reason ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-reason ul li:last-child {
+  border-bottom: none;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-desc {
+  padding: 10px;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-desc .textarea-box {
+  border: 1px solid #eee;
+  padding: 5px;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-desc .textarea-box textarea {
+  border: 0;
+  display: block;
+  width: 100%;
+  height: 3rem;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-desc h3 {
+  font-size: 12px;
+  font-weight: normal;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .refund-desc p {
+  font-size: 12px;
+  color: #666;
+}
+.refund-order-details-pages .refund-other .ro-item .ro-item-bd .weui-uploader {
+  padding: 10px;
+}
+.refund-order-details-pages .refund-other .ro-btn-area {
+  padding: 15px;
+}
+body {
+  background: #f2f3f7;
+  font-size: 14px;
+}

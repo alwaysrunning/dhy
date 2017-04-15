@@ -1,0 +1,809 @@
+@charset "utf-8";
+/**
+ * Created by ricopter@qq.com on 2017/2/5.
+ */
+/**
+ * Created by ricopter@qq.com on 2017/2/7.
+ */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+p,
+blockquote,
+pre,
+hr,
+figure,
+table,
+caption,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+menu {
+  margin: 0;
+  padding: 0;
+}
+header,
+footer,
+section,
+article,
+aside,
+nav,
+hgroup,
+address,
+figure,
+figcaption,
+menu,
+details {
+  display: block;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+caption,
+th {
+  text-align: left;
+  font-weight: normal;
+}
+html,
+body,
+fieldset,
+img,
+iframe,
+abbr {
+  border: 0;
+}
+i,
+cite,
+em,
+var,
+address,
+dfn {
+  font-style: normal;
+}
+[hidefocus],
+summary {
+  outline: 0;
+}
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small {
+  font-size: 100%;
+}
+sup,
+sub {
+  font-size: 83%;
+}
+pre,
+code,
+kbd,
+samp {
+  font-family: inherit;
+}
+q:before,
+q:after {
+  content: none;
+}
+textarea {
+  overflow: auto;
+  resize: none;
+}
+label,
+summary {
+  cursor: default;
+}
+a,
+button {
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+em,
+strong,
+b {
+  font-weight: bold;
+}
+ins,
+u,
+s,
+a,
+a:hover {
+  text-decoration: none;
+}
+body,
+textarea,
+input,
+button,
+select,
+keygen,
+legend {
+  color: #333;
+  outline: 0;
+}
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+}
+body {
+  line-height: 1.6;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #fff;
+  height: 100%;
+}
+a img {
+  border: 0;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+a,
+a:hover {
+  color: #333;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #333;
+}
+/* weui reset */
+.btn-radius {
+  border-radius: 40px;
+}
+.weui-cells_radio .weui-check:checked + .weui-icon-checked:before {
+  color: #f3b611;
+}
+.weui-cells_checkbox .weui-check:checked + .weui-icon-checked:before {
+  color: #f3b611;
+}
+.weui-btn_primary {
+  background-color: #f3b611;
+}
+.weui-btn_primary:not(.weui-btn_disabled):active {
+  background-color: #f5c542;
+}
+.weui-btn_disabled.weui-btn_primary {
+  background-color: #ccc;
+}
+.weui-btn_plain-default {
+  color: #f3b611;
+  border: 1px solid #f3b611;
+  background-color: #fff;
+}
+.weui-btn_plain-default:not(.weui-btn_plain-disabled):active {
+  color: #f5c542;
+  border-color: #f5c542;
+  background-color: #fff6f7;
+}
+.weui-btn_plain-primary {
+  color: #f3b611;
+  border: 1px solid #f3b611;
+}
+.weui-btn_plain-primary:not(.weui-btn_plain-disabled):active {
+  color: #f5c542;
+  border-color: #f5c542;
+}
+.weui-btn_plain-disabled {
+  color: #ccc;
+  border-color: #ccc;
+}
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@font-face {
+  font-family: 'iconfont';
+  /* project id 235477 */
+  src: url('http://at.alicdn.com/t/font_7i74xb1z3bx1or.eot');
+  src: url('http://at.alicdn.com/t/font_7i74xb1z3bx1or.eot?#iefix') format('embedded-opentype'), url('http://at.alicdn.com/t/font_7i74xb1z3bx1or.woff') format('woff'), url('http://at.alicdn.com/t/font_7i74xb1z3bx1or.ttf') format('truetype'), url('http://at.alicdn.com/t/font_7i74xb1z3bx1or.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 18px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-star:before {
+  content: "\e611";
+}
+.icon-add:before {
+  content: "\e626";
+}
+.icon-dangan:before {
+  content: "\e619";
+}
+.icon-female:before {
+  content: "\e60b";
+}
+.icon-male:before {
+  content: "\e682";
+}
+.icon-chat:before {
+  content: "\e649";
+}
+.icon-camera:before {
+  content: "\e63d";
+}
+.icon-radio:before {
+  content: "\e667";
+}
+/**
+ * Created by ricopter@qq.com on 2017/2/8.
+ */
+.ask-pages .ask-box {
+  background-color: #fff;
+  margin-top: 15px;
+}
+.ask-pages .ask-box .ask-box-hd {
+  padding: 10px 15px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.ask-pages .ask-box .ask-box-hd h2 {
+  font-size: 16px;
+  font-weight: normal;
+  color: #333;
+}
+.ask-pages .ask-box .ask-box-hd h2 .iconfont {
+  font-size: 16px;
+  color: #666;
+}
+.ask-pages .ask-box .ask-box-bd {
+  padding: 15px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.ask-pages .ask-box .ask-box-bd textarea {
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: none;
+  width: 100%;
+  height: 8rem;
+  font-size: 14px;
+}
+.ask-pages .ask-box .ask-box-ft {
+  padding: 10px;
+}
+.ask-pages .ask-box .ask-box-ft a {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border: 1px solid #fff;
+  overflow: hidden;
+  margin: 3px;
+}
+.ask-pages .ask-box .ask-box-ft a img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ask-pages .ask-box .ask-box-ft .add {
+  border: 1px solid #d9d9d9;
+  text-align: center;
+  color: #999;
+  font-size: 10px;
+}
+.ask-pages .ask-box .ask-box-ft .add .iconfont {
+  display: block;
+  font-size: 20px;
+  line-height: 30px;
+  margin-top: 12px;
+}
+.ask-pages .health-record {
+  background-color: #fff;
+  margin-top: 15px;
+}
+.ask-pages .health-record .health-record-hd {
+  padding: 10px 15px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.ask-pages .health-record .health-record-hd h2 {
+  font-size: 16px;
+  font-weight: normal;
+  color: #333;
+}
+.ask-pages .health-record .health-record-hd h2 .iconfont {
+  font-size: 16px;
+  color: #666;
+}
+.ask-pages .health-record .health-record-bd .weui-cells:before {
+  border: none;
+}
+.ask-pages .health-record .health-record-bd .weui-cells {
+  font-size: 14px;
+  margin-top: 0;
+}
+.ask-pages .health-record .health-record-bd .weui-cells .weui-cell {
+  padding: 15px;
+}
+.ask-pages .health-record .health-record-bd .weui-cells .weui-cell .weui-check__label {
+  margin-right: 20px;
+}
+.ask-pages .health-record .health-record-bd .weui-cells .weui-cell .weui-check__label .iconfont {
+  font-size: 14px;
+  vertical-align: middle;
+}
+.ask-pages .health-record .health-record-bd .weui-cells .weui-cell .weui-check__label .icon-male {
+  color: #7baaff;
+}
+.ask-pages .health-record .health-record-bd .weui-cells .weui-cell .weui-check__label .icon-female {
+  color: #ff7e7e;
+}
+.ask-pages .health-record .health-record-bd .weui-cells_checkbox .weui-icon-checked:before {
+  font-family: "iconfont" !important;
+  content: "\E667";
+  font-size: 16px;
+}
+.ask-pages .weui-btn-area {
+  margin: 15px;
+}
+/**
+ * Created by ricopter@qq.com on 2017/2/5.
+ */
+.consult-pages {
+  background-color: #f2f3f7;
+}
+.consult-pages .consult-top img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.consult-pages .consult-tab .weui-navbar__item {
+  font-size: 14px;
+}
+.consult-pages .consult-tab .weui-navbar + .weui-tab__bd {
+  padding: 40px 0;
+}
+.consult-pages .no-ask {
+  padding-top: 4rem;
+}
+.consult-pages .no-ask .pic {
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto 10px;
+  background: url("/public/doctor/img/no_ask.jpg") no-repeat;
+  background-size: contain;
+}
+.consult-pages .no-ask .text {
+  text-align: center;
+  color: #a9a9bb;
+  font-size: 14px;
+}
+.consult-pages .no-ask .text h2 {
+  color: #727282;
+  font-size: 16px;
+  font-weight: normal;
+}
+.consult-pages .ask-btn {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+.consult-pages .ask-btn a {
+  display: inline-block;
+  width: 100%;
+  background-color: #f3b611;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 16px;
+}
+.consult-pages .consult-box {
+  background-color: #fff;
+  margin-top: 15px;
+  padding: 10px 0;
+}
+.consult-pages .consult-box .consult-box-hd {
+  /*Firefox*/
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+  padding: 0 15px;
+}
+.consult-pages .consult-box .consult-box-hd .time {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  color: #999;
+  font-size: 12px;
+}
+.consult-pages .consult-box .consult-box-hd .time .status {
+  display: inline-block;
+  padding: 3px 8px;
+  border: 1px solid #f3b611;
+  border-radius: 40px;
+  color: #f3b611;
+  font-size: 11px;
+  line-height: 11px;
+}
+.consult-pages .consult-box .consult-box-hd .assessment {
+  font-size: 12px;
+}
+.consult-pages .consult-box .consult-box-hd .assessment .iconfont {
+  font-size: 12px;
+  line-height: 12px;
+  color: #d2d2d2;
+  margin: 0 2px;
+}
+.consult-pages .consult-box .consult-box-hd .assessment .iconfont.active {
+  color: #f3b611;
+}
+.consult-pages .consult-box .consult-box-bd {
+  padding: 10px 15px;
+  font-size: 14px;
+}
+.consult-pages .consult-box .consult-box-ft {
+  /*Firefox*/
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+  padding: 10px 15px 0;
+  border-top: 1px solid #f2f2f2;
+}
+.consult-pages .consult-box .consult-box-ft .doctor {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.consult-pages .consult-box .consult-box-ft .doctor span {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 12px;
+}
+.consult-pages .consult-box .consult-box-ft .doctor .photo {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.consult-pages .consult-box .consult-box-ft .doctor .photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.consult-pages .consult-box .consult-box-ft .detail {
+  font-size: 12px;
+  line-height: 1.2rem;
+}
+/**
+ * Created by ricopter@qq.com on 2017/2/7.
+ */
+.question-pages .question-status {
+  padding: 10px 15px;
+  background-color: #fff;
+  border-bottom: 1px solid #f2f2f2;
+  /*Firefox*/
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+.question-pages .question-status h2 {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 16px;
+  font-weight: normal;
+  color: #333;
+}
+.question-pages .question-status h2 small {
+  font-size: 14px;
+  color: #999;
+}
+.question-pages .question-status .assessment .iconfont {
+  font-size: 16px;
+  color: #d2d2d2;
+  margin: 0 2px;
+}
+.question-pages .question-status .assessment .iconfont.active {
+  color: #f3b611;
+}
+.question-pages .doctor-info {
+  padding: 10px 15px;
+  background-color: #fff;
+  border-bottom: 1px solid #f2f2f2;
+  /*Firefox*/
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+.question-pages .doctor-info .photo {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+}
+.question-pages .doctor-info .photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.question-pages .doctor-info .info {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.question-pages .doctor-info .info .name,
+.question-pages .doctor-info .info .hospital {
+  color: #999;
+}
+.question-pages .doctor-info .info .hospital {
+  margin-bottom: 5px;
+}
+.question-pages .doctor-info .info .illness {
+  color: #333;
+}
+.question-pages .talk-list {
+  padding: 10px 15px;
+}
+.question-pages .talk-list .talk-time {
+  text-align: center;
+  color: #bdbdbd;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.question-pages .talk-list ul li {
+  clear: both;
+  margin-bottom: 20px;
+}
+.question-pages .talk-list ul li:before,
+.question-pages .talk-list ul li:after {
+  content: " ";
+  display: table;
+}
+.question-pages .talk-list ul li:after {
+  clear: both;
+}
+.question-pages .talk-list ul li .chat .text {
+  font-size: 14px;
+}
+.question-pages .talk-list ul li .chat .pic {
+  border: 1px solid #ddd;
+  width: 6rem;
+  height: auto;
+}
+.question-pages .talk-list ul li .chat .pic img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.question-pages .talk-list ul li .chat-right {
+  float: right;
+  margin-left: 5rem;
+}
+.question-pages .talk-list ul li .chat-right .text {
+  padding: 10px 30px 10px 40px;
+  background-color: #f3b611;
+  border-radius: 10rem 0 10rem 10rem;
+  color: #fff;
+}
+.question-pages .talk-list ul li .chat-left {
+  float: left;
+  margin-right: 5rem;
+}
+.question-pages .talk-list ul li .chat-left .text {
+  padding: 10px 40px 10px 30px;
+  background-color: #dde1e9;
+  border-radius: 0 10rem 10rem 10rem;
+  color: #333;
+}
+.question-pages .fixed-space {
+  clear: both;
+  height: 2rem;
+}
+.question-pages .speak-area {
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #e9e9ec;
+  position: fixed;
+  bottom: 0;
+}
+.question-pages .speak-area .speak-box {
+  padding: 10px;
+  /*Firefox*/
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+.question-pages .speak-area .speak-box .speak-text {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.question-pages .speak-area .speak-box .speak-text .inner {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #eceef1;
+}
+.question-pages .speak-area .speak-box .speak-text .inner textarea {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  height: 24px;
+  line-height: 24px;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.question-pages .speak-area .speak-box .other {
+  margin-left: 10px;
+}
+.question-pages .speak-area .speak-box .other .iconfont {
+  font-size: 35px;
+  line-height: 30px;
+  vertical-align: middle;
+  color: #f3b611;
+}
+/**
+ * Created by ricopter@qq.com on 2017/2/8.
+ */
+.assessment-pages .doctor-info {
+  padding: 10px 15px;
+  background-color: #fff;
+  border-bottom: 1px solid #f2f2f2;
+  /*Firefox*/
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+.assessment-pages .doctor-info .photo {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+}
+.assessment-pages .doctor-info .photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.assessment-pages .doctor-info .info {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.assessment-pages .doctor-info .info .name,
+.assessment-pages .doctor-info .info .hospital {
+  color: #999;
+}
+.assessment-pages .doctor-info .info .hospital {
+  margin-bottom: 5px;
+}
+.assessment-pages .doctor-info .info .illness {
+  color: #333;
+}
+.assessment-pages .grade {
+  background-color: #fff;
+  margin-top: 15px;
+}
+.assessment-pages .grade .grade-hd {
+  padding: 10px 15px;
+}
+.assessment-pages .grade .grade-hd h2 {
+  font-size: 16px;
+  font-weight: normal;
+  color: #333;
+}
+.assessment-pages .grade .grade-hd h2 .iconfont {
+  font-size: 20px;
+  color: #666;
+}
+.assessment-pages .grade .grade-bd {
+  padding: 0 15px 15px;
+}
+.assessment-pages .grade .grade-bd .assessment .iconfont {
+  font-size: 35px;
+  line-height: 40px;
+  color: #d2d2d2;
+  margin: 0 5px;
+}
+.assessment-pages .grade .grade-bd .assessment .iconfont.active {
+  color: #f3b611;
+}
+.assessment-pages .suggestion {
+  background-color: #fff;
+  margin-top: 15px;
+}
+.assessment-pages .suggestion .suggestion-hd {
+  padding: 10px 15px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.assessment-pages .suggestion .suggestion-hd h2 {
+  font-size: 16px;
+  font-weight: normal;
+  color: #333;
+}
+.assessment-pages .suggestion .suggestion-hd h2 .iconfont {
+  font-size: 20px;
+  color: #666;
+}
+.assessment-pages .suggestion .suggestion-bd {
+  padding: 15px;
+}
+.assessment-pages .suggestion .suggestion-bd textarea {
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: none;
+  width: 100%;
+  height: 8rem;
+  font-size: 14px;
+}
+.assessment-pages .weui-btn-area {
+  margin: 15px;
+}
+body {
+  background: #f2f3f7;
+  font-size: 14px;
+}

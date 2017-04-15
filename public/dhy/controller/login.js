@@ -20,6 +20,7 @@ define(function (require, exports, module) {
                 key: "channel",
                 val: channel
             });
+            App.component.setCookie("channel",channel)
         }
         //channel
         if (!!channel) {
@@ -31,12 +32,14 @@ define(function (require, exports, module) {
                 key: 'channel',
                 val: channel
             });
+            App.component.setCookie("channel",channel)
         } else {
             console.log("==channel==error");
             App.component.storageSet({
                 key: 'channel',
                 val: 'V0101'
             });
+            App.component.setCookie("channel",'V0101')
         }
         App.render({
             url: this.RouterTmpUrl,
@@ -68,17 +71,16 @@ define(function (require, exports, module) {
         var _reLogin = App.getParam("reLogin");
         var _reChanel= App.component.storageGet("channel");
 
+        if(_reChanel){
+            _reChanel= _reChanel.toLocaleUpperCase();
+        }
+
         //如果之前登录过超级APP，则删除里面存的tokenid值
         var superTokenid = getCookie("tokenid");
         if(superTokenid && superTokenid !== undefined && /superapp/ig.test(superTokenid)){
             App.component.delCookie("tokenid");
         }
 
-        console.log("loginBool==="+JSON.stringify(loginBool), "fromUrl===="+fromUrl)
-
-        if(_reChanel){
-            _reChanel= _reChanel.toLocaleUpperCase();
-        }
         //更新频道id
         if (!fromUrl && (loginBool && loginBool.val == true) && !_reLogin) {
             location.href = "#/memberCenter?channel="+_reChanel;
@@ -87,18 +89,18 @@ define(function (require, exports, module) {
             location.href = decodeURIComponent(fromUrl);
         }
 
-        if(muYin){
-            $("#checkbox_a1").on("click",function () {
-                var _check=$(this).is(':checked');
-                if(_check){
-                    $(this).data("mark", "1");
-                    loginBtn.removeAttr('disabled');
-                }else{
-                    $(this).data("mark", "0");
-                    loginBtn.attr('disabled', "");
-                }
-            })
-        }
+        // if(muYin){
+        //     $("#checkbox_a1").on("click",function () {
+        //         var _check=$(this).is(':checked');
+        //         if(_check){
+        //             $(this).data("mark", "1");
+        //             loginBtn.removeAttr('disabled');
+        //         }else{
+        //             $(this).data("mark", "0");
+        //             loginBtn.attr('disabled', "");
+        //         }
+        //     })
+        // }
         //监听提交按钮
         App.component.listenSubmitBtn({form: "#loginForm", inputs: "input", submitBtn: "#loginBtn"});
         //发送短信
@@ -191,17 +193,22 @@ define(function (require, exports, module) {
                                         }else if (fromUrl){
                                             if(muYin && res.data.babyNewUser){
                                                 jumpUrl = "/dhy/baby/improveMember?fromUrl="+fromUrl;
+
+                                            } if(channel=="012838" && !res.data.bindingLicensePlate){
+                                                jumpUrl = "/park/perfectCarInfo/"+channel+"?fromUrl="+fromUrl;
+
                                             }else{
                                                 jumpUrl = decodeURIComponent(fromUrl);
                                             }
                                         }else {
                                             if(muYin && res.data.babyNewUser){
                                                 jumpUrl = "/dhy/baby/improveMember";
+                                            } if(channel=="012838" && !res.data.bindingLicensePlate){
+                                                jumpUrl = "/park/perfectCarInfo/"+channel;
                                             }else{
                                                 jumpUrl =  "#/memberCenter?channel="+_reChanel;
                                             }
                                         }
-
                                         location.href = jumpUrl;
                                     },
                                     function (uMask,confirmModal,cancelBtn) {
@@ -233,12 +240,16 @@ define(function (require, exports, module) {
                                                             } else if (fromUrl) {
                                                                 if(muYin && res.data.babyNewUser){
                                                                     jumpUrl = "/dhy/baby/improveMember?fromUrl="+fromUrl;
+                                                                } if(channel=="012838" && !res.data.bindingLicensePlate){
+                                                                    jumpUrl = "/park/perfectCarInfo/"+channel+"?fromUrl="+fromUrl;
                                                                 }else{
                                                                     jumpUrl = decodeURIComponent(fromUrl);
                                                                 }
                                                             }else {
                                                                 if(muYin && res.data.babyNewUser){
                                                                     jumpUrl = "/dhy/baby/improveMember";
+                                                                } if(channel=="012838" && !res.data.bindingLicensePlate){
+                                                                    jumpUrl = "/park/perfectCarInfo/"+channel;
                                                                 }else{
                                                                     jumpUrl = "#/memberCenter?channel="+_reChanel;
                                                                 }
@@ -254,31 +265,6 @@ define(function (require, exports, module) {
                                                     });
                                                 }
                                             });
-
-                                            // App.postJSON("invitation/submit", {"invitationCode": invitationCode}, function (resYq) {
-                                            //     //200010005 签名无效状态
-                                            //     App.Popover.weak({
-                                            //         txt: resYq.message || "提交邀请码成功", callback: function () {
-                                            //             var jumpUrl = '';
-                                            //             if (fromUrl && withUser === '1') {
-                                            //                 jumpUrl = 'http://' + window.location.host + '/easy/jump?url=' + fromUrl;
-                                            //             } else if (fromUrl) {
-                                            //                 if(muYin && res.data.babyNewUser){
-                                            //                     jumpUrl = "/dhy/baby/improveMember?fromUrl="+fromUrl;
-                                            //                 }else{
-                                            //                     jumpUrl = decodeURIComponent(fromUrl);
-                                            //                 }
-                                            //             }else {
-                                            //                 if(muYin && res.data.babyNewUser){
-                                            //                     jumpUrl = "/dhy/baby/improveMember";
-                                            //                 }else{
-                                            //                     jumpUrl = "#/memberCenter?channel="+_reChanel;
-                                            //                 }
-                                            //             }
-                                            //             location.href = jumpUrl;
-                                            //         }
-                                            //     });
-                                            // });
 
                                         } else {
                                             App.Popover.weak({
@@ -305,16 +291,22 @@ define(function (require, exports, module) {
                                         _jumpUrl = 'http://' + window.location.host + '/easy/jump?url=' + fromUrl;
                                     } if(muYin && res.data.babyNewUser){
                                         _jumpUrl = "/dhy/baby/improveMember?fromUrl="+fromUrl;
-                                    } else{
+
+                                    } if(channel=="012838" && !res.data.bindingLicensePlate){
+                                        _jumpUrl = "/park/perfectCarInfo/"+channel+"?fromUrl="+fromUrl;
+                                    }else{
                                         _jumpUrl  = deCodeUrl;
                                     }
                                 } else {
                                     if(muYin && res.data.babyNewUser){
                                         _jumpUrl = "/dhy/baby/improveMember";
+                                    } if(channel=="012838" && !res.data.bindingLicensePlate){
+                                        _jumpUrl = "/park/perfectCarInfo/"+channel;
                                     }else{
                                         _jumpUrl = "#/memberCenter?channel="+_reChanel;
                                     }
                                 }
+
                                 location.href = _jumpUrl;
                             }
                         }

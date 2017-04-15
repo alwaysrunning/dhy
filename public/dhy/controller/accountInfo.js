@@ -22,15 +22,9 @@ define(function (require, exports, module){
                 _this:_this
             });
             App.component.storageSet({key:"payPass","val":res.meber?res.meber.payPass:""});
-            
-            // 将最新的手机号存到本地
-            var Store = new App.store();
-            Store.set("localMobile", res.meber.mobile);
             //退出账户
             $("#loginOut").on("tap",function(){
-
                 location.href="#/login?reLogin=1&channel="+_reChanel;
-                
             });
         });
     };

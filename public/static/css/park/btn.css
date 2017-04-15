@@ -51,8 +51,9 @@
   background-color: #e5e5e5;
   border-color: #e5e5e5;
   color: #b3b3b3;
+  pointer-events: none;
 }
-/* line 57, ../../sass/park/btn.scss */
+/* line 58, ../../sass/park/btn.scss */
 .btn.block {
   display: block;
   height: Rem(85);
@@ -61,7 +62,7 @@
   box-sizing: border-box;
 }
 
-/* line 66, ../../sass/park/btn.scss */
+/* line 67, ../../sass/park/btn.scss */
 .btn-link {
   height: Rem(50);
   line-height: Rem(50);
@@ -77,7 +78,7 @@
   -o-transition: color .3s;
   transition: color .3s;
 }
-/* line 82, ../../sass/park/btn.scss */
+/* line 83, ../../sass/park/btn.scss */
 .btn-link:active, .btn-link:focus {
   color: #ea590f;
 }

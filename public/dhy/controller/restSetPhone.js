@@ -126,7 +126,6 @@ define(function (require, exports, module) {
             }else{
                 App.getJSON("account/updatemobile?mobile="+_newMobile+"&captcha="+_newCaptcha+"&captchaOld="+oldcaptcha,function(res){
                     $("input").blur();
-
                     App.Popover.weak({txt:res.message,callback:function(){
                         window.location.href="#/memberCenter";
                     }});

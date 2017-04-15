@@ -64,12 +64,11 @@ router.get('/tuju/jump', function (req, res, next) {
 router.get('/weixin',function (req, res, next) {
     var code = req.query['code'];
     var url = req.query['url'] || '';
-    console.log(333333)
+    //console.warn("==wx==",req,url);
      //code换取网页授权access_token 拉取用户信息
     q.all([api.weixin.access_token(), api.weixin.open_id(code)]).spread(function (access, openid) {
         return api.weixin.user_info(access.access_token, openid.openid, true);
     }).then(function (data) {
-        
         console.log("==cookie set==",data,process.env.dev);
 
        if(process.env.devStyle && process.env.devStyle=="out"){
@@ -116,7 +115,7 @@ router.get('/weixin',function (req, res, next) {
 router.get('/wxCode',function (req, res, next) {
     var code = req.query['code'];
     var goUrl = req.query['goUrl'] || '';
-    console.log(222222)
+
     if(code){
         //code换取网页授权access_token 拉取用户信息
         q.all([api.weixin.access_token(), api.weixin.open_id(code)]).spread(function (access, openid) {
@@ -158,7 +157,6 @@ router.get('/wxCode',function (req, res, next) {
 
 //大会员入口 WxWareCtrl.checkWare
 router.get('/',function (req, res, next) {
-    console.log(111111)
     res.render('dhy/index', {title: '步步高', dev: process.env.dev});
 });
 

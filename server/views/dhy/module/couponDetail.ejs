@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= title %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type='text/javascript' src='/public/static/js/lib/jquery-3.1.0.min.js' charset='utf-8'></script>
+    <link rel="stylesheet" href="/public/static/css/dhy/module/myCouponWeuiAll.css">
+</head>
+<body ontouchstart>
+<div class="coupon-detail-pages">
+    <div class="coupon-show">
+        <div class="img-bg">
+            <!--<img src="../assets/img/coupon_bg.png">-->
+            <img src="/public/static/img/module/coupon_bg.png">
+        </div>
+        <div class="coupon-show-text">
+            <h2>&yen;<%= data.data["price"] %><small></small></h2>
+            <p><%= data.data["name"] %></p>
+        </div>
+    </div>
+    <div class="coupon-detail" style="padding-bottom:100px;">
+        <div class="weui-cells" style="overflow: inherit;">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>使用有效期</p>
+                </div>
+                <div class="weui-cell__ft"><%= data.data["begintime"].split(" ")[0] %> 至 <%= data.data["endtime"].split(" ")[0] %></div>
+            </div>
+            <div class="weui-cell" id="haschild_1">
+                <div class="weui-cell__bd">
+                    <p id="useshop">使用门店</p>
+                </div>
+                <div class="weui-cell__ft"><i class="iconfont icon-xiajiantou"></i> </div>
+            </div>
+            <div class="child-list select-shop" id="child_1">
+                <ul>
+                    <% data.data["stores"].forEach(function (item) { %>
+                    <li data-value="<%= item["id"] %>"><%= item["name"] %></li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>使用范围</p>
+                </div>
+                <div class="weui-cell__ft"><%= data.data["cardlevel"] %></div>
+            </div>
+        </div>
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>使用规则</p>
+                </div>
+            </div>
+            <div class="usage-rules">
+                <p><%= data.data["instruction"] %></p>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-bottom weui-footer_fixed-bottom weui-flex">
+        <div class="total-money weui-flex__item">
+            <% if(data.data["issuetype"]=="1"){ %>
+            <span class="new"><small>&yen;</small> <%= data.data["payment"] %></span>
+            <span class="old">&yen;<%= data.data["price"] %></span>
+            <% }else{ %>
+            <span class="new"><small>&yen;</small> <%= data.data["payment"]||0 %></span>
+            <span class="old">&yen;<%= data.data["price"] %></span>
+            <% } %>
+        </div>
+
+        <%
+            //status == 1 已达领取上限 status == 0 可领取 percentage==0 已抢光 issuetype 1支付领取 2自由领取
+            var btnText="立即抢券";
+            var btnDisabled=false;
+            var btnUrl="";
+
+            var nowDate=new Date();
+            var nowTimes= nowDate.getTime();
+            var beginDate = new Date(data.data["begintime"]);
+            var beginTimes = beginDate.getTime();
+
+            if(isLogin){
+
+                if(status == "0" && percentage =="0"){
+                    btnText="已抢光";
+                    btnDisabled=true;
+                }else if(status == "0" && percentage !=="0" && nowTimes < beginTimes){
+                    btnText="即将开始";
+                    btnDisabled=true;
+                }else if(status == "1"){
+                    btnText="已达领取上限";
+                    btnDisabled=true;
+                }else{
+                    btnText="立即抢券";
+                    btnDisabled=false;
+                }
+
+            }else{
+                btnText="尚未登录";
+                btnDisabled=false;
+                btnUrl="/#/login?channel="+channel+"&fromUrl="+encodeURIComponent(localUrl);
+            }
+        %>
+
+        <a id="subBtn" href="javascript:void(0);" class="weui-btn<%if(btnDisabled){ %> weui-btn_disabled <% } %> weui-btn_primary"
+           data-paymentmethot="<%= data.data["paymentmethot"] %>"
+           data-payment="<%= data.data["payment"] %>"
+           data-issuetype="<%= data.data["issuetype"] %>"
+           data-url="<%= btnUrl %>"
+           data-id="<%= data.data["id"] %>"
+        ><%= btnText %></a>
+
+    </div>
+</div>
+
+<script type='text/javascript' src='/public/static/js/extends/weui1.0.1/jquery-weui.min.js' charset='utf-8'></script>
+<script type="text/javascript" src="/public/static/js/extends/modal.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $.extend($.ajaxSettings, {
+            beforeSend: function () {
+                $.showLoading();
+            },
+            complete: function () {
+                //$.hideLoading();
+            },
+            error: function (xhr) {
+                $.hideLoading();
+                var errorTxt = "";
+                var codeTxt = "";
+                codeTxt = xhr.responseJSON.code;
+                errorTxt = xhr.responseJSON.message;
+                $.toast(errorTxt,"text");
+            }
+        });
+
+        var $haschild_1 = $("#haschild_1"),
+            $child_1 = $("#child_1"),
+            $useshop = $("#useshop"),
+            couponType='<%= couponType %>',
+            shopId = '';
+        var Modal = $.fn.Modal;
+        
+        $haschild_1.on("click", function () {
+            if ($child_1.hasClass("active")) {
+                $child_1.removeClass("active");
+                $(this).find(".iconfont").addClass("icon-xiajiantou").removeClass("icon-shangjiantou");
+            } else {
+                $child_1.addClass("active");
+                $(this).find(".iconfont").addClass("icon-shangjiantou").removeClass("icon-xiajiantou");
+            }
+        });
+        $child_1.find("li").on("click", function () {
+            $useshop.html($(this).html());
+            shopId = $(this).attr("data-value");
+            $child_1.removeClass("active");
+            $haschild_1.find(".iconfont").addClass("icon-xiajiantou").removeClass("icon-shangjiantou");
+        });
+
+  
+        $child_1.find("li").eq(0).trigger("click");
+        
+        var subBtn= $("#subBtn");
+        var loginStatus='<%= isLogin %>';
+        var couponName='<%= data.data["name"] %>';
+        var channel ='<%= channel %>';
+        var beginTime='<%= data.data["begintime"].split(" ")[0] %>';
+        var endTime='<%= data.data["endtime"].split(" ")[0] %>';
+        var price = '<%= data.data["price"] %>';
+
+        subBtn.on("touchstart",function () {
+            var url=$(this).data("url");//领取api 地址
+            var issueType=$(this).data("issuetype"); //发放渠道
+            var storeId = shopId;
+            var carNo ="";
+            var couponId = $(this).data("id");
+            var payment = $(this).data("payment"); //支付金额
+            var payWay =$(this).data("paymentmethot");//支付方式 1 积分 2微信
+
+            console.log("==subBtn==",url,issueType,storeId,carNo,loginStatus);
+
+            if(!storeId){
+                $.toast("请选择门店","text");
+                return
+            }
+
+            if(loginStatus=="false"){
+              window.location.href=url;
+            }else{
+              if(couponType=="7" && issueType=="2"){
+                //领取停车券
+                $.getJSON('/api/etc/cars',function (license) {
+                  $.hideLoading();
+                  if(license.data.length>0){
+                    var _msgHTML="";
+                    var _msgLi="";
+                    var _selectLicense="";
+
+                    $.each(license.data,function (key,val) {
+                      if(val.isDefault){
+                        _msgLi += "<li class='on' data-id='"+val.id+"'>"+val.carNo+"</li>"
+                      }else{
+                        _msgLi += "<li data-id='"+val.id+"'>"+val.carNo+"</li>"
+                      }
+                    });
+
+                    _msgHTML="<ul class='u-modal-license-list' id='licenseList'>"+_msgLi+"</ul>"+"<a class='u-modal-licenseBt' href='/park/manage/"+channel +"'>管理车牌</a>";
+
+                    Modal.confirm({
+                      autoClose:"",
+                      msgHd: "请选择需减免的车牌",
+                      msgHTML:_msgHTML,
+                      confirmCallback: function () {
+                        var expCar = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
+
+                        if(_selectLicense && expCar.test(_selectLicense)){
+
+                          $.post('/api/dhy/coupon/getCouponReceive', {
+                            "couponId": couponId,
+                            "storeid": shopId,
+                            "carNo":_selectLicense
+                          }, function (data) {
+                            if (data.code !== "9999") {
+                              //手动关闭
+                              $("#uMask").removeClass("u-mask-active");
+                              $("#confirmModal").removeClass("u-modal-active");
+                              Modal.weak({txt: _price+"元停车费已到账，您太机智"});
+                              
+                            } else {
+                              Modal.weak({txt: "领取失败!"});
+                            }
+
+                          });
+                        }else{
+                          Modal.weak({txt: "请选择减免的正确车牌"});
+                        }
+                      },
+                      callback:function () {
+                        $("#licenseList li").on("click",function () {
+                          $(this).addClass("on").siblings().removeClass("on");
+                          _selectLicense=$(this).html();
+                        })
+                      }
+                    });
+
+                  }else{
+
+                    Modal.confirm({
+                      autoClose:"",
+                      msgHd: "请输入需减免的车牌",
+                      msgHTML:"<div class='u-modal-line'><input type='text' class='u-modal-input' placeholder='请输入有效车牌' id='carno'/></div><div class='u-modal-line'><input type='checkbox' name='agree' class='u-modal-agree-checkbox' checked disabled>同意绑定车牌</div>",
+                      confirmCallback: function () {
+                        var express = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
+                        var carNo=$("#carno").val();
+                        if(express.test(carNo)){
+                          //绑定车牌
+                          $.getJSON('/api/etc/bind?carno='+carNo,function (bData) {
+                            //手动关闭
+                            $("#uMask").removeClass("u-mask-active");
+                            $("#confirmModal").removeClass("u-modal-active");
+                            //Modal.weak({txt: bData.message});
+                          }).then(function () {
+                            //车牌信息和优惠券消费绑定
+                            $.post('/api/dhy/coupon/getCouponReceive', {
+                              "couponId": couponId,
+                              "storeid": shopId,
+                              "carNo":carNo
+                            }, function (data) {
+                              if (data.code !== "9999") {
+                                //手动关闭
+                                $("#uMask").removeClass("u-mask-active");
+                                $("#confirmModal").removeClass("u-modal-active");
+                                Modal.weak({txt: _price+"元停车费已到账，您太机智"});
+
+                              } else {
+                                Modal.weak({txt: "领取失败!"});
+                              }
+                            });
+
+                          });
+
+
+                        }else{
+                          Modal.weak({txt: "请正确输入车牌信息!(格式例如:湘A12345)"});
+                        }
+                      }
+                    });
+
+                  }
+                });
+              }else{
+                if(issueType=="2"){
+                  //免费
+                  $.post('/api/dhy/coupon/getCouponReceive', {
+                    "couponId": couponId,
+                    "storeid": storeId
+                  }, function (data) {
+                    $.hideLoading();
+                    if(data.code!=="9999"){
+                      var code= data.data["code"];
+                      window.location.href="/dhy/couponFreeQR?channel="+channel+"&name="+couponName+"&code="+code+"&couponType="+couponType;
+                    }else{
+                      window.location.href="/dhy/couponFreeReceiveFail?channel="+channel+"&couponType="+couponType;
+                    }
+                  });
+                }else if(issueType=="1"){
+                  //支付
+                  window.location.href="/dhy/couponPayment/?channel="+channel+"&name="+couponName+"&id="+couponId+"&beginTime="+beginTime+"&endTime="+endTime+"&price="+price+"&payment="+payment+"&payWay="+payWay+"&storeId="+storeId+"&couponType="+couponType;
+                }
+              }
+
+            }
+
+        });
+    });
+</script>
+</body>
+</html>

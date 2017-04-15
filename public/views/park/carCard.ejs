@@ -31,6 +31,11 @@
 
 <%}else{%>
 <div class="car-manage-list-item">
-    <div class="car-empty">暂无绑定车牌</div>
+    <div class="car-empty">
+        <a href="/park/location/<%= parkid %>">
+            <p>暂无绑定车牌</p>
+            <!--<p>停车场B1层、BM层、B2层区域绑定车牌,查询停车信息(点击进入)</p>-->
+        </a>
+    </div>
 </div>
 <%}%>

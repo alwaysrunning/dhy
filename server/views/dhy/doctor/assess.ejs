@@ -1,0 +1,125 @@
+<%- include("_docHeader") %>
+<div class="assessment-pages">
+
+    <% if(recordData.responder){ %>
+    <div class="doctor-info">
+        <div class="photo"><img src="<%= recordData.responder["image"] %>"></div>
+        <div class="info">
+            <p class="name"><%= recordData.responder["name"] %> <%= recordData.responder["clinic"] %></p>
+            <p class="hospital"><%= recordData.responder["title"] %>   <%= recordData.responder["hospital"] %>/<%= recordData.responder["leveltitle"] %></p>
+            <p class="illness"><%= recordData.responder["goodat"] %></p>
+        </div>
+    </div>
+    <% } %>
+
+    <div class="grade">
+        <div class="grade-hd"><h2>您对医生的回复满意吗？</h2></div>
+        <div class="grade-bd">
+            <div class="assessment" ><i class="iconfont icon-star "></i><i class="iconfont icon-star "></i><i class="iconfont icon-star "></i><i class="iconfont icon-star"></i><i class="iconfont icon-star"></i></div>
+        </div>
+    </div>
+
+    <div class="suggestion">
+        <div class="suggestion-hd"><h2>给医生一些评价吧</h2></div>
+        <div class="suggestion-bd"><textarea placeholder="给出更多的意见" id="content"></textarea></div>
+    </div>
+
+    <div class="weui-btn-area">
+        <button class="weui-btn weui-btn_primary weui-btn_disabled" disabled id="subMitButton">提 交</button>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+   $(function () {
+      var channel="<%= channel %>";
+      var SubMitButton=$("#subMitButton")
+      var content=$("#content")
+
+       //评价星星
+       var score = -1;
+       function getScore() {
+           //获取评价的分数
+           return score + 1;
+       }
+       $(".assessment .icon-star").click( function () {
+
+           score = $(".assessment .icon-star").index(this);
+
+           $(".assessment .icon-star").each(function(i){
+
+               if (score >= i)
+                   $(this).addClass("active")
+               else
+                   $(this).removeClass("active")
+           });
+
+           checkButtonStatus();
+       });
+       function checkButtonStatus(){
+           if (content.val().length >= 1 && getScore() > 0) {
+               SubMitButton.removeAttr("disabled");
+               SubMitButton.removeClass("weui-btn_disabled");
+           }else{
+              SubMitButton.attr("disabled","");
+              SubMitButton.addClass("weui-btn_disabled");
+           }
+
+       }
+
+       content.on("propertychange input",function () {
+           checkButtonStatus();
+       });
+
+       SubMitButton.on("touchstart",function () {
+           var _$this=$(this);
+           var questionID="<%= id %>";
+           var evaluation=getScore();
+           var content=$("#content").val();
+
+           if(content.length==0){
+               $.toast("请填写评价内容!","text");
+               return false
+           }else if(!evaluation){
+               $.toast("请评价满意度!","text");
+               return false
+           }
+
+           if(!$(this).attr("disabled")){
+               $.ajax({
+                   type: "POST",
+                   url:"/dhySafe/doctorEvaluateQuestion?_csrf=<%= csrfToken %>",
+                   data:{
+                       questionID:questionID,
+                       evaluation:evaluation,
+                       content:content
+                   },
+                   beforeSend:function () {
+                       _$this.addClass("weui-btn_disabled");
+                       _$this.attr("disabled","");
+                       $.showLoading();
+                   },
+                   success:function (data) {
+                       $.hideLoading();
+                       $.toast("评论成功!","text",function () {
+                           window.location.href="/dhySafe/doctorConsult?channel="+channel;
+                       });
+                   },
+                   error:function (xhr) {
+                       $.hideLoading();
+                       $.toast(xhr.responseJSON.message,"text");
+                       _$this.removeClass("weui-btn_disabled");
+                       _$this.removeAttr("disabled");
+                   },
+                   complete: function(){
+                       _$this.removeAttr("disabled");
+                       _$this.removeClass("weui-btn_disabled");
+                   }
+               });
+           }
+           return false;
+       });
+   })
+</script>
+</body>
+</html>

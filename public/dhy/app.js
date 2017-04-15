@@ -522,8 +522,7 @@ define(function (require, exports, module) {
                 type:"POST",
                 url:"api/check",
                 data:{
-                    url: encodeURIComponent(location.href),
-                    sup: sup
+                    url: encodeURIComponent(location.href)
                 },
                 async:false,
                 success:function (res) {
@@ -553,7 +552,6 @@ define(function (require, exports, module) {
             var tUrl = encodeURIComponent(location.hash ? location.hash : location.href);
             var getCookie=_this.component.getCookie;
             var tokenid = getCookie('tokenid');
-
             if (loginBool) {
                 console.log("you are logged in ");
                 res = true;
@@ -569,7 +567,7 @@ define(function (require, exports, module) {
                                 location.href = 'http://wx.yunhou.com/super/passport/login';
                             }else{
                                 location.href = "#/login?channel="+_channel+"&fromUrl=" + tUrl;
-                            }    
+                            }   
                         }, 2000);
                     }
                 });

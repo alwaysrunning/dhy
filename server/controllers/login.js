@@ -59,9 +59,9 @@ module.exports.loginV2 = function (req, res, next) {
     if (mobile && captcha && unionid && openid) {
 
         api.login.loginV2(unionid, openid, mobile, captcha, channel,loginKey,tokenSession).then(function (data) {
-            // res.json(data);
+
             return api.request.getTokens(unionid || openid).then(function (tokens) {
-                console.log("==login getTokens==",tokens,data);
+                console.log(tokens,"==login getTokens==",data);
                 return {
                     userData:data,
                     tokens:tokens

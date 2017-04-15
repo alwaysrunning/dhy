@@ -21,7 +21,7 @@
 /*******************/
 /* line 16, ../../../sass/dhy/module/merchantOrders.scss */
 .m-merchantOrders-page .m-order-list-mod {
-  margin-top: 1.2rem;
+  padding-top: 1.2rem;
   position: relative;
   top: 0;
   left: 0;

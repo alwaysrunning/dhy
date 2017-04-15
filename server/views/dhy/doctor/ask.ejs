@@ -1,0 +1,237 @@
+<%- include("_docHeader") %>
+<body>
+<div class="ask-pages">
+    <form  method="POST" enctype="multipart/form-data" id="askForm">
+        <div class="ask-box">
+            <div class="ask-box-hd"><h2><i class="iconfont icon-chat"></i> 快速提问</h2></div>
+            <div class="ask-box-bd">
+                <textarea id="contentText" name="contentText" placeholder="请详细（＞10文字）描述幼儿的症状、疾病和身体状况，便于医生更加准确的分析，我们将确保您的隐私安全"></textarea></div>
+            <div class="ask-box-ft">
+
+                <div class="photo-preview">
+                    <ul class="img-show-box" id="imgShowList">
+
+                        <li class="img-upload-add">
+                            <i class="iconfont icon-add"></i>
+                            <span>添加新照片</span>
+                            <input type="file" class="photo" id="photo" accept="image/*" capture="camera" multiple>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="health-record">
+            <div class="health-record-hd"><h2><i class="iconfont icon-dangan"></i> 健康档案</h2></div>
+            <div class="health-record-bd">
+                <div class="weui-cells weui-cells_form weui-cells_radio">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">咨询者性别：</label></div>
+                        <div class="weui-cell__bd">
+                            <label class="weui-check__label" for="s11">
+                                <input type="radio" class="weui-check" name="sex" id="s11" value="男">
+                                <i class="weui-icon-checked"></i><i class="iconfont icon-male"></i> 男
+                            </label>
+                            <label class="weui-check__label" for="s12">
+                                <input type="radio" class="weui-check" name="sex" id="s12" value="女">
+                                <i class="weui-icon-checked"></i><i class="iconfont icon-female"></i> 女
+                            </label>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">
+                            <label class="weui-label">咨询者生日：</label>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" data-toggle='date' value="" id="birthdayDate" name="birthday">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-btn-area">
+            <button class="weui-btn weui-btn_primary weui-btn_disabled" disabled id="SubMit">提 交</button>
+        </div>
+
+    </form>
+</div>
+<script type="text/javascript" src="/public/doctor/js/PhotoUpload.js" ></script>
+<script type="text/javascript">
+    $(function () {
+        var channel="<%= channel %>";
+        var ContentText = $("#contentText");
+        var BirthdayDate=$("#birthdayDate");
+        var SubmitButton=$("#SubMit");
+        var maskHtml="<div id='screenMask' class='screen-mask'></div>";
+        var Storage={
+            storageSet: function (obj) {
+                localStorage[obj.key] = JSON.stringify(obj.val);
+            },
+            storageDel: function (key) {
+                localStorage.removeItem(key);
+            },
+            storageGet: function (key) {
+                return JSON.parse(localStorage.getItem(key));
+            }
+        };
+        var babySex= Storage.storageGet("babySex");
+        var babyBirthDay=Storage.storageGet("babyBirthDay")||"2016-01-01";
+        var sexRadio=$("input:radio[name='sex']");
+
+        BirthdayDate.val(babyBirthDay);
+        switch (babySex){
+            case "男":
+                sexRadio.eq(0).attr("checked","");
+                break;
+            case "女":
+                sexRadio.eq(1).attr("checked","");
+                break;
+            default:
+                sexRadio.eq(0).attr("checked","");
+        }
+
+        //上传预览
+        var Photos=$.PhotoUpload();
+        //日历
+        function GetNowFormatDate (str, ms) {
+            var date = ms ? new Date(ms) : new Date();
+            var seperator1 = str || "";
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            return year + seperator1 + month + seperator1 + strDate;
+        }
+        //字数判断
+        function wordLength(fData){
+            var intLength=0
+            for (var i=0;i<fData.length;i++)
+            {
+                if ((fData.charCodeAt(i) < 0) || (fData.charCodeAt(i) > 255))
+                    intLength=intLength+2
+                else
+                    intLength=intLength+1
+            }
+            return intLength
+        }
+        //输入监听
+        function checkSubMit(){
+            var _lg=wordLength(ContentText.val());
+            var birthdayVal=BirthdayDate.val();
+            if(_lg>=20 && birthdayVal){
+                SubmitButton.removeClass("weui-btn_disabled");
+                SubmitButton.removeAttr("disabled");
+            }else{
+                SubmitButton.addClass("weui-btn_disabled");
+                SubmitButton.attr("disabled");
+            }
+        }
+        checkSubMit();
+
+        BirthdayDate.calendar({
+            value:[babyBirthDay],
+            maxDate:[GetNowFormatDate("-")],
+            onOpen:function () {
+                $('body').append(maskHtml);
+                $("#photo").css('pointer-events', 'none');
+            },
+            onClose:function () {
+                $("#screenMask").remove();
+                setTimeout(function () {
+                    $("#photo").css('pointer-events', 'auto');
+                },1000)
+            }
+        });
+
+        ContentText.on("propertychange input",function () {
+            checkSubMit()
+        });
+
+        BirthdayDate.on("change",function () {
+            checkSubMit()
+        });
+
+        //提交
+        SubmitButton.on("click",function () {
+            var files = $("#photo").prop('files');
+            var formData = new FormData($("#askForm")[0]);
+            var wordLg= wordLength(ContentText.val());
+            var birthdayVal=BirthdayDate.val();
+
+            //验证
+            if($(this).hasClass("weui-btn_disabled")){
+                return false;
+            }else if(!birthdayVal){
+                $.toast("请选择日期!","text");
+                return false
+            }else if(wordLg<20){
+                $.toast("最少输入10个文字!","text");
+                return false
+            }else{
+
+                if(Photos.blobArr.length>0){
+                    Photos.blobArr.forEach(function (item) {
+                        formData.append("photo", item);
+                    })
+                }
+
+                $.ajax({
+                     url: '/dhySafe/doctorCreateAsk?_csrf=<%= csrfToken %>',
+                     type: 'POST',
+                     data: formData,
+                     cache: false,
+                     processData: false,
+                     contentType: false,
+                     beforeSend:function () {
+                         SubmitButton.addClass("weui-btn_disabled");
+                         SubmitButton.attr("disabled","");
+                         $.showLoading();
+                     },
+                     success:function (res) {
+                         //记录上次健康档案
+                         Storage.storageSet({
+                             key:"babySex",
+                             val:$("input:radio[name='sex']:checked").val()
+                         });
+                         Storage.storageSet({
+                             key:"babyBirthDay",
+                             val:BirthdayDate.val()
+                         });
+
+                         $.hideLoading();
+                         if(res.data){
+                             $.toast("提问成功!","text",function () {
+                                 window.location.href="/dhySafe/doctorReply?channel="+channel+"&id="+res.data+"&questStatus=待回复";
+                             });
+                         }else{
+                             $.toast("提问失败!(请正确提相关问题)","text");
+                         }
+                     },
+                     error:function (xhr) {
+                        console.warn(xhr.responseJSON);
+                        $.hideLoading();
+                        $.toast("提问失败!","text");
+                        SubmitButton.removeClass("weui-btn_disabled");
+                        SubmitButton.removeAttr("disabled");
+                     },
+                     complete: function(){
+                         SubmitButton.removeClass("weui-btn_disabled");
+                         SubmitButton.removeAttr("disabled");
+                         //$.hideLoading();
+                     }
+                 });
+            }
+
+            return false;
+        });
+    })
+</script>
+</body>
+</html>

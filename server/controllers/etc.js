@@ -9,9 +9,8 @@ var api = require('api');
  */
 module.exports.cars = function (req, res, next) {
     var unionid = req.cookies['unionid'];
-    var tokenid = req.cookies['tokenid'] ||'';
 
-    api.etc.cars(unionid, tokenid).then(function (data) {
+    api.etc.cars(unionid).then(function (data) {
         res.json(data);
     }).fail(function (err) {
         next(err)
@@ -25,11 +24,10 @@ module.exports.info = function (req, res, next) {
     var unionid = req.cookies['unionid'];
     var carNo = req.query['carno'];
     var shopId = req.query['shopid'];//*******
-    var tokenid = req.cookies['tokenid'] || '';
 
     api.request.getTokens(unionid).then(function (tokens) {
-        return api.etc.carInfo(tokens, carNo, shopId, tokenid).then(function (info) {
-            return api.etc.calcPos(tokens, carNo, info.data.shopId,tokenid).then(function (pos) {
+        return api.etc.carInfo(tokens, carNo, shopId).then(function (info) {
+            return api.etc.calcPos(tokens, carNo, info.data.shopId).then(function (pos) {
                 return {
                     info: info.data,
                     pos: pos.data
@@ -51,9 +49,8 @@ module.exports.bindPos = function (req, res, next) {
     var parkNo = req.query['parkno'];
     var shopId = req.query['shopid'];
     var carNo = req.query['carno'];
-    var tokenid = req.cookies['tokenid'] || '';
 
-    api.etc.bindPos(unionid, shopId, parkNo, carNo, tokenid).then(function (data) {
+    api.etc.bindPos(unionid, shopId, parkNo, carNo).then(function (data) {
         res.json(data);
     }).fail(function (err) {
         next(err)
@@ -96,9 +93,7 @@ module.exports.history = function (req, res, next) {
     var unionid = req.cookies['unionid'];
     var page = req.query['page'];
     var pageSize = req.query['pagesize'];
-    var tokenid = req.cookies['tokenid'] || '';
-
-    api.etc.orders(unionid, page, pageSize, tokenid).then(function (data) {
+    api.etc.orders(unionid, page, pageSize).then(function (data) {
         res.json(data);
     }).fail(function (err) {
         next(err);
@@ -111,9 +106,8 @@ module.exports.history = function (req, res, next) {
 module.exports.del = function (req, res, next) {
     var unionid = req.cookies['unionid'];
     var carNo = req.query['carno'];
-    var tokenid = req.cookies['tokenid'] || '';
 
-    api.etc.carDel(unionid, carNo, tokenid).then(function (data) {
+    api.etc.carDel(unionid, carNo).then(function (data) {
         res.json(data);
     }).fail(function (err) {
         next(err)
@@ -125,9 +119,8 @@ module.exports.del = function (req, res, next) {
  */
 module.exports.clear = function (req, res, next) {
     var unionid = req.cookies['unionid'];
-    var tokenid = req.cookies['tokenid'] || '';
 
-    api.etc.carClear(unionid,tokenid).then(function (data) {
+    api.etc.carClear(unionid).then(function (data) {
         res.json(data);
     }).fail(function (err) {
         next(err)
@@ -140,9 +133,8 @@ module.exports.clear = function (req, res, next) {
 module.exports.bind = function (req, res, next) {
     var unionid = req.cookies['unionid'];
     var carNo = req.query['carno'];
-    var tokenid = req.cookies['tokenid'] || '';
 
-    api.etc.bindCar(unionid, carNo, tokenid).then(function (data) {
+    api.etc.bindCar(unionid, carNo).then(function (data) {
         res.json(data);
     }).fail(function (err) {
         next(err)

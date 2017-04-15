@@ -7,6 +7,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var helmet = require('helmet');
+var csrf = require('csurf');
+var csrfProtection = csrf({ cookie: true });
+var parseForm = bodyParser.urlencoded({ extended: false });
+
 var routes = require(serverDir + 'routes/index');//大会员
 var apiRoutes = require(serverDir + 'routes/api');
 var codeRoutes = require(serverDir + 'routes/code');
@@ -17,6 +22,7 @@ var secKillRoutes = require(serverDir + 'routes/secKill');//星品汇爆款抢�
 var activityRoutes = require(serverDir + 'routes/activity');//专题活动路由
 var storeInfoRoutes = require(serverDir + 'routes/storeInfo');//门店信息
 var dhyRoutes =require(serverDir + 'routes/dhyRoutes');//大会员服务端路由表
+var dhySafeRoutes =require(serverDir + 'routes/dhySafeRoutes');//大会员服务端CSRF路由表
 //配置本地配置文件
 var Config=require(serverDir + 'config/index');
 var logs = require("logs").logs;
@@ -101,11 +107,14 @@ app.set('views', path.join(__dirname, serverDir + 'views'));
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+//app.use(bodyParser.urlencoded({extended: false}));
+app.use(parseForm);
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, clientDir)));
 app.use('/public', express.static(path.join(__dirname, clientDir)));
+
+app.use(helmet());
 
 //外包开发环境使用设置跨域访问
 if(process.env.devStyle=="out"){
@@ -134,6 +143,7 @@ app.use('/invitation', invitationRoutes);
 app.use('/activity', activityRoutes);
 app.use('/storeInfo', storeInfoRoutes);
 app.use('/dhy',dhyRoutes);
+app.use('/dhySafe',csrfProtection,dhySafeRoutes);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('师傅！大师兄被妖怪抓走啦！');
@@ -142,10 +152,8 @@ app.use(function (req, res, next) {
 });
 
 // error handlers
-
-
 app.use(function (err, req, res, next) {
-    if (req.url.indexOf('/api') >= 0) {
+    if (req.url.indexOf('/api') >= 0 || req.url.indexOf('/dhySafe') >= 0) {
         res.status(err.status || 500);
         res.json({
             message: err.message,

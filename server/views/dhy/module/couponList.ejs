@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/public/static/css/dhy/module/couponTypeList.css">
 </head>
 <body ontouchstart>
-
+<!--领取优惠券-->
 <div class="g-couponType-page" id="couponTypePage">
     <div class="m-couponTypeList-mod">
         <div class="mcm-hd">
@@ -32,13 +32,15 @@
                             电器
                         <% }else if(couponType=="7"){ %>
                             停车
+                        <% }else if(couponType=="1" || couponType=="2" || couponType=="3"){ %>
+                            联盟
                         <% }else{ %>
                             全部分类
                         <% } %>
                     </span><i class="icon iconfont icon-xiajiantou"></i>
                 </div>
                 <dl class="u-coupons-type u-hide" id="couponsType">
-                    <dd data-id="" data-name="全部分类" <% if(couponType==""){ %> class="on" <% } %> >
+                    <dd data-id="" data-name="全部分类" <% if(couponType=="" || couponType == undefined ){ %> class="on" <% } %> >
                         <a href="javascript:void(0);">全部分类<i class="icon iconfont icon-shensuchenggong"></i></a>
                     </dd>
                     <dd data-id="5" data-name="母婴" <% if(couponType=="5"){ %> class="on" <% } %>>
@@ -56,6 +58,19 @@
                     <dd data-id="7" data-name="停车" <% if(couponType=="7"){ %> class="on" <% } %>>
                         <a href="javascript:void(0);">停车<i class="icon iconfont icon-shensuchenggong"></i></a>
                     </dd>
+                    <% if(!couponType||couponType=="0"||couponType=="1"){ %>
+                    <dd data-id="1" data-name="联盟" <% if(couponType=="1" || couponType=="2" || couponType=="3"){ %> class="on" <% } %>>
+                        <a href="javascript:void(0);">联盟<i class="icon iconfont icon-shensuchenggong"></i></a>
+                    </dd>
+                    <%} if(couponType=="2"){%>
+                    <dd data-id="2" data-name="联盟1" <% if(couponType=="1" || couponType=="2" || couponType=="3"){ %> class="on" <% } %>>
+                        <a href="javascript:void(0);">联盟<i class="icon iconfont icon-shensuchenggong"></i></a>
+                    </dd>
+                    <%} if(couponType=="3"){%>
+                    <dd data-id="3" data-name="联盟1" <% if(couponType=="1" || couponType=="2" || couponType=="3"){ %> class="on" <% } %>>
+                        <a href="javascript:void(0);">联盟<i class="icon iconfont icon-shensuchenggong"></i></a>
+                    </dd>
+                    <% } %>
                 </dl>
             </div>
             <div class="mh-item" id="sortSelect">
@@ -95,6 +110,8 @@
                                 <i>电器</i>
                                 <% }else if(item.type == 7){ %>
                                 <i>停车</i>
+                                <% }else if(item.type == 1||item.type == 2||item.type == 3){ %>
+                                <i>联盟</i>
                                 <% } %>
 
                                 <%
@@ -129,26 +146,15 @@
                             <p class="limit-time">使用时间：<%= item.begintime.split(" ")[0] %> ~ <%= item.endtime.split(" ")[0] %> </p>
                         </div>
                         <div class="mcl-bd-rg" data-id="<%= item.id %>">
-                            <div class="mcl-circle">
-                                <div class="jCircle mod-circle" data-circle="<%= item.percentage %>"></div>
-                                <a  class="u-right-buy">立即抢购</a>
-                            </div>
+                           <a href="/dhy/couponDetail/?channel=<%= channel %>&type=<%= item.type %>&id=<%= item.id %>&status=<%= item.status%>&percentage=<%= item.percentage %>&isSign=<%= isLogin %>" class="mcl-link-detail">
+                               <div class="mcl-circle">
+                                   <div class="jCircle mod-circle" data-circle="<%= item.percentage %>"></div>
+                                   <span class="u-right-buy">立即抢购</span>
+                               </div>
+                           </a>
                         </div>
                     </div>
-                    <div class="mcl-ft">
-                        <div class="mcl-ft-hd">
-                            <h5><i></i>使用规则</h5>
-                            <em><i class="icon iconfont icon-xiajiantou"></i></em>
-                        </div>
-                        <div class="mcl-ft-text-mod">
-                            <div class="mcl-ft-bd">
-                                <%= item.instruction %>
-                            </div>
-                            <div class="mcl-ft-ft">
-                                <i class="icon iconfont icon-shangjiantou"></i>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="mcl-ft-shadow">
 
                     </div>
@@ -173,69 +179,6 @@
 
 <script type="text/javascript" src="/public/static/js/extends/modal.js"></script>
 
-<script id="listTmpl" type="text/x-dot-template">
-    {{~it.list :item:index}}
-    <li data-id="{{= item.id }}"  data-type="{{= item.type }}" class="{{? item.status=='1' }} receive {{?? item.percentage=='0' }} over {{??}} {{?}}">
-        <div class="mcl-bd">
-            <div class="mcl-bd-lf">
-                <h4>&yen;<em>{{= item.price }}</em></h4>
-                <p>
-                    {{? item.type == '5' }}
-                    <i>母婴</i>
-                    {{? }}
-
-                    {{? item.type == '0' }}
-                    <i>超市</i>
-                    {{? }}
-
-                    {{? item.type == '4' }}
-                    <i>百货</i>
-                    {{? }}
-
-                    {{? item.type == '6' }}
-                    <i>电器</i>
-                    {{? }}
-
-                    {{? item.type == '7' }}
-                    <i>停车</i>
-                    {{? }}
-
-                    {{= item.name }}
-                </p>
-                <p class="limit-time">使用时间：{{= item.begintime.split(" ")[0] }} ~ {{= item.endtime.split(" ")[0] }} </p>
-            </div>
-            <div class="mcl-bd-rg" data-id="{{= item.id }}" data-price="{{= item.price }}">
-                {{? item.status=="0" && item.percentage!=='0'}}
-
-                {{? }}
-
-                <div class="mcl-circle">
-                    <div class="jCircle mod-circle" data-circle="{{= item.percentage }}"></div>
-                    <a class="u-right-buy">立即抢购</a>
-                </div>
-            </div>
-        </div>
-        <div class="mcl-ft">
-            <div class="mcl-ft-hd">
-                <h5><i></i>使用规则</h5>
-                <em><i class="icon iconfont icon-xiajiantou"></i></em>
-            </div>
-            <div class="mcl-ft-text-mod">
-                <div class="mcl-ft-bd">
-                   {{= item.instruction }}
-                </div>
-                <div class="mcl-ft-ft">
-                    <i class="icon iconfont icon-shangjiantou"></i>
-                </div>
-            </div>
-        </div>
-        <div class="mcl-ft-shadow">
-
-        </div>
-    </li>
-    {{~}}
-</script>
-
 <script type="text/javascript">
     $(function () {
 
@@ -243,7 +186,7 @@
 
         var InitDataLg="<%= data.length %>";
         var StoreId="<%= storeId %>";
-        var couponType="<%= couponType %>";//券类别
+        var couponType="<%= couponType %>"||"";//券类别
         var couponSort="<%= couponSort %>";//券排序
         var isLogin=<%= isLogin %>;
         var ListMod=$("#list");
@@ -258,13 +201,14 @@
         $.extend($.ajaxSettings, {
             beforeSend: function () {
                 console.log("正在加载...");
-                //CouponTypePage.loader('show','<img style="height:35px; width:35px;" src="/public/static/img/loading_op.gif">');
+                $.showLoading();
             },
             complete: function () {
                 console.log("加载完成...");
-//                setTimeout(function () {
-//                    CouponTypePage.loader('hide');
-//                }, 1000);
+                $.hideLoading();
+//                setTimeout(function() {
+//                    $.hideLoading();
+//                }, 1000)
             },
             error: function (xhr) {
                 var errorTxt = "";
@@ -274,138 +218,6 @@
                 Modal.weak({txt:errorTxt});
             }
         });
-
-        //领取优惠券
-        function getCoupon($this,couponId, storeid,callback) {
-            var _callback=callback||function () {};
-            var _couponType=$this.parents("li").data("type");
-            var _price=$this.parents("li").data("price");
-            if(_couponType=="7"){
-                 //领取停车券
-                $.getJSON('/api/etc/cars',function (license) {
-
-                    if(license.data.length>0){
-                        var _msgHTML="";
-                        var _msgLi="";
-                        var _selectLicense="";
-
-                        $.each(license.data,function (key,val) {
-                            if(val.isDefault){
-                                _msgLi += "<li class='on' data-id='"+val.id+"'>"+val.carNo+"</li>"
-                            }else{
-                                _msgLi += "<li data-id='"+val.id+"'>"+val.carNo+"</li>"
-                            }
-                        });
-
-                        _msgHTML="<ul class='u-modal-license-list' id='licenseList'>"+_msgLi+"</ul>"+"<a class='u-modal-licenseBt' href='/park/manage/"+Channel +"'>管理车牌</a>";
-
-                        Modal.confirm({
-                            autoClose:"",
-                            msgHd: "请选择需减免的车牌",
-                            msgHTML:_msgHTML,
-                            confirmCallback: function () {
-                                if(_selectLicense){
-
-                                    $.post('/api/dhy/coupon/getCouponReceive', {
-                                        "couponId": couponId,
-                                        "storeid": storeid,
-                                        "carNo":_selectLicense
-                                    }, function (data) {
-                                        if (data.code !== "9999") {
-                                            //手动关闭
-                                            $("#uMask").removeClass("u-mask-active");
-                                            $("#confirmModal").removeClass("u-modal-active");
-                                            Modal.weak({txt: _price+"元停车费已到账，您太机智"});
-
-                                            var _mc = $this.find(".mod-circle");
-                                            _mc.attr("data-circle", data.data.percentage).empty();
-                                            CircleSimple(_mc);
-                                        } else {
-                                            Modal.weak({txt: "领取失败!"});
-                                        }
-                                        _callback(data);
-                                    });
-                                }else{
-                                    Modal.weak({txt: "请选择减免的车牌"});
-                                }
-                            },
-                            callback:function () {
-                                $("#licenseList li").on("click",function () {
-                                    $(this).addClass("on").siblings().removeClass("on");
-                                    _selectLicense=$(this).html();
-                                })
-                            }
-                        });
-
-                    }else{
-
-                        Modal.confirm({
-                            autoClose:"",
-                            msgHd: "请输入需减免的车牌",
-                            msgHTML:"<div class='u-modal-line'><input type='text' class='u-modal-input' placeholder='请输入有效车牌' id='carno'/></div><div class='u-modal-line'><input type='checkbox' name='agree' class='u-modal-agree-checkbox' checked disabled>同意绑定车牌</div>",
-                            confirmCallback: function () {
-                                var express = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
-                                var carNo=$("#carno").val();
-                                if(express.test(carNo)){
-                                    //绑定车牌
-                                    $.getJSON('/api/etc/bind?carno='+carNo,function (bData) {
-                                        //手动关闭
-                                        $("#uMask").removeClass("u-mask-active");
-                                        $("#confirmModal").removeClass("u-modal-active");
-                                        //Modal.weak({txt: bData.message});
-                                    }).then(function () {
-                                        //车牌信息和优惠券消费绑定
-                                        $.post('/api/dhy/coupon/getCouponReceive', {
-                                            "couponId": couponId,
-                                            "storeid": storeid,
-                                            "carNo":carNo
-                                        }, function (data) {
-                                            if (data.code !== "9999") {
-                                                //手动关闭
-                                                $("#uMask").removeClass("u-mask-active");
-                                                $("#confirmModal").removeClass("u-modal-active");
-                                                Modal.weak({txt: _price+"元停车费已到账，您太机智"});
-
-                                                var _mc = $this.find(".mod-circle");
-                                                _mc.attr("data-circle", data.data.percentage).empty();
-                                                CircleSimple(_mc);
-                                            } else {
-                                                Modal.weak({txt: "领取失败!"});
-                                            }
-                                            _callback(data);
-                                        });
-
-                                    });
-
-
-                                }else{
-                                    Modal.weak({txt: "请正确输入车牌信息!(格式例如:湘A12345)"});
-                                }
-                            }
-                        });
-
-                    }
-                });
-
-            }else{
-
-
-                $.post('/api/dhy/coupon/getCouponReceive', {
-                    "couponId": couponId,
-                    "storeid": storeid
-                }, function (data) {
-                    if(data.code!=="9999"){
-                        Modal.weak({txt: "领取成功!"});
-                        var _mc=$this.find(".mod-circle");
-                        _mc.attr("data-circle",data.data.percentage).empty();
-                        CircleSimple(_mc);
-                    }else{
-                        Modal.weak({txt: "领取失败!"});
-                    }
-                    _callback(data);
-                });
-            }
-        }
 
         //获取优惠券列表
         function queryCouponList(isLogin,storeid, type, sort,page,pageSize,callback,errCallback) {
@@ -440,18 +252,6 @@
               });
         }
 
-
-        //类别选中
-//        _couponTypeDd.each(function () {
-//             var _id=$(this).data("id");
-//             if(couponType.length>0){
-//                 if(_id==couponType){
-//                     $(this).addClass("on").siblings().removeClass("on");
-//                 }
-//             }else{
-//                 _couponTypeDd.first().addClass("on").siblings().removeClass("on");
-//             }
-//        })
         //圈圈
         var CircleInit=function () {
             var Circle = $.fn.Circle;
@@ -488,40 +288,6 @@
                 rotate: 128
             });
         }
-        //显示展开
-        var showMore=function () {
-
-            $(".mcl-ft-hd").off().on("click",function () {
-                $(this).find("em").hide();
-                $(this).next().show();
-            });
-            $('.mcl-ft-ft').off().on("click",function () {
-                $(this).parent().hide();
-                $(this).parent().prev().find("em").show();
-            })
-            //领取优惠券
-            ListMod.find(".mcl-bd-rg").off().on("click",function () {
-                if(isLogin){
-                    var couponId=$(this).data("id");
-                    var _parent=$(this).parents("li");
-                    console.log("==领取优惠券...==");
-                    getCoupon($(this),couponId,StoreId,function () {
-                        //_parent.addClass("receive");
-                        //PageRefresh();
-                    });
-                }else{
-                    $.confirm("您当前尚未登录,现在就去登录?", function() {
-                        if(Channel){
-                            var jmpUrl="/#/login?channel="+Channel.toLocaleUpperCase()+"&fromUrl="+encodeURIComponent(location.href);
-                            console.log("-----",jmpUrl);
-                            location.href=jmpUrl;
-                        }
-                    }, function() {
-
-                    });
-                }
-            });
-        }
 
         //页面初始化
         var PageInit=function (callback) {
@@ -529,16 +295,17 @@
             $('.m-couponTypeList-mod').off();
             CircleInit();
             loadedMore();
-            showMore();
             _callback();
         }
 
         var PageRefresh=function () {
             page=1;
-            ListMod.empty();
+            ListMod.empty().append("<p class='loading-txt'>正在加载请稍后...</p>");
             if(Me){
                 queryCouponList(isLogin,StoreId, couponType, couponSort, page, pageSize, function (data) {
                     if(data.data.length<=0){
+                        $(".loading-txt").remove();
+                        ListMod.append("<p class='loading-txt'>暂时没有相关数据...</p>");
                         // 锁定
                         Me.lock();
                         // 无数据
@@ -547,15 +314,15 @@
                     }else{
                         Me.unlock();
                         var dotTmpl = doT.template($("#listTmpl").html());
-                        var dotRes = dotTmpl({list: data.data});
+                        var dotRes = dotTmpl({list: data.data,channel:Channel,couponType:couponType,isLogin:isLogin});
                         setTimeout(function () {
-                            ListMod.append(dotRes);
-                            showMore();
+                            ListMod.empty().append(dotRes);
                             CircleInit();
                             Me.resetload();
                         }, 2000);
                     }
                 },function () {
+                    $(".loading-txt").remove();
                     Me.resetload();
                 });
             }
@@ -631,6 +398,7 @@
                    page++;
                    //var dropLoadDown=$(".dropload-down");
                     queryCouponList(isLogin,StoreId, couponType, couponSort, page, pageSize, function (data) {
+                        $(".loading-txt").remove();
                         if(data.data.length<=0){
                             // 锁定
                             me.lock();
@@ -639,16 +407,16 @@
                             me.resetload();
                         }else{
                             var dotTmpl = doT.template($("#listTmpl").html());
-                            var dotRes = dotTmpl({list: data.data});
+                            var dotRes = dotTmpl({list: data.data,channel:Channel,couponType:couponType,isLogin:isLogin});
                             setTimeout(function () {
                                 ListMod.append(dotRes);
-                                showMore();
                                 CircleInit();
 
                                 me.resetload();
                             }, 1000);
                         }
                     },function () {
+                        $(".loading-txt").remove();
                         me.resetload();
                     });
                 }
@@ -660,6 +428,64 @@
 
         PageInit();
     });
+</script>
+
+<script id="listTmpl" type="text/x-dot-template">
+
+    {{~it.list :item:index}}
+    <li data-id="{{= item.id }}"  data-type="{{= item.type }}" class="{{? item.status=='1' }} receive {{?? item.percentage=='0' }} over {{??}} {{?}}">
+        <div class="mcl-bd">
+            <div class="mcl-bd-lf">
+                <h4>&yen;<em>{{= item.price }}</em></h4>
+                <p>
+                    {{? item.type == '5' }}
+                    <i>母婴</i>
+                    {{? }}
+
+                    {{? item.type == '0' }}
+                    <i>超市</i>
+                    {{? }}
+
+                    {{? item.type == '4' }}
+                    <i>百货</i>
+                    {{? }}
+
+                    {{? item.type == '6' }}
+                    <i>电器</i>
+                    {{? }}
+
+                    {{? item.type == '7' }}
+                    <i>停车</i>
+                    {{? }}
+
+                    {{? item.type == '1'||item.type == '2'||item.type == '3' }}
+                    <i>联盟</i>
+                    {{? }}
+
+                    {{= item.name }}
+                </p>
+                <p class="limit-time">使用时间：{{= item.begintime.split(" ")[0] }} ~ {{= item.endtime.split(" ")[0] }} </p>
+            </div>
+            <div class="mcl-bd-rg" data-id="{{= item.id }}" data-price="{{= item.price }}">
+                {{? item.status=="0" && item.percentage!=='0'}}
+
+                {{? }}
+
+                <a href="/dhy/couponDetail/?channel={{= it.channel }}&type={{= item.type }}&id={{= item.id }}&status={{= item.status}}&percentage={{= item.percentage }}&isSign={{= it.isLogin }}" class="mcl-link-detail">
+                    <div class="mcl-circle">
+                        <div class="jCircle mod-circle" data-circle="{{= item.percentage }}"></div>
+                        <span class="u-right-buy">立即抢购</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="mcl-ft-shadow">
+
+        </div>
+    </li>
+    {{~}}
 </script>
 </body>
 </html>

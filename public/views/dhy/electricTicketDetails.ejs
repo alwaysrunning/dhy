@@ -60,7 +60,7 @@
                            <%= item["num"] %>
                        </div>
                        <div class="mc-item">
-                           <%= item["pay"] %>
+                           <%= item["simpleProductPrice"] %>
                        </div>
                    </div>
                 </dd>
@@ -72,7 +72,7 @@
     <div class="mem-line-mod">
         <ul class="mlm-list">
             <li>总数量：<span id="totalNum"></span></li>
-            <li>商品金额：<span id="totalPay"></span></li>
+            <li>商品金额：<span id="totalPay"><%= data["totalPay"] %></span></li>
             <% data["vouchers"].forEach(function(item){ %>
             <li>优惠券编号：<%= item["voucherNo"] %></li>
             <li>优惠券使用金额：<%= item["amount"] %></li>
@@ -80,7 +80,9 @@
             <li>实付金额 ：<%= data["amtVal"] %></li>
             <li>支付金额：
                 <% for(var i = 0;i<data["pay"].length;i++){%>
-                    <%=data["pay"][i].payType%>(<%=data["pay"][i].payAmount%>)<%if(i<data["pay"].length-1){%>、<%}%>
+                    <%=data["pay"][i].payType%>(<%=data["pay"][i].payAmount%>)
+                    <% if(data["otherPreferentia"]){ %> 其他优惠(<%= data["otherPreferentia"] %>) <% } %>
+                    <%if(i<data["pay"].length-1){ %>、<% } %>
                 <%} %>
             </li>
             <!--<li>交易卡号：无</li>-->

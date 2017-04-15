@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= title %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type='text/javascript' src='/public/static/js/lib/jquery-3.1.0.min.js' charset='utf-8'></script>
+    <link rel="stylesheet" href="/public/static/css/dhy/module/myCouponList.css">
+</head>
+<body>
+
+<div class="g-myCouponOrderList-page">
+   <div class="u-fixed-top">
+       <ul class="u-myCouponOrderSort-nav">
+         <li <% if(!status){%> class="active" <% } %>>
+             <a href="/dhy/myCouponOderList?channel=<%= channel %>">全部</a>
+         </li>
+         <li <% if(status==1){%> class="active" <% } %>>
+             <a href="/dhy/myCouponOderList?channel=<%= channel %>&status=1">已付款</a>
+         </li>
+         <!--<li <% if(status==6){%> class="active" <% } %>>-->
+             <!--<a href="/dhy/myCouponOderList?channel=<%= channel %>&status=6">退款中</a>-->
+         <!--</li>-->
+         <li <% if(status==2){%> class="active" <% } %>>
+             <a href="/dhy/myCouponOderList?channel=<%= channel %>&status=2">已退款</a>
+         </li>
+       </ul>
+   </div>
+
+   <div class="m-couponsOrderList-mod">
+       <% if(data.data && data.data.length>0){ %>
+       <ul class="u-myCouponOrder-list" id="myCouponOrderList">
+           <%
+            function CutStrTxt(str, len) {
+               var str_length = 0;
+               var str_len = 0;
+               var str_cut = new String();
+               str_len = str.length;
+               for (var i = 0; i < str_len; i++) {
+                   a = str.charAt(i);
+                   str_length++;
+                   if (escape(a).length > 4) {
+                       //中文字符的长度经编码之后大于4
+                       str_length++;
+                   }
+                   str_cut = str_cut.concat(a);
+                   if (str_length >= len) {
+                       str_cut = str_cut.concat("...");
+                       return str_cut;
+                   }
+               }
+               //如果给定字符串小于指定长度，则返回源字符串；
+               if (str_length < len) {
+                   return str;
+               }
+           }
+           %>
+           <% data.data.forEach(function (item) { %>
+           <li>
+               <div class="uml-hd">
+                   <div class="item">
+                       <i class="icon iconfont icon-dingdanliebiaoleibie"></i><span>优惠券</span>
+                   </div>
+                   <div class="item">
+                       <i class="u-color-default"><%= CutStrTxt(item["statusDescription"],24) %></i>
+                   </div>
+               </div>
+               <div class="uml-bd">
+                   <a href="/dhy/myCouponOderDetails?channel=<%= channel %>&orderId=<%= item["id"] %>&code=<%= item["code"] %>&couponId=<%= item["couponid"] %>">
+                       <div class="item">
+                           <p><%= item["couponname"] %></p>
+                       </div>
+                       <div class="item">
+                           <% if(item["pay"]==2){ %>
+                           <h6>&yen;<%= item["weichatpay"] %></h6>
+                           <% }else if(item["pay"]==1){%>
+                           <h6><%= item["integral"] %>积分</h6>
+                           <% } %>
+                           <i class="u-badge-number">X<%= item["num"] %></i>
+                       </div>
+                   </a>
+               </div>
+               <div class="uml-ft">
+                   <div class="item">
+                       数量：共<%= item["num"] %>件
+                   </div>
+                   <div class="item">
+                       <% if(item["pay"]==2){ %>
+                        <p>合计：<%= item["weichatpay"] %>（含邮费）</p>
+                       <% }else if(item["pay"]==1){%>
+                        <p>合计：<%= item["integral"] %>（含邮费）</p>
+                       <%}%>
+                   </div>
+               </div>
+
+               <div class="uml-bt">
+                   <div class="item">
+                       <!--<span class="warn-time">14:29后取消</span>-->
+                   </div>
+                   <div class="item">
+                       <% if(item["status"]==2){ %>
+
+                       <% }else if(item["status"]==4) {%>
+
+                       <% }else if(item["status"]==6 || item["status"]==3) {%>
+                       <button type="button" class="u-btn border delOrderBtn" data-code="<%= item["code"] %>">删除订单</button>
+                       <% } %>
+                   </div>
+               </div>
+           </li>
+           <% }) %>
+       </ul>
+       <% } else{ %>
+       <div class="g-empty-data">
+           <div class="m-empty-data">
+               <div class="u-sprite coupons"></div>
+               <p class="msg"><a href="/dhy/couponList?channel=<%= channel %>">暂无此类优惠券订单~去逛逛</a></p>
+               <p class="msg"></p>
+           </div>
+       </div>
+       <% } %>
+   </div>
+</div>
+
+<script type='text/javascript' src='/public/static/js/extends/weui1.0.1/jquery-weui.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='/public/static/js/extends/doT.js' charset='utf-8'></script>
+<script type="text/javascript" src="/public/static/js/extends/fastclick.js"></script>
+
+<script type='text/javascript' src='/public/static/js/extends/dropload.js' charset='utf-8'></script>
+<script type="text/javascript">
+    $(function () {
+        FastClick.attach(document.body);
+        //加载更多
+        var btnDel=function () {
+           var $delOrderBtn=$(".delOrderBtn");
+            $delOrderBtn.on("touchstart",function () {
+                var code=$(this).data("code")
+                $.confirm({
+                    title: '是否删除当前订单?',
+                    text: '温馨提示：删除订单将无法找回订单记录',
+                    onOK: function () {
+                        $.ajax({
+                            type: 'POST',
+                            url:"/api/dhy/coupon/couponOrderDel",
+                            data:{
+                                code:code
+                            },
+                            beforeSend: function () {
+                                $.showLoading();
+                            },
+                            success: function(data){
+                                $.hideLoading();
+                            },
+                            error: function(xhr, type){
+                                $.hideLoading();
+                                // 即使加载出错，也得重置
+                                var errorTxt = "";
+                                var codeTxt = "";
+                                codeTxt = xhr.responseJSON.code;
+                                errorTxt = xhr.responseJSON.message;
+                                $.toast(errorTxt, "text");
+                            }
+                        });
+                    },
+                    onCancel: function () {
+
+                    }
+                });
+            })
+        }
+        var LoadMoreList=function () {
+            //请求地址
+            var channel= "<%= channel %>"
+            var page=1;
+            var pageSize=10;
+            var status="<%= status %>";
+            var InitDataLg="<%= data.data.length %>";
+            var $CouponList=$("#myCouponOrderList");
+            var $couponsOrderListMod=$(".m-couponsOrderList-mod");
+
+            $couponsOrderListMod.dropload({
+                scrollArea : window,
+                autoLoad:false,
+                loadDownFn : function(me){
+                    page++;
+                    var QueryUrl="/api/dhy/coupon/couponOderList";
+                    $.ajax({
+                        type: 'POST',
+                        url:QueryUrl ,
+                        data:{
+                          page:page,
+                          pageSize:pageSize,
+                          status:status
+                        },
+                        success: function(data){
+                            if(data.data.length<=0){
+                                // 锁定
+                                me.lock();
+                                // 无数据
+                                me.noData();
+                                me.resetload();
+                            }else{
+                                var dotTmpl = doT.template($("#listTmpl").html());
+                                var dotRes = dotTmpl({list: data.data,channel:channel});
+
+                                setTimeout(function () {
+                                    $CouponList.append(dotRes);
+                                    me.resetload();
+                                }, 1000);
+                            }
+                            btnDel();
+                        },
+                        error: function(xhr, type){
+                            $.hideLoading();
+                            // 即使加载出错，也得重置
+                            var errorTxt = "";
+                            var codeTxt = "";
+                            codeTxt = xhr.responseJSON.code;
+                            errorTxt = xhr.responseJSON.message;
+                            $.toast(errorTxt, "text");
+                            me.resetload();
+                        }
+                    });
+                }
+            });
+
+            if(InitDataLg<4){
+                $(".dropload-down").hide();
+            }
+        }
+        LoadMoreList();
+        btnDel();
+    })
+</script>
+
+<script id="listTmpl" type="text/x-dot-template">
+    {{~it.list :item:index}}
+    <li>
+        <div class="uml-hd">
+            <div class="item">
+                <i class="icon iconfont icon-dingdanliebiaoleibie"></i><span>优惠券</span>
+            </div>
+            <div class="item">
+                <i class="u-color-default">{{= item["statusDescription"] }}</i>
+            </div>
+        </div>
+        <div class="uml-bd">
+            <a href="/dhy/myCouponOderDetails?channel={{= it.channel }} &orderId={{= item['id'] }}&code={{= item['code'] }}&couponId={{= item['couponid'] }}">
+                <div class="item">
+                    <p>{{= item["couponname"] }}</p>
+                </div>
+                <div class="item">
+                    {{? item["pay"]==2 }}
+                    <h6>&yen;{{= item["integral"] }}</h6>
+                    {{? }}
+                    {{? item["pay"]==1 }}
+                    <h6>{{= item["integral"] }}积分</h6>
+                    {{? }}
+                    <i class="u-badge-number">X{{= item["num"] }}</i>
+                </div>
+            </a>
+        </div>
+        <div class="uml-ft">
+            <div class="item">
+                数量：共{{= item["num"] }}件
+            </div>
+            <div class="item">
+                <p>合计：{{= item["integral"]}}（含邮费）</p>
+            </div>
+        </div>
+
+        <div class="uml-bt">
+            <div class="item">
+                <!--<span class="warn-time">14:29后取消</span>-->
+            </div>
+            <div class="item">
+                {{? item["status"]==2 }}
+
+                {{? }}
+                {{? item["status"]==4 }}
+
+                {{? }}
+                {{? item["status"]==6 }}
+                <button type="button" class="u-btn border delOrderBtn" data-code="{{= item['code'] }}">删除订单</button>
+                {{? }}
+                {{? item["status"]==3 }}
+                <button type="button" class="u-btn border delOrderBtn" data-code="{{= item['code'] }}">删除订单</button>
+                {{? }}
+            </div>
+        </div>
+    </li>
+    {{~}}
+</script>
+
+</body>
+</html>

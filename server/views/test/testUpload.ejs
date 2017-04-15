@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .line-input-text{
+            margin: 20px 0;
+        }
+        .img-show-box{
+            overflow: hidden;
+        }
+        .img-show{
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            float: left;
+            position: relative;
+        }
+        .img-show img{
+            width: 150px;
+            height: 150px;
+        }
+        .img-show .mask{
+            position: absolute;
+            bottom:0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1><%= title %>---PhotoUpload</h1>
+
+<form  method="POST" enctype="multipart/form-data" id="form">
+
+
+    <div class="photo-preview">
+        <ul class="img-show-box" id="imgShowList">
+
+        </ul>
+        <div class="line-input-text">
+            <input type="file" multiple class="photo" id="photo">
+        </div>
+    </div>
+
+    <button type="submit" id="SubMit">提交</button>
+</form>
+
+<script type="text/javascript" src="/public/static/js/lib/jquery-3.1.0.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        var SubmitButton=$("#SubMit");
+
+        function PhotoUpload (options) {
+            if (!(this instanceof PhotoUpload)) {
+                return new PhotoUpload(options);
+            }
+            this.opts = {
+               previewMod:"#imgShowList",
+               fileButton:"#photo",
+               ImgSrcArr:[]
+            };
+            $.extend(this.opts, options);
+
+            this.init();
+            return this;
+        }
+
+        PhotoUpload.prototype={
+            init:function () {
+                this.fileButton=$(this.opts.fileButton);
+                this.previewMod=$(this.opts.previewMod);
+                this.ImgFiles=[];
+                this.ImgSrcArr=this.opts.ImgSrcArr;
+                this._add();
+            },
+            _add:function () {
+                var _this=this;
+                this.fileButton.on("change",function (e) {
+                    var _files=e.target.files;
+                    for(var i=0;i<_files.length;i++){
+                        var _tmpFile=_files[i];
+                        var supportedTypes = ['image/jpg', 'image/jpeg', 'image/png','image/gif'];
+                        if (_tmpFile && supportedTypes.indexOf(_tmpFile.type) >= 0) {
+                            _this.ImgFiles.push(_tmpFile);
+                            _this.ImgSrcArr.push(window.URL.createObjectURL(_tmpFile));
+                            _this._preview(_this.ImgSrcArr);
+                        } else {
+                            alert('文件格式只支持：jpg、jpeg 和 png');
+                        }
+                    }
+                    $(this).val("");
+                })
+            },
+            _del:function () {
+                var _this=this;
+                _this.previewMod.find(".img-show").unbind().on("click",function () {
+                    var _num=$(this).data("index");
+                    _this.ImgFiles.splice(_num,1);
+                    _this.ImgSrcArr.splice(_num,1);
+                    $(this).remove();
+                });
+            },
+            _preview:function (imgSrcArr) {
+                var _this=this;
+                _this.previewMod.empty();
+                imgSrcArr.forEach(function (item,index) {
+                    _this.previewMod.append("<li class='img-show'><img data-index='"+index+"' src='"+item+"'/><div class='mask'>点击图片可删除</div></li>");
+                })
+                _this._del();
+            },
+            _compress:function () {
+                
+            }
+        }
+
+        var Photos=PhotoUpload();
+
+        SubmitButton.on("click",function () {
+            var formData = new FormData($("#form")[0]);
+
+            Photos.ImgFiles.forEach(function (item) {
+                formData.append("photo", item);
+            })
+
+            $.ajax({
+                url: '/dhySafe/imgUpload?_csrf=<%= csrfToken %>',
+                type: 'POST',
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                success:function () {
+
+                },
+                error:function (xhr) {
+                   console.warn(xhr.responseJSON)
+                }
+            })
+
+            return false;
+        });
+    })
+</script>
+</body>
+</html>

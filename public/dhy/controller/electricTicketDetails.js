@@ -24,15 +24,10 @@ define(function (require, exports, module) {
             });
             //计算产品总数和金额
             var totalNum=0;
-            var totalPay=0;
             $.each($(("#products dd")),function(){
-                var ddNum=$(this).data("num");
-                var ddPay=$(this).data("pay");
-                totalNum += ddNum;
-                totalPay += ddPay;
+                totalNum += $(this).data("num");
             });
             $("#totalNum").html(totalNum);
-            $("#totalPay").html(totalPay.toFixed(2));
         });
     };
 });

@@ -11,7 +11,7 @@ module.exports.check = function (req, res, next) {
     var localUrl = req.body['url'] || '';//req.protocol+"://"+req.get('host')+req.originalUrl+'codeUserInfo?goUrl='+goUrl;
     var tokenid = req.cookies['tokenid'] || '';
     var sup = req.body['sup'] || '';
-
+    
     // 判断是否从超级app过来的
     if(tokenid && tokenid !== undefined && /superapp/ig.test(tokenid) && sup === 'super'){
         return q.fcall(function () {
@@ -42,7 +42,7 @@ module.exports.check = function (req, res, next) {
     }
 
     if (openid && unionid && openid !== 'undefined' && unionid !== 'undefined') {
-        //api.user.mobile(unionid),
+        //api.user.mobile(unionid),检查登录是否过期
       q.all([
         api.request.getTokens(unionid),
         api.user.mobile(unionid)

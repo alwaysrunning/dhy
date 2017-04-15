@@ -1,0 +1,336 @@
+@charset "utf-8";
+@import "../../common/wxmixin";
+/**
+ * Created by ricopter@qq.com on 2017/4/5.
+ */
+//模拟窗口
+.u-mask {
+  background-color: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  height: 100%;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+  transition: all ease 0.2s;
+}
+
+.u-mask.u-mask-active {
+  opacity: 1;
+  z-index: 2200;
+}
+
+.u-modal {
+  border-radius: Rem(4);
+  overflow: hidden;
+  left: 50%;
+  margin-left: Rem(-490*1.8/2);
+  margin-top: 0;
+  opacity: 0;
+  position: fixed;
+  text-align: center;
+  top: 40%;
+  transform: translate3d(0px, 0px, 0px) scale(1.185);
+  transition-property: transform, opacity;
+  width: Rem(490*1.8);
+  z-index: -9999;
+}
+
+.u-icon-loading {
+  font-size: Rem(60*1.8);
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-animation: icon-spin 2s infinite linear;
+  animation: icon-spin 2s infinite linear;
+}
+
+.u-modal-dialog {
+  background: #f8f8f8; //#f8f8f8
+  font-size:  Rem(14*2*1.8);
+  padding-top: Rem(40*1.8);
+  .u-modal-hd {
+    padding: 0 Rem(20*1.8) Rem(10*1.8) Rem(20*1.8);
+    font-size: Rem(32*1.8);
+    @include clearfix;
+    .umh-lf {
+      @include g-fl-lf;
+    }
+    .umh-rg {
+      @include g-fl-rg;
+    }
+  }
+  .u-modal-bd {
+    padding: 0 Rem(20*1.8) Rem(40*1.8) Rem(20*1.8);
+    text-align: left;
+    border-bottom: 1px solid #dedede;
+  }
+  .u-modal-bd.u-align-center {
+    text-align: center;
+  }
+  .u-modal-footer {
+    border-collapse: collapse;
+    display: table;
+    height: Rem(88*1.8);
+    overflow: hidden;
+    width: 100%;
+  }
+  .u-modal-text-center {
+    text-align: center;
+  }
+}
+
+.u-modal-btn {
+  font-size: Rem(32*1.8);
+  border-right: 1px solid #dedede;
+  box-sizing: border-box !important;
+  cursor: pointer;
+  display: table-cell !important;
+  height: Rem(88*1.8);
+  line-height: Rem(88*1.8);
+  overflow: hidden;
+  padding: 0 Rem(5*1.8);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  color: #ff6666;
+}
+
+.u-modal-btn:active {
+  background: #efefef;
+}
+
+.u-modal-btn:last-child {
+  border-right: 0;
+  border-radius: 0;
+}
+
+//弱弹框
+.u-modal-weak {
+  .u-weak-txt {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: Rem(24*1.8);
+    padding: Rem(20*1.8);
+  }
+}
+
+.u-popup-close {
+  color: #ff6666;
+  font-size: Rem(48*1.8);
+  @include g-fl-rg;
+  margin-right: Rem(20*1.8);
+  cursor: pointer;
+}
+
+//带列表退出
+.u-modal-list-exit {
+  .yh-modal-popup {
+    padding-top: 0;
+  }
+  .u-popup-hd {
+    @include clearfix;
+    height: Rem(80*2);
+    line-height: Rem(80*2);
+    border-bottom: 1px solid #e7e7e7;
+  }
+  .u-popup-list-text {
+    li {
+      @include clearfix;
+      text-align: left;
+      padding: Rem(20*2);
+      height: Rem(40*2);
+      line-height: Rem(40*2);
+      border-bottom: 1px solid #e7e7e7;
+      font-size: Rem(26*2);
+      .icon {
+        font-size: Rem(48*2);
+        color: #ff6666;
+        display: none;
+      }
+    }
+    li.u-active {
+      background: #e5e6e7;
+      .icon {
+        display: block;
+      }
+    }
+  }
+}
+
+//兑换红包
+.u-exchange-alert {
+  padding: Rem(20);
+  text-align: left;
+  p, h4 {
+    margin: Rem(20) 0;
+  }
+  h4 {
+    font-size: Rem(14*2);
+  }
+  .u-exchange-tips {
+    color: #999;
+  }
+}
+
+#loadingModal {
+  margin-left: Rem(-300*1.8/2);
+  width: Rem(300*1.8);
+  display: none;
+  .u-modal-dialog {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    margin: 0 auto;
+    border-radius: Rem(10);
+    //height: Rem(80);
+  }
+  .u-modal-dialog .u-modal-bd {
+    border-bottom: none;
+  }
+}
+
+#loadingModal.u-modal-active {
+  display: block;
+}
+
+//支付弹窗
+.u-auto-modal {
+  border-radius: Rem(2*2);
+  overflow: hidden;
+  margin-top: 0;
+  opacity: 0;
+  position: fixed;
+  text-align: center;
+  transform: translate3d(0px, 0px, 0px) scale(1.185);
+  transition-property: transform, opacity;
+  z-index: -1;
+  width: 100%;
+}
+
+.u-modal-pay {
+  bottom: 0;
+  .u-modal-dialog {
+    padding-top: 0;
+    background: #fff;
+  }
+  .u-popup-hd {
+    border: 1px solid #ddd;
+  }
+  .u-popup-close {
+    float: left;
+    margin-top: Rem(5);
+    margin-left: Rem(20);
+    margin-right: 0;
+    font-size: Rem(42);
+  }
+  .u-popup-title {
+    padding-right: Rem(50);
+    padding-top: Rem(10);
+    padding-bottom: Rem(20);
+    color: #333;
+    font-size: Rem(28);
+    text-align: center;
+  }
+  .u-popup-pay-mod {
+    padding: Rem(20) 0;
+    .uppm-tit {
+      margin: Rem(20) 0;
+      color: #ff6666;
+    }
+    .uppm-cont {
+      padding: Rem(20) Rem(20) Rem(20) Rem(20);
+    }
+    .u-form-input-pay {
+      border: 1px solid #ddd;
+      background: #fbfbfb;
+      height: Rem(88);
+      width: Rem(650);
+      margin: 0 auto;
+      padding: 0 Rem(20);
+      border-radius: 4px;
+      color: #bdbdbd;
+    }
+    .uppm-foot {
+      padding: Rem(20);
+    }
+    .u-forget-pwd-txt {
+      padding: Rem(10);
+      text-align: right;
+    }
+  }
+}
+
+//激活状态
+.u-modal.u-modal-active, .u-auto-modal.u-modal-active {
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px) scale(1);
+  transition-duration: 300ms;
+  z-index: 2201;
+}
+
+//确认对话框
+.u-modal.u-modal-confirm {
+  border-radius: Rem(10*1.8);
+  .u-modal-btn[data-u-modal-cancel] {
+    color: #3d4145;
+  }
+}
+
+#confirmModal {
+  .u-modal-hd {
+    border-bottom: 1px solid #dedede;
+    padding-bottom: Rem(20*1.8);
+  }
+}
+
+.u-modal-line {
+  text-align: left;
+  margin-top: Rem(20*1.8);
+  color: #999;
+  .u-modal-input {
+    width: Rem(410*1.8);
+    height: Rem(80*1.8);
+    margin: 0 auto;
+    background: #eee;
+    border-radius: Rem(8*1.8);
+    border: 1px solid #eee;
+    color: #b3b3b3;
+    padding: 2px 10px;
+    font-size: Rem(28*1.8);
+  }
+  .u-modal-agree-checkbox {
+    width: Rem(20*1.8);
+    height: Rem(20*1.8);
+    color: #b3b3b3;
+    border: 1px solid #b3b3b3;
+    margin-right: Rem(10*1.8);
+    background: none;
+  }
+}
+
+.u-modal-line:first-child {
+  margin-top: Rem(20*1.8);
+}
+
+.u-modal-license-list {
+  @include clearfix;
+  margin-top: Rem(30*1.8);
+  li {
+    float: left;
+    width: Rem(200*1.8);
+    height: Rem(60*1.8);
+    line-height: Rem(60*1.8);
+    border: 1px solid #c3c3c3;
+    text-align: center;
+    border-radius: Rem(8*1.8);
+    margin:Rem(10*1.8);
+    color:#333;
+  }
+  li.on{
+    background:#fee7e7;
+    border: 1px solid #fb807e;
+    color:#fb807e;
+  }
+}

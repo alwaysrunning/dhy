@@ -6,5 +6,6 @@
 var api = require('api');
 
 module.exports.improveMember = function (req, res, next) {
-    res.render('dhy/baby/improveMember', {title: '母婴完善会员信息'});
+    var _goUrl=req.query["fromUrl"]||"";//decodeURIComponent encodeURIComponent()
+    res.render('dhy/baby/improveMember', {title: '母婴完善会员信息',goUrl:_goUrl});
 };

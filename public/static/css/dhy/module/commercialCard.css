@@ -1,95 +1,266 @@
-/*
-Error: Undefined variable: "$bordercolor".
-        on line 82 of E:/node/wxServer/public/static/sass/dhy/module/commercialCard.scss, in `border-radius'
-        from line 23 of E:/node/wxServer/public/static/sass/dhy/module/commercialCard.scss
+/**
+ * Created with WebStorm.
+ * User: rico sky$note520.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/**
+ * Created with WebStorm.
+ * User: rico ricopter@qq.com
+ * Date: 2015/10/15
+ * Time: 9:22
+ * */
+/*===========public==============*/
+/* Fade */
+/*******************/
+/* line 5, ../../../sass/dhy/module/commercialCard.scss */
+.u-sprite {
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
 
-77:     }
-78:     .m-card-des{
-79:         .money{
-80:             color: #ff6414;
-81:             margin: 0 Rem(23) 0 Rem(15);
-82:             &:before{
-83:                 content:"\00a5";
-84:             }
-85:         }
-86:         .range{
-87:             font-size: Rem(22);
+/* line 10, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info {
+  background-color: #f5f5f5;
+}
+/* line 12, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .g-card {
+  padding: 0.53333rem 0 0.77333rem 0;
+  background-image: radial-gradient(#dfdad9, #f5f5f5);
+  -moz-background-size: 8.13333rem 0.13333rem;
+  -o-background-size: 8.13333rem 0.13333rem;
+  -webkit-background-size: 8.13333rem 0.13333rem;
+  background-size: 8.13333rem 0.13333rem;
+  background-repeat: no-repeat;
+  background-position: center bottom 0.46667rem;
+}
+/* line 19, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-card {
+  width: 8.13333rem;
+  height: 4.21333rem;
+  margin: 0 auto;
+  border: 0.26667rem solid #ddd;
+  border-radius: 0.05333rem;
+  background-color: #f76945;
+  background-image: url("/public/static/img/module/logo_big.png");
+  background-repeat: no-repeat;
+  background-position: right -43.75% bottom;
+  -moz-background-size: auto 3.82667rem;
+  -o-background-size: auto 3.82667rem;
+  -webkit-background-size: auto 3.82667rem;
+  background-size: auto 3.82667rem;
+  font-size: 0.4rem;
+  line-height: 1;
+  color: #fff;
+  overflow: hidden;
+}
+/* line 33, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-card .msg {
+  margin-left: 0.45333rem;
+  margin-top: 0.64rem;
+}
+/* line 36, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-card .msg .logo {
+  float: left;
+}
+/* line 38, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-card .msg .logo.u-sprite {
+  background-image: url("/public/static/img/module/logo_small.png");
+  background-color: #fff;
+  -moz-background-origin: content;
+  -o-background-origin: content-box;
+  -webkit-background-origin: content;
+  background-origin: content-box;
+  width: 1.41333rem;
+  height: 0.94667rem;
+  padding: 0.17333rem 0.37333rem;
+  margin-right: 0.2rem;
+  border: 0.44rem solid #ddd;
+  border-radius: 0.05333rem;
+}
+/* line 49, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-card .msg .info {
+  overflow: hidden;
+}
+/* line 51, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-card .msg .info .money {
+  font-size: 0.32rem;
+  line-height: 0.48rem;
+}
+/* line 54, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-card .msg .info .money span {
+  font-size: 0.37333rem;
+}
+/* line 60, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-card .no {
+  margin: 1.6rem 0 0 0.42667rem;
+}
+/* line 64, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .u-text {
+  height: 1.18667rem;
+  border-bottom: 1px solid #f2f2f2;
+  padding-left: 0.26667rem;
+  line-height: 1.17333rem;
+  font-size: 0.37333rem;
+  background: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* line 74, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .u-text:last-child {
+  border-bottom: 0;
+}
+/* line 79, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-card-des .money {
+  color: #ff6414;
+  margin: 0 0.30667rem 0 0.2rem;
+}
+/* line 82, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-card-des .money:before {
+  content: "\00a5";
+}
+/* line 86, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-card-des .range {
+  font-size: 0.29333rem;
+  color: #999;
+}
+/* line 91, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-link-box {
+  margin-top: 0.28rem;
+}
+/* line 93, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-link-box .u-text {
+  display: block;
+}
+/* line 96, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-info .m-link-box .arrow {
+  float: right;
+  margin-right: 0.26667rem;
+  font-size: 0.37333rem;
+  line-height: 1.17333rem;
+}
 
-Backtrace:
-E:/node/wxServer/public/static/sass/dhy/module/commercialCard.scss:82:in `border-radius'
-E:/node/wxServer/public/static/sass/dhy/module/commercialCard.scss:23
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/script/tree/variable.rb:49:in `_perform'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/script/tree/node.rb:58:in `perform'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:72:in `block in perform_arguments'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:65:in `zip'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:65:in `perform_arguments'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:361:in `block in visit_mixin'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:98:in `block in with_mixin'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:98:in `with_mixin'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:349:in `visit_mixin'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `map'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `map'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:169:in `block in visit_children'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:168:in `visit_children'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:188:in `visit_root'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:159:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:8:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/root_node.rb:20:in `render'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:281:in `render'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:494:in `update_stylesheet'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:294:in `watch'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-1.0.3/lib/compass/sass_compiler.rb:46:in `watch!'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-1.0.3/lib/compass/commands/watch_project.rb:41:in `perform'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-1.0.3/lib/compass/commands/base.rb:18:in `execute'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-1.0.3/lib/compass/commands/project_base.rb:19:in `execute'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-1.0.3/bin/compass:30:in `block in <top (required)>'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-1.0.3/bin/compass:44:in `<top (required)>'
-C:/Ruby23-x64/bin/compass:22:in `load'
-C:/Ruby23-x64/bin/compass:22:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$bordercolor\".\A         on line 82 of E:/node/wxServer/public/static/sass/dhy/module/commercialCard.scss, in `border-radius'\A         from line 23 of E:/node/wxServer/public/static/sass/dhy/module/commercialCard.scss\A \A 77:     }\A 78:     .m-card-des{\A 79:         .money{\A 80:             color: #ff6414;\A 81:             margin: 0 Rem(23) 0 Rem(15);\A 82:             &:before{\A 83:                 content:\"\00a5\";\A 84:             }\A 85:         }\A 86:         .range{\A 87:             font-size: Rem(22);"; }
+/* line 105, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .g-search {
+  background: #fff;
+  height: 1.18667rem;
+  border-bottom: 1px solid #e9e9e9;
+}
+/* line 110, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .arrow {
+  line-height: 1.17333rem;
+  vertical-align: middle;
+  margin-right: 0.42667rem;
+}
+/* line 115, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .m-search {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  width: 8.77333rem;
+  height: 0.8rem;
+  border: 0.4rem solid #ddd;
+  border-radius: 0.05333rem;
+  background-color: #f2f2f2;
+}
+/* line 122, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .m-card-mini-list {
+  background: #e3e4e8;
+}
+/* line 125, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .m-card-mini-list .item .foot {
+  height: 0.13333rem;
+  border-top: 1px solid #d8dbe0;
+  border-bottom: 1px solid #fcfcfc;
+}
+/* line 132, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .g-card-mini {
+  position: relative;
+  height: 2.25333rem;
+  background: #f5f5f5;
+  margin-bottom: 0.12rem;
+}
+/* line 138, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .m-card-mini {
+  position: absolute;
+  width: 9.46667rem;
+  height: 1.72rem;
+  left: 50%;
+  top: 0.66667rem;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  margin: 0 auto;
+  border: 0.26667rem 0.26667rem 0 0 solid #ddd;
+  border-radius: 0.05333rem;
+  background-color: #f76945;
+  background-image: url("/public/static/img/module/logo_big.png");
+  background-repeat: no-repeat;
+  background-position: right -43.75% bottom;
+  -moz-background-size: auto 3.82667rem;
+  -o-background-size: auto 3.82667rem;
+  -webkit-background-size: auto 3.82667rem;
+  background-size: auto 3.82667rem;
+  font-size: 0.4rem;
+  line-height: 1;
+  color: #fff;
+}
+/* line 155, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .m-card-mini .msg {
+  margin-left: 0.29333rem;
+  margin-top: 0.4rem;
+}
+/* line 158, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .m-card-mini .msg .logo {
+  float: left;
+}
+/* line 160, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .m-card-mini .msg .logo.u-sprite {
+  background-image: url("/public/static/img/module/logo_small.png");
+  background-color: #fff;
+  -moz-background-origin: content;
+  -o-background-origin: content-box;
+  -webkit-background-origin: content;
+  background-origin: content-box;
+  width: 1.41333rem;
+  height: 0.94667rem;
+  padding: 0.17333rem 0.37333rem;
+  margin-right: 0.28rem;
+  border: 0.44rem solid #ddd;
+  border-radius: 0.05333rem;
+}
+/* line 171, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .m-card-mini .msg .info {
+  overflow: hidden;
+}
+/* line 173, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .m-card-mini .msg .info .name {
+  line-height: 0.38667rem;
+}
+/* line 176, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .m-card-mini .msg .info .no {
+  font-size: 0.32rem;
+  margin-top: 0.2rem;
+}
+/* line 180, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .m-card-mini .msg .info .money {
+  position: absolute;
+  bottom: 0.4rem;
+  left: 7.14667rem;
+  font-size: 0.32rem;
+}
+/* line 189, ../../../sass/dhy/module/commercialCard.scss */
+.m-commercial-card-list .add {
+  height: 1.17333rem;
+  width: 9.46667rem;
+  border-width: 2px;
+  margin: 0.49333rem auto 0;
+}

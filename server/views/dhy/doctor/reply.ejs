@@ -1,0 +1,393 @@
+<%- include("_docHeader") %>
+<div class="question-pages reply-page">
+
+    <% if(recordData["status"]=="待回复"||recordData["status"]=="未回复"){ %>
+        <div class="question-status" id="replyStatus">
+            <h2>在线咨询中，预计10分钟内将有专业医生回复</h2>
+        </div>
+    <% }else if(recordData["status"]=="已回复"){ %>
+        <div class="question-status" id="replyStatus">
+            <h2>在线咨询中<small>（24小时后问题将关闭）</small></h2>
+            <div class="assessment"><button class="weui-btn weui-btn_primary weui-btn_mini btn-radius" id="closeQuestion">关闭</button></div>
+        </div>
+    <% }else if(recordData["status"]=="已关闭" && !recordData.appraise){ %>
+        <div class="question-status" id="replyStatus">
+            <h2>已关闭</h2>
+            <div class="assessment">
+                <a href="/dhySafe/doctorAssess?channel=<%= channel %>&id=<%= questionID %>">
+                    <button class="weui-btn weui-btn_primary weui-btn_mini btn-radius">评价</button>
+                </a>
+            </div>
+        </div>
+    <% }else if(recordData["status"]=="已关闭" && recordData.appraise){ %>
+        <div class="question-status" id="replyStatus">
+            <h2>已关闭</h2>
+            <div class="assessment">
+                <% var _appraise=recordData.appraise.split("|")[0]; %>
+                <% for(var i=0;i<_appraise;i++){ %>
+                <i class="iconfont icon-star active"></i>
+                <%}%>
+                <% for(var j=0;j<5-_appraise;j++){ %>
+                <i class="iconfont icon-star"></i>
+                <%}%>
+            </div>
+        </div>
+    <% } %>
+
+
+    <div id="doctorInfo">
+        <% if(recordData["status"]!=="待回复" && recordData.responder && recordData.responder.name){ %>
+        <div class="doctor-info">
+            <div class="photo"><img src="<%= recordData.responder["image"] %>"></div>
+            <div class="info">
+                <p class="name"><%= recordData.responder["name"] %> <%= recordData.responder["clinic"] %></p>
+                <p class="hospital"><%= recordData.responder["title"] %>   <%= recordData.responder["hospital"] %>/<%= recordData.responder["leveltitle"] %></p>
+                <p class="illness"><%= recordData.responder["goodat"] %></p>
+            </div>
+        </div>
+        <% } %>
+    </div>
+
+    <!--<%if(recordData["status"]=="已关闭"){ %> talk-list-auto <% } %>-->
+    <div class="scrollWrapper" id="scrollWrapper">
+        <div class="talk-list" id="talkListWrap">
+            <ul id="talkList">
+                <% recordData.content.forEach(function(item,index){ %>
+                <li>
+                    <% if(index==0){ %>
+                    <div class="talk-time" style="clear:both;"><%= item["asktime"] %></div>
+                    <% } %>
+
+                    <% if(item["qcontent"]){ %>
+                    <div class="chat chat-right">
+
+                        <!--图片-->
+                        <% if(item["qcontent"].indexOf("IMG|")!=-1){ %>
+                        <% var tmpQImg= item["qcontent"].split("|")[1];%>
+                        <div class="pic"><img src="<%= tmpQImg %>"></div>
+                        <% }else{ %>
+                        <!--文本-->
+                        <div class="text"><%= item["qcontent"] %> <% if(index==0){ var patientStr= recordData["patient"].split("|").reverse().join(" / ")%> ( <%= patientStr %> )<% } %></div>
+                        <% } %>
+                    </div>
+                    <% } %>
+
+                    <% if(item["rcontent"]){ %>
+                    <% item["rcontent"].forEach(function(docItem,docIndex){ %>
+                    <div class="chat chat-left">
+                        <div class="text"><%= docItem["text"] %></div>
+                    </div>
+                    <% if(docIndex==(item["rcontent"].length-1)){ %>
+                    <div class="talk-time" style="clear:both;"><%= docItem["replytime"] %></div>
+                    <% } %>
+                    <% }) %>
+                    <% } %>
+                </li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+
+    <!--<div class="fixed-space"></div>-->
+    <% if(recordData["status"]=="已关闭"){ %>
+           <div class="speak-area" style="border: none;text-align: center;background:#f2f3f7;color: #bdbdbd;">
+               <p>关闭时间: <%= recordData["closetime"] %></p>
+           </div>
+    <% }else{ %>
+        <form class="speak-area" enctype="multipart/form-data" id="askForm" action="javascript:void(0);">
+            <div class="speak-box">
+                <div class="speak-text">
+                    <div class="inner"><textarea id="textarea1" name="contentText" placeholder="请输入文字描述病情..." rows="1"></textarea></div>
+                </div>
+                <div class="other">
+                    <div class="submit-button">
+                        <button type="button" class="sendButton" disabled id="sendButton">发送</button>
+                    </div>
+                    <div class="photo-camera">
+                        <i class="iconfont icon-camera"></i>
+                        <input type="file" accept="image/*" capture="camera" multiple class="photo" id="photo">
+                    </div>
+                </div>
+            </div>
+        </form>
+    <% } %>
+
+</div>
+<script type="text/javascript" src="/public/doctor/js/PhotoUpload.js" ></script>
+<script type="text/javascript">
+    $(function () {
+        var channel="<%= channel %>";
+        var replyStatus= $("#replyStatus");
+        var QuestionId="<%= questionID %>";
+        var doctorInfo= $("#doctorInfo");
+        var talkList =$("#talkList");
+        var askForm =$("#askForm");
+        var sendButton =$("#sendButton");
+        var textarea1 =$("#textarea1");
+        var QuestStatus="<%= recordData["status"] %>";
+        var talkListWrap=$("#talkListWrap");
+        var scrollWrapper= $("#scrollWrapper");
+
+        if (!String.prototype.trim) {
+            String.prototype.trim = function () {
+                return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+            };
+        }
+
+        $.ajaxSetup({
+            error:function (xhr) {
+                $.toast(xhr.responseJSON.message||"请求失败!","text");
+                sendButton.html("发送");
+            }
+        })
+
+        jQuery.fn.extend({
+            autoHeight: function(){
+                return this.each(function(){
+                    var $this = jQuery(this);
+                    if( !$this.attr('_initAdjustHeight') ){
+                        $this.attr('_initAdjustHeight', $this.outerHeight());
+                    }
+                    _adjustH(this).on('input', function(){
+                        _adjustH(this);
+                        var _v=$(this).val().trim();
+                        if(_v && !/[~'!@#$%^&*()-+_=:]/.test(_v)){
+                            sendButton.removeAttr("disabled");
+                        }else{
+                            sendButton.attr("disabled","");
+                        }
+                    });
+                });
+                /* 重置高度 */
+                function _adjustH(elem){
+                    var $obj = jQuery(elem);
+                    return $obj.css({height: $obj.attr('_initAdjustHeight'), 'overflow-y': 'hidden'})
+                            .height( elem.scrollHeight );
+                }
+            }
+        });
+
+        function countHeight(callback) {
+            var _callback=callback||function () {}
+            var wrapH=$(".reply-page").outerHeight();
+            var sH=replyStatus.outerHeight();
+            var dH=doctorInfo.outerHeight();
+            var fH=$('.speak-area').outerHeight();
+            var tmpH=wrapH-(sH+dH+fH); //-20
+            scrollWrapper.css({"bottom":fH,"top":(sH+dH),"height":tmpH});
+            _callback();
+        }
+
+        countHeight();
+        //关闭问题
+        function closeQuestions() {
+            var _closeQuestion=$("#closeQuestion");
+            _closeQuestion.off().on("touchstart",function () {
+                $.ajax({
+                    type: "POST",
+                    url:"/dhySafe/doctorCloseQuestion?_csrf=<%= csrfToken %>",
+                    data:{"questionID":QuestionId},
+                    success:function (data) {
+                        $.toast("关闭成功!","text",function () {
+                            window.location.href="/dhySafe/doctorConsult?channel="+channel;
+                        });
+                    }
+                })
+            });
+        }
+
+        //用户咨询
+        function lookReplay() {
+//            var _context="hello!";
+//            var _replyTime = "2017/03/10";
+//            var _tmpTimeHtml="<div class='talk-time' style='clear:both;'>"+_replyTime+"</div>";
+//            var _liHtml="<li>"
+//                    + "<div class='chat chat-left'>"
+//                    + "<div class='text'>"+_context+"</div>"
+//                    + "</div>"
+//                    + _tmpTimeHtml+"</li>";
+//            talkList.append(_liHtml);
+
+            $.ajax({
+                type: "POST",
+                url:"/dhySafe/doctorLookReplayQuestion?_csrf=<%= csrfToken %>",
+                data:{"questionID":QuestionId},
+                success:function (data) {
+
+                    if(data.status=="已关闭"){
+                        clearInterval(Sit)
+                    }
+                    if(data.data){
+                        var res=data.data;
+                        //回复
+                        if(res.rcontent.length>0){
+                            res.rcontent.forEach(function (item,index) {
+                                var _context=item["text"]?item["text"]:"";
+                                var _replyTime = index ==(res.rcontent.length-1)?item["replaytime"]:"";
+                                var _tmpTimeHtml="<div class='talk-time' style='clear:both;'>"+_replyTime+"</div>";
+                                var _liHtml="<li>"
+                                        + "<div class='chat chat-left'>"
+                                        + "<div class='text'>"+_context+"</div>"
+                                        + "</div>"
+                                        + _tmpTimeHtml+"</li>";
+                                talkList.append(_liHtml);
+                            })
+                        }
+                        //刷新医生资料
+                        if(doctorInfo.children().length==0){
+                            var docInfoHtml= "<div class='doctor-info'><div class='photo'>" +
+                                    "<img src='"+res.responder["image"]+"'></div>" +
+                                    "<div class='info'>" +
+                                    "<p class='name'>"+res.responder["name"] + res.responder["clinic"] +"</p>" +
+                                    "<p class='hospital'> "+res.responder["title"] + res.responder["hospital"]+" / "+res.responder["leveltitle"]+"</p> " +
+                                "<p class='illness'>"+res.responder["goodat"]+"</p>" +
+                            "</div></div>";
+                            doctorInfo.html(docInfoHtml);
+                            countHeight();
+                        }
+
+                        /*回复状态*/
+                        if(res["status"]=="已回复"){
+                            //已回复
+                            var replayedHtml="<h2>在线咨询中<small>（24小时后问题将关闭）</small></h2><div class='assessment'>" +
+                                    "<button class='weui-btn weui-btn_primary weui-btn_mini btn-radius' id='closeQuestion'>关闭</button></div>";
+                            replyStatus.empty().html(replayedHtml);
+                            closeQuestions();
+                            countHeight();
+                        }
+
+                        autoScroll();
+                        document.activeElement.blur();
+                    }
+                }
+            })
+        }
+        //聊天滚动
+        function autoScroll() {
+            var h= scrollWrapper.find("#talkList").scrollHeight();//scrollHeight   outerHeight
+            scrollWrapper.scrollTop(h);
+        }
+
+       textarea1.on('touchstart', function (e) {
+//            //关闭软键盘 touchstart
+           //$(this).focus();
+           //$(this).blur();
+            var target = this;
+            var _h=$(".reply-page").scrollHeight();
+            setTimeout(function () {
+                $(document).scrollTop(_h);
+            },1000)
+       })
+
+        textarea1.autoHeight();
+
+        //拍照图片
+        var Photos=$.PhotoUpload({
+            isPreview:false,
+            addCallback:function (base64Arr,blobArr) {
+               console.log("=addCallback=",base64Arr,blobArr);
+                var formData = new FormData(askForm[0]);
+                var _imgHtml="";
+                base64Arr.forEach(function (item) {
+                    if(item){
+                        _imgHtml+="<li><div class='chat chat-right'><div class='pic'><img src="+item+"></div></div></li>";
+                    }
+                });
+                formData.append("questionID", QuestionId);
+                if(blobArr.length>0){
+                    blobArr.forEach(function (item) {
+                        formData.append("photo", item);
+                    })
+                    //发送图片
+                    $.ajax({
+                        type: "POST",
+                        url:"/dhySafe/doctorAddQuestion?_csrf=<%= csrfToken %>",
+                        data:formData,
+                        cache: false,
+                        processData: false,
+                        contentType: false,
+                        success:function (data) {
+                            talkList.append(_imgHtml);
+                            textarea1.height("auto");
+                            autoScroll();
+                        }
+                    })
+                }else{
+                    $.toast('发送图片失败',"text");
+                }
+            }
+        });
+
+        //关闭问题
+        closeQuestions()
+
+        //发送文本信息
+        function askQuestion() {
+            var formData = new FormData(askForm[0]);
+            var _context=textarea1.val();
+
+            var _liHtml="<li>"
+                    + "<div class='chat-right'>"
+                    + "<div class='text'>"+_context+"</div>"
+                    + "</div>"
+                    +"</li>";
+
+            formData.append("questionID", QuestionId);
+
+
+            if(_context.trim() && !/[~'!@#$%^&*()-+_=:]/.test(_context.trim())){
+                console.log("=context=",_context);
+
+                $.ajax({
+                    type: "POST",
+                    url:"/dhySafe/doctorAddQuestion?_csrf=<%= csrfToken %>",
+                    data:formData,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function () {
+                        //$.showLoading();
+                        sendButton.attr("disabled","");
+                        sendButton.html("发送中...");
+                    },
+                    success:function (data) {
+                        textarea1.val("");
+                        sendButton.attr("disabled","");
+                        sendButton.html("发送");
+                        talkList.append(_liHtml);
+                        textarea1.height("auto");
+                        autoScroll();
+                        //$.hideLoading();
+                    },
+                    error:function (xhr) {
+                        $.toast(xhr.responseJSON.message,"text");
+                    }
+                })
+
+            }else{
+                $.toast("请正确输入","text");
+            }
+        }
+
+        if(QuestStatus !=="已关闭"){
+            var Sit=setInterval(lookReplay, 10000);
+    //        setTimeout(function () {
+    //            clearInterval(Sit);
+    //        },1800000)
+        }
+
+        sendButton.on("touchstart",function () {
+            if(!$(this).attr("disabled")){
+                console.log("==send msg==");
+                askQuestion();
+            }
+            return false;
+        });
+
+        setTimeout(function () {
+            autoScroll();
+        },500)
+    })
+</script>
+</body>
+</html>

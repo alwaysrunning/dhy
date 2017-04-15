@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= title %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type='text/javascript' src='/public/static/js/lib/jquery-3.1.0.min.js' charset='utf-8'></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><!--ignore-->
+    <link rel="stylesheet" href="/public/static/css/dhy/module/myCouponWeuiAll.css">
+</head>
+<body ontouchstart>
+<div class="coupon-get-pages">
+    <div class="coupon-pay">
+        <div class="cp-info weui-flex">
+            <div class="cpi-pic">
+                <!--<img src="../assets/img/pic_goods.jpg">-->
+                <img src="/public/static/img/module/pic_goods.jpg">
+            </div>
+            <div class="cpi-text weui-flex__item">
+                <div class="cpit-title"><h2><%= couponName %></h2><span>&yen;<%= payment %><i id="payUnit"></i></span></div>
+                <div class="cpit-term">有效期：<%= beginTime.replace("-",".") %>  - <%= endTime.replace("-",".") %></div>
+                <div class="buy-number-area">
+                    <div class="buy-number">
+	                    <span class="bn-btn bn-btn-jian disabled" id="jian">
+	                        <i class="iconfont icon-jian"></i>
+	                    </span>
+                        <span class="bn-btn bn-btn-jia" id="jia">
+	                         <i class="iconfont icon-jia"></i>
+	                    </span>
+                        <input class="bn-input" type="text" value="1" id="count" />
+                    </div>
+                    <span class="buy-number-count" id="badge">×1</span>
+                </div>
+            </div>
+        </div>
+        <div class="cp-method">
+            <div class="cp-method-hd"><i class="iconfont icon-qianbao"></i> 支付方式</div>
+            <div class="cp-method-bd">
+                <div class="weui-cells weui-cells_checkbox" id="payWayMod">
+
+                    <% if(payWay.indexOf(",")!==-1){ %>
+                        <label class="weui-cell weui-check__label" for="s11" id="slabel1">
+                            <div class="weui-cell__bd">
+                                <i class="icon ic-jf"></i>积分
+                            </div>
+                            <div class="weui-cell__ft">
+                                <input type="radio" class="weui-check" name="checkbox1" id="s11" checked="checked" value="1">
+                                <i class="weui-icon-checked"></i>
+                            </div>
+                        </label>
+
+                        <label class="weui-cell weui-check__label" for="s12" id="slabel2">
+                            <div class="weui-cell__bd">
+                                <i class="icon ic-wx"></i>微信
+                            </div>
+                            <div class="weui-cell__ft">
+                                <input type="radio" name="checkbox1" class="weui-check" id="s12" value="2">
+                                <i class="weui-icon-checked"></i>
+                            </div>
+                        </label>
+                    <% }else if(payWay==1){ %>
+                        <label class="weui-cell weui-check__label" for="s11" id="slabel1">
+                            <div class="weui-cell__bd">
+                                <i class="icon ic-jf"></i>积分
+                            </div>
+                            <div class="weui-cell__ft">
+                                <input type="radio" class="weui-check" name="checkbox1" id="s11" checked="checked" value="1">
+                                <i class="weui-icon-checked"></i>
+                            </div>
+                        </label>
+                    <% }else if(payWay==2){ %>
+                        <label class="weui-cell weui-check__label" for="s12" id="slabel2">
+                            <div class="weui-cell__bd">
+                                <i class="icon ic-wx"></i>微信
+                            </div>
+                            <div class="weui-cell__ft">
+                                <input type="radio" name="checkbox1" class="weui-check" checked="checked" id="s12" value="2">
+                                <i class="weui-icon-checked"></i>
+                            </div>
+                        </label>
+                    <% } %>
+
+                </div>
+            </div>
+        </div>
+        <div class="cp-count">
+            <ul>
+                <li><label>小计</label>
+                    <% if(payWay==2){ %>
+                    <p><span id="subtotal" class="moneyCell" data-payment="<%= payment %>">&yen;<%= payment %></span></p>
+                    <% }else{ %>
+                    <p><span id="subtotal" class="moneyCell" data-payment="<%= payment %>"><%= payment*100 %>积分</span></p>
+                    <% } %>
+                </li>
+                <!--<li><label>优惠小计</label><p><span id="discount">-0</span>积分</p></li>-->
+                <li>
+                    <% if(payWay==2){ %>
+                    <label>订单实付</label>
+                    <p><span id="payment" class="moneyCell" data-payment="<%= payment %>">&yen;<%= payment %></span></p>
+                    <% }else{ %>
+                    <label>订单实付</label>
+                    <p><span id="payment" class="moneyCell" data-payment="<%= payment %>"><%= payment*100 %>积分</span></p>
+                    <% } %>
+                </li>
+            </ul>
+        </div>
+        <div class="cp-btn-area"><a id="paySubmit" href="javascript:;" class="weui-btn weui-btn_primary">立即支付</a></div>
+    </div>
+</div>
+
+<script type='text/javascript' src='/public/static/js/extends/weui1.0.1/jquery-weui.min.js' charset='utf-8'></script>
+<script type="text/javascript" src="/public/static/js/extends/modal.js"></script>
+<script type="text/javascript">
+    $(function() {
+      
+        var channel= "<%= channel%>",couponName="<%= couponName %>";
+
+        $.extend($.ajaxSettings, {
+            beforeSend: function () {
+                $.showLoading();
+            },
+            error: function (xhr) {
+                $.hideLoading();
+                var errorTxt = "";
+                var codeTxt = "";
+                codeTxt = xhr.responseJSON.code;
+                errorTxt = xhr.responseJSON.message;
+                $.toast(errorTxt,"text",function () {
+                    window.location.href="/dhy/couponPayFail?channel="+channel;
+                });
+            }
+        });
+
+        var $count = $("#count"),
+            $badge = $("#badge"),
+            $subtotal = $("#subtotal"),
+            $discount = $("#discount"),
+            $payment = $("#payment"),
+            $paySubmit=$("#paySubmit"),
+            $payWayMod=$("#payWayMod"),
+            $moneyCell= $(".moneyCell"),
+            couponType='<%= couponType %>',
+            count = 1,       // 计数
+            discount = -0,   // 优惠(负数)
+            single = '<%= payment %>',   // 单价
+            subtotal = 0, // 小计
+            payment = '<%= payment %>',  // 实付
+            paymethod = $payWayMod.find("input:radio[name='checkbox1']:checked").val();   // 1 积分方式, 2微信方式
+
+      var Modal = $.fn.Modal;
+      
+        $discount.html(discount);
+        $("#jia").on("click",function() {
+            $count.val(++count);
+            $badge.html('×' + count);
+            subtotal = count * single;
+            payment = subtotal + discount;
+            if(paymethod=="1"){
+              $subtotal.html(subtotal*100+"积分");
+              $payment.html(payment*100+"积分");
+            }else if(paymethod=="2"){
+              $subtotal.html("&yen;"+subtotal);
+              $payment.html("&yen;"+payment);
+            }
+            $moneyCell.data("payment",payment);
+        });
+        $("#jian").on("click",function() {
+            if(count <= 1) return;
+            $count.val(--count);
+            $badge.html('×' + count);
+            subtotal = count * single;
+            payment = subtotal + discount;
+
+              if(paymethod=="1"){
+                $subtotal.html(subtotal*100+"积分");
+                $payment.html(payment*100+"积分");
+              }else if(paymethod=="2"){
+                $subtotal.html("&yen;"+subtotal);
+                $payment.html("&yen;"+payment);
+              }
+                $moneyCell.data("payment",payment);
+        });
+
+        $("input:radio[name='checkbox1']").on("click",function() {
+            paymethod = $(this).val();
+            //console.log("=paymethod=",paymethod);
+            //换算比例可能有变化
+            if(paymethod=="1"){
+              $moneyCell.html(($moneyCell.data("payment")*100)+"积分");
+            }else if(paymethod=="2"){
+              $moneyCell.html("&yen;"+(parseFloat($moneyCell.data("payment")).toFixed(2)));
+            }
+        });
+
+        $count.on("change paste keyup", function() {
+            var _value = $(this).val() || 1;
+            if(!/^\d+$/.test(_value)) {
+                _value = 1;
+            }
+            count = _value;
+            $count.val(_value);
+            $badge.html('×' + _value);
+            subtotal = _value * single;
+            $subtotal.html(subtotal);
+            payment = subtotal + discount;
+            $payment.html(payment);
+        });
+
+        $paySubmit.on("touchstart",function () {
+            var postPointUrl="/api/dhy/coupon/couponOrderCreate",
+                postPreyUrl="/api/dhy/coupon/couponOrderPrepay",
+                postOrderCodeUrl="/api/dhy/coupon/couponOrderByOrderCode",
+                    carNo="",//todo 车牌券
+                    storeId="<%= storeId %>",
+                    couponId="<%= couponId %>";
+
+            var param={
+                "couponId": couponId,
+                "storeId": storeId,
+                "payType":paymethod,
+                "num":count,
+                "carNo":carNo
+            };
+
+          if(paymethod=="1"){
+            //积分支付
+            $.post(postPointUrl,param, function (data) {
+              $.toast("积分支付成功!","text",function () {
+                window.location.href="/dhy/couponPaySuccess?channel="+channel
+                  +"&couponName="+couponName
+                  +"&code="+data.data["code"]
+                  +"&payment="+data.data["integral"]
+                  +"&couponType="+couponType
+                  +"&payType="+data.data["type"];
+              });
+            });
+          }else if(paymethod=="2"){
+            //微信预支付
+            $.post(postPreyUrl,param, function (d) {
+              var payData=JSON.parse(d.data.payRequestParamJsonstr);
+              var payOrderCode  =d.data.ordercode?d.data.ordercode:d.data.wechatOrder;
+              
+              $.getJSON("/api/weixin/sign?callback=?",{
+                url:encodeURIComponent(window.location.href.split('#')[0])
+              }, function (data) {
+                wx.config({
+                  debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                  appId: data.appId, // 必填，公众号的唯一标识
+                  timestamp: data.timestamp, // 必填，生成签名的时间戳
+                  nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                  signature: data.signature,// 必填，签名，见附录1
+                  jsApiList: [
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'showMenuItems',
+                    'hideAllNonBaseMenuItem',
+                    'scanQRCode',
+                    'chooseWXPay',
+                    'hideMenuItems'
+                  ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+              }).then(function () {
+                
+                wx.ready(function () {
+
+                  wx.hideAllNonBaseMenuItem();
+
+                  wx.chooseWXPay({
+                    timestamp: payData.timeStamp, // 支付签名时间戳
+                    nonceStr: payData.nonceStr, // 支付签名随机串，不长于 32 位
+                    package: payData.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+                    signType:payData.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+                    paySign: payData.paySign, // 支付签名
+                    success: function (payRes) {
+                      var tips=JSON.stringify(payRes);
+                     
+                      // 支付成功后的回调函数
+                      if(payRes.errMsg == "chooseWXPay:ok"){
+                        $.toast("支付成功!","text",function () {
+                          
+                          $.getJSON(postOrderCodeUrl,{
+                            orderCode:payOrderCode
+                          },function (oData) {
+
+                            window.location.href="/dhy/couponPaySuccess?channel="+channel
+                              +"&couponName="+oData.data["name"]
+                              +"&code="+oData.data["code"]
+                              +"&payment="+oData.data["weichat"]//可能不存在
+                              +"&payType=2"
+                              +"&couponType="+couponType;
+                          })
+
+                        });
+                      }else if(payRes.errMsg == "chooseWXPay:cancel"){
+                        $.toast("支付取消!","text");
+                      }else if(payRes.errMsg == "chooseWXPay:fail"){
+                        $.toast("支付失败!","text",function () {
+                          window.location.href="/dhy/couponPayFail?channel="+channel+"&couponType="+couponType;
+                        });
+                      }else{
+                        $.toast("支付失败!","text",function () {
+                          window.location.href="/dhy/couponPayFail?channel="+channel+"&couponType="+couponType;
+                        });
+                      }
+
+                    },
+                    cancel:function (res) {
+                      $.toast("支付取消!","text",function () {
+                        $.hideLoading();
+                      });
+                    },
+                    fail:function (res) {
+                      alert(JSON.stringify(res));
+                    }
+                  });
+                  
+                });
+              });
+
+            });
+          }
+        });
+    });
+</script>
+</body>
+</html>

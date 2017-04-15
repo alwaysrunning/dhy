@@ -16,6 +16,8 @@ $(function () {
     var babySelectSexHide=$("#babySelectSexHide");
     var babySelectSexVal=$("#babySelectSexVal");
 
+    var GoUrl= $("#loginForm").data("gourl");
+    
     function storageSet (obj) {
         localStorage[obj.key] = JSON.stringify(obj.val);
     }
@@ -144,7 +146,11 @@ $(function () {
                     val: false
                 });
                 $.toast(res.message,"text",function () {
-                    location.href="/#/memberCenter?channel=V0115";
+                    if(GoUrl){
+                        location.href=GoUrl;
+                    }else{
+                        location.href="/#/memberCenter?channel=V0115";
+                    }
                 });
             });
         }else if(sex =="3"){
@@ -156,7 +162,11 @@ $(function () {
                     val: false
                 });
                 $.toast(res.message,"text",function () {
-                    location.href="/#/memberCenter?channel=V0115";
+                    if(GoUrl){
+                        location.href=GoUrl;
+                    }else{
+                        location.href="/#/memberCenter?channel=V0115";
+                    }
                 });
             });
         }else{

@@ -101,7 +101,8 @@
                     return $('<div class="tt-suggestion">').text(data.position_floor + '层,车位号:' + data.position_id);
                 },
                 pending: function (data) {
-                    return '<div class="tt-suggestion">查询中...</div>';
+                    // return '<div class="tt-suggestion">查询中...</div>';
+                    return '<div class="tt-suggestion"><i class="loading-circle"></i></div>';
                 }
             }
         }]).bind('typeahead:select', function (ev, suggestion) {

@@ -5,6 +5,7 @@
 "../../common/wxmixin",
 "../../common/wrest",
 "../../component/dropload";
+//领取优惠券
 body,html{
   height: 100%;
 }
@@ -22,6 +23,10 @@ body,html{
     width: 100%;
     height: 100%;
     z-index: 50;
+  }
+  .loading-txt{
+    text-align: center;
+    padding: Rem(10);
   }
 }
 .m-couponTypeList-mod{
@@ -96,6 +101,9 @@ body,html{
       //-moz-box-shadow: 0 2px 3px #ddd;
       //-webkit-box-shadow: 0 2px 3px #ddd;
       //box-shadow: 0 2px 3px #ddd;
+      .mcl-link-detail{
+        display: block;
+      }
     }
 
     li.over{

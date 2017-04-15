@@ -327,26 +327,26 @@
 
 /* line 277, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod {
-  overflow: hidden;
   position: relative;
+  z-index: 1001;
   height: 100%;
 }
-/* line 282, ../../../sass/dhy/module/myCoupons.scss */
+/* line 283, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod header {
   margin-bottom: 0.26667rem;
 }
-/* line 285, ../../../sass/dhy/module/myCoupons.scss */
+/* line 286, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .u-nav-box {
   height: 100%;
   padding-top: 0.93333rem;
-  overflow: hidden;
+  position: absolute;
+  width: 100%;
 }
-/* line 296, ../../../sass/dhy/module/myCoupons.scss */
+/* line 300, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .u-refresh {
   background: none;
-  height: auto;
 }
-/* line 301, ../../../sass/dhy/module/myCoupons.scss */
+/* line 305, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .u-refresh-wrapper {
   background: none;
 }
@@ -356,16 +356,16 @@
 * update 2016-11-17
 * rico
 */
-/* line 312, ../../../sass/dhy/module/myCoupons.scss */
+/* line 316, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list {
   padding: 0.4rem 0.26667rem;
 }
-/* line 314, ../../../sass/dhy/module/myCoupons.scss */
+/* line 318, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .iconfont {
   color: #9d9d9d;
   font-size: 0.42667rem;
 }
-/* line 319, ../../../sass/dhy/module/myCoupons.scss */
+/* line 323, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list li {
   border-top: 0.13333rem solid #f95d5b;
   border-left: none;
@@ -374,64 +374,66 @@
   background: #fff;
   margin-bottom: 0.4rem;
 }
-/* line 332, ../../../sass/dhy/module/myCoupons.scss */
+/* line 336, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list li.over .u-right-buy {
   background: #ccc;
 }
-/* line 338, ../../../sass/dhy/module/myCoupons.scss */
+/* line 342, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list li.receive .mcl-circle {
   display: none;
 }
-/* line 341, ../../../sass/dhy/module/myCoupons.scss */
+/* line 345, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list li.receive .mcl-bd-rg {
   padding-top: 0;
   background: url("/public/static/img/module/coupons_listBg_5.jpg") no-repeat right top;
   background-size: contain;
 }
-/* line 346, ../../../sass/dhy/module/myCoupons.scss */
+/* line 350, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list li.receive .mcl-bd {
   padding-right: 0;
 }
-/* line 349, ../../../sass/dhy/module/myCoupons.scss */
+/* line 353, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list li.receive .circle-cancvsDom {
   display: none;
 }
-/* line 355, ../../../sass/dhy/module/myCoupons.scss */
-.m-couponsList-mod .mcm-coupons-list ul.mcl-apply li {
+/* line 359, ../../../sass/dhy/module/myCoupons.scss */
+.m-couponsList-mod .mcm-coupons-list.mcl-apply li {
   border-color: #b7b7b7;
 }
-/* line 357, ../../../sass/dhy/module/myCoupons.scss */
-.m-couponsList-mod .mcm-coupons-list ul.mcl-apply li .mcl-bd {
+/* line 361, ../../../sass/dhy/module/myCoupons.scss */
+.m-couponsList-mod .mcm-coupons-list.mcl-apply li .mcl-bd {
   background: url("/public/static/img/module/i-umi-ysy.jpg") no-repeat right top;
+  background-size: 30%;
 }
-/* line 364, ../../../sass/dhy/module/myCoupons.scss */
-.m-couponsList-mod .mcm-coupons-list ul.mcl-expire li {
+/* line 369, ../../../sass/dhy/module/myCoupons.scss */
+.m-couponsList-mod .mcm-coupons-list.mcl-expire li {
   border-color: #b7b7b7;
 }
-/* line 366, ../../../sass/dhy/module/myCoupons.scss */
-.m-couponsList-mod .mcm-coupons-list ul.mcl-expire li .mcl-bd {
+/* line 371, ../../../sass/dhy/module/myCoupons.scss */
+.m-couponsList-mod .mcm-coupons-list.mcl-expire li .mcl-bd {
   background: url("/public/static/img/module/i-umi-ygq.jpg") no-repeat right top;
+  background-size: 30%;
 }
-/* line 372, ../../../sass/dhy/module/myCoupons.scss */
+/* line 378, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-bd {
   padding: 0 0.26667rem 0.26667rem 0.26667rem;
 }
-/* line 374, ../../../sass/dhy/module/myCoupons.scss */
+/* line 380, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-bd a p {
   color: #333;
 }
-/* line 377, ../../../sass/dhy/module/myCoupons.scss */
+/* line 383, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-bd h4 {
   color: #f95d5b;
   padding-top: 0.26667rem;
 }
-/* line 381, ../../../sass/dhy/module/myCoupons.scss */
+/* line 387, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-bd h4 em {
   font-size: 0.64rem;
   margin-left: 0.13333rem;
   color: #f95d5b;
 }
-/* line 387, ../../../sass/dhy/module/myCoupons.scss */
+/* line 393, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-bd p {
   font-size: 0.37333rem;
   height: 0.6rem;
@@ -440,7 +442,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-/* line 393, ../../../sass/dhy/module/myCoupons.scss */
+/* line 399, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-bd p i {
   padding: 0.05333rem 0.10667rem;
   border-radius: 0.05333rem;
@@ -450,12 +452,12 @@
   color: #f95d5b;
   vertical-align: middle;
 }
-/* line 402, ../../../sass/dhy/module/myCoupons.scss */
+/* line 408, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-bd .limit-time {
   color: #b2b2b3;
   padding: 0.13333rem 0;
 }
-/* line 409, ../../../sass/dhy/module/myCoupons.scss */
+/* line 415, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .u-right-buy {
   padding: 0.53333rem 0.10667rem;
   background: #f95d5b;
@@ -464,7 +466,7 @@
   border-radius: 0.26667rem;
   margin: 0.26667rem auto 0 auto;
 }
-/* line 419, ../../../sass/dhy/module/myCoupons.scss */
+/* line 425, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-ft {
   background-image: url("/public/static/img/module/coupons_listBg_3.png"), url("/public/static/img/module/coupons_listBg_4.png");
   background-repeat: no-repeat;
@@ -472,7 +474,7 @@
   padding: 0 0.26667rem;
   background: #fffafa;
 }
-/* line 425, ../../../sass/dhy/module/myCoupons.scss */
+/* line 431, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-ft .mcl-ft-hd {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -481,7 +483,7 @@
   padding-top: 0.13333rem;
   border-top: 1px dashed #dedddd;
 }
-/* line 429, ../../../sass/dhy/module/myCoupons.scss */
+/* line 435, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-ft .mcl-ft-hd h5 {
   -webkit-box-flex: 3;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -496,7 +498,7 @@
   font-size: 0.37333rem;
   font-weight: normal;
 }
-/* line 433, ../../../sass/dhy/module/myCoupons.scss */
+/* line 439, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-ft .mcl-ft-hd h5 i {
   border-radius: 1.06667rem;
   background: #3cc87b;
@@ -506,7 +508,7 @@
   display: inline-block;
   vertical-align: middle;
 }
-/* line 443, ../../../sass/dhy/module/myCoupons.scss */
+/* line 449, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-ft .mcl-ft-hd em {
   -webkit-box-flex: 1;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -521,28 +523,28 @@
   font-weight: normal;
   text-align: right;
 }
-/* line 449, ../../../sass/dhy/module/myCoupons.scss */
+/* line 455, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-ft .mcl-ft-bd {
   font-size: 0.32rem;
   color: #666;
   padding: 0.13333rem;
 }
-/* line 454, ../../../sass/dhy/module/myCoupons.scss */
+/* line 460, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-ft .mcl-ft-ft {
   text-align: center;
 }
-/* line 457, ../../../sass/dhy/module/myCoupons.scss */
+/* line 463, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-ft .mcl-ft-text-mod {
   display: none;
 }
-/* line 462, ../../../sass/dhy/module/myCoupons.scss */
+/* line 468, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .mcl-ft-shadow {
   height: 0.05333rem;
   -moz-box-shadow: 0 1px 2px #ddd;
   -webkit-box-shadow: 0 1px 2px #ddd;
   box-shadow: 0 1px 2px #ddd;
 }
-/* line 469, ../../../sass/dhy/module/myCoupons.scss */
+/* line 475, ../../../sass/dhy/module/myCoupons.scss */
 .m-couponsList-mod .mcm-coupons-list .no-click {
   pointer-events: none;
 }

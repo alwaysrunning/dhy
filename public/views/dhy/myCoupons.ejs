@@ -3,7 +3,7 @@
     <section class="m-myCoupons-mod-list">
         <ul class="u-list">
             <li>
-                <a href="#/couponsList?type=2" title="步步高门店·优惠券">
+                <a href="/dhy/myCouponList?channel=<%= channel %>&type=siebel&status=可用" title="步步高门店·优惠券"><!--#/couponsList?type=2-->
                     <span class="icon iconfont icon-mendianyouhuiquan"></span>
                     步步高门店
                     <div class="g-fl-rg">
@@ -27,20 +27,29 @@
                     </div>
                 </a>
             </li>
-            <!--<li>-->
-                <!--<a title="停车·优惠券">-->
-                    <!--<span class="icon iconfont icon-icon-woyaoquche"></span>-->
-                    <!--停车优惠券-->
-                    <!--<div class="g-fl-rg">-->
-                        <!--<span class="u-text-sub u-fontColor-them">-->
-                            <!--张可用-->
-                        <!--</span>-->
-                        <!--<span class="icon iconfont icon-youjiantou"></span>-->
-                    <!--</div>-->
-                <!--</a>-->
-            <!--</li>-->
             <% } %>
+            <li>
+                <a href="dhy/couponList?type=7&channel=<%= channel %>" title="停车·优惠券">
+                    <span class="icon iconfont icon-woyaoquche"></span>
+                    停车优惠券
+                    <div class="g-fl-rg">
+                        <!--<span class="u-text-sub u-fontColor-them">-->
+                        <!--张可用-->
+                        <!--</span>-->
+                        <span class="icon iconfont icon-youjiantou"></span>
+                    </div>
+                </a>
+            </li>
 
+            <li>
+                <a title="联盟商户" href="/dhy/myCouponList?channel=<%= channel %>&type=member&status=1">
+                    <span class="icon iconfont icon-lianmengyouhuiquan"></span>
+                    联盟商户
+                    <div class="g-fl-rg">
+                        <span class="icon iconfont icon-youjiantou"></span>
+                    </div>
+                </a>
+            </li>
         </ul>
     </section>
 </div>

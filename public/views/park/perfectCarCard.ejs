@@ -1,0 +1,35 @@
+<%if(items.length > 0){%>
+<% items.forEach(function (item) { %>
+
+  <div class="item-perfectCarCard-mod">
+       <div class="ipm-item">
+          <div class="ipm-text">
+              <%=item.carNo%>
+          </div>
+       </div>
+      <%if(parkid === '012838'){%>
+       <div class="ipm-item">
+          <div class="ipm-button ipm-pos" car-no="<%=item.carNo%>">
+              查询车位信息
+          </div>
+       </div>
+      <%}%>
+       <div class="ipm-item">
+           <div class="ipm-button ipm-del" car-no="<%=item.carNo%>">
+               删除
+           </div>
+       </div>
+  </div>
+<% })%>
+
+<%}else{%>
+<div class="car-manage-list-item">
+    <div class="car-empty-tips">
+        <img src="/public/static/img/park/find.jpg">
+        <div class="cet-bd">
+            <p>停车场<i>B1层</i>、<i>BM层</i>、<i>B2层</i>区域<br>绑定车牌，查询停车信息</p>
+        </div>
+        <a class="cet-btn" href="/park/location/<%= parkid %>">查车牌找车</a>
+    </div>
+</div>
+<%}%>

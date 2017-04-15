@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= title %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type='text/javascript' src='/public/static/js/lib/jquery-3.1.0.min.js' charset='utf-8'></script>
+    <link rel="stylesheet" href="/public/static/css/dhy/module/myCouponWeuiAll.css">
+</head>
+<body ontouchstart>
+<div class="coupon-get-pages">
+    <div class="coupon-get-msg">
+
+        <div class="cgm-text-area">
+
+        </div>
+    </div>
+
+    <div class="coupon-get-ops">
+        <div class="cgo-row"><%= data.data["name"] %></div>
+
+        <div class="cgo-row">
+            <div class="cgo-row-hd">优惠券码</div>
+            <div class="cgo-row-bd"><%= code %></div>
+        </div>
+        <div class="cgo-code-area">
+            <p class="cca-code">
+                <img src="/code/qrcode/<%= code %>?eclevel=M&version=6&scale=4"/>
+            </p>
+            <p class="cca-text">向商家出示以上码券即可消费</p>
+        </div>
+
+        <p class="cgo-btn-area">
+            <a href="/#/myCoupons?channel=<%= channel %>" class="weui-btn weui-btn_primary weui-btn_inline">查看我的优惠券(票券)</a>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

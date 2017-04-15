@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= title %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type='text/javascript' src='/public/static/js/lib/jquery-3.1.0.min.js' charset='utf-8'></script>
+    <link rel="stylesheet" href="/public/static/css/dhy/module/myCouponList.css">
+</head>
+<body ontouchstart>
+<!--票券 门店优惠券-->
+<div class="g-memberCouponList-page">
+    <header class="u-fixed-top">
+        <nav class="u-nav-tab u-tabs-nav">
+            <ul>
+                <li <% if(status=="可用" || !status){%> class="u-active" <% } %>><a href="/dhy/myCouponList?channel=<%= channel %>&type=<%= typeStr %>&status=可用">可使用</a></li>
+                <li <% if(status=="已应用"){%> class="u-active" <% } %>><a href="/dhy/myCouponList?channel=<%= channel %>&type=<%= typeStr %>&status=已应用">已使用</a></li>
+                <li <% if(status=="过期的"){%> class="u-active" <% } %>><a href="/dhy/myCouponList?channel=<%= channel %>&type=<%= typeStr %>&status=过期的">已过期</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="m-couponsList-mod">
+        <div class="u-nav-show-list" id="sieBelWrap">
+            <%
+            //length属性读出来的汉字长度为1
+            function cutString(str, len) {
+                if(str.length*2 <= len) {
+                    return str;
+                }
+                var strlen = 0;
+                var s = "";
+                for(var i = 0;i < str.length; i++) {
+                    s = s + str.charAt(i);
+                    if (str.charCodeAt(i) > 128) {
+                        strlen = strlen + 2;
+                        if(strlen >= len){
+                            return s.substring(0,s.length-1) + "...";
+                        }
+                    } else {
+                        strlen = strlen + 1;
+                        if(strlen >= len){
+                            return s.substring(0,s.length-2) + "...";
+                        }
+                    }
+                }
+                return s;
+            }
+
+            %>
+            <div class="u-nav-show u-tabs-show">
+               <% if(data.data && data.data.length>0){ %>
+               <ul class="mcm-coupons-list <% if(status=="已应用"){%> mcl-apply <% } else if(status=="过期的"){%> mcl-expire <% } %>" id="myCouponList">
+
+                   <% data.data.forEach(function(item){ %>
+
+                   <li data-code="<%= item["fourCheckNo"] %>" data-price="<%= item["vendorAmt"] %>">
+
+                       <div class="mcl-bd">
+
+                               <h4>&yen;<em><%= item["vendorAmt"] %></em></h4>
+                               <p>
+                                   <%= cutString(item["voucherName"],24) %>
+                               </p>
+                               <p>票券号: <%= item["fourCheckNo"] %></p>
+                               <p class="limit-time">
+                                   使用时间：<%= item["startTime"].split(' ')[0].replace(/-/g, ".") %>
+                                   ~ <%= item["endTime"].split(' ')[0].replace(/-/g, ".") %>
+                               </p>
+
+                       </div>
+
+                       <div class="mcl-ft">
+                           <div class="mcl-ft-hd">
+                               <h5><i></i>使用规则</h5>
+                               <em><i class="icon iconfont icon-xiajiantou"></i></em>
+                           </div>
+                           <div class="mcl-ft-text-mod">
+                               <div class="mcl-ft-bd">
+                                   <%=item["vendorDesc"] %>
+                               </div>
+                               <div class="mcl-ft-ft">
+                                   <i class="icon iconfont icon-shangjiantou"></i>
+                               </div>
+                           </div>
+                       </div>
+
+                       <div class="mcl-ft-shadow">
+
+                       </div>
+
+                   </li>
+                   <% }) %>
+                </ul>
+               <% } else{ %>
+                <div class="g-empty-data">
+                    <div class="m-empty-data">
+                        <div class="u-sprite coupons"></div>
+                        <p class="msg">暂无此类优惠券~</p>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript' src='/public/static/js/extends/weui1.0.1/jquery-weui.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='/public/static/js/extends/doT.js' charset='utf-8'></script>
+<script type="text/javascript" src="/public/static/js/extends/fastclick.js"></script>
+
+<script type='text/javascript' src='/public/static/js/extends/dropload.js' charset='utf-8'></script>
+
+<script type="text/javascript">
+    /**
+     * js截取字符串，中英文都能用
+     * @param str：需要截取的字符串
+     * @param len: 需要截取的长度
+     */
+    function CutStr(str, len) {
+        var str_length = 0;
+        var str_len = 0;
+        var str_cut = new String();
+        str_len = str.length;
+        for (var i = 0; i < str_len; i++) {
+            a = str.charAt(i);
+            str_length++;
+            if (escape(a).length > 4) {
+                //中文字符的长度经编码之后大于4
+                str_length++;
+            }
+            str_cut = str_cut.concat(a);
+            if (str_length >= len) {
+                str_cut = str_cut.concat("...");
+                return str_cut;
+            }
+        }
+        //如果给定字符串小于指定长度，则返回源字符串；
+        if (str_length < len) {
+            return str;
+        }
+    }
+    $(function () {
+        FastClick.attach(document.body);
+        var InitDataLg="<%= data.data.length %>";
+        var myCouponList=$("#myCouponList");
+        //显示展开
+        function ToggleShow () {
+            $(".mcl-ft-hd").unbind("click").on("click",function () {
+                $(this).find("em").hide();
+                $(this).next().show();
+            });
+            $('.mcl-ft-ft').unbind("click").on("click",function () {
+                $(this).parent().hide();
+                $(this).parent().prev().find("em").show();
+            })
+
+        }
+        ToggleShow();
+        //请求地址
+        var page=1;
+        var pageSize=10;
+        var status="<%= status %>";
+        var typeStr="<%= typeStr %>";
+        //加载更多
+        var LoadMoreList=function () {
+
+            $('.m-couponsList-mod').dropload({
+                scrollArea : window,
+                autoLoad:false,
+                loadDownFn : function(me){
+                    page++;
+                    var QueryUrl="/api/coupon/list?page=" + page + "&pagesize=" + pageSize + "&status=" + status + "&type="+typeStr+"";
+                    $.ajax({
+                        type: 'GET',
+                        url:QueryUrl ,
+                        success: function(data){
+                            if(data.data.length<=0){
+                                // 锁定
+                                me.lock();
+                                // 无数据
+                                me.noData();
+                                me.resetload();
+                            }else{
+                                var dotTmpl = doT.template($("#listTmpl").html());
+                                var dotRes = dotTmpl({list: data.data});
+
+                                setTimeout(function () {
+                                    myCouponList.append(dotRes);
+
+                                    me.resetload();
+                                }, 1000);
+                            }
+
+                        },
+                        error: function(xhr, type){
+                            // 即使加载出错，也得重置
+                            me.resetload();
+                        }
+                    });
+                }
+            });
+
+            if(InitDataLg<5){
+                $(".dropload-down").hide();
+            }
+        }
+
+        LoadMoreList();
+    });
+</script>
+
+<script id="listTmpl" type="text/x-dot-template">
+    {{~it.list :item:index}}
+    <li data-code="{{= item['fourCheckNo'] }}" data-price="{{= item['vendorAmt'] }}">
+
+        <div class="mcl-bd">
+
+            <h4>&yen;<em>{{= item["vendorAmt"]||"" }}</em></h4>
+            <p>
+                {{= CutStr(item["voucherName"],24) }}
+            </p>
+            <p>票券号: {{= item["fourCheckNo"] }}</p>
+            <p class="limit-time">
+                使用时间：{{= item["startTime"].split(' ')[0].replace(/-/g, ".") }}
+                ~ {{= item["endTime"].split(' ')[0].replace(/-/g, ".") }}
+            </p>
+
+        </div>
+
+        <div class="mcl-ft">
+            <div class="mcl-ft-hd">
+                <h5><i></i>使用规则</h5>
+                <em><i class="icon iconfont icon-xiajiantou"></i></em>
+            </div>
+            <div class="mcl-ft-text-mod">
+                <div class="mcl-ft-bd">
+                    {{= item["vendorDesc"] }}
+                </div>
+                <div class="mcl-ft-ft">
+                    <i class="icon iconfont icon-shangjiantou"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="mcl-ft-shadow">
+
+        </div>
+
+    </li>
+    {{~}}
+</script>
+</body>
+</html>
